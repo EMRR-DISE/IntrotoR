@@ -1,0 +1,80 @@
+---
+title: "Initial meeting notes"
+author: "Rosie"
+date: "2024-02-07"
+output: html_document
+---
+## Initial discussion of R training
+
+Attendance:
+* Dave Bosworth
+* Nick
+* Ted Swift
+* Perry
+* Rosie
+
+### Tentative course outline
+
+Pick a dataset to work on. Just messy enough, not enough to slow us down. 
+	• Tour of R and Rstudio - Rosie
+		○ consule, 
+		○ environment, 
+		○ Scripts
+		○ Packages/libraries
+		○ Projects, working directory, file organization
+	• Intro to the command line. 
+		○ Basic calculations
+		○ Variable assignment
+		○ How to use a function (and how to read the help section)
+	• Getting help and resources for teaching youreslf
+		○ Error messages, difference between warnings and errors
+		○ Help documentation
+		○ R studio autocomplete, cheatsheets
+	• Data processing and organization - Perry
+		○ Data types - numbers, characters, factors, date/time, others
+			§ Str(), glimpse(), head()
+		○ Data formats - vectors, matricies, lists, data frames
+		○ Importing data
+		○ Selecting/subsetting data
+		○ Exporting data
+	• Basic graphs - Nick
+		Histogrmas
+		Line graphs
+		Bar graphs
+		scatterplots
+	• Basic statistics  (if time) - Bos. 
+		○ Summary stats - mean, median, max, min
+		○ Group_by and summarize
+
+Ted will finangle setup, software install, sign ups. 
+
+Intermediate class
+	-  regressions and anova
+	- Data restructuring
+	- Loops/apply
+	- pivot
+	- Joins, binds
+	- Group_by and summarize
+	- Writing functions
+	- Style guide
+	- Advanced graphs
+	- If…else…. (case_when!)
+	- Tidyselect
+	- Dates and time
+	- Broom
+	- maps
+
+Previous classes were 2-days over 2-weeks
+	
+Resources we can borrow from:
+	- https://www.r4wrds.com/intro/
+	- https://intro2r.com/
+	- https://www.codecademy.com/learn/learn-r
+	- Data camp: https://app.datacamp.com/ 
+	- https://rstudio-education.github.io/hopr/
+	
+
+Logistics
+	- Ted to get registration, previous classes had over 70 people, interested
+	- Probably 30 or so people per class.  
+	- Markdown tutorial.
