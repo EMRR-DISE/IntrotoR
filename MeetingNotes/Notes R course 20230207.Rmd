@@ -1,5 +1,5 @@
 ---
-title: "Initial meeting notes"
+title: "meeting notes"
 author: "Rosie"
 date: "2024-02-07"
 output: html_document
@@ -37,6 +37,7 @@ Pick a dataset to work on. Just messy enough, not enough to slow us down.
 		○ Importing data
 		○ Selecting/subsetting data
 		○ Exporting data
+		- If we do joins
 	• Basic graphs - Nick
 		Histogrmas
 		Line graphs
@@ -45,6 +46,13 @@ Pick a dataset to work on. Just messy enough, not enough to slow us down.
 	• Basic statistics  (if time) - Bos. 
 		○ Summary stats - mean, median, max, min
 		○ Group_by and summarize
+		- Demo with a different dataset
+		- Don't try and cram in anovas and stuff, just the summary stats. 
+		
+	_ mini topics to throw in if time allows
+	* Joins
+	* Bind rows, bind columns
+	* Pivoting longer and wider
 
 Ted will finangle setup, software install, sign ups. 
 
@@ -78,3 +86,26 @@ Logistics
 	- Ted to get registration, previous classes had over 70 people, interested
 	- Probably 30 or so people per class.  
 	- Markdown tutorial.
+
+
+## Follow up 4/29
+
+Dates
+
+- Tuesday, July 9th, Day 1 – Tour or R, Intro to the command line, intro to how to read error messages and documentation (Rosie to lead, others to TA as available)
+- Thursday, July 11th – Day 2 - data organization/ import and export, subsetting, etc (Perry to lead, others to TA)
+- Tuesday, July 16th – Day 3 – Introduciton to graphing (Nick)
+- Thursday, July 18th – Day 4 – Intro to stats (Boz)
+
+Time 
+
+10:00-12:00, 1:00-3:00 each day
+
+To decide today:
+- Do we want to cap registration? - 30
+- What dataset do we want to use?-
+* WQ from fall of 2021?
+* Maybe two EMP stations that are really different - D7 and P8
+* Flow? Dayflow or a CDEC flow variable?
+
+Make recording available.
