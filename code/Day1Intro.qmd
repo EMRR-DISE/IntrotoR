@@ -4,23 +4,207 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## R
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+R is a flexible coding language that anyone can learn
 
-## Running Code
+I am taking a lot of this tutorial from the e-book "Hands on Programing in R" <https://rstudio-education.github.io/hopr/>
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+**Isn’t R a language?**
+
+You may hear me speak of R in the third person. For example, I might say, “Tell R to do this” or “Tell R to do that”, but of course R can’t do anything; it is just a language. This way of speaking is shorthand for saying, “Tell your computer to do this by writing a command in the R language at the command line of your RStudio console.” Your computer, and not R, does the actual work.
+
+Is this shorthand confusing and slightly lazy to use? Yes. Do a lot of people use it? Everyone I know–probably because it is so convenient.
+
+## Why use code?
+
+-   Do lots of things quickly
+
+-   Deal with large amounts of data
+
+-   Reproducibility
+
+-   Free and open source
+
+-   Community of users to support each other (free)
+
+### Definitions
+
+-   GUI
+
+-   Console
+
+-   Object
+
+-   Function
+
+-   Argument
+
+-   Environment
+
+-   Script
+
+-   Project
+
+-   Package
+
+## The Very basics
+
+OK, everyone, open Rstudio.
+
+Show them how to start a new project. Get them used to working in projects so I don't have to teach them later.
+
+This should be in your console:
+
+![](images/clipboard-1223953277.png)
+
+Now go to File –\> new file –\> R script.
+
+This will be your first R script. You will type things in teh script, then transfer them to the console to run them. You can technically type directly into the console, but then you can't save them, and that's bad, so get into the habit of writing everything in your script.
+
+#### Comments
+
+Another good habit to start early is commenting your code. Comments are indicated by hashtags `#`. They are parts of your script that don't do anything, just give you information about what you intended in your code and why you did what you did. RStudio helpfully color-codes them for you.
+
+For example:
 
 ```{r}
-1 + 1
+#This is my first R script
+
+#test out addition
+1+1
+
+#use a funciton
+sum(c(1,1))
 ```
 
-You can add options to executable code like this
+#### Running code
+
+From your script, you can hit the 'Run' icon in the top right corner to move a line of code from your script to your console.
+
+You can also hit ctrl-enter to do the same thing.
+
+Highlight multiple lines of code to run more than one thing at once.
+
+You will notice that in the console all the lines of code you run start with a `>`. If you have multiple lines of code strung together, there will be `+` at the start of the new lines until the end of the code. In an R script, you can break your code up into lines to make it all fit on your screen, so long as the parentheses line up.
+
+The output does not start with a carrot or plus sign. (explain the brackets)
+
+Example
+
+Have them practice some stuff
+
+### Objects and Assignment
+
+The joy of coding is that you can quickly to a lot of things at once. So, if I had a dataset with temperatures in Farenheight that I want to convert to Celsius, we can use R to do that all at once.
+
+Let's say our list of temperatures are: 72, 69, 57, 58, 71, 64, 65, 70, 59
+
+We can use R like a calculator to convert each of these numbers
 
 ```{r}
-#| echo: false
-2 * 2
+(72-32)*5/9
+(69-32)*5/9
+(57-32)*5/9
+(58-32)*5/9
+(71-32)*5/9
+(64-32)*5/9
+(65-32)*5/9
+(70-32)*5/9
+(59-32)*5/9
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+But that's tedious. Instead, we can clump these numbers together into a vector and assign it to a variable.
+
+Let's call our vector "temps"
+
+```{r}
+temps <- c(72, 69, 57, 58, 71, 64, 65, 70, 59)
+```
+
+The `<-` is called the "assignment operator". You can also use `=` to do the same thing. The `c` is short for "concatenate", which means "stick all these things together". We now have an object `temps` that is a vector of values. Type "temps" into your console.
+
+We can then perform operations on the whole vector of values at once. For example
+
+```{r}
+(temps-32)*5/9
+```
+
+If we want to save that output, we need to assign it to a new variable
+
+```{r}
+temps_C <- (temps-32)*5/9
+```
+
+Note that this doesn't give you any output, it just assigns a value to `temps_C`. If we want to see what `temps_C` is, we need to print it out.
+
+```{r}
+temps_C
+```
+
+You'll also notice that in the Environment tab in your Rstudio window you should now have `temps` and `temps_C`. You can click on them to see them.
+
+#### Type of objects
+
+Scalars
+
+Vectors
+
+Matrices
+
+Arrays
+
+Data Frames
+
+Lists
+
+#### Data classes
+
+numeric
+
+character
+
+logical
+
+factor
+
+date/time classes (giant can of worms)
+
+Using `class` and `str` to get info about objects.
+
+```{r}
+foo <- "Cat"
+bar <- dog
+
+class(foo)
+str(foo)
+
+foo2 = c("Cat", "dog", "Mouse", "Squirrel")
+str(foo2)
+```
+
+### Functions
+
+Arguments
+
+Linking functions together (nesting or piping)
+
+## Packages
+
+The real benefit of R is that it is open-source, and tons and tons of people have developed 'expansion packs' for R. You can go a very long way with just the built-in R functions, but many people have developed slightly different ways of doing things, easier methods, and more advanced things.
+
+Go to CRAN and show people around
+
+Tidyverse
+
+Check out a package documentation, esp. vinettes
+
+## Errors and Getting Help
+
+Demo an error
+
+Warnings versus errors versus messages
+
+Looking at documentation
+
+Online help options
