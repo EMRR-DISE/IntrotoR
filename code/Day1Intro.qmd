@@ -48,11 +48,15 @@ Is this shorthand confusing and slightly lazy to use? Yes. Do a lot of people us
 
 -   Package
 
-## The Very basics
+-   Working directory
 
-OK, everyone, open Rstudio.
+## Part 1: The Very basics
 
-Show them how to start a new project. Get them used to working in projects so I don't have to teach them later.
+OK, everyone, open Rstudio. Click on the new project button. A 'project' is basically an organized directory that has all of the data, code, and outputs for a particular work product. It's especially useful once you start working on multiple files and reading in and out data and stuff, so it's good to get in the habit of always working in a project. For now, choose a location for a folder that will contain all the work you want to do for this class. This folder is your "working directory", meaning, the default location for loading inputs and writing outputs, scripts, etc.
+
+![](images/clipboard-1877319971.png)
+
+Now let's take a look at your RStudio Screen.
 
 This should be in your console:
 
@@ -60,7 +64,7 @@ This should be in your console:
 
 Now go to File –\> new file –\> R script.
 
-This will be your first R script. You will type things in teh script, then transfer them to the console to run them. You can technically type directly into the console, but then you can't save them, and that's bad, so get into the habit of writing everything in your script.
+This will be your first R script. You will type things in the script, then transfer them to the console to run them. You can technically type directly into the console, but then you can't save them, and that's bad, so get into the habit of writing everything in your script.
 
 #### Comments
 
@@ -86,17 +90,23 @@ You can also hit ctrl-enter to do the same thing.
 
 Highlight multiple lines of code to run more than one thing at once.
 
+The "source" button at the top of the script runs the entire script at once without printing all the output. This is useful of you have a script that is mostly setup stuff or homemade functions.
+
 You will notice that in the console all the lines of code you run start with a `>`. If you have multiple lines of code strung together, there will be `+` at the start of the new lines until the end of the code. In an R script, you can break your code up into lines to make it all fit on your screen, so long as the parentheses line up.
 
 The output does not start with a carrot or plus sign. (explain the brackets)
 
-Example
+#### Exercise
 
 Have them practice some stuff
 
-### Objects and Assignment
+```{r}
 
-The joy of coding is that you can quickly to a lot of things at once. So, if I had a dataset with temperatures in Farenheight that I want to convert to Celsius, we can use R to do that all at once.
+```
+
+### Part 2: Objects and Assignment
+
+The joy of coding is that you can quickly to a lot of things at once. So, if I had a dataset with temperatures in Fahrenheit that I want to convert to Celsius, we can use R to do that all at once.
 
 Let's say our list of temperatures are: 72, 69, 57, 58, 71, 64, 65, 70, 59
 
@@ -144,33 +154,43 @@ temps_C
 
 You'll also notice that in the Environment tab in your Rstudio window you should now have `temps` and `temps_C`. You can click on them to see them.
 
+#### Exercise
+
+Convert these numbers from miles per hour to meters per second
+
+21, 25, 100, 50, 36, 72, 15
+
+```{r}
+
+```
+
 #### Type of objects
 
-Scalars
+-   Scalars - single value
 
-Vectors
+-   Vectors - list if values (one dimensional)
 
-Matrices
+-   Matrices - values in rows and columns, all the same type (two dimensional)
 
-Arrays
+-   Arrays - multiple matrices stacked up (three-dimensional)
 
-Data Frames
+-   Data Frames - Data of different types in rows and columns
 
-Lists
+-   Lists - data of different types and different lengths in rows and columns.
 
-#### Data classes
+#### Data classes - or was Perry going to cover this?
 
-numeric
+-   numeric
 
-character
+-   character
 
-logical
+-   logical
 
-factor
+-   factor
 
-date/time classes (giant can of worms)
+-   date/time classes (giant can of worms)
 
-Using `class` and `str` to get info about objects.
+Using `class` and `str` to get info about objects. also `View` and `head`.
 
 ```{r}
 foo <- "Cat"
@@ -187,9 +207,29 @@ str(foo2)
 
 Arguments
 
-Linking functions together (nesting or piping)
+Writing your own functions (maybe)
 
-## Packages
+The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the function.
+
+Linking functions together (nesting or piping) - this is maybe for later.
+
+#### Exercise
+
+See if you can use use these functions
+
+-   mean
+
+-   sum
+
+-   log
+
+-   exp
+
+```{r}
+
+```
+
+## Part 3: Packages
 
 The real benefit of R is that it is open-source, and tons and tons of people have developed 'expansion packs' for R. You can go a very long way with just the built-in R functions, but many people have developed slightly different ways of doing things, easier methods, and more advanced things.
 
@@ -199,12 +239,110 @@ Tidyverse
 
 Check out a package documentation, esp. vinettes
 
-## Errors and Getting Help
+Installing verses loading.
 
-Demo an error
+#### Package conflicts
 
-Warnings versus errors versus messages
+After you've loaded a package, you might get some warnings about conflicted packages.
 
-Looking at documentation
+```{r}
+library(dplyr)
+```
 
-Online help options
+#### Exercise
+
+Let's try using a function that is in a package. `glimpse` is an simple function that tells you about a data frame. R has a number of built-in data sets that you can play with, and one is `mtcars`. It's just a table of different makes and models of cars and their stats.
+
+```{r}
+
+#The View funciton is built in. 
+View(mtcars)
+
+#the "glimpse" function is in the dplyr package. It's part of the tidyverse set of packages. You should have installed it already
+glimpse(mtcars)
+
+#even though you installed it, you still need to load it using hte library command.
+library(dplyr)
+
+?dplyr
+
+glimpse(mtcars)
+```
+
+## Part 4: Errors and Getting Help
+
+One of the most frustrating parts of coding is errors. Your computer is very good at doing exactly what you tell it to, but that might not be what you want.
+
+```{r}
+dates = c("Monday", "Tuesday", "Wednesday")
+
+date[1]
+```
+
+This is one of my least favorite error messages. What the heck does that even mean?
+
+It turns out we accidentally typed `date` instead of `dates`, and `date` is a reserved term in R, so it was trying to subset a word that designates a data type and everyone was confused. But don't worry! It gets worse.
+
+Everyone has trouble interpreting error messages at first. Fortunately, error messages are improving, and you will get better at understanding them.
+
+Another thing to know is that not all red text is errors. Some are warnings. Don't worry about what this code does for now, just see what the output looks like.
+
+```{r}
+mtcars[1,1] = NA 
+
+ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
+
+#everything still ran, but it gave to a warning to let you knwo something did not go as planned
+
+```
+
+We also sometimes get messages, which are usually not even red.
+
+```{r}
+#don't worry about what this code does for now, just notice that we get a message telling you what it decided to use for the smoothing term.
+ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
+
+
+```
+
+The first thing to learn, is how to read the documentation for a function.
+
+```{r}
+?mean
+```
+
+The documentation has a few standard parts
+
+-   function and package in curly brackets at top
+
+-   Title
+
+-   Description- Frequently not all that helpful, but sometimes useful
+
+-   Usage (Function and arguments)
+
+-   Arguments - description of what all the arguments should contain
+
+-   Value - output
+
+-   References - articles or more info
+
+-   See Also - similar functions or functions you might want if you want this one
+
+-   Examples - THE MOST USEFUL PART!
+
+### Online help options
+
+RSeek
+
+Stack Overflow
+
+RStudio Cheat Sheets
+
+![](images/clipboard-2816609803.png)
+
+### Closing for the day
+
+How to save your workspace image
+
+How to clear your workspace

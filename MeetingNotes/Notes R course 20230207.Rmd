@@ -94,7 +94,7 @@ Dates
 
 - Tuesday, July 9th, Day 1 – Tour or R, Intro to the command line, intro to how to read error messages and documentation (Rosie to lead, others to TA as available)
 - Thursday, July 11th – Day 2 - data organization/ import and export, subsetting, etc (Perry to lead, others to TA)
-- Tuesday, July 16th – Day 3 – Introduciton to graphing (Nick)
+- Tuesday, July 16th – Day 3 – Introduction to graphing (Nick)
 - Thursday, July 18th – Day 4 – Intro to stats (Boz)
 
 Time 
@@ -109,3 +109,30 @@ To decide today:
 * Flow? Dayflow or a CDEC flow variable?
 
 Make recording available.
+
+## Meeting 5/20
+
+Registration - how's it going?
+- 8 so far
+Dataset - water quality D7 and P8.
+
+Day 2
+- Importing data
+- exporting data
+- 'here' package and navigating to stuff
+- sort/arranging
+- subsetting - select, rename
+- mutating
+- Maybe joins if time allows
+- Maybe some more advanced functions
+
+Day 3
+- Graphs
+
+Day 4
+- Group_by and summarize
+- Restructuring - pivot wider and longer
+- left_join - nothing more complicated
+- Final project - new dataset. Maybe dayflow? Or splittail counts from Yolo?
+
+
