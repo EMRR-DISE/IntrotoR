@@ -1,0 +1,81 @@
+---
+title: "Day 4 - Summarizing and Reshaping Data, Course Recap"
+author: "Dave Bosworth"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
+# Summarizing Data
+
+## Basic Summarizing
+
+```{r}
+# Simple overall summary statistics of entire data frame
+summary(df_wq)
+
+# Summary of one column
+summary(df_wq$Chla)
+```
+
+```{r}
+# Calculate overall mean of one column
+df_wq %>% summarize(mean_Chla = mean(Chla))
+
+# Calculate overall mean of multiple columns
+df_wq %>% summarize(mean_Chla = mean(Chla), mean_Pheo = mean(Pheophytin))
+```
+
+## Grouping
+
+```{r}
+# Group by Station
+df_wq %>% group_by(Station) %>% summarize(mean_Chla = mean(Chla))
+```
+
+```{r}
+# Calculate more than one summary statistic within `summarize`
+df_wq %>% 
+  group_by(Station) %>% 
+  summarize(
+    min_Chla = min(Chla),
+    mean_Chla = mean(Chla),
+    median_Chla = median(Chla),
+    max_Chla = max(Chla),
+    sd_Chla = sd(Chla)
+  )
+```
+
+It would be good to show how to group by more than one variable. This may be a good example of using pivot_longer to create a parameter variable to group by. We could also add an additional categorical variable to the existing data set - maybe season, year (add a year of data), etc.
+
+# Reshaping Data
+
+## Basics of Data Structure
+
+-   "long" vs. "wide" structure
+-   show examples
+
+## Converting between Data Structures
+
+### "Wide" to "Long"
+
+### "Long" to "Wide"
+
+# Joins and Binds
+
+## Differences between them
+
+## Bind rows
+
+## Join basics
+
+## Left join
+
+# Final Course Exercise
