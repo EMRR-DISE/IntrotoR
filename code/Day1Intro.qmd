@@ -16,6 +16,8 @@ You may hear me speak of R in the third person. For example, I might say, “Tel
 
 Is this shorthand confusing and slightly lazy to use? Yes. Do a lot of people use it? Everyone I know–probably because it is so convenient.
 
+Rstudio - integrated devleopment environment
+
 ## Why use code?
 
 -   Do lots of things quickly
@@ -56,7 +58,7 @@ OK, everyone, open Rstudio. Click on the new project button. A 'project' is basi
 
 ![](images/clipboard-1877319971.png)
 
-Now let's take a look at your RStudio Screen.
+Now let's take a look at your RStudio Screen. Go over the different panes and how to navigate and customize.
 
 This should be in your console:
 
@@ -178,7 +180,7 @@ Convert these numbers from miles per hour to meters per second
 
 -   Lists - data of different types and different lengths in rows and columns.
 
-#### Data classes - or was Perry going to cover this?
+#### Data classes
 
 -   numeric
 
@@ -205,11 +207,9 @@ str(foo2)
 
 ### Functions
 
-Arguments
+Arguments - demonstrate how Rstudio shows you what argumetns you need
 
-Writing your own functions (maybe)
-
-The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the function.
+The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the function. And you can write your own when you get good.
 
 Linking functions together (nesting or piping) - this is maybe for later.
 
@@ -221,7 +221,11 @@ See if you can use use these functions
 
 -   sum
 
--   log
+-   abs (absolute value)
+
+-   log - default is ln, not log10
+
+-   round - can specify decimal places
 
 -   exp
 
@@ -244,6 +248,10 @@ Installing verses loading.
 #### Package conflicts
 
 After you've loaded a package, you might get some warnings about conflicted packages.
+
+Specify which you want with package::funciton
+
+'conflicted' package
 
 ```{r}
 library(dplyr)
@@ -277,6 +285,9 @@ One of the most frustrating parts of coding is errors. Your computer is very goo
 dates = c("Monday", "Tuesday", "Wednesday")
 
 date[1]
+
+
+test = filter(mtcars, gear = 4)
 ```
 
 This is one of my least favorite error messages. What the heck does that even mean?

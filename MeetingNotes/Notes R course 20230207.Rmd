@@ -117,11 +117,15 @@ Registration - how's it going?
 Dataset - water quality D7 and P8.
 
 Day 2
+- Rmd versus R script
 - Importing data
 - exporting data
 - 'here' package and navigating to stuff
 - sort/arranging
 - subsetting - select, rename
+- isNA
+- any.Na
+- changing types - character to numeric and stuff
 - mutating
 - Maybe joins if time allows
 - Maybe some more advanced functions
@@ -135,4 +139,14 @@ Day 4
 - left_join - nothing more complicated
 - Final project - new dataset. Maybe dayflow? Or splittail counts from Yolo?
 
+
+Meeting june 6th
+
+- How's registration going?
+- We are full
+- Ted to set up an office hour the prior week for installation. 
+
+list of packages
+- what we want now
+- what we want for later
 
