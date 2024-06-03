@@ -132,6 +132,8 @@ Let's call our vector "temps"
 
 ```{r}
 temps <- c(72, 69, 57, 58, 71, 64, 65, 70, 59)
+
+temps
 ```
 
 The `<-` is called the "assignment operator". You can also use `=` to do the same thing. The `c` is short for "concatenate", which means "stick all these things together". We now have an object `temps` that is a vector of values. Type "temps" into your console.
@@ -152,6 +154,12 @@ Note that this doesn't give you any output, it just assigns a value to `temps_C`
 
 ```{r}
 temps_C
+```
+
+If you want to print it as you make the assignemnt, you can put parentheses around it.
+
+```{r}
+(temps_C2 <- temps_C*2)
 ```
 
 You'll also notice that in the Environment tab in your Rstudio window you should now have `temps` and `temps_C`. You can click on them to see them.

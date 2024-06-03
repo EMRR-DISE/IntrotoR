@@ -10,7 +10,7 @@ library(lubridate)
 
 WQ = read_csv("https://portal.edirepository.org/nis/dataviewer?packageid=edi.458.10&entityid=cf231071093ac2861893793517db26f3")
 
-WQ2022 = filter(WQ, year(Date)==2022)
+WQ2022 = filter(WQ, year(Date) %in% c(2020, 2021, 2022))
 
 unique(WQ2022$Station)
 

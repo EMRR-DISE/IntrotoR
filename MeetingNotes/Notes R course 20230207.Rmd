@@ -145,8 +145,13 @@ Meeting june 6th
 - How's registration going?
 - We are full
 - Ted to set up an office hour the prior week for installation. 
+- put in a 20 miinute question period before the final exercise
+- Maybe break people out in pairs for the final exercise. 
+- Ted to find out who is setting up teams meeting. 
+- Ted to also check on 
 
 list of packages
-- what we want now
+- what we want now - tidyverse
 - what we want for later
 
+- Practice break out rooms before the date. 
