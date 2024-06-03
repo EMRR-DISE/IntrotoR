@@ -206,8 +206,44 @@ wqdata_means <- wqdata %>%
 
 ```
 
+## Stacked bar plot
+
+Sometimes we want to simultaneously show a total and it's component parts at the same time, which is where stacked bar plots are useful.
+
+Let's go back to the subset of data for Station P8. We might want to look at Dissolved Ammonium and Dissolved Nitrate and Nitrite through time together.
+
+```{r}
+
+#first we will rearrange the data frame a bit to make plotting easier
+wqdata_p8_nutrients <- wqdata_p8 %>% 
+  #reduce data set down to just the needed columns
+  select(Station, Date, DissAmmonia, DissNitrateNitrite) %>% 
+  #convert from wide to long format
+  pivot_longer(cols = c(DissAmmonia,DissNitrateNitrite), names_to = "Nutrient", values_to = "Value")
+
+(plot_bar_stack_abs <- ggplot(data = wqdata_p8_nutrients, aes(x = Date, y = Value, fill = Nutrient)) +
+   geom_bar(stat = 'identity')
+   )
+
+```
+Perhaps we are more interested in the relative values rather than the absolute values. We just make a minor modification to the the code we used above.
+
+```{r}
+(plot_bar_stack_rel <- ggplot(data = wqdata_p8_nutrients, aes(x = Date, y = Value, fill = Nutrient)) +
+   geom_bar(stat = "identity", position = "fill") + 
+   facet_grid(Station ~.)
+   )
+```
 
 
+## Multi-panel plots
+
+Sometimes we want to show the same type of plot for multiple groups at once so we can compare them. It is easy to make multi-panel plots in ggplot2 using facets. 
+
+```{r}
+
+
+```
 
 
 
