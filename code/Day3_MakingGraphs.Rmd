@@ -11,8 +11,6 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(include=TRUE, message=FALSE, warning=FALSE)
-knitr::opts_knit$set(root.dir = 'C:/Repositories/IntrotoR')
-getwd()
 ```
 
 ## Making Graphs in R
@@ -36,6 +34,7 @@ So without further adue, let's load the packages we need for today's tutorial. I
 #install.packages("ggplot2") 
 
 library(tidyverse)
+library(here)
 
 ```
 
@@ -44,8 +43,8 @@ library(tidyverse)
 We will continue to use the same EMP water quality data set that you used for the first two parts of this course.
 
 ```{r read in data}
-setwd('C:/Repositories/IntrotoR')
-wqdata <- read_csv("./data/WQ_P8D7.csv")
+here()
+wqdata <- read_csv( here("data", "WQ_P8D7.csv"))
 
 ```
 
