@@ -1,0 +1,30 @@
+---
+title: "Definitions"
+author: "The Intro to R team"
+format: html
+editor: visual
+---
+
+### Definitions
+
+-   Argument- one of possibly several expressions that are passed to a function
+
+-   Assignment -
+
+-   Console - Place you run your code. It prints all the inputs and outputs - but then it's gone!
+
+-   Environment - A collection of functions, objects, and variables that are available for you to work with.
+
+-   Function - A code block which gathers a sequence of operations into a whole, preserving it for ongoing use by defining a set of tasks that takes zero or more required and optional arguments as inputs and returns expected outputs (return values), if any. Functions enable repeating these defined tasks with one command, known as a function call.
+
+-   GUI - "Graphical User Interface" - anything you can point-and-click to get what you want. This is in contrast to the "command line" where you have to write out what you want.
+
+-   Script - Text file with code you want to run
+
+-   Project - Set of scripts, data, and outputs that are associated with a working directory and are related to each other using an .Proj file.
+
+-   Package - A collection of code, data, and documentation that can be distributed and re-used. Also referred to in some languages as a library or module.
+
+-   Object - A data set, a variable, plot, or more formally, almost everything in R. If it has a mode, it is an object. Includes data frames, vectors, matrices, arrays, lists and functions.
+
+-   Working directory - The folder that contains all the scripts and data you are working with.

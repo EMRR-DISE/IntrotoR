@@ -16,41 +16,16 @@ You may hear me speak of R in the third person. For example, I might say, “Tel
 
 Is this shorthand confusing and slightly lazy to use? Yes. Do a lot of people use it? Everyone I know–probably because it is so convenient.
 
-Rstudio - integrated devleopment environment
+Rstudio - integrated development environment
 
 ## Why use code?
 
--   Do lots of things quickly
+There is a very steep learning curve to R (or any coding language). You are likely to get frustrated when code doesn't work. The first things you learn are probably things you could do easier and faster in Excel. So why bother?
 
--   Deal with large amounts of data
-
--   Reproducibility
-
--   Free and open source
-
--   Community of users to support each other (free)
-
-### Definitions
-
--   GUI
-
--   Console
-
--   Object
-
--   Function
-
--   Argument
-
--   Environment
-
--   Script
-
--   Project
-
--   Package
-
--   Working directory
+1.  Reproducibility. Your workflow will be documented and can be repeated quickly and easily. It is also easier to fix your mistakes because you can see exactly what you did in every step of the process!
+2.  Large datasets. The larger your dataset is, the more difficult it will be to analyze in Excel or other GUI-based programs.
+3.  Advanced statistical capabilities. You can go a lot further with tools like mixed models, multivariate analyses, machine learning, and population models that are impossible in Excel.
+4.  Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probalby been done before, and there is a publicly available package to help you out.
 
 ## Part 1: The Very basics
 
@@ -100,7 +75,12 @@ The output does not start with a carrot or plus sign. (explain the brackets)
 
 #### Exercise
 
-Have them practice some stuff
+Now your turn!
+
+1.  Use comments to write a title, date, and your name at the top of the script.
+2.  Save your script in your project working directory
+3.  Type `24/2` in your script
+4.  Run the script
 
 ```{r}
 
@@ -156,7 +136,7 @@ Note that this doesn't give you any output, it just assigns a value to `temps_C`
 temps_C
 ```
 
-If you want to print it as you make the assignemnt, you can put parentheses around it.
+If you want to print it as you make the assignment, you can put parentheses around it.
 
 ```{r}
 (temps_C2 <- temps_C*2)
@@ -166,7 +146,7 @@ You'll also notice that in the Environment tab in your Rstudio window you should
 
 #### Exercise
 
-Convert these numbers from miles per hour to meters per second
+Convert these numbers from miles per hour to meters per second. (use assignment)
 
 21, 25, 100, 50, 36, 72, 15
 
@@ -176,6 +156,8 @@ Convert these numbers from miles per hour to meters per second
 
 #### Type of objects
 
+We can call `temps` and `temps_C` *objects*. Specifically, they are numeric vectors. Let's go through some different types of objects.
+
 -   Scalars - single value
 
 -   Vectors - list if values (one dimensional)
@@ -184,19 +166,19 @@ Convert these numbers from miles per hour to meters per second
 
 -   Arrays - multiple matrices stacked up (three-dimensional)
 
--   Data Frames - Data of different types in rows and columns
+-   Data Frames - Data of different types in rows and columns, where all columns are the same length and all rows are the same width.
 
 -   Lists - data of different types and different lengths in rows and columns.
 
 #### Data classes
 
--   numeric
+-   numeric - Numbers (duh), these can be integers, real numbers, etc.
 
--   character
+-   character - Any sequence of letters and numbers
 
--   logical
+-   logical - TRUE/FALSE (always in all caps)
 
--   factor
+-   factor - Catigorical variables that take a limited set of values. May be ordered (like water year types), or unordered (like families of fishes)
 
 -   date/time classes (giant can of worms)
 
@@ -205,9 +187,11 @@ Using `class` and `str` to get info about objects. also `View` and `head`.
 ```{r}
 foo <- "Cat"
 bar <- dog
+dog <- 24
 
 class(foo)
 str(foo)
+class(dog)
 
 foo2 = c("Cat", "dog", "Mouse", "Squirrel")
 str(foo2)
@@ -215,19 +199,44 @@ str(foo2)
 
 ### Functions
 
-Arguments - demonstrate how Rstudio shows you what argumetns you need
+Functions are little sequences of code that do something useful. There are lots of built-in functions, plus you can define your own functions when you get a little more practice.
+
+The basic structure is:
+
+function(arguments)
+
+where "arguments" are the inputs to your function.
 
 The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the function. And you can write your own when you get good.
 
-Linking functions together (nesting or piping) - this is maybe for later.
+```{r}
+#when we calculated the sum of 1 +1, that was a function
+
+sum(1+1)
+
+sum
+
+#mean is another useful function
+mean(c(1+2+3+4))
+
+
+```
+
+Notice that as you start typing the function, a box pops up in RStudio that propts you with the arguments you might want to use.
+
+```{r}
+log()
+```
 
 #### Exercise
 
 See if you can use use these functions
 
--   mean
+-   mean - calculate the mean of 23, 24, 15, 12, 53, 23,1, 45
 
--   sum
+-   sum - calculate the sum of all numbers below 50
+
+    -   Hint! You can ask for a sequence of numbers with a `:` between the first and last number.
 
 -   abs (absolute value)
 
@@ -235,7 +244,7 @@ See if you can use use these functions
 
 -   round - can specify decimal places
 
--   exp
+-   exp (exponent)
 
 ```{r}
 
@@ -245,24 +254,58 @@ See if you can use use these functions
 
 The real benefit of R is that it is open-source, and tons and tons of people have developed 'expansion packs' for R. You can go a very long way with just the built-in R functions, but many people have developed slightly different ways of doing things, easier methods, and more advanced things.
 
-Go to CRAN and show people around
+Let's go over to the R website and talk packages - <https://www.r-project.org/>
 
-Tidyverse
+We had everyone install the `tidyverse` packages before getting started. This is actually a set of packages that all work together to make code a little more intuitive. Let's go over to the "Packages" tab in RStudio and check them out.
 
-Check out a package documentation, esp. vinettes
+-   dplyr - data manipulation
 
-Installing verses loading.
+-   lubridate - dates and times
+
+-   ggplot2 - graphics
+
+-   tidyr - more data manipulation
+
+-   forcats - working with categorical variables (factors)
+
+-   readr - importing data from spreadsheets
+
+-   stringr - working with character strings
+
+-   tibble - nicer checking and formatting for tables and data frames
+
+You'll notice that besides the tidyverse, there are a number of other packages in this tab that you didn't install - they came along with base R.
+
+When you want to install or update packages, you can use the `install.packages` command, or the GUI in RStudio. This command reaches out to You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the `library` command. This is usually done at the top of your script
+
+```{r}
+#load required libraries
+library(readr)
+
+#check out documentation
+?readr
+
+#Click on the index, then one of the vignettes - those are very useful!
+```
 
 #### Package conflicts
 
-After you've loaded a package, you might get some warnings about conflicted packages.
+After you've loaded a package, you might get some warnings about conflicted packages. These are different functions with the same name in two different packages. Mostly it isn't a problem, but sometimes you'll have to specify which function you mean.
 
-Specify which you want with package::funciton
-
-'conflicted' package
+Specify which you want with package::function
 
 ```{r}
-library(dplyr)
+library(lubridate)
+```
+
+If you really want the base version instead of the one from a package, you can use the `exclude` argument.
+
+```{r}
+#remove the lubrdate library we just installed
+detach("package:lubridate")
+
+#now reinstall with the exclusion
+library(lubridate, exclude = "date")
 ```
 
 #### Exercise
@@ -283,6 +326,12 @@ library(dplyr)
 ?dplyr
 
 glimpse(mtcars)
+```
+
+Now go to the documentation for dplyr and look through the "Introduction to dplyr" vignette. Take 15 mins and see if you try out some of the examples. We'll be using a lot of these dplyr functions later in the class.
+
+```{r}
+dplyr::dplyr	
 ```
 
 ## Part 4: Errors and Getting Help
@@ -352,16 +401,26 @@ The documentation has a few standard parts
 
 ### Online help options
 
-RSeek
+-   <https://rseek.org/>
 
-Stack Overflow
+-   <https://chatgpt.com/>
 
-RStudio Cheat Sheets
+-   <https://posit.co/resources/cheatsheets/>
 
 ![](images/clipboard-2816609803.png)
 
 ### Closing for the day
 
-How to save your workspace image
+How to save your workspace image.
 
-How to clear your workspace
+```{r}
+save.image()
+#also little save icon on environment
+```
+
+How to clear your workspace .
+
+```{r}
+rm(list = ls())
+#also little broom icon on the environment
+```
