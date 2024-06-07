@@ -11,7 +11,13 @@ editor: visual
 
 -   Assignment -
 
+-   Comment: Text written in a script that is not treated as code to be run, but rather as text that describes what the code is doing. These are usually short notes, beginning with a \#
+
 -   Console - Place you run your code. It prints all the inputs and outputs - but then it's gone!
+
+-   Comprehensive R Archive Network (CRAN) - A public repository of R packages
+
+-   Data frame - A two-dimensional data structure for storing tabular data in memory. Rows represent records and columns represent variables.
 
 -   Environment - A collection of functions, objects, and variables that are available for you to work with.
 
@@ -25,6 +31,12 @@ editor: visual
 
 -   Package - A collection of code, data, and documentation that can be distributed and re-used. Also referred to in some languages as a library or module.
 
+-   Pipe operator: The `%>%` used to make the output of one function the input of the next. Piping works particularly well with Tidyverse packages.
+
 -   Object - A data set, a variable, plot, or more formally, almost everything in R. If it has a mode, it is an object. Includes data frames, vectors, matrices, arrays, lists and functions.
+
+-   Tidyverse - A collection of R packages for operating on tabular data in consistent ways.
+
+-   Vector - A list of items of the same type (e.g., a list of numbers or words).
 
 -   Working directory - The folder that contains all the scripts and data you are working with.
