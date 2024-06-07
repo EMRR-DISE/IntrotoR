@@ -11,8 +11,6 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(include=TRUE, message=FALSE, warning=FALSE)
-knitr::opts_knit$set(root.dir = 'C:/Repositories/IntrotoR')
-getwd()
 ```
 
 ## Making Graphs in R
@@ -23,6 +21,10 @@ One of the greatest strengths of R is its ability to produce a wide variety of p
 
 When you download R, there is a suite of packages that are included. These packages include functions for carrying out a variety of basic tasks, including making graphs. I used base R graphing functions for a number of years, and there's nothing wrong with using these functions. However, in more recent years, I have completely switched to using the 'ggplot2' package and think it is a great package for new R users to know.
 
+## Continuous vs categorical data
+
+As we decide what type of plot to make, it is useful to consider the types of data we are plotting. Continuous data refers to numbers like water temperature. Categorical refers to types within a group (e.g., station).
+
 ## Load the required R packages
 
 So without further adue, let's load the packages we need for today's tutorial. In addition to 'ggplot2', we will also load the tidyverse to do some basic tasks like reading in data sets and filtering data.
@@ -32,7 +34,6 @@ So without further adue, let's load the packages we need for today's tutorial. I
 #install.packages("ggplot2") 
 
 library(tidyverse)
-library(ggplot2)
 library(here)
 
 ```
@@ -42,8 +43,8 @@ library(here)
 We will continue to use the same EMP water quality data set that you used for the first two parts of this course.
 
 ```{r read in data}
-setwd('C:/Repositories/IntrotoR')
-wqdata <- read_csv("./data/WQ_P8D7.csv")
+here()
+wqdata <- read_csv( here("data", "WQ_P8D7.csv"))
 
 ```
 
@@ -128,6 +129,20 @@ We can start to see how Secchi depth changed over time, but it would be easier t
 
 ```
 Now it is a little easier to see the patterns through time. We can see that Secchi depth is low in the winter and high in the summer.  
+
+## Multiple time series per plot
+
+We can easily plot multiple time series on the same graph in order to compare them. We will plot Secchi for both P8 and D7. These stations are in very different parts of the Estuary, so their turbidity dynamics are rather different.
+
+```{r}
+
+#time series plot with connecting lines for both stations
+(plot_ts_points_lines_two <- ggplot(data = wqdata, aes(x = Date, y = Secchi, group = Station)) +
+  geom_point(aes(color = Station))+
+  geom_line(aes(color = Station)))
+
+```
+
 
 
 ## Scatterplots
@@ -230,23 +245,76 @@ Perhaps we are more interested in the relative values rather than the absolute v
 
 ```{r}
 (plot_bar_stack_rel <- ggplot(data = wqdata_p8_nutrients, aes(x = Date, y = Value, fill = Nutrient)) +
-   geom_bar(stat = "identity", position = "fill") + 
-   facet_grid(Station ~.)
-   )
+   geom_bar(stat = "identity", position = "fill")
+ )
 ```
-
 
 ## Multi-panel plots
 
 Sometimes we want to show the same type of plot for multiple groups at once so we can compare them. It is easy to make multi-panel plots in ggplot2 using facets. 
 
+Above, we plotted Secchi depth for both stations on the same plot. Sometimes, it is more useful to create a two panel plot, in which each time series is plotted on a separate graph. 
+
 ```{r}
+
+#faceted time series plot for Dissolved Ammonia
+(plot_ts_points_lines_facet <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+  geom_point()+
+  geom_line())+
+  facet_grid(Station~.)
+
+```
+Here's another example
+
+```{r}
+
+#time series plot for two analytes
+(plot_bar_stack_abs_facet <- ggplot(data = wqdata_p8_nutrients, aes(x = Date, y = Value)) +
+   geom_bar(stat = 'identity')+
+  facet_grid(Nutrient~.)
+)
+
+```
+By default, the y-axis is standardized across the panels. This is generally a good idea. However, we can change this if we like. Ammonia concentrations are much lower than nitrate + nitrite concentrations, which makes ammonia concentrations difficult to read on the plot. Let's use different y-axis ranges for the two analytes to fix that.
+
+```{r}
+
+#time series plot for two analytes with different y-axis ranges
+(plot_bar_stack_abs_facet <- ggplot(data = wqdata_p8_nutrients, aes(x = Date, y = Value)) +
+   geom_bar(stat = 'identity')+
+  facet_grid(Nutrient~., scales = "free_y")
+)
+
+```
+
+
+## Customizing plots
+
+As I mentioned at the outset, one of the greatest advances of using R to make graphs is that you can customize them endlessly. We will touch on just a few common types of customizations. 
+
+We will use the Secchi depth time series again. Previously, we used color to help differentiate the two stations, but we just used the default colors. We can specify the exact colors we want. We can also change the size, shape, and color of the points and the line type, width, and color. 
+
+```{r}
+
+#time series plot with connecting lines for both stations
+(plot_ts_points_lines_two <- ggplot(data = wqdata, aes(x = Date, y = Secchi, group = Station)) +
+  geom_point(aes(color = Station))+
+  geom_line(aes(color = Station)))
+
+#time series plot with connecting lines for both stations customized
+(plot_ts_points_lines_two_custom <- ggplot(data = wqdata, aes(x = Date, y = Secchi, group = Station)) +
+  geom_point(aes(color = Station))+
+  geom_line(aes(color = Station)))+
+  scale_color_manual(values =c("midnightblue","darkorange3"))+
+    scale_shape_manual(values = c(21, 25))+
+    scale_linetype_manual(values = c(2,3))
+)
 
 
 ```
 
 
-
+## Additional resources
 
 
 
