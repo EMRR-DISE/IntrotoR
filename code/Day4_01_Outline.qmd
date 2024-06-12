@@ -1,0 +1,30 @@
+---
+title: "Day 4 - Outline"
+author: "Dave Bosworth"
+format: html
+---
+
+1. Summarizing Data
+
+    - Basic Summarizing
+    - Grouping
+    - OPTIONAL: Using `across`
+
+2. Reshaping Data
+
+    - Basics of Data Structure
+    - Converting between Data Structures
+    - Summarize and Reshape
+
+3. Joins and Binds
+
+    - Differences and Usage
+    - Bind Rows
+    - Join Basics
+    - Left Join
+    
+4. Open Questions??
+
+5. Final Course Exercise
+
+Maybe have people work in pairs, Dave show solution at end (30 min)

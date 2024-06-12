@@ -1,0 +1,96 @@
+---
+title: "Day 4 - Reshaping Data"
+author: "Dave Bosworth"
+format: html
+toc: true
+toc-expand: true
+toc-location: left
+number-sections: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
+# Basics of Data Structure
+
+```{r}
+#| echo: FALSE
+#| out-width: 80%
+#| fig-align: left
+
+knitr::include_graphics(here("code/images/wideLong2-768x317.png"))
+```
+
+```{r}
+#| echo: FALSE
+#| out-width: 70%
+#| fig-align: left
+
+knitr::include_graphics(here("code/images/wideLong3-1-768x845.png"))
+```
+
+Images are from: <https://www.statology.org/long-vs-wide-data/>
+
+# Converting between Data Structures
+
+```{r}
+df_wq_nutr <- df_wq %>% 
+  select(Station, Date, DissAmmonia, DissNitrateNitrite, DissOrthophos)
+
+df_wq_nutr
+```
+
+## "Wide" to "Long"
+
+```{r}
+df_wq_nutr_long <- df_wq_nutr %>% 
+  pivot_longer(
+    cols = c(DissAmmonia, DissNitrateNitrite, DissOrthophos),
+    names_to = "Parameter",
+    values_to = "Value"
+  )
+
+print(df_wq_nutr_long, n = 30)
+```
+
+## "Long" to "Wide"
+
+```{r}
+df_wq_nutr_wide <- df_wq_nutr_long %>% 
+  pivot_wider(names_from = Parameter, values_from = Value)
+
+df_wq_nutr_wide
+```
+
+## Exercise
+
+# Summarize and Reshape
+
+```{r}
+df_wq %>% 
+  mutate(Month = month(Date, label = TRUE)) %>% 
+  summarize(Chla = mean(Chla), .by = c(Station, Month)) %>% 
+  pivot_wider(names_from = Station, values_from = Chla)
+```
+
+## Exercise
+
+Do the same summarize and reshape as above but calculate annual maximums of TDS for each station
+
+```{r}
+df_wq %>% 
+  mutate(Year = year(Date)) %>% 
+  summarize(TDS = max(TDS), .by = c(Station, Year)) %>% 
+  pivot_wider(names_from = Station, values_from = TDS)
+```
+

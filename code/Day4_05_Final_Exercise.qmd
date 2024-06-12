@@ -1,0 +1,26 @@
+---
+title: "Day 4 - Final Exercise"
+author: "Dave Bosworth"
+format: html
+toc: true
+toc-expand: true
+toc-location: left
+number-sections: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
+# Final Course Exercise
+
+Maybe have people work in pairs, Dave show solution at end (30 min)

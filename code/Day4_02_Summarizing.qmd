@@ -1,0 +1,145 @@
+---
+title: "Day 4 - Summarizing Data"
+author: "Dave Bosworth"
+format: html
+toc: true
+toc-expand: true
+toc-location: left
+number-sections: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+# Import Data
+
+Load packages and import EMP water quality data.
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
+```{r}
+glimpse(df_wq)
+```
+
+# Basic Summarizing
+
+```{r}
+# Simple overall summary statistics of entire data frame
+summary(df_wq)
+
+# Summary of one column
+summary(df_wq$Chla)
+```
+
+```{r}
+# Calculate overall mean of one column
+df_wq %>% summarize(mean_Chla = mean(Chla))
+
+# Calculate overall mean of multiple columns
+df_wq %>% summarize(mean_Chla = mean(Chla), mean_Pheo = mean(Pheophytin))
+```
+
+Show how to deal with `NA` values - DON
+
+## Exercise
+
+# Grouping
+
+```{r}
+# Group by Station
+df_wq %>% group_by(Station) %>% summarize(mean_Chla = mean(Chla))
+```
+
+```{r}
+# Calculate more than one summary statistic within `summarize`
+df_wq %>% 
+  group_by(Station) %>% 
+  summarize(
+    min_Chla = min(Chla),
+    mean_Chla = mean(Chla),
+    median_Chla = median(Chla),
+    max_Chla = max(Chla),
+    sd_Chla = sd(Chla)
+  )
+```
+
+```{r}
+# Adding a second grouping variable for year
+df_wq_c <- df_wq %>% mutate(Year = year(Date))
+
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(
+    min_Chla = min(Chla),
+    mean_Chla = mean(Chla),
+    median_Chla = median(Chla),
+    max_Chla = max(Chla),
+    sd_Chla = sd(Chla)
+  )
+```
+
+```{r}
+# Always best practice to ungroup data after finished with operation
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(
+    min_Chla = min(Chla),
+    mean_Chla = mean(Chla),
+    median_Chla = median(Chla),
+    max_Chla = max(Chla),
+    sd_Chla = sd(Chla)
+  ) %>% 
+  ungroup()
+```
+
+```{r}
+# It's possible to group data within `summarize`
+df_wq_c %>% 
+  summarize(
+    min_Chla = min(Chla),
+    mean_Chla = mean(Chla),
+    median_Chla = median(Chla),
+    max_Chla = max(Chla),
+    sd_Chla = sd(Chla),
+    .by = c(Station, Year)
+  ) 
+```
+
+## Exercise
+
+# OPTIONAL: Using `across`
+
+```{r}
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(across(c(DissAmmonia, DissNitrateNitrite, DissOrthophos), max)) %>% 
+  ungroup()
+```
+
+```{r}
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(
+    across(
+      c(DissAmmonia, DissNitrateNitrite, DissOrthophos), 
+      list(min = min, max = max)
+    )
+  ) %>% 
+  ungroup()
+```
+
+```{r}
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(across(starts_with("Diss"), list(min = min, max = max))) %>% 
+  ungroup()
+```
+

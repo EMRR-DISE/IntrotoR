@@ -1,0 +1,33 @@
+---
+title: "Day 4 - Joins and Binds"
+author: "Dave Bosworth"
+format: html
+toc: true
+toc-expand: true
+toc-location: left
+number-sections: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
+# Joins and Binds
+
+## Differences between them
+
+## Bind rows
+
+## Join basics
+
+## Left join
+
