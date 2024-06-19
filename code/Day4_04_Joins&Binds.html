@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dave Bosworth">
 
-<title>Day 4 - Reshaping Data</title>
+<title>Day 4 - Joins and Binds</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,16 +58,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Day4_03_Reshaping_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Day4_03_Reshaping_files/libs/quarto-html/quarto.js"></script>
-<script src="Day4_03_Reshaping_files/libs/quarto-html/popper.min.js"></script>
-<script src="Day4_03_Reshaping_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Day4_03_Reshaping_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Day4_03_Reshaping_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Day4_03_Reshaping_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Day4_03_Reshaping_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Day4_03_Reshaping_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Day4_03_Reshaping_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Day4_04_Joins&amp;Binds_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Day4_04_Joins&amp;Binds_files/libs/quarto-html/quarto.js"></script>
+<script src="Day4_04_Joins&amp;Binds_files/libs/quarto-html/popper.min.js"></script>
+<script src="Day4_04_Joins&amp;Binds_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Day4_04_Joins&amp;Binds_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Day4_04_Joins&amp;Binds_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Day4_04_Joins&amp;Binds_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Day4_04_Joins&amp;Binds_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Day4_04_Joins&amp;Binds_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Day4_04_Joins&amp;Binds_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -80,16 +80,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basics-of-data-structure" id="toc-basics-of-data-structure" class="nav-link active" data-scroll-target="#basics-of-data-structure"><span class="header-section-number">1</span> Basics of Data Structure</a></li>
-  <li><a href="#converting-between-data-structures" id="toc-converting-between-data-structures" class="nav-link" data-scroll-target="#converting-between-data-structures"><span class="header-section-number">2</span> Converting between Data Structures</a>
+  <li><a href="#differences-between-them" id="toc-differences-between-them" class="nav-link active" data-scroll-target="#differences-between-them"><span class="header-section-number">1</span> Differences between them</a></li>
+  <li><a href="#bind-rows" id="toc-bind-rows" class="nav-link" data-scroll-target="#bind-rows"><span class="header-section-number">2</span> Bind rows</a>
   <ul class="collapse">
-  <li><a href="#wide-to-long" id="toc-wide-to-long" class="nav-link" data-scroll-target="#wide-to-long"><span class="header-section-number">2.1</span> “Wide” to “Long”</a></li>
-  <li><a href="#long-to-wide" id="toc-long-to-wide" class="nav-link" data-scroll-target="#long-to-wide"><span class="header-section-number">2.2</span> “Long” to “Wide”</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">2.3</span> Exercise</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">2.1</span> Exercise</a></li>
   </ul></li>
-  <li><a href="#summarize-and-reshape" id="toc-summarize-and-reshape" class="nav-link" data-scroll-target="#summarize-and-reshape"><span class="header-section-number">3</span> Summarize and Reshape</a>
+  <li><a href="#join-basics" id="toc-join-basics" class="nav-link" data-scroll-target="#join-basics"><span class="header-section-number">3</span> Join basics</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">4</span> Left join</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">3.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">4.1</span> Exercise</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -100,7 +99,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Day 4 - Reshaping Data</h1>
+<h1 class="title">Day 4 - Joins and Binds</h1>
 </div>
 
 
@@ -123,13 +122,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="basics-of-data-structure" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Basics of Data Structure</h1>
+<section id="differences-between-them" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Differences between them</h1>
+<p>Binding rows or columns from two dataframes:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/wideLong2-768x317.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:80.0%"></p>
+<p><img src="images/bind_rows.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
@@ -138,157 +138,195 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/wideLong3-1-768x845.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
+<p><img src="images/bind_cols.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Image Credit: <a href="https://www.statology.org/long-vs-wide-data/" class="uri">https://www.statology.org/long-vs-wide-data/</a></p>
+<p>Joining two dataframes with a <code>left_join()</code>:</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/left_join.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Image Credit: <a href="https://stat545.stat.ubc.ca/tutorials/tibble_join/" class="uri">https://stat545.stat.ubc.ca/tutorials/tibble_join/</a></p>
 </section>
-<section id="converting-between-data-structures" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Converting between Data Structures</h1>
+<section id="bind-rows" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Bind rows</h1>
+<p>Import additional WQ data collected in 2019 at P8 and D7</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_wq_nutr <span class="ot">&lt;-</span> df_wq <span class="sc">%&gt;%</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Station, Date, DissAmmonia, DissNitrateNitrite, DissOrthophos)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df_wq_nutr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_wq_2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data/WQ_2019.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Look at structure of both dataframes to bind</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2020-2022 data:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 62 × 5
-   Station Date       DissAmmonia DissNitrateNitrite DissOrthophos
-   &lt;chr&gt;   &lt;date&gt;           &lt;dbl&gt;              &lt;dbl&gt;         &lt;dbl&gt;
- 1 P8      2020-01-16        0.15               2.8          0.2  
- 2 D7      2020-01-22        0.21               0.49         0.071
- 3 P8      2020-02-14        0.25               1.7          0.13 
- 4 D7      2020-02-20        0.14               0.48         0.065
- 5 P8      2020-03-03        0.11               1.6          0.14 
- 6 D7      2020-03-06        0.22               0.38         0.082
- 7 P8      2020-06-11        0.05               1.07         0.177
- 8 D7      2020-06-17        0.05               0.4          0.095
- 9 P8      2020-07-13        0.05               0.71         0.171
-10 D7      2020-07-16        0.05               0.32         0.093
-# ℹ 52 more rows</code></pre>
+<pre><code>Rows: 62
+Columns: 20
+$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
+$ Date               &lt;date&gt; 2020-01-16, 2020-01-22, 2020-02-14, 2020-02-20, 20…
+$ Chla               &lt;dbl&gt; 0.64, 0.67, 1.46, 2.15, 1.40, 1.89, 4.73, 1.74, 6.4…
+$ Pheophytin         &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.8…
+$ TotAlkalinity      &lt;dbl&gt; 98.0, 82.0, 81.0, 86.0, 80.0, 93.0, 59.0, 78.0, 63.…
+$ DissAmmonia        &lt;dbl&gt; 0.150, 0.210, 0.250, 0.140, 0.110, 0.220, 0.050, 0.…
+$ DissNitrateNitrite &lt;dbl&gt; 2.800, 0.490, 1.700, 0.480, 1.600, 0.380, 1.070, 0.…
+$ DOC                &lt;dbl&gt; 3.90, 0.27, 2.80, 0.39, 2.00, 0.19, 2.80, 1.20, 3.1…
+$ TOC                &lt;dbl&gt; 4.10, 0.32, 2.50, 0.41, 2.10, 0.20, 2.80, 1.20, 3.1…
+$ DON                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0.30, 0.20, 0.30, 0.10, 0.5…
+$ TotPhos            &lt;dbl&gt; 0.310, 0.082, 0.130, 0.130, 0.190, 0.100, 0.188, 0.…
+$ DissOrthophos      &lt;dbl&gt; 0.200, 0.071, 0.130, 0.065, 0.140, 0.082, 0.177, 0.…
+$ TDS                &lt;dbl&gt; 380, 9500, 340, 5800, 290, 8700, 280, 7760, 227, 11…
+$ TSS                &lt;dbl&gt; 8.9, 38.0, 2.2, 18.0, 1.4, 28.0, 6.6, 35.6, 5.3, 23…
+$ TKN                &lt;dbl&gt; 0.520, 0.480, 0.430, 0.250, 0.400, 0.200, 0.400, 0.…
+$ Depth              &lt;dbl&gt; 28.9, 18.8, 39.0, 7.1, 39.0, 7.2, 37.1, 5.2, 36.7, …
+$ Secchi             &lt;dbl&gt; 116, 30, 212, 52, 340, 48, 100, 40, 160, 44, 120, 6…
+$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 3, 2, 3, 2, 4, 2, 3, 2, 2, 1, 1, …
+$ SpCndSurface       &lt;dbl&gt; 667, 15532, 647, 11369, 530, 16257, 503, 12946, 404…
+$ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 21.1…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df_wq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Station"            "Date"               "Chla"              
+ [4] "Pheophytin"         "TotAlkalinity"      "DissAmmonia"       
+ [7] "DissNitrateNitrite" "DOC"                "TOC"               
+[10] "DON"                "TotPhos"            "DissOrthophos"     
+[13] "TDS"                "TSS"                "TKN"               
+[16] "Depth"              "Secchi"             "Microcystis"       
+[19] "SpCndSurface"       "WTSurface"         </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2019 data:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wq_2019)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 24
+Columns: 20
+$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
+$ Date               &lt;date&gt; 2019-01-15, 2019-01-17, 2019-02-15, 2019-02-20, 20…
+$ Chla               &lt;dbl&gt; 0.84, 0.88, 2.29, 1.92, 2.60, 2.53, 1.59, 2.81, 1.0…
+$ Pheophytin         &lt;dbl&gt; 1.21, 0.64, 1.03, 2.32, 1.42, 1.35, 1.25, 1.19, 0.5…
+$ TotAlkalinity      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ DissAmmonia        &lt;dbl&gt; 0.200, 0.214, 0.090, 0.070, 0.050, 0.050, 0.050, 0.…
+$ DissNitrateNitrite &lt;dbl&gt; 3.600, 0.570, 1.030, 0.370, 0.540, 0.300, 0.420, 0.…
+$ DOC                &lt;dbl&gt; 6.00, 1.70, 6.10, 4.20, 3.60, 2.50, 2.60, 2.30, 2.2…
+$ TOC                &lt;dbl&gt; 6.00, 1.70, 5.60, 4.20, 3.60, 2.50, 2.60, 2.10, 2.2…
+$ DON                &lt;dbl&gt; 0.50, 0.10, 0.50, 0.30, 0.38, 0.20, 0.20, 0.16, 0.2…
+$ TotPhos            &lt;dbl&gt; 0.370, 0.094, 0.153, 0.180, 0.070, 0.080, 0.100, 0.…
+$ DissOrthophos      &lt;dbl&gt; 0.329, 0.092, 0.120, 0.071, 0.075, 0.065, 0.072, 0.…
+$ TDS                &lt;dbl&gt; 491, 8530, 160, 133, 112, 108, 109, 94, 118, 150, 5…
+$ TSS                &lt;dbl&gt; 12.0, 24.0, 17.0, 108.0, 6.0, 36.0, 27.0, 22.0, 4.0…
+$ TKN                &lt;dbl&gt; 0.800, 0.380, 0.700, 0.600, 0.400, 0.400, 0.300, 0.…
+$ Depth              &lt;dbl&gt; 38.7, 8.2, 17.0, 8.0, 36.7, 8.2, 39.0, 7.0, 37.8, 6…
+$ Secchi             &lt;dbl&gt; 100, 52, 44, 16, 76, 28, 92, 28, 100, 40, 80, 44, 1…
+$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 4, …
+$ SpCndSurface       &lt;dbl&gt; 878, 14498, 276, 228, 194, 189, 195, 168, 214, 276,…
+$ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26, 14.…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df_wq_2019)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Station"            "Date"               "Chla"              
+ [4] "Pheophytin"         "TotAlkalinity"      "DissAmmonia"       
+ [7] "DissNitrateNitrite" "DOC"                "TOC"               
+[10] "DON"                "TotPhos"            "DissOrthophos"     
+[13] "TDS"                "TSS"                "TKN"               
+[16] "Depth"              "Secchi"             "Microcystis"       
+[19] "SpCndSurface"       "WTSurface"         </code></pre>
 </div>
 </div>
-<section id="wide-to-long" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="wide-to-long"><span class="header-section-number">2.1</span> “Wide” to “Long”</h2>
+<p>Add 2019 data to 2020-2022 data by binding rows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_wq_nutr_long <span class="ot">&lt;-</span> df_wq_nutr <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(DissAmmonia, DissNitrateNitrite, DissOrthophos),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Parameter"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Value"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_wq_nutr_long, <span class="at">n =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_wq_2019_2022 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df_wq_2019, df_wq)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_wq_2019_2022</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 186 × 4
-   Station Date       Parameter          Value
-   &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;              &lt;dbl&gt;
- 1 P8      2020-01-16 DissAmmonia        0.15 
- 2 P8      2020-01-16 DissNitrateNitrite 2.8  
- 3 P8      2020-01-16 DissOrthophos      0.2  
- 4 D7      2020-01-22 DissAmmonia        0.21 
- 5 D7      2020-01-22 DissNitrateNitrite 0.49 
- 6 D7      2020-01-22 DissOrthophos      0.071
- 7 P8      2020-02-14 DissAmmonia        0.25 
- 8 P8      2020-02-14 DissNitrateNitrite 1.7  
- 9 P8      2020-02-14 DissOrthophos      0.13 
-10 D7      2020-02-20 DissAmmonia        0.14 
-11 D7      2020-02-20 DissNitrateNitrite 0.48 
-12 D7      2020-02-20 DissOrthophos      0.065
-13 P8      2020-03-03 DissAmmonia        0.11 
-14 P8      2020-03-03 DissNitrateNitrite 1.6  
-15 P8      2020-03-03 DissOrthophos      0.14 
-16 D7      2020-03-06 DissAmmonia        0.22 
-17 D7      2020-03-06 DissNitrateNitrite 0.38 
-18 D7      2020-03-06 DissOrthophos      0.082
-19 P8      2020-06-11 DissAmmonia        0.05 
-20 P8      2020-06-11 DissNitrateNitrite 1.07 
-21 P8      2020-06-11 DissOrthophos      0.177
-22 D7      2020-06-17 DissAmmonia        0.05 
-23 D7      2020-06-17 DissNitrateNitrite 0.4  
-24 D7      2020-06-17 DissOrthophos      0.095
-25 P8      2020-07-13 DissAmmonia        0.05 
-26 P8      2020-07-13 DissNitrateNitrite 0.71 
-27 P8      2020-07-13 DissOrthophos      0.171
-28 D7      2020-07-16 DissAmmonia        0.05 
-29 D7      2020-07-16 DissNitrateNitrite 0.32 
-30 D7      2020-07-16 DissOrthophos      0.093
-# ℹ 156 more rows</code></pre>
+<pre><code># A tibble: 86 × 20
+   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
+   &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+ 1 P8      2019-01-15  0.84       1.21            NA       0.2  
+ 2 D7      2019-01-17  0.88       0.64            NA       0.214
+ 3 P8      2019-02-15  2.29       1.03            NA       0.09 
+ 4 D7      2019-02-20  1.92       2.32            NA       0.07 
+ 5 P8      2019-03-14  2.6        1.42            NA       0.05 
+ 6 D7      2019-03-18  2.53       1.35            NA       0.05 
+ 7 P8      2019-04-12  1.59       1.25            NA       0.05 
+ 8 D7      2019-04-16  2.81       1.19            NA       0.05 
+ 9 P8      2019-05-13  1.03       0.5             NA       0.05 
+10 D7      2019-05-15  2.1        0.69            NA       0.05 
+# ℹ 76 more rows
+# ℹ 14 more variables: DissNitrateNitrite &lt;dbl&gt;, DOC &lt;dbl&gt;, TOC &lt;dbl&gt;,
+#   DON &lt;dbl&gt;, TotPhos &lt;dbl&gt;, DissOrthophos &lt;dbl&gt;, TDS &lt;dbl&gt;, TSS &lt;dbl&gt;,
+#   TKN &lt;dbl&gt;, Depth &lt;dbl&gt;, Secchi &lt;dbl&gt;, Microcystis &lt;dbl&gt;,
+#   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<section id="exercise" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">2.1</span> Exercise</h2>
+<p>Add data collected from 2019-2022 at C3A to dataframe with P8 and D7</p>
+</section>
+</section>
+<section id="join-basics" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Join basics</h1>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/join-venn.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/join-outer.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="long-to-wide" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="long-to-wide"><span class="header-section-number">2.2</span> “Long” to “Wide”</h2>
+<section id="left-join" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Left join</h1>
+<p>Join Delta inflow and outflow data from DayFlow to WQ data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_wq_nutr_wide <span class="ot">&lt;-</span> df_wq_nutr_long <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Parameter, <span class="at">values_from =</span> Value)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_wq_nutr_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Delta inflow and outflow data</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_dayflow <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data/Dayflow_2019_2023.csv"</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Join Delta flow data to 2019-2022 WQ data</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>df_wq_flow <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df_wq_2019_2022, df_dayflow)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wq_flow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 62 × 5
-   Station Date       DissAmmonia DissNitrateNitrite DissOrthophos
-   &lt;chr&gt;   &lt;date&gt;           &lt;dbl&gt;              &lt;dbl&gt;         &lt;dbl&gt;
- 1 P8      2020-01-16        0.15               2.8          0.2  
- 2 D7      2020-01-22        0.21               0.49         0.071
- 3 P8      2020-02-14        0.25               1.7          0.13 
- 4 D7      2020-02-20        0.14               0.48         0.065
- 5 P8      2020-03-03        0.11               1.6          0.14 
- 6 D7      2020-03-06        0.22               0.38         0.082
- 7 P8      2020-06-11        0.05               1.07         0.177
- 8 D7      2020-06-17        0.05               0.4          0.095
- 9 P8      2020-07-13        0.05               0.71         0.171
-10 D7      2020-07-16        0.05               0.32         0.093
-# ℹ 52 more rows</code></pre>
+<pre><code>Rows: 86
+Columns: 22
+$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
+$ Date               &lt;date&gt; 2019-01-15, 2019-01-17, 2019-02-15, 2019-02-20, 20…
+$ Chla               &lt;dbl&gt; 0.84, 0.88, 2.29, 1.92, 2.60, 2.53, 1.59, 2.81, 1.0…
+$ Pheophytin         &lt;dbl&gt; 1.21, 0.64, 1.03, 2.32, 1.42, 1.35, 1.25, 1.19, 0.5…
+$ TotAlkalinity      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ DissAmmonia        &lt;dbl&gt; 0.200, 0.214, 0.090, 0.070, 0.050, 0.050, 0.050, 0.…
+$ DissNitrateNitrite &lt;dbl&gt; 3.600, 0.570, 1.030, 0.370, 0.540, 0.300, 0.420, 0.…
+$ DOC                &lt;dbl&gt; 6.00, 1.70, 6.10, 4.20, 3.60, 2.50, 2.60, 2.30, 2.2…
+$ TOC                &lt;dbl&gt; 6.00, 1.70, 5.60, 4.20, 3.60, 2.50, 2.60, 2.10, 2.2…
+$ DON                &lt;dbl&gt; 0.50, 0.10, 0.50, 0.30, 0.38, 0.20, 0.20, 0.16, 0.2…
+$ TotPhos            &lt;dbl&gt; 0.370, 0.094, 0.153, 0.180, 0.070, 0.080, 0.100, 0.…
+$ DissOrthophos      &lt;dbl&gt; 0.329, 0.092, 0.120, 0.071, 0.075, 0.065, 0.072, 0.…
+$ TDS                &lt;dbl&gt; 491, 8530, 160, 133, 112, 108, 109, 94, 118, 150, 5…
+$ TSS                &lt;dbl&gt; 12.0, 24.0, 17.0, 108.0, 6.0, 36.0, 27.0, 22.0, 4.0…
+$ TKN                &lt;dbl&gt; 0.800, 0.380, 0.700, 0.600, 0.400, 0.400, 0.300, 0.…
+$ Depth              &lt;dbl&gt; 38.7, 8.2, 17.0, 8.0, 36.7, 8.2, 39.0, 7.0, 37.8, 6…
+$ Secchi             &lt;dbl&gt; 100, 52, 44, 16, 76, 28, 92, 28, 100, 40, 80, 44, 1…
+$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 4, …
+$ SpCndSurface       &lt;dbl&gt; 878, 14498, 276, 228, 194, 189, 195, 168, 214, 276,…
+$ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26, 14.…
+$ Inflow             &lt;dbl&gt; 27349, 42029, 129533, 107109, 129444, 105932, 10488…
+$ Outflow            &lt;dbl&gt; 21963, 42727, 130451, 95024, 121805, 97089, 100003,…</code></pre>
 </div>
 </div>
-</section>
-<section id="exercise" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="exercise"><span class="header-section-number">2.3</span> Exercise</h2>
-</section>
-</section>
-<section id="summarize-and-reshape" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Summarize and Reshape</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_wq <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">month</span>(Date, <span class="at">label =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Chla =</span> <span class="fu">mean</span>(Chla), <span class="at">.by =</span> <span class="fu">c</span>(Station, Month)) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Station, <span class="at">values_from =</span> Chla)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
-   Month    P8    D7
-   &lt;ord&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 Jan   0.605  0.67
- 2 Feb   1.17   2.90
- 3 Mar   1.61   4.04
- 4 Jun   4.47   4.44
- 5 Jul   5.31   3.94
- 6 Aug   8.73   3.30
- 7 Sep   4.1    1.89
- 8 Oct   2.42   1.96
- 9 Nov   1.63   1.49
-10 Apr   3.08   2.90
-11 May   3.7    2.3 
-12 Dec   1.27   1.69</code></pre>
-</div>
-</div>
-<section id="exercise-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">3.1</span> Exercise</h2>
-<p>Do the same summarize and reshape as above but calculate annual maximums of TDS for each station</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_wq <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">year</span>(Date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">TDS =</span> <span class="fu">max</span>(TDS), <span class="at">.by =</span> <span class="fu">c</span>(Station, Year)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Station, <span class="at">values_from =</span> TDS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
-   Year    P8    D7
-  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1  2020   380 14400
-2  2021   578 15800
-3  2022   453 13700</code></pre>
-</div>
-</div>
+<section id="exercise-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">4.1</span> Exercise</h2>
+<p>Add weather observation data to WQ data (2019-2022, P8, D7, and C3A)</p>
 </section>
 </section>
 

@@ -39,7 +39,7 @@ knitr::include_graphics(here("code/images/wideLong2-768x317.png"))
 knitr::include_graphics(here("code/images/wideLong3-1-768x845.png"))
 ```
 
-Images are from: <https://www.statology.org/long-vs-wide-data/>
+Image Credit: <https://www.statology.org/long-vs-wide-data/>
 
 # Converting between Data Structures
 

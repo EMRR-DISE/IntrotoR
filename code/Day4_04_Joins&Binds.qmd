@@ -21,13 +21,101 @@ library(here)
 df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 ```
 
-# Joins and Binds
+# Differences between them
 
-## Differences between them
+Binding rows or columns from two dataframes:
 
-## Bind rows
+```{r}
+#| echo: FALSE
+#| out-width: 70%
+#| fig-align: left
 
-## Join basics
+knitr::include_graphics(here("code/images/bind_rows.png"))
+```
 
-## Left join
+```{r}
+#| echo: FALSE
+#| out-width: 70%
+#| fig-align: left
+
+knitr::include_graphics(here("code/images/bind_cols.png"))
+```
+
+Joining two dataframes with a `left_join()`:
+
+```{r}
+#| echo: FALSE
+#| out-width: 70%
+#| fig-align: left
+
+knitr::include_graphics(here("code/images/left_join.png"))
+```
+
+Image Credit: <https://stat545.stat.ubc.ca/tutorials/tibble_join/>
+
+# Bind rows
+
+Import additional WQ data collected in 2019 at P8 and D7
+
+```{r}
+df_wq_2019 <- read_csv(here("data/WQ_2019.csv"))
+```
+
+Look at structure of both dataframes to bind
+
+```{r}
+# 2020-2022 data:
+glimpse(df_wq)
+names(df_wq)
+
+# 2019 data:
+glimpse(df_wq_2019)
+names(df_wq_2019)
+```
+
+Add 2019 data to 2020-2022 data by binding rows:
+
+```{r}
+df_wq_2019_2022 <- bind_rows(df_wq_2019, df_wq)
+df_wq_2019_2022
+```
+
+## Exercise
+
+Add data collected from 2019-2022 at C3A to dataframe with P8 and D7
+
+# Join basics
+
+```{r}
+#| echo: FALSE
+#| out-width: 70%
+#| fig-align: left
+
+knitr::include_graphics(here("code/images/join-venn.png"))
+```
+
+```{r}
+#| echo: FALSE
+#| out-width: 70%
+#| fig-align: left
+
+knitr::include_graphics(here("code/images/join-outer.png"))
+```
+
+# Left join
+
+Join Delta inflow and outflow data from DayFlow to WQ data
+
+```{r}
+# Import Delta inflow and outflow data
+df_dayflow <- read_csv(here("data/Dayflow_2019_2023.csv"))
+
+# Join Delta flow data to 2019-2022 WQ data
+df_wq_flow <- left_join(df_wq_2019_2022, df_dayflow)
+glimpse(df_wq_flow)
+```
+
+## Exercise
+
+Add weather observation data to WQ data (2019-2022, P8, D7, and C3A)
 
