@@ -1,0 +1,131 @@
+Station,Date,Weather,AirTemp,WindVelocity
+C3A,2019-01-09,"Cloudy, ripples to small waves with no white caps",55,13
+P8,2019-01-15,"Overcast, no waves/flat, and light rain",44.2,20.9
+D7,2019-01-17,"Cloudy, ripples to small waves with no white caps, and no rain",50,19
+C3A,2019-02-07,"Partly cloudy, no waves/flat, no rain",33,0
+P8,2019-02-15,"Partly cloudy, ripples to small waves with no white caps and no rain",43.3,16.2
+D7,2019-02-20,"Partly cloudy, ripples to small waves with no white caps, light rain",45.5,7.1
+C3A,2019-03-11,"Sunny, no waves/flat",42,4
+P8,2019-03-14,"Sunny, no waves/flat, and no rain",51.6,2.8
+D7,2019-03-18,"Sunny, no waves/flat",60.8,10.8
+C3A,2019-04-09,"Sunny, no waves/flat",58,8
+P8,2019-04-12,"Sunny, ripples to small waves with no white caps, no rain",61.9,23.4
+D7,2019-04-16,"Partly cloudy, no waves/flat",54.9,6.1
+C3A,2019-05-08,"Cloudy, no waves/flat",58,8
+P8,2019-05-13,"Partly cloudy, ripples to small waves with no white caps",71.4,20.8
+D7,2019-05-15,"cloudy, moderate waves with few white caps, and light rain",56.5,22.8
+C3A,2019-06-06,"Sunny, ripples to small waves with no white caps, no rain",64,11
+P8,2019-06-10,"Sunny, no waves/flat",85.3,3.3
+D7,2019-06-12,"Partly cloudy, ripples to small waves with no white caps",84.2,13.9
+C3A,2019-07-08,"Sunny, ripples to small waves with no white caps",70,15
+P8,2019-07-10,"Sunny, no waves/flat, and no rain",76.5,16.1
+D7,2019-07-12,"Sunny, moderate waves with few white caps and no rain",70.3,22.6
+C3A,2019-08-02,"sunny, no waves,flat and no rain",62,6
+P8,2019-08-07,"Sunny, no waves/flat",74.1,7.9
+D7,2019-08-12,"Sunny, no waves/flat",80.2,12.5
+C3A,2019-09-03,"Sunny, ripples to small waves with no white caps",70,9
+P8,2019-09-05,"Partly cloudy; No waves, flat; No rain",77.7,7
+D7,2019-09-09,"Sunny, no waves/flat",72.5,22.7
+C3A,2019-10-01,"sunny; ripples to small waves, no white caps; no rain",54,7
+P8,2019-10-04,"Sunny, ripples to small waves with no white caps",63.9,18.9
+D7,2019-10-08,"Partly cloudy, no waves/flat",73.6,1.4
+C3A,2019-11-01,"Sunny, no waves/flat",49,1
+P8,2019-11-05,"sunny, no waves/flat and no rain",77,2
+D7,2019-11-07,"Sunny, no waves/flat and no rain",63.5,9.2
+C3A,2019-12-02,overcast; no waves; no rain,53,7
+P8,2019-12-04,"Overcast, no waves/flat",52.2,3
+D7,2019-12-09,"Overcast, ripples to small waves with no white caps",48.4,18.5
+C3A,2020-01-14,"Sunny, no waves/flat",48,10
+P8,2020-01-16,"Overcast, no waves/flat, light rain",40.5,2.2
+D7,2020-01-22,"Partly cloudy, no waves/flat",53.8,1
+C3A,2020-02-12,"Sunny sky; No waves, flat; No rain",47,1
+P8,2020-02-14,"Partly cloudy, no waves/flat",46,15
+D7,2020-02-20,"Partly cloudy, moderate waves with few white caps",54,18.4
+C3A,2020-03-02,"Sunny, moderate waves with few white caps",63,23
+P8,2020-03-03,"Sunny, no waves/flat",57.4,1.3
+D7,2020-03-06,"Sky overcast; Ripples to small waves, no white caps; No rain",51.6,18.6
+P8,2020-06-11,"partly cloudy; no waves, flat; no rain",78.1,6.7
+C3A,2020-06-12,"Overcast, ripples to small waves with no white caps",70,15
+D7,2020-06-17,"Sunny, ripples to small waves with no white caps",75.4,7.6
+C3A,2020-07-08,"Sunny, no waves/flat",64,3
+P8,2020-07-13,"sunny; ripples to small waves, no white caps; no rain",82.2,5.1
+D7,2020-07-16,"sunny; ripples to small waves, no white caps; no rain",67.3,18.1
+C3A,2020-08-06,"Sunny, ripples to small waves with no white caps",58,7
+P8,2020-08-11,"sunny; no waves, flat; no rain",74.5,2.3
+D7,2020-08-17,"Cloudy, ripples to small waves with no white caps",88,7.6
+P8,2020-09-09,"overcast; ripples to small waves, no white caps; no rain",68.2,2.3
+C3A,2020-09-23,"sunny; no waves, flat; no rain",79,10
+D7,2020-09-24,"sunny, riplpes to small waves, no white caps; no rain",65.1,25.2
+C3A,2020-10-06,"sunny, no waves/flat and no rain",68,2
+P8,2020-10-08,"overcast; no waves, flat; no rain",64.2,4.7
+D7,2020-10-13,"sunny, no waves/flat and no rain",74.5,7.7
+C3A,2020-11-04,"Sunny, no waves/flat",57,3
+P8,2020-11-06,"cloudy; ripples to small waves, no white caps; no rain",58.5,20.6
+D7,2020-11-12,"sunny, no waves/flat and no rain",60.6,4.3
+C3A,2020-12-03,"Sunny, no waves/flat, no rain",43,2
+C3A,2021-03-03,"Overcast, no waves/flat",46,6
+P8,2021-03-05,"Sunny, no waves/flat, light rain",53.2,10.7
+D7,2021-03-10,"cloudy; moderate waves, few white caps; no rain",47.3,29.8
+C3A,2021-04-01,"Sunny, no waves, no rain",57,2
+P8,2021-04-05,"sunny; no waves, flat; no rain",58.6,12.2
+D7,2021-04-08,"Sunny, ripples to small waves, no white caps, no rain",57,9.7
+C3A,2021-05-03,"sunny; moderate waves, white caps; no rain",70,18
+P8,2021-05-05,"Sunny, no waves/flat",86.5,1.4
+D7,2021-05-10,"Sunny, ripples to small waves, no white caps, no rain",79.7,13.3
+C3A,2021-06-01,"sunny; ripples to small waves, no white caps; no rain",75,10
+P8,2021-06-03,"sunny; no waves, flat; no rain",82.6,11.5
+D7,2021-06-08,"Sunny, large waves with frequent white caps",60.1,33.1
+C3A,2021-07-14,"sunny; ripples to small waves, no white caps; no rain",61,10
+P8,2021-07-16,"Sunny, no waves/flat",65.3,14
+D7,2021-07-21,"Sunny, ripples to small waves, no white caps, no rain",76.1,15.2
+C3A,2021-08-12,"Sunny, no waves, flat, no rain",66,10
+P8,2021-08-16,"Partly cloudy, no waves, flat, no rain",87.8,13.7
+D7,2021-08-19,"overcast; ripples to small waves, no white caps; no rain",68.7,23.1
+C3A,2021-09-09,"Partly cloudy, ripples to small waves, no white caps, no rain",65,5
+P8,2021-09-10,"Sunny, ripples to small waves, no white caps, no rain",79.5,14.2
+D7,2021-09-16,"Sunny, moderate waves, few white caps, no rain",57,23.4
+C3A,2021-10-11,"Sunny, large waves with frequent white caps, no rain",62,31
+P8,2021-10-13,"Partly cloudy, no waves, flat, no rain",67.3,13.5
+D7,2021-10-18,"Partly cloudy; Ripples to small waves, no white caps; No rain",54.7,8.2
+C3A,2021-11-08,"Partly cloudy, no waves, flat, no rain",43,1
+P8,2021-11-10,"cloudy; no waves, flat; no rain",55.9,7.6
+D7,2021-11-16,"Cloudy, ripples to small waves, no white caps, no rain",51.8,8.3
+C3A,2021-12-08,"Foggy, no waves, flat, no rain",49,5
+P8,2021-12-10,"Sunny, ripples to small waves, no white caps, no rain",50,11.5
+D7,2021-12-15,"Cloudy, ripples to small waves with no white caps, no rain",46.9,20.3
+D7,2022-01-12,"Foggy, ripples to small waves, no white caps, no rain",41.5,14.6
+D7,2022-02-14,"Partly cloudy, large waves/frequent white caps, no rain",47.8,33.3
+D7,2022-03-16,"Sunny, ripples to small waves with no white caps, no rain",54.1,10.5
+D7,2022-04-27,"Partly cloudy, ripples to small waves with no white caps, no rain",55.8,18.8
+D7,2022-05-27,"Partly cloudy, large waves, frequent white caps, no rain",57.2,37.7
+D7,2022-06-27,"sunny; moderate waves, white caps; no rain",77.7,8.2
+D7,2022-07-25,"sunny; large waves, frequent white caps; no rain",67.3,17.4
+D7,2022-08-22,"sunny; ripples to small waves, no white caps; no rain",71.6,20.5
+D7,2022-09-20,"partly cloudy; ripples to small waves, no white caps; no rain",64,8.1
+D7,2022-10-19,"sunny; no waves, flat; no rain",66.7,1.2
+D7,2022-11-18,"Sunny, Moderate waves with few white caps, no rain",48.4,11.2
+D7,2022-12-19,"overcast; ripples to small waves, no white caps; no rain",34.3,21.2
+P8,2022-01-07,"Overcast, no waves/flat, light rain",47.5,7.5
+P8,2022-02-09,"Partly cloudy, no waves/flat, no rain",58.5,3.5
+P8,2022-03-11,"sunny; ripples to small waves, no white caps; no rain",63,6
+P8,2022-04-22,"Cloudy, ripples to small waves/no white caps, no rain",53.6,5.8
+P8,2022-05-23,"Sunny; No waves, flat; No rain",79.9,11.4
+P8,2022-06-22,"Partly cloudy, ripples to small waves/no white caps, no rain",88.3,11.4
+P8,2022-07-20,"Sunny, no waves/flat, no rain",83.1,8.6
+P8,2022-08-17,"cloudy; no waves, flat; no rain",79.9,1.7
+P8,2022-09-15,"Partly cloudy, ripples to small waves with no white caps, no rain",67.5,12.4
+P8,2022-10-14,"Sunny, no waves/flat, no rain",74.1,5.3
+P8,2022-11-15,"Sunny, no waves/flat, no rain",61.9,5.8
+P8,2022-12-14,"Partly cloudy, no waves/flat, no rain",46.6,2.2
+C3A,2022-01-05,"overcast; no waves, flat; no rain",47,5
+C3A,2022-02-07,"Sunny, ripples to small waves with no white caps, no rain",54,5
+C3A,2022-03-09,"sunny; no waves, flat; no rain",62,2
+C3A,2022-04-06,"Sunny; Ripples to small waves, no white caps; No rain",64,11
+C3A,2022-05-19,"Sunny, no waves/flat, no rain",70,8
+C3A,2022-06-20,"Sunny, no waves/flat, no rain",83,6
+C3A,2022-07-18,"Sunny, ripples to small waves/no white caps, no rain",78,11
+C3A,2022-08-15,"sunny; no waves, flat; no rain",76,3
+C3A,2022-09-13,"sunny; ripples to small waves, no white caps; no rain",64,16
+C3A,2022-10-12,"sunny; ripples to small waves, no white caps; no rain",61,7
+C3A,2022-11-10,"sunny; ripples to small waves, no white caps; no rain",46,8
+C3A,2022-12-09,"Foggy, no waves/flat, no rain",44,10
