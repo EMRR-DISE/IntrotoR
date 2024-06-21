@@ -1,0 +1,31 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Introduction to R Training - July 2024"
+  author: "Rosie Hartman, Perry, Nick Rasmussen, Dave Bosworth"
+  date: "6/21/2024"
+  chapters:
+    - index.qmd
+    - part: "Day 1"
+      chapters:
+        - code/Day1Intro.qmd
+    - part: code/Day4_01_Outline.qmd
+      chapters:
+        - code/Day4_02_Summarizing.qmd
+        - code/Day4_03_Reshaping.qmd
+        - code/Day4_04_Joins&Binds.qmd
+        - code/Day4_05_Final_Exercise.qmd
+    - references.qmd
+  appendices:
+    - code/RDefinitions.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+
+
+

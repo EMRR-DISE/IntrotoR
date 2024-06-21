@@ -1,11 +1,9 @@
 ---
-title: "Day 4 - Reshaping Data"
+title: "Reshaping Data"
 author: "Dave Bosworth"
-format: html
-toc: true
-toc-expand: true
-toc-location: left
-number-sections: true
+format:
+  html:
+    code-link: true
 code-copy: true
 execute: 
   message: false
@@ -21,7 +19,7 @@ library(here)
 df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 ```
 
-# Basics of Data Structure
+## Basics of Data Structure
 
 ```{r}
 #| echo: FALSE
@@ -41,7 +39,7 @@ knitr::include_graphics(here("code/images/wideLong3-1-768x845.png"))
 
 Image Credit: <https://www.statology.org/long-vs-wide-data/>
 
-# Converting between Data Structures
+## Converting between Data Structures
 
 ```{r}
 df_wq_nutr <- df_wq %>% 
@@ -50,7 +48,7 @@ df_wq_nutr <- df_wq %>%
 df_wq_nutr
 ```
 
-## "Wide" to "Long"
+### "Wide" to "Long"
 
 ```{r}
 df_wq_nutr_long <- df_wq_nutr %>% 
@@ -63,7 +61,7 @@ df_wq_nutr_long <- df_wq_nutr %>%
 print(df_wq_nutr_long, n = 30)
 ```
 
-## "Long" to "Wide"
+### "Long" to "Wide"
 
 ```{r}
 df_wq_nutr_wide <- df_wq_nutr_long %>% 
@@ -72,9 +70,9 @@ df_wq_nutr_wide <- df_wq_nutr_long %>%
 df_wq_nutr_wide
 ```
 
-## Exercise
+### Exercise
 
-# Summarize and Reshape
+## Summarize and Reshape
 
 ```{r}
 df_wq %>% 
@@ -83,7 +81,7 @@ df_wq %>%
   pivot_wider(names_from = Station, values_from = Chla)
 ```
 
-## Exercise
+### Exercise
 
 Do the same summarize and reshape as above but calculate annual maximums of TDS for each station
 

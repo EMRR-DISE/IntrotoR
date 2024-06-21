@@ -1,11 +1,9 @@
 ---
-title: "Day 4 - Joins and Binds"
+title: "Joins and Binds"
 author: "Dave Bosworth"
-format: html
-toc: true
-toc-expand: true
-toc-location: left
-number-sections: true
+format:
+  html:
+    code-link: true
 code-copy: true
 execute: 
   message: false
@@ -21,7 +19,7 @@ library(here)
 df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 ```
 
-# Differences between them
+## Differences between them
 
 Binding rows or columns from two dataframes:
 
@@ -53,7 +51,7 @@ knitr::include_graphics(here("code/images/left_join.png"))
 
 Image Credit: <https://stat545.stat.ubc.ca/tutorials/tibble_join/>
 
-# Bind rows
+## Bind rows
 
 Import additional WQ data collected in 2019 at P8 and D7
 
@@ -80,11 +78,11 @@ df_wq_2019_2022 <- bind_rows(df_wq_2019, df_wq)
 df_wq_2019_2022
 ```
 
-## Exercise
+### Exercise
 
 Add data collected from 2019-2022 at C3A to dataframe with P8 and D7
 
-# Join basics
+## Join basics
 
 ```{r}
 #| echo: FALSE
@@ -102,7 +100,7 @@ knitr::include_graphics(here("code/images/join-venn.png"))
 knitr::include_graphics(here("code/images/join-outer.png"))
 ```
 
-# Left join
+## Left join
 
 Join Delta inflow and outflow data from DayFlow to WQ data
 
@@ -115,7 +113,7 @@ df_wq_flow <- left_join(df_wq_2019_2022, df_dayflow)
 glimpse(df_wq_flow)
 ```
 
-## Exercise
+### Exercise
 
 Add weather observation data to WQ data (2019-2022, P8, D7, and C3A)
 

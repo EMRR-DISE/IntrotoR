@@ -1,18 +1,16 @@
 ---
-title: "Day 4 - Summarizing Data"
+title: "Summarizing Data"
 author: "Dave Bosworth"
-format: html
-toc: true
-toc-expand: true
-toc-location: left
-number-sections: true
+format:
+  html:
+    code-link: true
 code-copy: true
 execute: 
   message: false
   warning: false
 ---
 
-# Import Data
+## Import Data
 
 Load packages and import EMP water quality data.
 
@@ -29,7 +27,7 @@ df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 glimpse(df_wq)
 ```
 
-# Basic Summarizing
+## Basic Summarizing
 
 ```{r}
 # Simple overall summary statistics of entire data frame
@@ -49,9 +47,9 @@ df_wq %>% summarize(mean_Chla = mean(Chla), mean_Pheo = mean(Pheophytin))
 
 Show how to deal with `NA` values - DON
 
-## Exercise
+### Exercise
 
-# Grouping
+## Grouping
 
 ```{r}
 # Group by Station
@@ -113,9 +111,9 @@ df_wq_c %>%
   ) 
 ```
 
-## Exercise
+### Exercise
 
-# OPTIONAL: Using `across`
+## OPTIONAL: Using `across`
 
 ```{r}
 df_wq_c %>% 

@@ -186,7 +186,6 @@ Using `class` and `str` to get info about objects. also `View` and `head`.
 
 ```{r}
 foo <- "Cat"
-bar <- dog
 dog <- 24
 
 class(foo)
@@ -222,11 +221,7 @@ mean(c(1+2+3+4))
 
 ```
 
-Notice that as you start typing the function, a box pops up in RStudio that propts you with the arguments you might want to use.
-
-```{r}
-log()
-```
+Notice that as you start typing the function, a box pops up in RStudio that prompts you with the arguments you might want to use.
 
 #### Exercise
 
@@ -313,14 +308,15 @@ library(lubridate, exclude = "date")
 Let's try using a function that is in a package. `glimpse` is an simple function that tells you about a data frame. R has a number of built-in data sets that you can play with, and one is `mtcars`. It's just a table of different makes and models of cars and their stats.
 
 ```{r}
+#| error: true
 
-#The View funciton is built in. 
+#The View function is built in. 
 View(mtcars)
 
 #the "glimpse" function is in the dplyr package. It's part of the tidyverse set of packages. You should have installed it already
 glimpse(mtcars)
 
-#even though you installed it, you still need to load it using hte library command.
+#even though you installed it, you still need to load it using the library command.
 library(dplyr)
 
 ?dplyr
@@ -331,7 +327,7 @@ glimpse(mtcars)
 Now go to the documentation for dplyr and look through the "Introduction to dplyr" vignette. Take 15 mins and see if you try out some of the examples. We'll be using a lot of these dplyr functions later in the class.
 
 ```{r}
-dplyr::dplyr	
+vignette("dplyr")	
 ```
 
 ## Part 4: Errors and Getting Help
@@ -339,6 +335,8 @@ dplyr::dplyr
 One of the most frustrating parts of coding is errors. Your computer is very good at doing exactly what you tell it to, but that might not be what you want.
 
 ```{r}
+#| error: true
+
 dates = c("Monday", "Tuesday", "Wednesday")
 
 date[1]
@@ -358,9 +356,10 @@ Another thing to know is that not all red text is errors. Some are warnings. Don
 ```{r}
 mtcars[1,1] = NA 
 
+library(ggplot2)
 ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
 
-#everything still ran, but it gave to a warning to let you knwo something did not go as planned
+#everything still ran, but it gave to a warning to let you know something did not go as planned
 
 ```
 
@@ -414,11 +413,13 @@ The documentation has a few standard parts
 How to save your workspace image.
 
 ```{r}
+#| eval: false
+
 save.image()
 #also little save icon on environment
 ```
 
-How to clear your workspace .
+How to clear your workspace.
 
 ```{r}
 rm(list = ls())
