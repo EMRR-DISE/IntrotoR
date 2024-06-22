@@ -6,6 +6,13 @@ book:
   title: "Introduction to R Training - July 2024"
   author: "Rosie Hartman, Perry, Nick Rasmussen, Dave Bosworth"
   date: "6/21/2024"
+  navbar:
+    search: true
+    pinned: true
+    right:
+      - icon: github
+        href: https://github.com/EMRR-DISE/IntrotoR
+        aria-label: Book GitHub
   chapters:
     - index.qmd
     - part: "Day 1"
