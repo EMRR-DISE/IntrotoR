@@ -33,8 +33,10 @@ So without further adue, let's load the packages we need for today's tutorial. I
 
 #install.packages("ggplot2") 
 
-library(tidyverse)
-library(here)
+library(tidyverse) #suite of data science tools
+library(here) #setting working directory
+library(viridis) #color blind friendly color palettes
+library(patchwork) #combining plots into panels
 
 ```
 
@@ -124,11 +126,11 @@ We can start to see how Secchi depth changed over time, but it would be easier t
   geom_line())
 
 #Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstates that we are simply adding layers
-(plot_ts_points_lines2 <- ts_points +
+(plot_ts_points_lines2 <- plot_ts_points +
   geom_line())
 
 ```
-Now it is a little easier to see the patterns through time. We can see that Secchi depth is low in the winter and high in the summer.  
+Now it is a little easier to see the patterns through time. We can see that Secchi depth varies seasonally, generally with low values in rainy winter months and high in dry summer months. Note there is a gap in the time series in 2021 to reflect a missing value.  
 
 ## Multiple time series per plot
 
@@ -142,7 +144,7 @@ We can easily plot multiple time series on the same graph in order to compare th
   geom_line(aes(color = Station)))
 
 ```
-
+This plot clearly shows that Secchi depth is generally much higher at P8 than D7, indicating that turbidity is higher at D7.
 
 
 ## Scatterplots
@@ -168,7 +170,7 @@ There appears to be a strong relationship between these two variables. Let's add
 
 ## Box and whisker plots
 
-In scatter plots, we plot a continous variable against another continuous variable. In some cases, we want to plot a continuous variable against a categorical variable. One type of plot that is useful in this situation is a box and whisker plot. These are great for initial data exploration and sometimes even in publications.
+In scatter plots, we plot a continuous variable against another continuous variable. In some cases, we want to plot a continuous variable against a categorical variable. One type of plot that is useful in this situation is a box and whisker plot. These are great for initial data exploration and sometimes even in publications.
 
 Microcystis abundance data is collected using a visual scoring system of 1 - 5, with 5 being the highest. Microcystis blooms are associated with high water temperature. Let's plot the Microcystis scores (categorical) against water temperature (continuous). 
 
@@ -180,6 +182,7 @@ Note that Microcystis scores are ordered categories (i.e., ordinal), so R read t
 (plot_bw1 <- ggplot(data = wqdata, aes(x = Microcystis, y = WTSurface)) +
    geom_boxplot()
    )
+#doesn't produced the expected result because the Microcystis column is currently numeric instead of a factor
 
 #make the plot correctly by specifying that Microcystis scores are categorical rather than numeric
 (plot_bw2 <- ggplot(data = wqdata, aes(x = factor(Microcystis), y = WTSurface)) +
@@ -249,7 +252,7 @@ Perhaps we are more interested in the relative values rather than the absolute v
  )
 ```
 
-## Multi-panel plots
+## Faceted plots
 
 Sometimes we want to show the same type of plot for multiple groups at once so we can compare them. It is easy to make multi-panel plots in ggplot2 using facets. 
 
@@ -286,6 +289,23 @@ By default, the y-axis is standardized across the panels. This is generally a go
 )
 
 ```
+## Combined plots
+
+Sometimes, it is useful to combine multiple plots into a panel that do not share a common x or y axis (i.e., are not produced using facet_grid() or facet_wrap()). These plot panels are particularly useful in publications like journal articles.
+
+```{r}
+
+#two side by side
+plot_hist2 + plot_bar_stack_abs
+
+#two stacked
+plot_hist2 / plot_bar_stack_abs
+
+#one large on left and two small stacked on right
+plot_bar2+(plot_hist2 / plot_bar_stack_abs)
+
+
+```
 
 
 ## Customizing plots
@@ -294,24 +314,117 @@ As I mentioned at the outset, one of the greatest advances of using R to make gr
 
 We will use the Secchi depth time series again. Previously, we used color to help differentiate the two stations, but we just used the default colors. We can specify the exact colors we want. We can also change the size, shape, and color of the points and the line type, width, and color. 
 
+
 ```{r}
 
-#time series plot with connecting lines for both stations
-(plot_ts_points_lines_two <- ggplot(data = wqdata, aes(x = Date, y = Secchi, group = Station)) +
+#basic time series plot with connecting lines for both stations
+(plot_ts_points_lines_two <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
   geom_point(aes(color = Station))+
   geom_line(aes(color = Station)))
 
-#time series plot with connecting lines for both stations customized
-(plot_ts_points_lines_two_custom <- ggplot(data = wqdata, aes(x = Date, y = Secchi, group = Station)) +
-  geom_point(aes(color = Station))+
-  geom_line(aes(color = Station)))+
-  scale_color_manual(values =c("midnightblue","darkorange3"))+
-    scale_shape_manual(values = c(21, 25))+
-    scale_linetype_manual(values = c(2,3))
+#different point types for different stations
+(plot_ts_points_lines_two_pts <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+  geom_point(aes(color = Station, shape = Station))+
+  geom_line(aes(color = Station)))
+
+#different line types for different stations
+(plot_ts_points_lines_two_pts <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+  geom_point(aes(color = Station, shape = Station))+
+  geom_line(aes(color = Station, linetype = Station)))
+
+#adjust point sizes and line widths
+(plot_ts_points_lines_two_pts <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+  geom_point(aes(color = Station, shape = Station), size = 3)+
+  geom_line(aes(color = Station, linetype = Station), size = 1.2))
+
+
+#Customize colors 
+(plot_ts_points_lines_two_custom <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+  geom_point(aes(color = Station, shape = Station), size = 3)+
+  geom_line(aes(color = Station, linetype = Station), size = 1.2)+
+  scale_color_manual(values =c("midnightblue","darkorange3"))
+)
+
+#Customize point shapes 
+(plot_ts_points_lines_two_custom <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+  geom_point(aes(color = Station, shape = Station), size = 3)+
+  geom_line(aes(color = Station, linetype = Station), size = 1.2)+
+  scale_color_manual(values =c("midnightblue","darkorange3")) +
+  scale_shape_manual(values = c(15,17))
 )
 
 
+#Customize line types
+(plot_ts_points_lines_two_custom <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+  geom_point(aes(color = Station, shape = Station), size = 3)+
+  geom_line(aes(color = Station, linetype = Station), size = 1.2)+
+  scale_color_manual(values =c("midnightblue","darkorange3")) +
+  scale_shape_manual(values = c(15,17)) +
+  scale_linetype_manual(values = c("dotted","longdash"))
+)
+
+
+
 ```
+
+So far, we have used the default color palette in ggplot2 as well as some customized colors. There are also a variety of R packages with thoughtfully developed color palettes. One example is the 'viridis' package, which includes palettes are both attractive and color blind friendly. 
+
+```{r}
+
+#Use color palette
+#our Sechi depth plot isn't a great example so we will go back to our Microcystis scores plot
+(plot_bar <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = temp_mean, fill = factor(Microcystis))) +
+   geom_bar(stat = 'identity')+
+   scale_fill_viridis(discrete = T)
+   )
+
+
+```
+
+
+There are also options for formatting the plot background. Many people dislike the default gray background with grid lines.
+
+
+```{r}
+#change background from gray with white grid to white with gray grid
+(plot_background_bw <- plot_ts_points_lines_two_custom + 
+  theme_bw()
+)
+
+(plot_background_classic <- plot_ts_points_lines_two_custom + 
+  theme_classic()
+)
+
+```
+
+In addition, we can customize the names used to label the x-axis and y-axis and add plot titles. It is important to provide good labels for your plot axes. In particular, make sure to include the measurement units when relevant. I don't personally use plot title much, but they can be quickly inform your audience about the purpose of the plot. 
+
+```{r}
+(plot_labels <- plot_background +
+  labs(x = "Sampling Date"
+       , y = "Secchi depth (cm)"
+       ,title = "Secchi depth comparison"
+       )
+)
+
+```
+
+
+## Saving plots
+
+In RStudio, you can right click on a plot to copy it and then paste it elsewhere (e.g., email, word document), which works fine as a quick and dirty approach. However, a better way to export a plot involves using the ggsave() function. We will export our customized Secchi depth comparison plot.
+
+```{r}
+ggsave(plot = plot_labels #tell ggsave which plot to export
+       , filename = "images/secchi_depth_comp.png" #provide the name for the image file
+       , width = 6, height =4, units = "in" #dimensions of the exported image
+       , dpi = 300 #resolution of the image (dots per inch)
+       )
+```
+
+I used PNG which is a file type that works well for viewing on a computer. However, ggsave() can save plots as PDF, JPEG, TIFF, and various others. Search for ggsave() within 'Help' to see the full list of file types.
+
+By default, the plot will be saved in your working directory. I specified a subfolder within my working directory.
 
 
 ## Additional resources
