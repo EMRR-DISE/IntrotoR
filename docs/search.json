@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Introduction to R Training - July 2024",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "text": "Intro to R for DWR\nWelcome to the Intro to R class for the Department of Water Resources, 2024!\nFor the first time, this is not taught by outside consultants, but by your own colleagues here at the department.",
     "crumbs": [
-      "Preface"
+      "Intro to R for DWR"
     ]
   },
   {
@@ -226,6 +226,36 @@
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Definitions</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#ground-rules",
+    "href": "index.html#ground-rules",
+    "title": "Introduction to R Training - July 2024",
+    "section": "Ground rules",
+    "text": "Ground rules\n\nPlease participate fully in the class. You will get out of this class exactly as much as you put into it. This means not multi-tasking, completing the exercises, and asking questions when you get stuck.\nPlease come prepared. Install software ahead of time, have the link to this book on-hand, and review materials from the previous day before the next day’s class.\nDon’t be afraid to ask questions! Any coding language can be frustrating, so please speak up if you are having trouble. One of our teaching assistants can work with you 1:1 for major problems.",
+    "crumbs": [
+      "Intro to R for DWR"
+    ]
+  },
+  {
+    "objectID": "index.html#before-you-come-to-class",
+    "href": "index.html#before-you-come-to-class",
+    "title": "Introduction to R Training - July 2024",
+    "section": "Before you come to class",
+    "text": "Before you come to class\n\nInstall R Studio\nInstall R\nInstall the tidyverse packages\nInstall the here package\nOpen RStudio and make sure it runs.",
+    "crumbs": [
+      "Intro to R for DWR"
+    ]
+  },
+  {
+    "objectID": "index.html#meet-your-instructors",
+    "href": "index.html#meet-your-instructors",
+    "title": "Introduction to R Training - July 2024",
+    "section": "Meet your instructors",
+    "text": "Meet your instructors\n\nRosemary Hartman (She/Her) is an Environmental Program Manager in the Division of Integrated Science and Engineering. She is an aquatic ecologist by training, with an emphasis on data synthesis, statistics, and data integration. She would love to tell you how to analyze your data.\nPerry (They/Them) is an Environmental Scientist with the Environmental Monitoring Program who is also getting a master’s degree in statistics from UC Davis. They are fluent in both Python and R.\nNick Rasmussen (He/Him) is a Senior Environmental Scientist with broad interests in aquatic ecology who has worked on projects ranging from the Salinity Control Gates to aquatic weeds.\nDave Bosworth (He/Him) is a Senior Environmental Scientist who comes from a water quality and contaminants background but has found his calling as a data scientist. He is passionate about making your code more efficient and automating all the boring stuff.\nTed Swift (He/Him) is a Senior Environmental Scientist with the Quality Management Section who is working to increase the number of data science training available to DWR scientists.",
+    "crumbs": [
+      "Intro to R for DWR"
     ]
   }
 ]
