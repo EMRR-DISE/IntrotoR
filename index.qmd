@@ -14,24 +14,43 @@ For the first time, this is not taught by outside consultants, but by your own c
 
 ## Before you come to class
 
--   Install R Studio
-
 -   Install R
 
--   Install the tidyverse packages
+    -   Go to the [Comprehensive R Archive Network](https://cran.r-project.org/) (CRAN) webpage and download R for Windows.
 
--   Install the here package
+    -   Open the installer and follow the prompts to install R on your computer using the default settings. You may need an administrator account to complete this step.
+
+    -   If you already have R on your computer, please make sure it is version 4.0 or above. (The latest version is 4.4.1)
+
+    -   See full instructions here: <https://rstudio-education.github.io/hopr/starting.html>
+
+-   Install R Studio
+
+    -   Go to the [Download Rstudio](https://posit.co/download/rstudio-desktop/) page on the Posit website and download R Studio for Windows.
+
+    -   Open the installer and follow the prompts to install R on your computer using the default settings. You may need an administrator account to complete this step.
 
 -   Open RStudio and make sure it runs.
 
+    -   The window titled "Console" should come up and have the R version and some boilerplate information about R in it, with a blue carrot and cursor below it.
+
+    -   ![](images/clipboard-1261131084.png)
+
+-   Install the `tidyverse` and `here` packages
+
+    -   In your console, type `install.packages("tidyverse", "here")`
+    -   The package should download and install automatically. You do not need administrative privileges for this step.
+    -   NOTE: There are sometimes issues accessing CRAN from within RStudio while connected to a DWR network. If you receive this message, use your home wifi or a cell phone hot spot to connect to the internet, then try again.
+    -   ![](images/clipboard-3898096622.png)
+
 ## Meet your instructors
 
--   Rosemary Hartman (She/Her) is an Environmental Program Manager in the Division of Integrated Science and Engineering. She is an aquatic ecologist by training, with an emphasis on data synthesis, statistics, and data integration. She would love to tell you how to analyze your data.
+-   [Rosemary Hartman](Rosemary.Hartman@water.ca.gov) (She/Her) is an Environmental Program Manager in the Division of Integrated Science and Engineering. She is an aquatic ecologist by training, with an emphasis on data synthesis, statistics, and data integration. She would love to tell you how to analyze your data.
 
--   Perry (They/Them) is an Environmental Scientist with the Environmental Monitoring Program who is also getting a master's degree in statistics from UC Davis. They are fluent in both Python and R.
+-   [Perry](Sarah.Perry@water.ca.gov) (They/Them) is an Environmental Scientist with the Environmental Monitoring Program who is also getting a master's degree in statistics from UC Davis. They are fluent in both Python and R.
 
--   Nick Rasmussen (He/Him) is a Senior Environmental Scientist with broad interests in aquatic ecology who has worked on projects ranging from the Salinity Control Gates to aquatic weeds.
+-   [Nick Rasmussen](Nicholas.Rasmussen@water.ca.gov) (He/Him) is a Senior Environmental Scientist with broad interests in aquatic ecology who has worked on projects ranging from the Salinity Control Gates to aquatic weeds.
 
--   Dave Bosworth (He/Him) is a Senior Environmental Scientist who comes from a water quality and contaminants background but has found his calling as a data scientist. He is passionate about making your code more efficient and automating all the boring stuff.
+-   [Dave Bosworth](David.Bosworth@water.ca.gov) (He/Him) is a Senior Environmental Scientist who comes from a water quality and contaminants background but has found his calling as a data scientist. He is passionate about making your code more efficient and automating all the boring stuff.
 
--   Ted Swift (He/Him) is a Senior Environmental Scientist with the Quality Management Section who is working to increase the number of data science training available to DWR scientists.
+-   [Ted Swift](Ted.Swift@water.ca.gov) (He/Him) is a Senior Environmental Scientist with the Quality Management Section who is working to increase the number of data science training available to DWR scientists.

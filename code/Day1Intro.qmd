@@ -8,7 +8,7 @@ editor: visual
 
 R is a flexible coding language that anyone can learn
 
-I am taking a lot of this tutorial from the e-book "Hands on Programing in R" <https://rstudio-education.github.io/hopr/>
+I am taking a lot of this tutorial from the e-book "Hands on Programming in R" <https://rstudio-education.github.io/hopr/>
 
 **Isn’t R a language?**
 
@@ -178,7 +178,7 @@ We can call `temps` and `temps_C` *objects*. Specifically, they are numeric vect
 
 -   logical - TRUE/FALSE (always in all caps)
 
--   factor - Catigorical variables that take a limited set of values. May be ordered (like water year types), or unordered (like families of fishes)
+-   factor - Categorical variables that take a limited set of values. May be ordered (like water year types), or unordered (like families of fishes)
 
 -   date/time classes (giant can of worms)
 
@@ -276,12 +276,20 @@ When you want to install or update packages, you can use the `install.packages` 
 ```{r}
 #load required libraries
 library(readr)
+```
 
+Let's check out the documentation
+
+```{r}
+#|eval = FALSE
 #check out documentation
 ?readr
 
-#Click on the index, then one of the vignettes - those are very useful!
 ```
+
+Click on the index, then one of the vignettes - those are very useful!
+
+![](images/clipboard-1741072157.png)
 
 #### Package conflicts
 
@@ -375,6 +383,7 @@ ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
 The first thing to learn, is how to read the documentation for a function.
 
 ```{r}
+#|eval = FALSE
 ?mean
 ```
 
@@ -388,15 +397,25 @@ The documentation has a few standard parts
 
 -   Usage (Function and arguments)
 
+    ![](images/clipboard-960713081.png)
+
 -   Arguments - description of what all the arguments should contain
 
+    ![](images/clipboard-3567295094.png)
+
 -   Value - output
+
+    ![](images/clipboard-2924046281.png)
 
 -   References - articles or more info
 
 -   See Also - similar functions or functions you might want if you want this one
 
+-   ![](images/clipboard-3033732603.png)
+
 -   Examples - THE MOST USEFUL PART!
+
+    ![](images/clipboard-1798966994.png)
 
 ### Online help options
 
