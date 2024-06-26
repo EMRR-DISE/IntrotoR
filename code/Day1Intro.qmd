@@ -82,7 +82,16 @@ Now your turn!
 3.  Type `24/2` in your script
 4.  Run the script
 
+Click below for the answer when you are done!
+
 ```{r}
+#| code-fold: true
+#| eval: false
+
+# My First R script
+#
+
+24/2
 
 ```
 
@@ -150,7 +159,20 @@ Convert these numbers from miles per hour to meters per second. (use assignment)
 
 21, 25, 100, 50, 36, 72, 15
 
+Click below for the answer when you are done.
+
 ```{r}
+#| eval: false
+#| code-fold: true
+
+#the variable "mph" will be assigned the value of a vector of all our numbers
+mph <- c(21, 25, 100, 50, 36, 72, 15)
+
+#to convert mph to mps, divide by 2.237
+mps <- mph/2.237
+
+#now print the output
+mps
 
 ```
 
@@ -216,12 +238,12 @@ sum(1+1)
 sum
 
 #mean is another useful function
-mean(c(1+2+3+4))
+mean(c(1,2,3,4))
 
 
 ```
 
-Notice that as you start typing the function, a box pops up in RStudio that prompts you with the arguments you might want to use.
+Notice that as you start typing the function, a box pops up in RStudio that prompts you with the arguments you might want to use. Also note that we have to "feed" the `mean` function a vector of values with `c` (concatenate) in front of it.
 
 #### Exercise
 
@@ -241,7 +263,34 @@ See if you can use use these functions
 
 -   exp (exponent)
 
+    Click below for the answers when you're done!
+
 ```{r}
+#| code-fold: true
+#| eval: false
+
+mean(c(23, 24, 15, 12, 53, 23,1, 45))
+
+sum(c(1:50))
+
+abs(c(-1, 2, -10, 5))
+
+#natural log
+log(100)
+
+#log base 10
+log(100, base = 10)
+
+#the default for round is no decimal points
+round(5.345673)
+
+#but you can specify the number of decimal points with the second argument
+round(5.345673, digits = 2)
+
+#this is the same as e^20
+exp(20)
+
+exp(log(10))
 
 ```
 
@@ -281,7 +330,7 @@ library(readr)
 Let's check out the documentation
 
 ```{r}
-#|eval = FALSE
+#| eval: false
 #check out documentation
 ?readr
 
@@ -324,17 +373,27 @@ View(mtcars)
 #the "glimpse" function is in the dplyr package. It's part of the tidyverse set of packages. You should have installed it already
 glimpse(mtcars)
 
-#even though you installed it, you still need to load it using the library command.
-library(dplyr)
 
-?dplyr
+```
+
+Even though you installed it, you still need to load it into your workspace using the `library` command.
+
+```{r}
+
+library(dplyr)
 
 glimpse(mtcars)
 ```
 
-Now go to the documentation for dplyr and look through the "Introduction to dplyr" vignette. Take 15 mins and see if you try out some of the examples. We'll be using a lot of these dplyr functions later in the class.
+### Exercise
+
+Now go to the documentation for dplyr and look through the "Introduction to dplyr" vignette. Take 10 mins and see if you try out some of the examples. We'll be using a lot of these dplyr functions later in the class.
 
 ```{r}
+#| eval: FALSE
+
+?dplyr
+
 vignette("dplyr")	
 ```
 
@@ -349,8 +408,6 @@ dates = c("Monday", "Tuesday", "Wednesday")
 
 date[1]
 
-
-test = filter(mtcars, gear = 4)
 ```
 
 This is one of my least favorite error messages. What the heck does that even mean?
@@ -383,7 +440,8 @@ ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
 The first thing to learn, is how to read the documentation for a function.
 
 ```{r}
-#|eval = FALSE
+#| eval: false
+
 ?mean
 ```
 
@@ -416,6 +474,46 @@ The documentation has a few standard parts
 -   Examples - THE MOST USEFUL PART!
 
     ![](images/clipboard-1798966994.png)
+
+-   Sometimes there are other parts, including more details on statistical methods, but these are the basics.
+
+### Exercise
+
+Look up the documentation for these functions and see if you can run the examples.
+
+`rnorm`
+
+`aov`
+
+`sample`
+
+Click below to see the answer when you are done.
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+?rnorm
+#rnorm generates a random number or numbers from a normal distribution. You can specify the mean and standard deviation
+
+#this generates 20 random numbers with a mean of 10 and a standard deviation of 3
+rnorm(20, mean = 10, sd =3)
+
+?aov
+#aov runs an ANOVA (analysis of variance), which tests for differences between groups
+
+#the examples use the "npk" dataset which is built into R
+aov(yield ~ block + N * P + K, npk)
+
+?sample
+#this function takes a subsample of a larger set of number of a specified size 
+
+x <- 1:12
+# a random permutation
+sample(x)
+# bootstrap resampling -- only if length(x) > 1 !
+sample(x, replace = TRUE)
+```
 
 ### Online help options
 
