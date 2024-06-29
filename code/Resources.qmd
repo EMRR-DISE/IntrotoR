@@ -1,19 +1,19 @@
 ---
-title: "Useful resources"
+title: "Useful Resources"
 author: "The Intro to R Team"
 editor: visual
 ---
 
-R For Data Science - a must-read ebook for how to handle data in R. https://r4ds.hadley.nz
+R For Data Science - a must-read e-book for how to handle data in R. <https://r4ds.hadley.nz>
 
-Cheetsheets for popular R packages. https://rstudio.github.io/cheatsheets
+Cheetsheets for popular R packages. <https://rstudio.github.io/cheatsheets>
 
-IEP Data Science Project Workteam homepage. https://interagencyecologicalprogram.github.io/DataScience/ 
+IEP Data Science Project Workteam homepage. <https://interagencyecologicalprogram.github.io/DataScience/>
 
-RSeek - Google for R related websites. https://rseek.org/
+RSeek - Google for R related websites. <https://rseek.org/>
 
-Chat GPT and other generative AI apps can help you write code. https://chatgpt.com/
+Chat GPT and other generative AI apps can help you write code. <https://chatgpt.com/>
 
-The R Graph Gallery - get ideas for new types of graphs, and the code to make them. https://r-graph-gallery.com/ 
+The R Graph Gallery - get ideas for new types of graphs, and the code to make them. <https://r-graph-gallery.com/>
 
-More information on the `tidyverse` packages. https://www.tidyverse.org/ 
+More information on the `tidyverse` packages. <https://www.tidyverse.org/>
