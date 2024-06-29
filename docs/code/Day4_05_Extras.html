@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="The Intro to R Team">
-<meta name="dcterms.date" content="2024-06-28">
-
-<title>Introduction to R Training - July 2024</title>
+<meta name="author" content="Dave Bosworth">
+<title>Introduction to R Training - July 2024 - 5&nbsp; Optional Extra Topics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,26 +18,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./code/Day1Intro.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../code/Day4_06_Final_Exercise.html" rel="next">
+<link href="../code/Day4_04_Joins&amp;Binds.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -68,18 +97,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Introduction to R Training - July 2024</span>
     </a>
   </div>
@@ -89,37 +113,31 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
+<li class="nav-item compact">
     <a class="nav-link" href="https://github.com/EMRR-DISE/IntrotoR"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Intro to R for DWR</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_05_Extras.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Intro to R for DWR</span></a>
   </div>
 </li>
@@ -131,15 +149,15 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/Day1Intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Day1Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An introduction to R</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Day 2: 7/11/2024</span></span>
@@ -150,45 +168,45 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./code/Day4_01_Outline.html" class="sidebar-item-text sidebar-link">
+            <a href="../code/Day4_01_Outline.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 4: 7/18/2024</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/Day4_02_Summarizing.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Day4_02_Summarizing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/Day4_03_Reshaping.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Day4_03_Reshaping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/Day4_04_Joins&amp;Binds.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Day4_04_Joins&amp;Binds.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/Day4_06_Final_Exercise.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Day4_06_Final_Exercise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
@@ -197,46 +215,48 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/RDefinitions.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/RDefinitions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Definitions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code/Resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Useful Resources</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#intro-to-r-for-dwr" id="toc-intro-to-r-for-dwr" class="nav-link active" data-scroll-target="#intro-to-r-for-dwr">Intro to R for DWR</a>
+<li>
+<a href="#using-across" id="toc-using-across" class="nav-link active" data-scroll-target="#using-across"><span class="header-section-number">5.1</span> Using <code>across</code></a>
   <ul class="collapse">
-  <li><a href="#ground-rules" id="toc-ground-rules" class="nav-link" data-scroll-target="#ground-rules">Ground rules</a></li>
-  <li><a href="#before-you-come-to-class" id="toc-before-you-come-to-class" class="nav-link" data-scroll-target="#before-you-come-to-class">Before you come to class</a></li>
-  <li><a href="#meet-your-instructors" id="toc-meet-your-instructors" class="nav-link" data-scroll-target="#meet-your-instructors">Meet your instructors</a></li>
-  </ul></li>
+<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">5.1.1</span> Exercise</a></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#combining-concepts---summarize-and-reshape" id="toc-combining-concepts---summarize-and-reshape" class="nav-link" data-scroll-target="#combining-concepts---summarize-and-reshape"><span class="header-section-number">5.2</span> Combining concepts - Summarize and Reshape</a>
+  <ul class="collapse">
+<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">5.2.1</span> Exercise</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Introduction to R Training - July 2024</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_05_Extras.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span>
+</h1>
 </div>
 
 
@@ -246,82 +266,147 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>The Intro to R Team </p>
+             <p>Dave Bosworth </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 28, 2024</p>
-    </div>
-  </div>
   
     
   </div>
   
 
 
-</header>
+</header><section id="using-across" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="using-across">
+<span class="header-section-number">5.1</span> Using <code>across</code>
+</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 62
+Columns: 21
+$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
+$ Date               &lt;date&gt; 2020-01-16, 2020-01-22, 2020-02-14, 2020-02-20, 20…
+$ Chla               &lt;dbl&gt; 0.64, 0.67, 1.46, 2.15, 1.40, 1.89, 4.73, 1.74, 6.4…
+$ Pheophytin         &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.8…
+$ TotAlkalinity      &lt;dbl&gt; 98.0, 82.0, 81.0, 86.0, 80.0, 93.0, 59.0, 78.0, 63.…
+$ DissAmmonia        &lt;dbl&gt; 0.150, 0.210, 0.250, 0.140, 0.110, 0.220, 0.050, 0.…
+$ DissNitrateNitrite &lt;dbl&gt; 2.800, 0.490, 1.700, 0.480, 1.600, 0.380, 1.070, 0.…
+$ DOC                &lt;dbl&gt; 3.90, 0.27, 2.80, 0.39, 2.00, 0.19, 2.80, 1.20, 3.1…
+$ TOC                &lt;dbl&gt; 4.10, 0.32, 2.50, 0.41, 2.10, 0.20, 2.80, 1.20, 3.1…
+$ DON                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0.30, 0.20, 0.30, 0.10, 0.5…
+$ TotPhos            &lt;dbl&gt; 0.310, 0.082, 0.130, 0.130, 0.190, 0.100, 0.188, 0.…
+$ DissOrthophos      &lt;dbl&gt; 0.200, 0.071, 0.130, 0.065, 0.140, 0.082, 0.177, 0.…
+$ TDS                &lt;dbl&gt; 380, 9500, 340, 5800, 290, 8700, 280, 7760, 227, 11…
+$ TSS                &lt;dbl&gt; 8.9, 38.0, 2.2, 18.0, 1.4, 28.0, 6.6, 35.6, 5.3, 23…
+$ TKN                &lt;dbl&gt; 0.520, 0.480, 0.430, 0.250, 0.400, 0.200, 0.400, 0.…
+$ Depth              &lt;dbl&gt; 28.9, 18.8, 39.0, 7.1, 39.0, 7.2, 37.1, 5.2, 36.7, …
+$ Secchi             &lt;dbl&gt; 116, 30, 212, 52, 340, 48, 100, 40, 160, 44, 120, 6…
+$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 3, 2, 3, 2, 4, 2, 3, 2, 2, 1, 1, …
+$ SpCndSurface       &lt;dbl&gt; 667, 15532, 647, 11369, 530, 16257, 503, 12946, 404…
+$ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 21.1…
+$ Year               &lt;dbl&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 202…</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span>, <span class="va">DissOrthophos</span><span class="op">)</span>, <span class="va">max</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Station  Year DissAmmonia DissNitrateNitrite DissOrthophos
+  &lt;chr&gt;   &lt;dbl&gt;       &lt;dbl&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+1 D7       2020       0.22               0.49          0.103
+2 D7       2021       0.192              0.526         0.103
+3 D7       2022       0.145              0.656         0.113
+4 P8       2020       0.25               3.25          0.474
+5 P8       2021       0.299              3.58          0.455
+6 P8       2022       0.29               5.47          0.456</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
+<span>    <span class="fu">across</span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span>, <span class="va">DissOrthophos</span><span class="op">)</span>, </span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>min <span class="op">=</span> <span class="va">min</span>, max <span class="op">=</span> <span class="va">max</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  Station  Year DissAmmonia_min DissAmmonia_max DissNitrateNitrite_min
+  &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;                  &lt;dbl&gt;
+1 D7       2020            0.05           0.22                   0.23 
+2 D7       2021            0.05           0.192                  0.179
+3 D7       2022            0.05           0.145                  0.16 
+4 P8       2020            0.05           0.25                   0.71 
+5 P8       2021            0.05           0.299                  1.08 
+6 P8       2022            0.05           0.29                   0.8  
+# ℹ 3 more variables: DissNitrateNitrite_max &lt;dbl&gt;, DissOrthophos_min &lt;dbl&gt;,
+#   DissOrthophos_max &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu">starts_with</span><span class="op">(</span><span class="st">"Diss"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>min <span class="op">=</span> <span class="va">min</span>, max <span class="op">=</span> <span class="va">max</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  Station  Year DissAmmonia_min DissAmmonia_max DissNitrateNitrite_min
+  &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;                  &lt;dbl&gt;
+1 D7       2020            0.05           0.22                   0.23 
+2 D7       2021            0.05           0.192                  0.179
+3 D7       2022            0.05           0.145                  0.16 
+4 P8       2020            0.05           0.25                   0.71 
+5 P8       2021            0.05           0.299                  1.08 
+6 P8       2022            0.05           0.29                   0.8  
+# ℹ 3 more variables: DissNitrateNitrite_max &lt;dbl&gt;, DissOrthophos_min &lt;dbl&gt;,
+#   DissOrthophos_max &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<section id="exercise" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">5.1.1</span> Exercise</h3>
+</section></section><section id="combining-concepts---summarize-and-reshape" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="combining-concepts---summarize-and-reshape">
+<span class="header-section-number">5.2</span> Combining concepts - Summarize and Reshape</h2>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Month <span class="op">=</span> <span class="fu">month</span><span class="op">(</span><span class="va">Date</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>, .by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Month</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Station</span>, values_from <span class="op">=</span> <span class="va">Chla</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Month    P8    D7
+   &lt;ord&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 Jan   0.605  0.67
+ 2 Feb   1.17   2.90
+ 3 Mar   1.61   4.04
+ 4 Jun   4.47   4.44
+ 5 Jul   5.31   3.94
+ 6 Aug   8.73   3.30
+ 7 Sep   4.1    1.89
+ 8 Oct   2.42   1.96
+ 9 Nov   1.63   1.49
+10 Apr   3.08   2.90
+11 May   3.7    2.3 
+12 Dec   1.27   1.69</code></pre>
+</div>
+</div>
+<section id="exercise-1" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="exercise-1">
+<span class="header-section-number">5.2.1</span> Exercise</h3>
+<p>Do the same summarize and reshape as above but calculate annual maximums of TDS for each station</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Year <span class="op">=</span> <span class="fu">year</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>TDS <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">TDS</span><span class="op">)</span>, .by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Station</span>, values_from <span class="op">=</span> <span class="va">TDS</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
-<section id="intro-to-r-for-dwr" class="level1 unnumbered">
-<h1 class="unnumbered">Intro to R for DWR</h1>
-<p>Welcome to the Intro to R class for the Department of Water Resources, 2024!</p>
-<p>For the first time, this is not taught by outside consultants, but by your own colleagues here at the department.</p>
-<section id="ground-rules" class="level2">
-<h2 class="anchored" data-anchor-id="ground-rules">Ground rules</h2>
-<ul>
-<li><p>Please participate fully in the class. You will get out of this class exactly as much as you put into it. This means not multi-tasking, completing the exercises, and asking questions when you get stuck.</p></li>
-<li><p>Please come prepared. Install software ahead of time, have the link to this book on-hand, and review materials from the previous day before the next day’s class.</p></li>
-<li><p>Don’t be afraid to ask questions! Any coding language can be frustrating, so please speak up if you are having trouble. One of our teaching assistants can work with you 1:1 for major problems.</p></li>
-</ul>
-</section>
-<section id="before-you-come-to-class" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-come-to-class">Before you come to class</h2>
-<ul>
-<li><p>Install R</p>
-<ul>
-<li><p>Go to the <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> (CRAN) webpage and download R for Windows.</p></li>
-<li><p>Open the installer and follow the prompts to install R on your computer using the default settings. You may need an administrator account to complete this step.</p></li>
-<li><p>If you already have R on your computer, please make sure it is version 4.0 or above. (The latest version is 4.4.1)</p></li>
-<li><p>See full instructions here: <a href="https://rstudio-education.github.io/hopr/starting.html" class="uri">https://rstudio-education.github.io/hopr/starting.html</a></p></li>
-</ul></li>
-<li><p>Install R Studio</p>
-<ul>
-<li><p>Go to the <a href="https://posit.co/download/rstudio-desktop/">Download Rstudio</a> page on the Posit website and download R Studio for Windows.</p></li>
-<li><p>Open the installer and follow the prompts to install R on your computer using the default settings. You may need an administrator account to complete this step.</p></li>
-</ul></li>
-<li><p>Open RStudio and make sure it runs.</p>
-<ul>
-<li><p>The window titled “Console” should come up and have the R version and some boilerplate information about R in it, with a blue carrot and cursor below it.</p></li>
-<li><p><img src="images/clipboard-1261131084.png" class="img-fluid"></p></li>
-</ul></li>
-<li><p>Install the <code>tidyverse</code> and <code>here</code> packages</p>
-<ul>
-<li>In your console, type <code>install.packages("tidyverse", "here")</code></li>
-<li>The package should download and install automatically. You do not need administrative privileges for this step.</li>
-<li>NOTE: There are sometimes issues accessing CRAN from within RStudio while connected to a DWR network. If you receive this message, use your home wifi or a cell phone hot spot to connect to the internet, then try again.</li>
-<li><img src="images/clipboard-3898096622.png" class="img-fluid"></li>
-</ul></li>
-</ul>
-</section>
-<section id="meet-your-instructors" class="level2">
-<h2 class="anchored" data-anchor-id="meet-your-instructors">Meet your instructors</h2>
-<ul>
-<li><p><a href="Rosemary.Hartman@water.ca.gov">Rosemary Hartman</a> (She/Her) is an Environmental Program Manager in the Division of Integrated Science and Engineering. She is an aquatic ecologist by training, with an emphasis on data synthesis, statistics, and data integration. She would love to tell you how to analyze your data.</p></li>
-<li><p><a href="Sarah.Perry@water.ca.gov">Perry</a> (They/Them) is an Environmental Scientist with the Environmental Monitoring Program who is also getting a master’s degree in statistics from UC Davis. They are fluent in both Python and R.</p></li>
-<li><p><a href="Nicholas.Rasmussen@water.ca.gov">Nick Rasmussen</a> (He/Him) is a Senior Environmental Scientist with broad interests in aquatic ecology who has worked on projects ranging from the Salinity Control Gates to aquatic weeds.</p></li>
-<li><p><a href="David.Bosworth@water.ca.gov">Dave Bosworth</a> (He/Him) is a Senior Environmental Scientist who comes from a water quality and contaminants background but has found his calling as a data scientist. He is passionate about making your code more efficient and automating all the boring stuff.</p></li>
-<li><p><a href="Ted.Swift@water.ca.gov">Ted Swift</a> (He/Him) is a Senior Environmental Scientist with the Quality Management Section who is working to increase the number of data science training available to DWR scientists.</p></li>
-</ul>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -729,18 +814,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../code/Day4_04_Joins&amp;Binds.html" class="pagination-link" aria-label="Joins and Binds">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./code/Day1Intro.html" class="pagination-link" aria-label="An introduction to R">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An introduction to R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../code/Day4_06_Final_Exercise.html" class="pagination-link" aria-label="Final Exercise">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
