@@ -1,5 +1,5 @@
 ---
-title: "Day 1 - an introduction"
+title: "An introduction to R"
 format: html
 editor: visual
 ---
@@ -365,15 +365,17 @@ library(lubridate, exclude = "date")
 Let's try using a function that is in a package. `glimpse` is an simple function that tells you about a data frame. R has a number of built-in data sets that you can play with, and one is `mtcars`. It's just a table of different makes and models of cars and their stats.
 
 ```{r}
-#| error: true
+#| eval: false
 
 #The View function is built in. 
 View(mtcars)
+```
+
+```{r}
+#| error: true
 
 #the "glimpse" function is in the dplyr package. It's part of the tidyverse set of packages. You should have installed it already
 glimpse(mtcars)
-
-
 ```
 
 Even though you installed it, you still need to load it into your workspace using the `library` command.
