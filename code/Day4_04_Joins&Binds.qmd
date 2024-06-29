@@ -39,6 +39,8 @@ knitr::include_graphics(here("code/images/bind_rows.png"))
 knitr::include_graphics(here("code/images/bind_cols.png"))
 ```
 
+Rarely use bind_cols, safer to use a join function
+
 Joining two dataframes with a `left_join()`:
 
 ```{r}

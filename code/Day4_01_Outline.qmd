@@ -1,20 +1,20 @@
 ---
-title: "Day 4 - Outline"
+title: "Day 4: 7/18/2024"
 author: "Dave Bosworth"
 format: html
 ---
+
+Now that we have covered the basics of using R and RStudio including importing, cleaning, and plotting data, we'll continue with a few additional and useful beginner/intermediate skills. Here is the outline for our last day of training:
 
 1. Summarizing Data
 
     - Basic Summarizing
     - Grouping
-    - OPTIONAL: Using `across`
 
 2. Reshaping Data
 
     - Basics of Data Structure
     - Converting between Data Structures
-    - Summarize and Reshape
 
 3. Joins and Binds
 
@@ -23,7 +23,10 @@ format: html
     - Join Basics
     - Left Join
     
-4. Open Questions??
+4. Optional Extra Topics
+
+    - Using `across`
+    - Combining concepts - Summarize and Reshape
 
 5. Final Course Exercise
 

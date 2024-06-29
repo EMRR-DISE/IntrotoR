@@ -111,33 +111,8 @@ df_wq_c %>%
   ) 
 ```
 
+group_by works with other dplyr functions including mutate, filter
+
 ### Exercise
 
-## OPTIONAL: Using `across`
-
-```{r}
-df_wq_c %>% 
-  group_by(Station, Year) %>% 
-  summarize(across(c(DissAmmonia, DissNitrateNitrite, DissOrthophos), max)) %>% 
-  ungroup()
-```
-
-```{r}
-df_wq_c %>% 
-  group_by(Station, Year) %>% 
-  summarize(
-    across(
-      c(DissAmmonia, DissNitrateNitrite, DissOrthophos), 
-      list(min = min, max = max)
-    )
-  ) %>% 
-  ungroup()
-```
-
-```{r}
-df_wq_c %>% 
-  group_by(Station, Year) %>% 
-  summarize(across(starts_with("Diss"), list(min = min, max = max))) %>% 
-  ungroup()
-```
 
