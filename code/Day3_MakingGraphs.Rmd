@@ -15,11 +15,11 @@ knitr::opts_chunk$set(include=TRUE, message=FALSE, warning=FALSE)
 
 ## Making Graphs in R
 
-One of the greatest strengths of R is its ability to produce a wide variety of professional quality custom graphs. Today, we will cover the basics of visualizing data using the popular 'ggplot2' package.
+One of the greatest strengths of R is its ability to produce a wide variety of professional quality custom graphs. Today, we will cover the basics of visualizing data using the popular `ggplot2` package.
 
-## Using base R graphics vs the 'ggplot2' package
+## Using base R graphics vs the `ggplot2` package
 
-When you download R, there is a suite of packages that are included. These packages include functions for carrying out a variety of basic tasks, including making graphs. I used base R graphing functions for a number of years, and there's nothing wrong with using these functions. However, in more recent years, I have completely switched to using the 'ggplot2' package and think it is a great package for new R users to know.
+When you download R, there is a suite of packages that are included. These packages include functions for carrying out a variety of basic tasks, including making graphs. I used base R graphing functions for a number of years, and there's nothing wrong with using these functions. However, in more recent years, I have completely switched to using the `ggplot2` package and think it is a great package for new R users to know.
 
 ## Continuous vs categorical data
 
@@ -27,11 +27,9 @@ As we decide what type of plot to make, it is useful to consider the types of da
 
 ## Load the required R packages
 
-So without further adue, let's load the packages we need for today's tutorial. In addition to 'ggplot2', we will also load the tidyverse to do some basic tasks like reading in data sets and filtering data.
+So without further ado, let's load the packages we need for today's tutorial. In addition to `ggplot2`, we will also load the `tidyverse` to do some basic tasks like reading in data sets and filtering data.
 
 ```{r load packages}
-
-#install.packages("ggplot2") 
 
 library(tidyverse) #suite of data science tools
 library(here) #setting working directory
@@ -64,13 +62,13 @@ glimpse(wqdata)
 
 ## Making a basic ggplot graph
 
-The 'ggplot2' package utilizes the grammer of graphics and creates plots in "layers". We will learn about some of the core "geometries" which are basically just types of plots. 
+The `ggplot2` package utilizes the grammar of graphics and creates plots in "layers". We will learn about some of the core "geometries" which are basically just types of plots. 
 
-Let's start making plots, so we can learn the anatomy of the ggplot() function. We will begin with a histogram, which simply shows the distribution of data for a single variable. 
+Let's start making plots, so we can learn the anatomy of the `ggplot()` function. We will begin with a histogram, which simply shows the distribution of data for a single variable. 
 
-Within the ggplot() function, the first thing we should do is specify the data set we want to plot using the 'data' argument. Then, we will indicate which column within the data set we want to plot. These are the most basic components. 
+Within the `ggplot()` function, the first thing we should do is specify the data set we want to plot using the `data` argument. Then, we will indicate which column within the data set we want to plot. These are the most basic components. 
 
-From here, we use the '+' sign to add layers upon the foundation we have built. In this case, we want a histogram, so we use the argument 'geom_histogram(). There are many types of graphs you can make and ggplot has similarly named arguments for each of them (e.g., geom_point, geom_line). We will look at more of these shortly.
+From here, we use the `+` sign to add layers upon the foundation we have built. In this case, we want a histogram, so we use the argument `geom_histogram()`. There are many types of graphs you can make and ggplot has similarly named arguments for each of them (e.g., `geom_point`, `geom_line`). We will look at more of these shortly.
 
 ```{r}
 
@@ -80,7 +78,8 @@ From here, we use the '+' sign to add layers upon the foundation we have built. 
 
 
 ```
-The default number of bins do not work well for this small data set. We can make some manual adjustments within the geom_histogram() argument.
+
+The default number of bins do not work well for this small data set. We can make some manual adjustments within the `geom_histogram()` argument.
 
 
 ```{r}
@@ -91,11 +90,12 @@ The default number of bins do not work well for this small data set. We can make
 
 
 ```
+
 ## Time series plots
 
 Next, let's plot a time series of data. These plots are helpful for looking at monitoring data through time to identify patterns or for looking for outliers. For a histogram, there was only an x variable. For most types of plots, including time series plots, there are x and y variables to specify.
 
-We will plot a year of Secchi depth data to see how it changes through the seasons. For simplicity, we will just plot the data for one station, P8. Each value for Secchi will be plotted as a point so we will use geom_point().
+We will plot a year of Secchi depth data to see how it changes through the seasons. For simplicity, we will just plot the data for one station, P8. Each value for Secchi will be plotted as a point so we will use `geom_point()`.
 
 ```{r}
 
@@ -116,7 +116,8 @@ wqdata_p8 <- wqdata %>%
 )
 
 ```
-We can start to see how Secchi depth changed over time, but it would be easier to look at with lines connecting the points. Let's add some, which will highlight how ggplot works by building layers. As you might expect, we add the lines using geom_line().
+
+We can start to see how Secchi depth changed over time, but it would be easier to look at with lines connecting the points. Let's add some, which will highlight how ggplot works by building layers. As you might expect, we add the lines using `geom_line()`.
 
 ```{r}
 
@@ -130,6 +131,7 @@ We can start to see how Secchi depth changed over time, but it would be easier t
   geom_line())
 
 ```
+
 Now it is a little easier to see the patterns through time. We can see that Secchi depth varies seasonally, generally with low values in rainy winter months and high in dry summer months. Note there is a gap in the time series in 2021 to reflect a missing value.  
 
 ## Multiple time series per plot
@@ -144,6 +146,7 @@ We can easily plot multiple time series on the same graph in order to compare th
   geom_line(aes(color = Station)))
 
 ```
+
 This plot clearly shows that Secchi depth is generally much higher at P8 than D7, indicating that turbidity is higher at D7.
 
 
@@ -158,7 +161,8 @@ Next, let's make a scatterplot. These plots are great for looking at relationshi
 )
 
 ```
-There appears to be a strong relationship between these two variables. Let's add a trend line. As with the time series plot, we are building layers. However, we are not simply adding lines to connect the points, so we aren't using geom_line(). To plot a trend line, we use geom_smooth(). There are various smooths that could be applied, so we need to specify what we want. In this case, we use a linear model (LM). By default, a 95% confidence interval (dark gray) is added around the trend line (blue).
+
+There appears to be a strong relationship between these two variables. Let's add a trend line. As with the time series plot, we are building layers. However, we are not simply adding lines to connect the points, so we aren't using `geom_line()`. To plot a trend line, we use `geom_smooth()`. There are various smooths that could be applied, so we need to specify what we want. In this case, we use a linear model (LM). By default, a 95% confidence interval (dark gray) is added around the trend line (blue).
 
 ```{r}
 (plot_scatter_trend <- plot_scatter +
@@ -192,7 +196,7 @@ Note that Microcystis scores are ordered categories (i.e., ordinal), so R read t
 
 ```
 
-Personally, I like to include all the raw data points on the box and whisker plots because it gives folks an even better understanding of the distribution of the data. To do this, we add a layer with geom_jitter(). It is called this because the points are "jittered" to minimize overlap among them.
+Personally, I like to include all the raw data points on the box and whisker plots because it gives folks an even better understanding of the distribution of the data. To do this, we add a layer with `geom_jitter()`. It is called this because the points are "jittered" to minimize overlap among them.
 
 ```{r}
 
@@ -201,6 +205,7 @@ Personally, I like to include all the raw data points on the box and whisker plo
    )
 
 ```
+
 ## Barplots
 
 In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category. We will make a bar plot that is analogous to the box and whisker plot above.
@@ -244,6 +249,7 @@ wqdata_p8_nutrients <- wqdata_p8 %>%
    )
 
 ```
+
 Perhaps we are more interested in the relative values rather than the absolute values. We just make a minor modification to the the code we used above.
 
 ```{r}
@@ -254,7 +260,7 @@ Perhaps we are more interested in the relative values rather than the absolute v
 
 ## Faceted plots
 
-Sometimes we want to show the same type of plot for multiple groups at once so we can compare them. It is easy to make multi-panel plots in ggplot2 using facets. 
+Sometimes we want to show the same type of plot for multiple groups at once so we can compare them. It is easy to make multi-panel plots in `ggplot2` using facets. 
 
 Above, we plotted Secchi depth for both stations on the same plot. Sometimes, it is more useful to create a two panel plot, in which each time series is plotted on a separate graph. 
 
@@ -267,6 +273,7 @@ Above, we plotted Secchi depth for both stations on the same plot. Sometimes, it
   facet_grid(Station~.)
 
 ```
+
 Here's another example
 
 ```{r}
@@ -278,6 +285,7 @@ Here's another example
 )
 
 ```
+
 By default, the y-axis is standardized across the panels. This is generally a good idea. However, we can change this if we like. Ammonia concentrations are much lower than nitrate + nitrite concentrations, which makes ammonia concentrations difficult to read on the plot. Let's use different y-axis ranges for the two analytes to fix that.
 
 ```{r}
@@ -289,9 +297,10 @@ By default, the y-axis is standardized across the panels. This is generally a go
 )
 
 ```
+
 ## Combined plots
 
-Sometimes, it is useful to combine multiple plots into a panel that do not share a common x or y axis (i.e., are not produced using facet_grid() or facet_wrap()). These plot panels are particularly useful in publications like journal articles.
+Sometimes, it is useful to combine multiple plots into a panel that do not share a common x or y axis (i.e., are not produced using `facet_grid()` or `facet_wrap()`). These plot panels are particularly useful in publications like journal articles.
 
 ```{r}
 
@@ -367,7 +376,7 @@ We will use the Secchi depth time series again. Previously, we used color to hel
 
 ```
 
-So far, we have used the default color palette in ggplot2 as well as some customized colors. There are also a variety of R packages with thoughtfully developed color palettes. One example is the 'viridis' package, which includes palettes are both attractive and color blind friendly. 
+So far, we have used the default color palette in `ggplot2` as well as some customized colors. There are also a variety of R packages with thoughtfully developed color palettes. One example is the `viridis` package, which includes palettes are both attractive and color blind friendly. 
 
 ```{r}
 
@@ -422,7 +431,7 @@ ggsave(plot = plot_labels #tell ggsave which plot to export
        )
 ```
 
-I used PNG which is a file type that works well for viewing on a computer. However, ggsave() can save plots as PDF, JPEG, TIFF, and various others. Search for ggsave() within 'Help' to see the full list of file types.
+I used PNG which is a file type that works well for viewing on a computer. However, `ggsave()` can save plots as PDF, JPEG, TIFF, and various others. Search for `ggsave()` within 'Help' to see the full list of file types.
 
 By default, the plot will be saved in your working directory. I specified a subfolder within my working directory.
 
