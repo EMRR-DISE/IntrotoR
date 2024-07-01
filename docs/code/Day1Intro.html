@@ -313,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Reproducibility. Your workflow will be documented and can be repeated quickly and easily. It is also easier to fix your mistakes because you can see exactly what you did in every step of the process!</li>
 <li>Large datasets. The larger your dataset is, the more difficult it will be to analyze in Excel or other GUI-based programs.</li>
 <li>Advanced statistical capabilities. You can go a lot further with tools like mixed models, multivariate analyses, machine learning, and population models that are impossible in Excel.</li>
-<li>Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probalby been done before, and there is a publicly available package to help you out.</li>
+<li>Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probably been done before, and there is a publicly-available package to help you out.</li>
 </ol>
 </section>
 <section id="part-1-the-very-basics" class="level2" data-number="1.3">
@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use a funciton</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use a function</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
@@ -347,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="running-code" class="level4" data-number="1.3.0.2">
 <h4 data-number="1.3.0.2" class="anchored" data-anchor-id="running-code"><span class="header-section-number">1.3.0.2</span> Running code</h4>
 <p>From your script, you can hit the ‘Run’ icon in the top right corner to move a line of code from your script to your console.</p>
-<p>You can also hit ctrl-enter to do the same thing.</p>
+<p>You can also hit ctrl+enter to do the same thing.</p>
 <p>Highlight multiple lines of code to run more than one thing at once.</p>
 <p>The “source” button at the top of the script runs the entire script at once without printing all the output. This is useful of you have a script that is mostly setup stuff or homemade functions.</p>
 <p>You will notice that in the console all the lines of code you run start with a <code>&gt;</code>. If you have multiple lines of code strung together, there will be <code>+</code> at the start of the new lines until the end of the code. In an R script, you can break your code up into lines to make it all fit on your screen, so long as the parentheses line up.</p>
@@ -527,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The basic structure is:</p>
 <p>function(arguments)</p>
 <p>where “arguments” are the inputs to your function.</p>
-<p>The parentheses are the “trigger” that tells R to run the function. Typing the name of the function without the parentheses prints the code in the function. And you can write your own when you get good.</p>
+<p>The parentheses are the “trigger” that tells R to run the function. Typing the name of the function without the parentheses prints the code in the console. And you can write your own when you get good.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#when we calculated the sum of 1 +1, that was a function</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -550,7 +550,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 data-number="1.3.2.1" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">1.3.2.1</span> Exercise</h4>
 <p>See if you can use use these functions</p>
 <ul>
-<li><p>mean - calculate the mean of 23, 24, 15, 12, 53, 23,1, 45</p></li>
+<li><p>mean - calculate the mean of 23, 24, 15, 12, 53, 23, 1, 45</p></li>
 <li><p>sum - calculate the sum of all numbers below 50</p>
 <ul>
 <li>Hint! You can ask for a sequence of numbers with a <code>:</code> between the first and last number.</li>
@@ -564,7 +564,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">12</span>, <span class="dv">53</span>, <span class="dv">23</span>,<span class="dv">1</span>, <span class="dv">45</span>))</span>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">12</span>, <span class="dv">53</span>, <span class="dv">23</span>, <span class="dv">1</span>, <span class="dv">45</span>))</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>))</span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -607,7 +607,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>tibble - nicer checking and formatting for tables and data frames</p></li>
 </ul>
 <p>You’ll notice that besides the tidyverse, there are a number of other packages in this tab that you didn’t install - they came along with base R.</p>
-<p>When you want to install or update packages, you can use the <code>install.packages</code> command, or the GUI in RStudio. This command reaches out to You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the <code>library</code> command. This is usually done at the top of your script</p>
+<p>When you want to install or update packages, you can use the <code>install.packages</code> command, or the GUI in RStudio. This command reaches out to (incomplete). You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the <code>library</code> command. This is usually done at the top of your script.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load required libraries</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -625,7 +625,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="package-conflicts" class="level4" data-number="1.4.0.1">
 <h4 data-number="1.4.0.1" class="anchored" data-anchor-id="package-conflicts"><span class="header-section-number">1.4.0.1</span> Package conflicts</h4>
 <p>After you’ve loaded a package, you might get some warnings about conflicted packages. These are different functions with the same name in two different packages. Mostly it isn’t a problem, but sometimes you’ll have to specify which function you mean.</p>
-<p>Specify which you want with package::function</p>
+<p>Specify which you want with <code>package::function</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -643,10 +643,10 @@ Attaching package: 'lubridate'</code></pre>
 </div>
 <p>If you really want the base version instead of the one from a package, you can use the <code>exclude</code> argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#remove the lubrdate library we just installed</span></span>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#remove the lubrdate library we just loaded</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(<span class="st">"package:lubridate"</span>)</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co">#now reinstall with the exclusion</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co">#now reload with the exclusion</span></span>
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate, <span class="at">exclude =</span> <span class="st">"date"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'lubridate' was built under R version 4.4.0</code></pre>

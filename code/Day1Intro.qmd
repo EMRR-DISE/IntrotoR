@@ -25,7 +25,7 @@ There is a very steep learning curve to R (or any coding language). You are like
 1.  Reproducibility. Your workflow will be documented and can be repeated quickly and easily. It is also easier to fix your mistakes because you can see exactly what you did in every step of the process!
 2.  Large datasets. The larger your dataset is, the more difficult it will be to analyze in Excel or other GUI-based programs.
 3.  Advanced statistical capabilities. You can go a lot further with tools like mixed models, multivariate analyses, machine learning, and population models that are impossible in Excel.
-4.  Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probalby been done before, and there is a publicly available package to help you out.
+4.  Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probably been done before, and there is a publicly-available package to help you out.
 
 ## Part 1: The Very basics
 
@@ -55,7 +55,7 @@ For example:
 #test out addition
 1+1
 
-#use a funciton
+#use a function
 sum(c(1,1))
 ```
 
@@ -63,7 +63,7 @@ sum(c(1,1))
 
 From your script, you can hit the 'Run' icon in the top right corner to move a line of code from your script to your console.
 
-You can also hit ctrl-enter to do the same thing.
+You can also hit ctrl+enter to do the same thing.
 
 Highlight multiple lines of code to run more than one thing at once.
 
@@ -228,7 +228,7 @@ function(arguments)
 
 where "arguments" are the inputs to your function.
 
-The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the function. And you can write your own when you get good.
+The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the console. And you can write your own when you get good.
 
 ```{r}
 #when we calculated the sum of 1 +1, that was a function
@@ -249,7 +249,7 @@ Notice that as you start typing the function, a box pops up in RStudio that prom
 
 See if you can use use these functions
 
--   mean - calculate the mean of 23, 24, 15, 12, 53, 23,1, 45
+-   mean - calculate the mean of 23, 24, 15, 12, 53, 23, 1, 45
 
 -   sum - calculate the sum of all numbers below 50
 
@@ -269,7 +269,7 @@ See if you can use use these functions
 #| code-fold: true
 #| eval: false
 
-mean(c(23, 24, 15, 12, 53, 23,1, 45))
+mean(c(23, 24, 15, 12, 53, 23, 1, 45))
 
 sum(c(1:50))
 
@@ -320,7 +320,7 @@ We had everyone install the `tidyverse` packages before getting started. This is
 
 You'll notice that besides the tidyverse, there are a number of other packages in this tab that you didn't install - they came along with base R.
 
-When you want to install or update packages, you can use the `install.packages` command, or the GUI in RStudio. This command reaches out to You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the `library` command. This is usually done at the top of your script
+When you want to install or update packages, you can use the `install.packages` command, or the GUI in RStudio. This command reaches out to (incomplete). You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the `library` command. This is usually done at the top of your script.
 
 ```{r}
 #load required libraries
@@ -344,7 +344,7 @@ Click on the index, then one of the vignettes - those are very useful!
 
 After you've loaded a package, you might get some warnings about conflicted packages. These are different functions with the same name in two different packages. Mostly it isn't a problem, but sometimes you'll have to specify which function you mean.
 
-Specify which you want with package::function
+Specify which you want with `package::function`
 
 ```{r}
 library(lubridate)
@@ -353,10 +353,10 @@ library(lubridate)
 If you really want the base version instead of the one from a package, you can use the `exclude` argument.
 
 ```{r}
-#remove the lubrdate library we just installed
+#remove the lubrdate library we just loaded
 detach("package:lubridate")
 
-#now reinstall with the exclusion
+#now reload with the exclusion
 library(lubridate, exclude = "date")
 ```
 
