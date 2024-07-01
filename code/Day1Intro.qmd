@@ -1,5 +1,5 @@
 ---
-title: "Day 1 - an introduction"
+title: "An introduction to R"
 format: html
 editor: visual
 ---
@@ -8,7 +8,7 @@ editor: visual
 
 R is a flexible coding language that anyone can learn
 
-I am taking a lot of this tutorial from the e-book "Hands on Programing in R" <https://rstudio-education.github.io/hopr/>
+I am taking a lot of this tutorial from the e-book "Hands on Programming in R" <https://rstudio-education.github.io/hopr/>
 
 **Isn’t R a language?**
 
@@ -25,7 +25,7 @@ There is a very steep learning curve to R (or any coding language). You are like
 1.  Reproducibility. Your workflow will be documented and can be repeated quickly and easily. It is also easier to fix your mistakes because you can see exactly what you did in every step of the process!
 2.  Large datasets. The larger your dataset is, the more difficult it will be to analyze in Excel or other GUI-based programs.
 3.  Advanced statistical capabilities. You can go a lot further with tools like mixed models, multivariate analyses, machine learning, and population models that are impossible in Excel.
-4.  Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probalby been done before, and there is a publicly available package to help you out.
+4.  Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probably been done before, and there is a publicly-available package to help you out.
 
 ## Part 1: The Very basics
 
@@ -55,7 +55,7 @@ For example:
 #test out addition
 1+1
 
-#use a funciton
+#use a function
 sum(c(1,1))
 ```
 
@@ -63,7 +63,7 @@ sum(c(1,1))
 
 From your script, you can hit the 'Run' icon in the top right corner to move a line of code from your script to your console.
 
-You can also hit ctrl-enter to do the same thing.
+You can also hit ctrl+enter to do the same thing.
 
 Highlight multiple lines of code to run more than one thing at once.
 
@@ -82,7 +82,16 @@ Now your turn!
 3.  Type `24/2` in your script
 4.  Run the script
 
+Click below for the answer when you are done!
+
 ```{r}
+#| code-fold: true
+#| eval: false
+
+# My First R script
+#
+
+24/2
 
 ```
 
@@ -150,7 +159,20 @@ Convert these numbers from miles per hour to meters per second. (use assignment)
 
 21, 25, 100, 50, 36, 72, 15
 
+Click below for the answer when you are done.
+
 ```{r}
+#| eval: false
+#| code-fold: true
+
+#the variable "mph" will be assigned the value of a vector of all our numbers
+mph <- c(21, 25, 100, 50, 36, 72, 15)
+
+#to convert mph to mps, divide by 2.237
+mps <- mph/2.237
+
+#now print the output
+mps
 
 ```
 
@@ -178,7 +200,7 @@ We can call `temps` and `temps_C` *objects*. Specifically, they are numeric vect
 
 -   logical - TRUE/FALSE (always in all caps)
 
--   factor - Catigorical variables that take a limited set of values. May be ordered (like water year types), or unordered (like families of fishes)
+-   factor - Categorical variables that take a limited set of values. May be ordered (like water year types), or unordered (like families of fishes)
 
 -   date/time classes (giant can of worms)
 
@@ -206,7 +228,7 @@ function(arguments)
 
 where "arguments" are the inputs to your function.
 
-The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the function. And you can write your own when you get good.
+The parentheses are the "trigger" that tells R to run the function. Typing the name of the function without the parentheses prints the code in the console. And you can write your own when you get good.
 
 ```{r}
 #when we calculated the sum of 1 +1, that was a function
@@ -216,18 +238,18 @@ sum(1+1)
 sum
 
 #mean is another useful function
-mean(c(1+2+3+4))
+mean(c(1,2,3,4))
 
 
 ```
 
-Notice that as you start typing the function, a box pops up in RStudio that prompts you with the arguments you might want to use.
+Notice that as you start typing the function, a box pops up in RStudio that prompts you with the arguments you might want to use. Also note that we have to "feed" the `mean` function a vector of values with `c` (concatenate) in front of it.
 
 #### Exercise
 
 See if you can use use these functions
 
--   mean - calculate the mean of 23, 24, 15, 12, 53, 23,1, 45
+-   mean - calculate the mean of 23, 24, 15, 12, 53, 23, 1, 45
 
 -   sum - calculate the sum of all numbers below 50
 
@@ -241,7 +263,34 @@ See if you can use use these functions
 
 -   exp (exponent)
 
+    Click below for the answers when you're done!
+
 ```{r}
+#| code-fold: true
+#| eval: false
+
+mean(c(23, 24, 15, 12, 53, 23, 1, 45))
+
+sum(c(1:50))
+
+abs(c(-1, 2, -10, 5))
+
+#natural log
+log(100)
+
+#log base 10
+log(100, base = 10)
+
+#the default for round is no decimal points
+round(5.345673)
+
+#but you can specify the number of decimal points with the second argument
+round(5.345673, digits = 2)
+
+#this is the same as e^20
+exp(20)
+
+exp(log(10))
 
 ```
 
@@ -271,23 +320,31 @@ We had everyone install the `tidyverse` packages before getting started. This is
 
 You'll notice that besides the tidyverse, there are a number of other packages in this tab that you didn't install - they came along with base R.
 
-When you want to install or update packages, you can use the `install.packages` command, or the GUI in RStudio. This command reaches out to You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the `library` command. This is usually done at the top of your script
+When you want to install or update packages, you can use the `install.packages` command, or the GUI in RStudio. This command reaches out to (incomplete). You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the `library` command. This is usually done at the top of your script.
 
 ```{r}
 #load required libraries
 library(readr)
+```
 
+Let's check out the documentation
+
+```{r}
+#| eval: false
 #check out documentation
 ?readr
 
-#Click on the index, then one of the vignettes - those are very useful!
 ```
+
+Click on the index, then one of the vignettes - those are very useful!
+
+![](images/clipboard-1741072157.png)
 
 #### Package conflicts
 
 After you've loaded a package, you might get some warnings about conflicted packages. These are different functions with the same name in two different packages. Mostly it isn't a problem, but sometimes you'll have to specify which function you mean.
 
-Specify which you want with package::function
+Specify which you want with `package::function`
 
 ```{r}
 library(lubridate)
@@ -296,10 +353,10 @@ library(lubridate)
 If you really want the base version instead of the one from a package, you can use the `exclude` argument.
 
 ```{r}
-#remove the lubrdate library we just installed
+#remove the lubrdate library we just loaded
 detach("package:lubridate")
 
-#now reinstall with the exclusion
+#now reload with the exclusion
 library(lubridate, exclude = "date")
 ```
 
@@ -308,25 +365,37 @@ library(lubridate, exclude = "date")
 Let's try using a function that is in a package. `glimpse` is an simple function that tells you about a data frame. R has a number of built-in data sets that you can play with, and one is `mtcars`. It's just a table of different makes and models of cars and their stats.
 
 ```{r}
-#| error: true
+#| eval: false
 
 #The View function is built in. 
 View(mtcars)
+```
+
+```{r}
+#| error: true
 
 #the "glimpse" function is in the dplyr package. It's part of the tidyverse set of packages. You should have installed it already
 glimpse(mtcars)
+```
 
-#even though you installed it, you still need to load it using the library command.
+Even though you installed it, you still need to load it into your workspace using the `library` command.
+
+```{r}
+
 library(dplyr)
-
-?dplyr
 
 glimpse(mtcars)
 ```
 
-Now go to the documentation for dplyr and look through the "Introduction to dplyr" vignette. Take 15 mins and see if you try out some of the examples. We'll be using a lot of these dplyr functions later in the class.
+### Exercise
+
+Now go to the documentation for dplyr and look through the "Introduction to dplyr" vignette. Take 10 mins and see if you try out some of the examples. We'll be using a lot of these dplyr functions later in the class.
 
 ```{r}
+#| eval: FALSE
+
+?dplyr
+
 vignette("dplyr")	
 ```
 
@@ -341,8 +410,6 @@ dates = c("Monday", "Tuesday", "Wednesday")
 
 date[1]
 
-
-test = filter(mtcars, gear = 4)
 ```
 
 This is one of my least favorite error messages. What the heck does that even mean?
@@ -375,6 +442,8 @@ ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
 The first thing to learn, is how to read the documentation for a function.
 
 ```{r}
+#| eval: false
+
 ?mean
 ```
 
@@ -388,15 +457,65 @@ The documentation has a few standard parts
 
 -   Usage (Function and arguments)
 
+    ![](images/clipboard-960713081.png)
+
 -   Arguments - description of what all the arguments should contain
 
+    ![](images/clipboard-3567295094.png)
+
 -   Value - output
+
+    ![](images/clipboard-2924046281.png)
 
 -   References - articles or more info
 
 -   See Also - similar functions or functions you might want if you want this one
 
+-   ![](images/clipboard-3033732603.png)
+
 -   Examples - THE MOST USEFUL PART!
+
+    ![](images/clipboard-1798966994.png)
+
+-   Sometimes there are other parts, including more details on statistical methods, but these are the basics.
+
+### Exercise
+
+Look up the documentation for these functions and see if you can run the examples.
+
+`rnorm`
+
+`aov`
+
+`sample`
+
+Click below to see the answer when you are done.
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+?rnorm
+#rnorm generates a random number or numbers from a normal distribution. You can specify the mean and standard deviation
+
+#this generates 20 random numbers with a mean of 10 and a standard deviation of 3
+rnorm(20, mean = 10, sd =3)
+
+?aov
+#aov runs an ANOVA (analysis of variance), which tests for differences between groups
+
+#the examples use the "npk" dataset which is built into R
+aov(yield ~ block + N * P + K, npk)
+
+?sample
+#this function takes a subsample of a larger set of number of a specified size 
+
+x <- 1:12
+# a random permutation
+sample(x)
+# bootstrap resampling -- only if length(x) > 1 !
+sample(x, replace = TRUE)
+```
 
 ### Online help options
 

@@ -72,23 +72,3 @@ df_wq_nutr_wide
 
 ### Exercise
 
-## Summarize and Reshape
-
-```{r}
-df_wq %>% 
-  mutate(Month = month(Date, label = TRUE)) %>% 
-  summarize(Chla = mean(Chla), .by = c(Station, Month)) %>% 
-  pivot_wider(names_from = Station, values_from = Chla)
-```
-
-### Exercise
-
-Do the same summarize and reshape as above but calculate annual maximums of TDS for each station
-
-```{r}
-df_wq %>% 
-  mutate(Year = year(Date)) %>% 
-  summarize(TDS = max(TDS), .by = c(Station, Year)) %>% 
-  pivot_wider(names_from = Station, values_from = TDS)
-```
-

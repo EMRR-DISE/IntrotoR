@@ -1,0 +1,81 @@
+---
+title: "Optional Extra Topics"
+author: "Dave Bosworth"
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+
+# Adding a second grouping variable for year
+df_wq_c <- df_wq %>% mutate(Year = year(Date))
+```
+
+## Using `across`
+
+```{r}
+glimpse(df_wq_c)
+```
+
+```{r}
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(across(c(DissAmmonia, DissNitrateNitrite, DissOrthophos), max)) %>% 
+  ungroup()
+```
+
+```{r}
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(
+    across(
+      c(DissAmmonia, DissNitrateNitrite, DissOrthophos), 
+      list(min = min, max = max)
+    )
+  ) %>% 
+  ungroup()
+```
+
+```{r}
+df_wq_c %>% 
+  group_by(Station, Year) %>% 
+  summarize(across(starts_with("Diss"), list(min = min, max = max))) %>% 
+  ungroup()
+```
+
+### Exercise
+
+## Combining concepts - Summarize and Reshape
+
+```{r}
+df_wq %>% 
+  mutate(Month = month(Date, label = TRUE)) %>% 
+  summarize(Chla = mean(Chla), .by = c(Station, Month)) %>% 
+  pivot_wider(names_from = Station, values_from = Chla)
+```
+
+### Exercise
+
+Do the same summarize and reshape as above but calculate annual maximums of TDS for each station
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+df_wq %>% 
+  mutate(Year = year(Date)) %>% 
+  summarize(TDS = max(TDS), .by = c(Station, Year)) %>% 
+  pivot_wider(names_from = Station, values_from = TDS)
+```
+

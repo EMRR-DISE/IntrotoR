@@ -5,11 +5,9 @@ format: html
 editor: visual
 ---
 
-## Definitions
-
 -   Argument- one of possibly several expressions that are passed to a function
 
--   Assignment -
+-   Assignment - Giving a value to a variable. `<-` is known as the "assignment operator".
 
 -   Comment: Text written in a script that is not treated as code to be run, but rather as text that describes what the code is doing. These are usually short notes, beginning with a \#
 

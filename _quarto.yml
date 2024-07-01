@@ -4,35 +4,35 @@ project:
 
 book:
   title: "Introduction to R Training - July 2024"
-  author: "Rosie Hartman, Perry, Nick Rasmussen, Dave Bosworth"
-  date: "6/21/2024"
+  author: "The Intro to R Team"
+  date: today
+  date-format: long
   navbar:
     search: true
     pinned: true
     right:
       - icon: github
         href: https://github.com/EMRR-DISE/IntrotoR
-        aria-label: Book GitHub
+        aria-label: GitHub
   chapters:
     - index.qmd
-    - part: "Day 1"
+    - part: "Day 1: 7/9/2024"
       chapters:
         - code/Day1Intro.qmd
+    - part: "Day 2: 7/11/2024"
+    - part: "Day 3: 7/16/2024"
     - part: code/Day4_01_Outline.qmd
       chapters:
         - code/Day4_02_Summarizing.qmd
         - code/Day4_03_Reshaping.qmd
         - code/Day4_04_Joins&Binds.qmd
-        - code/Day4_05_Final_Exercise.qmd
-    - references.qmd
+        - code/Day4_05_Extras.qmd
+        - code/Day4_06_Final_Exercise.qmd
   appendices:
     - code/RDefinitions.qmd
-
-bibliography: references.bib
+    - code/Resources.qmd
 
 format:
   html:
     theme: cosmo
-
-
 
