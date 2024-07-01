@@ -91,6 +91,19 @@ The default number of bins do not work well for this small data set. We can make
 
 
 ```
+Your Turn
+
+Based on the code above for the water temperature histogram, make a histogram of SpCndSurface and try different numbers of bins.
+
+```{r echo = T, results = 'hide'}
+
+(plot_hist_sc <- ggplot(data = wqdata, aes(x = SpCndSurface)) +
+   geom_histogram(bins = 6)
+)
+
+```
+If we had plotted data for a single station, the histogram would be roughly bell shaped, but because we are plotting data for two stations in different parts of the salinity gradient, we get a bimodal distribution.
+
 ## Time series plots
 
 Next, let's plot a time series of data. These plots are helpful for looking at monitoring data through time to identify patterns or for looking for outliers. For a histogram, there was only an x variable. For most types of plots, including time series plots, there are x and y variables to specify.
@@ -99,9 +112,13 @@ We will plot a year of Secchi depth data to see how it changes through the seaso
 
 ```{r}
 
-#filter data set to only data for station D7
+#filter data set to only data for station P8
 wqdata_p8 <- wqdata %>% 
   filter(Station == "P8") 
+
+#filter data set to only data for station D7
+wqdata_d7 <- wqdata %>% 
+  filter(Station == "D7") 
 
 #now plot this subset of the data
 (plot_ts_points <- ggplot(data = wqdata_p8, aes(x = Date, y = Secchi)) +
@@ -125,16 +142,31 @@ We can start to see how Secchi depth changed over time, but it would be easier t
   geom_point()+
   geom_line())
 
-#Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstates that we are simply adding layers
+#Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers
 (plot_ts_points_lines2 <- plot_ts_points +
   geom_line())
 
 ```
 Now it is a little easier to see the patterns through time. We can see that Secchi depth varies seasonally, generally with low values in rainy winter months and high in dry summer months. Note there is a gap in the time series in 2021 to reflect a missing value.  
 
+Your Turn
+
+Make a similar time series plot of Secchi depth for station D7. How does Secchi compare between the two stations?
+
+
+```{r}
+
+(plot_ts_points_lines_d7 <- ggplot(data = wqdata_d7, aes(x = Date, y = Secchi)) +
+  geom_point()+
+  geom_line())
+
+```
+Secchi depth is generally much lower at D7 than P8, indicating higher turbidity at D7.
+
+
 ## Multiple time series per plot
 
-We can easily plot multiple time series on the same graph in order to compare them. We will plot Secchi for both P8 and D7. These stations are in very different parts of the Estuary, so their turbidity dynamics are rather different.
+We can plot multiple time series on the same graph in order to more easily compare them. We will plot Secchi for P8 and D7 together. 
 
 ```{r}
 
@@ -144,7 +176,7 @@ We can easily plot multiple time series on the same graph in order to compare th
   geom_line(aes(color = Station)))
 
 ```
-This plot clearly shows that Secchi depth is generally much higher at P8 than D7, indicating that turbidity is higher at D7.
+This plot clearly shows what we noted in the individual plots of Secchi depth, namely that Secchi depth is generally much higher at P8 than D7.
 
 
 ## Scatterplots
@@ -165,8 +197,26 @@ There appears to be a strong relationship between these two variables. Let's add
    geom_smooth(method = lm)
    )
 
+cor.test(wqdata$DOC,wqdata$TOC)
 
 ```
+The correlation is very strong between TOC and DOC (0.99). By convention, a correlation coefficient between 0.7 and 1.00 (the max) is considered a strong correlation.
+
+Your Turn
+
+Look at the correlation between Chla and Pheophytin. 
+
+```{r}
+(plot_scatter_phyto <- ggplot(data = wqdata, aes(x = Chla, y = Pheophytin)) +
+  geom_point()+
+  geom_smooth(method = lm)
+)
+
+cor.test(wqdata$Chla,wqdata$Pheophytin)
+
+```
+Chla and Pheophytin are not correlated.
+
 
 ## Box and whisker plots
 
@@ -201,16 +251,35 @@ Personally, I like to include all the raw data points on the box and whisker plo
    )
 
 ```
+Your Turn
+
+Microcystis needs high temperatures to become abundant. It also needs a lot of light. Plot Microcystis against Secchi depth to see whether turbidity related to Microcystis abundance. Include the points for the raw data.
+
+```{r}
+
+(plot_bw_turb <- ggplot(data = wqdata, aes(x = factor(Microcystis), y = Secchi)) +
+   geom_boxplot() +
+   geom_jitter()
+   )
+
+```
+The pattern is not as stark as for temperature, but we do see that Microcsystis scores are higher when Secchi depth is greater. 
+
+
 ## Barplots
 
 In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category. We will make a bar plot that is analogous to the box and whisker plot above.
 
 ```{r}
 
-#first let's calculate the mean WTSurface by Microcystis score
+#first let's calculate the summary statistics for WTSurface and Secchi by Microcystis score
 wqdata_means <- wqdata %>% 
   group_by(Microcystis) %>% 
-  summarize(temp_mean = mean(WTSurface))
+  summarize(temp_mean = mean(WTSurface)
+            ,temp_sd = sd(WTSurface)
+            ,secchi_mean = mean(Secchi,na.rm = T)
+            ,secchi_sd = sd(Secchi,na.rm = T)
+            )
 
 #now make the bar plot
 (plot_bar <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = temp_mean)) +
@@ -223,6 +292,33 @@ wqdata_means <- wqdata %>%
     )
 
 ```
+
+Adding error bars to bar plots provides more information about the distribution of the data, a bit like the whiskers in the box and whisker plots above. There are different options for types of error bars (e.g., standard deviation, standard error, 95% confidence interval). We will add error bars to our Microcystis plot based on standard deviation.
+
+```{r}
+
+(plot_bar_error <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = temp_mean)) +
+   geom_bar(stat = 'identity')+
+     geom_errorbar(aes(ymin = temp_mean-temp_sd, ymax = temp_mean+temp_sd),width = 0.2)
+   )
+
+
+```
+With the addition of error bars, we can see there is more variation in temperature for Microcystis score 1 than for Microcystis score 4.
+
+Your Turn
+
+Make bar plot of Microcystis scores vs Secchi depth. Include standard error bars. This is analogous to the box and whisker plot you made previously.
+
+```{r}
+
+(plot_bar_error_secchi <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = secchi_mean)) +
+   geom_bar(stat = 'identity')+
+     geom_errorbar(aes(ymin = secchi_mean-secchi_sd, ymax = secchi_mean+secchi_sd),width = 0.2)
+   )
+
+```
+
 
 ## Stacked bar plot
 
@@ -251,6 +347,27 @@ Perhaps we are more interested in the relative values rather than the absolute v
    geom_bar(stat = "identity", position = "fill")
  )
 ```
+Your Turn
+
+Make a stacked bar plot showing the relative amounts of ammonia and nitrate plus nitrite for D7 using the data set below (i.e., wqdata_d7_nutrients). How does the proportion of ammonia at D7 compare to that of P8?
+
+```{r}
+
+wqdata_d7_nutrients <- wqdata_d7 %>% 
+  #reduce data set down to just the needed columns
+  select(Station, Date, DissAmmonia, DissNitrateNitrite) %>% 
+  #convert from wide to long format
+  pivot_longer(cols = c(DissAmmonia,DissNitrateNitrite), names_to = "Nutrient", values_to = "Value")
+
+```
+
+```{r}
+(plot_bar_stack_rel_d7 <- ggplot(data = wqdata_d7_nutrients, aes(x = Date, y = Value, fill = Nutrient)) +
+   geom_bar(stat = "identity", position = "fill")
+)
+```
+
+
 
 ## Faceted plots
 
@@ -267,8 +384,9 @@ Above, we plotted Secchi depth for both stations on the same plot. Sometimes, it
   facet_grid(Station~.)
 
 ```
-Here's another example
+Your Turn
 
+Make a faceted plot of nutrients for station P8 using the dataset wqdata_p8_nutrients. Show the absolute amounts rather than the relative amounts. Show the time series stacked on top of each other like the plot above for Secchi depth.
 ```{r}
 
 #time series plot for two analytes
@@ -310,9 +428,14 @@ plot_bar2+(plot_hist2 / plot_bar_stack_abs)
 
 ## Customizing plots
 
-As I mentioned at the outset, one of the greatest advances of using R to make graphs is that you can customize them endlessly. We will touch on just a few common types of customizations. 
+As I mentioned at the outset, one of the greatest advantages of using R to make graphs is that you can customize them endlessly. We will touch on just a few common types of customizations. 
 
 We will use the Secchi depth time series again. Previously, we used color to help differentiate the two stations, but we just used the default colors. We can specify the exact colors we want. We can also change the size, shape, and color of the points and the line type, width, and color. 
+
+Quick references for the customizations we will discuss
+Colors [https://r-charts.com/colors/]
+Point shapes ![Point shapes.](/images/PointShapes.png)
+Line types ![Line types.](/images/LineTypes.png)
 
 
 ```{r}
@@ -408,6 +531,9 @@ In addition, we can customize the names used to label the x-axis and y-axis and 
 )
 
 ```
+Your Turn
+
+Using the Secchi depth plot, try out different point shapes, line types, and color combinations.
 
 
 ## Saving plots
