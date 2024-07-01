@@ -5,8 +5,6 @@ format: html
 editor: visual
 ---
 
-## Definitions
-
 -   Argument- one of possibly several expressions that are passed to a function
 
 -   Assignment - Giving a value to a variable. `<-` is known as the "assignment operator".
