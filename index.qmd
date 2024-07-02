@@ -1,5 +1,5 @@
 
-# Intro to R for DWR {.unnumbered}
+# Intro to R for DWR
 
 Welcome to the Intro to R class for the Department of Water Resources, 2024!
 

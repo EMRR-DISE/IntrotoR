@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dave Bosworth">
-<title>Introduction to R Training - July 2024 - 4&nbsp; Joins and Binds</title>
+<title>Introduction to R Training - July 2024 - 6&nbsp; Joins and Binds</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins&amp;Binds.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Joins and Binds</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins&amp;Binds.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Joins and Binds</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -138,7 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Intro to R for DWR</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R for DWR</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day1Intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">An introduction to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An introduction to R</span></span></a>
   </div>
 </li>
       </ul>
@@ -163,9 +163,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Day 2: 7/11/2024</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Day 3: 7/16/2024</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Day 3: 7/16/2024</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day3_MakingGraphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Making Graphs</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../code/Day4_01_Outline.html" class="sidebar-item-text sidebar-link">
@@ -178,31 +191,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_02_Summarizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_03_Reshaping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_04_Joins&amp;Binds.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_06_Final_Exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -235,29 +248,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#differences-between-them" id="toc-differences-between-them" class="nav-link active" data-scroll-target="#differences-between-them"><span class="header-section-number">4.1</span> Differences between them</a></li>
+<li><a href="#differences-between-them" id="toc-differences-between-them" class="nav-link active" data-scroll-target="#differences-between-them"><span class="header-section-number">6.1</span> Differences between them</a></li>
   <li>
-<a href="#bind-rows" id="toc-bind-rows" class="nav-link" data-scroll-target="#bind-rows"><span class="header-section-number">4.2</span> Bind rows</a>
-  <ul class="collapse">
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">4.2.1</span> Exercise</a></li>
+<a href="#bind-rows" id="toc-bind-rows" class="nav-link" data-scroll-target="#bind-rows"><span class="header-section-number">6.2</span> Bind rows</a>
+  <ul>
+<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">6.2.1</span> Exercise</a></li>
   </ul>
 </li>
-  <li><a href="#join-basics" id="toc-join-basics" class="nav-link" data-scroll-target="#join-basics"><span class="header-section-number">4.3</span> Join basics</a></li>
+  <li><a href="#join-basics" id="toc-join-basics" class="nav-link" data-scroll-target="#join-basics"><span class="header-section-number">6.3</span> Join basics</a></li>
   <li>
-<a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">4.4</span> Left join</a>
-  <ul class="collapse">
-<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">4.4.1</span> Exercise</a></li>
+<a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">6.4</span> Left join</a>
+  <ul>
+<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">6.4.1</span> Exercise</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins&amp;Binds.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Joins and Binds</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins&amp;Binds.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Joins and Binds</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Joins and Binds</span>
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Joins and Binds</span>
 </h1>
 </div>
 
@@ -278,8 +291,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="differences-between-them" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="differences-between-them">
-<span class="header-section-number">4.1</span> Differences between them</h2>
+</header><section id="differences-between-them" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="differences-between-them">
+<span class="header-section-number">6.1</span> Differences between them</h2>
 <p>Binding rows or columns from two dataframes:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
@@ -308,8 +321,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Image Credit: <a href="https://stat545.stat.ubc.ca/tutorials/tibble_join/" class="uri">https://stat545.stat.ubc.ca/tutorials/tibble_join/</a></p>
-</section><section id="bind-rows" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="bind-rows">
-<span class="header-section-number">4.2</span> Bind rows</h2>
+</section><section id="bind-rows" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="bind-rows">
+<span class="header-section-number">6.2</span> Bind rows</h2>
 <p>Import additional WQ data collected in 2019 at P8 and D7</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_2019</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/WQ_2019.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -414,11 +427,11 @@ $ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26,
 #   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<section id="exercise" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">4.2.1</span> Exercise</h3>
+<section id="exercise" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">6.2.1</span> Exercise</h3>
 <p>Add data collected from 2019-2022 at C3A to dataframe with P8 and D7</p>
-</section></section><section id="join-basics" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="join-basics">
-<span class="header-section-number">4.3</span> Join basics</h2>
+</section></section><section id="join-basics" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="join-basics">
+<span class="header-section-number">6.3</span> Join basics</h2>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -435,8 +448,8 @@ $ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26,
 </div>
 </div>
 </div>
-</section><section id="left-join" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="left-join">
-<span class="header-section-number">4.4</span> Left join</h2>
+</section><section id="left-join" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="left-join">
+<span class="header-section-number">6.4</span> Left join</h2>
 <p>Join Delta inflow and outflow data from DayFlow to WQ data</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import Delta inflow and outflow data</span></span>
@@ -472,8 +485,8 @@ $ Inflow             &lt;dbl&gt; 27349, 42029, 129533, 107109, 129444, 105932, 1
 $ Outflow            &lt;dbl&gt; 21963, 42727, 130451, 95024, 121805, 97089, 100003,…</code></pre>
 </div>
 </div>
-<section id="exercise-1" class="level3" data-number="4.4.1"><h3 data-number="4.4.1" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">4.4.1</span> Exercise</h3>
+<section id="exercise-1" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="exercise-1">
+<span class="header-section-number">6.4.1</span> Exercise</h3>
 <p>Add weather observation data to WQ data (2019-2022, P8, D7, and C3A)</p>
 
 
@@ -887,12 +900,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../code/Day4_03_Reshaping.html" class="pagination-link" aria-label="Reshaping Data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../code/Day4_05_Extras.html" class="pagination-link" aria-label="Optional Extra Topics">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -43,7 +43,7 @@ Now go to File –\> new file –\> R script.
 
 This will be your first R script. You will type things in the script, then transfer them to the console to run them. You can technically type directly into the console, but then you can't save them, and that's bad, so get into the habit of writing everything in your script.
 
-#### Comments
+### Comments
 
 Another good habit to start early is commenting your code. Comments are indicated by hashtags `#`. They are parts of your script that don't do anything, just give you information about what you intended in your code and why you did what you did. RStudio helpfully color-codes them for you.
 
@@ -59,7 +59,7 @@ For example:
 sum(c(1,1))
 ```
 
-#### Running code
+### Running code
 
 From your script, you can hit the 'Run' icon in the top right corner to move a line of code from your script to your console.
 
@@ -73,7 +73,7 @@ You will notice that in the console all the lines of code you run start with a `
 
 The output does not start with a carrot or plus sign. (explain the brackets)
 
-#### Exercise
+### Exercise
 
 Now your turn!
 
@@ -95,7 +95,7 @@ Click below for the answer when you are done!
 
 ```
 
-### Part 2: Objects and Assignment
+## Part 2: Objects and Assignment
 
 The joy of coding is that you can quickly to a lot of things at once. So, if I had a dataset with temperatures in Fahrenheit that I want to convert to Celsius, we can use R to do that all at once.
 
@@ -153,7 +153,7 @@ If you want to print it as you make the assignment, you can put parentheses arou
 
 You'll also notice that in the Environment tab in your Rstudio window you should now have `temps` and `temps_C`. You can click on them to see them.
 
-#### Exercise
+### Exercise
 
 Convert these numbers from miles per hour to meters per second. (use assignment)
 
@@ -176,7 +176,7 @@ mps
 
 ```
 
-#### Type of objects
+### Type of objects
 
 We can call `temps` and `temps_C` *objects*. Specifically, they are numeric vectors. Let's go through some different types of objects.
 
@@ -192,7 +192,7 @@ We can call `temps` and `temps_C` *objects*. Specifically, they are numeric vect
 
 -   Lists - data of different types and different lengths in rows and columns.
 
-#### Data classes
+### Data classes
 
 -   numeric - Numbers (duh), these can be integers, real numbers, etc.
 
@@ -340,7 +340,7 @@ Click on the index, then one of the vignettes - those are very useful!
 
 ![](images/clipboard-1741072157.png)
 
-#### Package conflicts
+### Package conflicts
 
 After you've loaded a package, you might get some warnings about conflicted packages. These are different functions with the same name in two different packages. Mostly it isn't a problem, but sometimes you'll have to specify which function you mean.
 
@@ -360,7 +360,7 @@ detach("package:lubridate")
 library(lubridate, exclude = "date")
 ```
 
-#### Exercise
+### Exercise
 
 Let's try using a function that is in a package. `glimpse` is an simple function that tells you about a data frame. R has a number of built-in data sets that you can play with, and one is `mtcars`. It's just a table of different makes and models of cars and their stats.
 
@@ -527,7 +527,7 @@ sample(x, replace = TRUE)
 
 ![](images/clipboard-2816609803.png)
 
-### Closing for the day
+## Closing for the day
 
 How to save your workspace image.
 
