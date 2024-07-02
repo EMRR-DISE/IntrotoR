@@ -1,14 +1,14 @@
 ---
-title: "Day 3: Making Graphs"
+title: "Making Graphs"
 author: "Nick Rasmussen"
-format: 
+format:
   html:
-    code-fold: true
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
 ---
-
-```{r setup, include=T}
-knitr::opts_chunk$set(include=TRUE, message=FALSE, warning=FALSE)
-```
 
 ## Making Graphs in R
 
@@ -27,11 +27,11 @@ As we decide what type of plot to make, it is useful to consider the types of da
 
 ### Load the required R packages
 
-So without further ado, let's load the packages we need for today's tutorial. We will load the `tidyverse` because it included 'ggplot2' and a variety of other useful packages. We will also load 'here' to simplify reading and writing files. 
+So without further ado, let's load the packages we need for today's tutorial. We will load the `tidyverse` because it included `ggplot2` and a variety of other useful packages. We will also load `here` to simplify reading and writing files. 
 
-I will briefly show some features of the 'viridis' and 'patchwork' packages, but you don't need to worry about downloading them yourself right now.
+I will briefly show some features of the `viridis` and `patchwork` packages, but you don't need to worry about downloading them yourself right now.
 
-```{r load packages}
+```{r}
 
 library(tidyverse) #suite of data science tools
 library(here) #setting working directory
@@ -45,7 +45,6 @@ library(patchwork) #combining plots into panels
 We will continue to use the same EMP water quality data set that you used for the first two parts of this course.
 
 ```{r}
-here()
 wqdata <- read_csv( here("data/WQ_P8D7.csv"))
 
 ```
@@ -60,6 +59,7 @@ Let's take a quick look at the structure of the data to remind ourselves of the 
 glimpse(wqdata)
 
 ```
+
 Aside from staton, everything is "dbl" or "double", which just means they are considered numeric data.
 
 ## Let's make graphs!
@@ -97,7 +97,9 @@ The default number of bins do not work very well. We can make some manual adjust
 
 Based on the code above for the water temperature histogram, make a histogram of surface specific conductance (SpCndSurface) and try different numbers of bins.
 
-```{r echo = T, results = 'hide'}
+```{r}
+#| code-fold: true
+#| eval: false
 
 (plot_hist_sc <- ggplot(data = wqdata, aes(x = SpCndSurface)) +
    geom_histogram(bins = 6)
@@ -156,9 +158,10 @@ We can start to see how Secchi depth changed over time, but it would be easier w
 
 ```
 
+Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers
+
 ```{r}
 
-#Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers
 (plot_ts_points_lines_p8_2<- plot_ts_points +
   geom_line())
 
@@ -166,12 +169,14 @@ We can start to see how Secchi depth changed over time, but it would be easier w
 
 Now it is a little easier to see the patterns through time. We can see that Secchi depth varies seasonally, generally with low values in rainy winter months and high values in dry summer months. Note there is a gap in the time series in 2021 to reflect a missing value.  
 
-#### Your Turn
+### Your Turn
 
 Make a similar time series plot of Secchi depth for station D7. How does Secchi compare between the two stations?
 
 
 ```{r}
+#| code-fold: true
+#| eval: false
 
 (plot_ts_points_lines_d7 <- ggplot(data = wqdata_d7, aes(x = Date, y = Secchi)) +
   geom_point()+
@@ -184,7 +189,7 @@ Secchi depth is generally much lower at D7 than P8, indicating higher turbidity 
 
 ## Multiple time series per plot
 
-We can plot multiple time series on the same graph in order to more easily compare them. We will plot Secchi for P8 and D7 together. The 'ggplot()' function will apply two different default colors to the two stations.
+We can plot multiple time series on the same graph in order to more easily compare them. We will plot Secchi for P8 and D7 together. The `ggplot()` function will apply two different default colors to the two stations.
 
 ```{r}
 
@@ -227,11 +232,13 @@ cor.test(wqdata$DOC,wqdata$TOC)
 
 The correlation is very strong between TOC and DOC (0.99). By convention, a correlation coefficient between 0.7 and 1.00 (the max) is considered a strong correlation.
 
-#### Your Turn
+### Your Turn
 
 Plot the relationship between Chla and Pheophytin and fit a line to it.
 
 ```{r}
+#| code-fold: true
+#| eval: false
 
 (plot_scatter_trend_phyto <- ggplot(data = wqdata, aes(x = Chla, y = Pheophytin)) +
   geom_point()+
@@ -243,6 +250,8 @@ Plot the relationship between Chla and Pheophytin and fit a line to it.
 This does not look like much of a relationship. Let's look at the correlation coefficient.
 
 ```{r}
+#| code-fold: true
+#| eval: false
 
 cor.test(wqdata$Chla,wqdata$Pheophytin)
 
@@ -255,11 +264,15 @@ The correlation coefficient is -0.05, which indicates that Chla and Pheophytin a
 
 In scatter plots, we plot a continuous variable against another continuous variable. In some cases, we want to plot a continuous variable against a categorical variable. One type of plot that is useful in this situation is a box and whisker plot. These are great for initial data exploration and sometimes even in publications.
 
-Microcystis abundance data is collected using a visual scoring system of 1 - 5, with 5 being the highest. Microcystis blooms are associated with high water temperature. Let's plot the Microcystis scores (categorical) against water temperature (continuous). 
+Microcystis abundance data is collected using a visual scoring system of 1 - 5, with 5 being the highest. 
+
+![Microcystis ordinal scores](images/MicrocystisScores.jpg)
+
+Microcystis blooms are associated with high water temperature. Let's plot the Microcystis scores (categorical) against water temperature (continuous). 
 
 ```{r}
+#| warning: true
 
-#try making the plot with Microcystis as numeric type
 (plot_bw1 <- ggplot(data = wqdata, aes(x = Microcystis, y = WTSurface)) +
    geom_boxplot()
    )
@@ -269,12 +282,12 @@ Microcystis abundance data is collected using a visual scoring system of 1 - 5, 
 Note that Microcystis scores are ordered categories (i.e., ordinal), so R read them in as numeric data. If we try to make the plot with numeric Microcystis data, we don't get the plot we expect. We will make this column a factor to indicate that these numbers are actually categories. 
 
 ```{r}
-#make the plot correctly by specifying that Microcystis scores are categorical rather than numeric
 (plot_bw2 <- ggplot(data = wqdata, aes(x = factor(Microcystis), y = WTSurface)) +
    geom_boxplot()
    )
 ```
-This is plot is what we were looking for, and it shows an increase in Microcystis with water temperature, like we anticipated.
+
+This is plot is what we were looking for, and it shows an increase in Microcystis with water temperature, like we anticipated. Note that scores of four are rare and scores of five are absent from the data set.
 
 Personally, I like to include all the raw data points on the box and whisker plots because it gives folks an even better understanding of the distribution of the data. To do this, we add a layer with `geom_jitter()`. It is called this because the points are "jittered" to minimize overlap among them.
 
@@ -286,11 +299,13 @@ Personally, I like to include all the raw data points on the box and whisker plo
 
 ```
 
-#### Your Turn
+### Your Turn
 
 Microcystis needs a lot of light in addition to warm water. Plot Microcystis against Secchi depth to see whether turbidity is related to Microcystis abundance. Include the points for the raw data.
 
 ```{r}
+#| code-fold: true
+#| eval: false
 
 (plot_bw_turb <- ggplot(data = wqdata, aes(x = factor(Microcystis), y = Secchi)) +
    geom_boxplot() +
@@ -298,17 +313,17 @@ Microcystis needs a lot of light in addition to warm water. Plot Microcystis aga
    )
 
 ```
+
 The pattern is not as stark as for temperature, but we do see that Microcsystis scores are higher when Secchi depth is greater. 
-
-
 
 ## Barplots
 
-In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category. We will make bar plots that are analogous to the box and whisker plots above.
+In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category. 
+
+We will make bar plots that are analogous to the box and whisker plots above. We will need to calculate some summary statistics (mean, standard deviation) for the continuous variables by Microcystis score before we can make the plots.
 
 ```{r}
 
-#first let's calculate the summary statistics for WTSurface and Secchi by Microcystis score
 wqdata_means <- wqdata %>% 
   group_by(Microcystis) %>% 
   summarize(temp_mean = mean(WTSurface)
@@ -317,15 +332,15 @@ wqdata_means <- wqdata %>%
             ,secchi_sd = sd(Secchi,na.rm = T)
             )
 
-#now make the bar plot
 (plot_bar <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = temp_mean)) +
    geom_bar(stat = 'identity')
    )
 
 ```
 
+Here's another way to make the same plot.
+
 ```{r}
-#another way to make the same plot
 (plot_bar2 <- ggplot(data = wqdata_means) +
     geom_col(aes(x = factor(Microcystis), y = temp_mean))
     )
@@ -342,13 +357,16 @@ Adding error bars to bar plots provides more information about the distribution 
 
 
 ```
+
 With the addition of error bars, we can see there is more variation in temperature for Microcystis score 1 than for Microcystis score 4.
 
-#### Your Turn
+### Your Turn
 
 Make bar plot of Microcystis scores vs Secchi depth. Include standard error bars. This is analogous to the box and whisker plot you made previously.
 
 ```{r}
+#| code-fold: true
+#| eval: false
 
 (plot_bar_error_secchi <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = secchi_mean)) +
    geom_bar(stat = 'identity')+
@@ -389,11 +407,14 @@ Perhaps we are more interested in the relative values rather than the absolute v
    geom_bar(stat = "identity", position = "fill")
  )
 ```
-#### Your Turn
+
+### Your Turn
 
 Make a stacked bar plot showing the relative amounts of ammonia and nitrate plus nitrite for D7 using the data set below (i.e., wqdata_d7_nutrients). How does the proportion of ammonia at D7 compare to that of P8?
 
 ```{r}
+#| code-fold: true
+#| eval: false
 
 wqdata_d7_nutrients <- wqdata_d7 %>% 
   #reduce data set down to just the needed columns
@@ -404,6 +425,9 @@ wqdata_d7_nutrients <- wqdata_d7 %>%
 ```
 
 ```{r}
+#| code-fold: true
+#| eval: false
+
 (plot_bar_stack_rel_d7 <- ggplot(data = wqdata_d7_nutrients, aes(x = Date, y = Value, fill = Nutrient)) +
    geom_bar(stat = "identity", position = "fill")
 )
@@ -427,10 +451,13 @@ Above, we plotted Secchi depth for both stations on the same plot. Sometimes, it
 
 ```
 
-#### Your Turn
+### Your Turn
 
 Make a faceted plot of nutrients for station P8 using the dataset wqdata_p8_nutrients. Show the absolute amounts rather than the relative amounts. Show the time series stacked on top of each other like the plot above for Secchi depth.
+
 ```{r}
+#| code-fold: true
+#| eval: false
 
 #time series plot for two analytes
 (plot_bar_stack_abs_facet <- ggplot(data = wqdata_p8_nutrients, aes(x = Date, y = Value)) +
@@ -483,11 +510,11 @@ We will use the Secchi depth time series again. Previously, we used color to hel
 
 ### Quick references for the customizations options
 
-Colors [https://r-charts.com/colors/](https://r-charts.com/colors/)
+Colors: <https://r-charts.com/colors/>
 
-Point shapes ![Point shapes.](/images/PointShapes.png)
+Point shapes: ![](images/PointShapes.png)
 
-Line types ![Line types.](/images/LineTypes.png)
+Line types: ![](images/LineTypes.png)
 
 
 ```{r}
@@ -583,16 +610,19 @@ In addition, we can customize the names used to label the x-axis and y-axis and 
 )
 
 ```
-#### Your Turn
+
+### Your Turn
 
 Using the Secchi depth plot, try out different point shapes, line types, and color combinations.
 
 
 ## Saving plots
 
-In RStudio, you can right click on a plot to copy it and then paste it elsewhere (e.g., email, word document), which works fine as a quick and dirty approach. However, a better way to export a plot involves using the ggsave() function. We will export our customized Secchi depth comparison plot.
+In RStudio, you can right click on a plot to copy it and then paste it elsewhere (e.g., email, word document), which works fine as a quick and dirty approach. However, a better way to export a plot involves using the `ggsave()` function. We will export our customized Secchi depth comparison plot.
 
-```{r eval = F}
+```{r}
+#| eval: false
+
 ggsave(plot = plot_labels #tell ggsave which plot to export
        , filename = "images/secchi_depth_comp.png" #provide the name for the image file
        , width = 6, height =4, units = "in" #dimensions of the exported image

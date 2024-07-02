@@ -21,6 +21,8 @@ book:
         - code/Day1Intro.qmd
     - part: "Day 2: 7/11/2024"
     - part: "Day 3: 7/16/2024"
+      chapters:
+        - code/Day3_MakingGraphs.qmd
     - part: code/Day4_01_Outline.qmd
       chapters:
         - code/Day4_02_Summarizing.qmd
@@ -35,4 +37,6 @@ book:
 format:
   html:
     theme: cosmo
+    toc-depth: 4
+    toc-expand: 2
 
