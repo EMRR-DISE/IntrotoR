@@ -27,11 +27,11 @@ As we decide what type of plot to make, it is useful to consider the types of da
 
 ### Load the required R packages
 
-So without further ado, let's load the packages we need for today's tutorial. We will load the `tidyverse` because it included 'ggplot2' and a variety of other useful packages. We will also load 'here' to simplify reading and writing files. 
+So without further ado, let's load the packages we need for today's tutorial. We will load the `tidyverse` because it included `ggplot2` and a variety of other useful packages. We will also load `here` to simplify reading and writing files. 
 
 I will briefly show some features of the `viridis` and `patchwork` packages, but you don't need to worry about downloading them yourself right now.
 
-```{r load packages}
+```{r}
 
 library(tidyverse) #suite of data science tools
 library(here) #setting working directory
@@ -45,7 +45,6 @@ library(patchwork) #combining plots into panels
 We will continue to use the same EMP water quality data set that you used for the first two parts of this course.
 
 ```{r}
-here()
 wqdata <- read_csv( here("data/WQ_P8D7.csv"))
 
 ```
@@ -159,9 +158,10 @@ We can start to see how Secchi depth changed over time, but it would be easier w
 
 ```
 
+Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers
+
 ```{r}
 
-#Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers
 (plot_ts_points_lines_p8_2<- plot_ts_points +
   geom_line())
 
@@ -264,11 +264,15 @@ The correlation coefficient is -0.05, which indicates that Chla and Pheophytin a
 
 In scatter plots, we plot a continuous variable against another continuous variable. In some cases, we want to plot a continuous variable against a categorical variable. One type of plot that is useful in this situation is a box and whisker plot. These are great for initial data exploration and sometimes even in publications.
 
-Microcystis abundance data is collected using a visual scoring system of 1 - 5, with 5 being the highest. Microcystis blooms are associated with high water temperature. Let's plot the Microcystis scores (categorical) against water temperature (continuous). 
+Microcystis abundance data is collected using a visual scoring system of 1 - 5, with 5 being the highest. 
+
+![Microcystis ordinal scores](images/MicrocystisScores.jpg)
+
+Microcystis blooms are associated with high water temperature. Let's plot the Microcystis scores (categorical) against water temperature (continuous). 
 
 ```{r}
+#| warning: true
 
-#try making the plot with Microcystis as numeric type
 (plot_bw1 <- ggplot(data = wqdata, aes(x = Microcystis, y = WTSurface)) +
    geom_boxplot()
    )
@@ -278,13 +282,12 @@ Microcystis abundance data is collected using a visual scoring system of 1 - 5, 
 Note that Microcystis scores are ordered categories (i.e., ordinal), so R read them in as numeric data. If we try to make the plot with numeric Microcystis data, we don't get the plot we expect. We will make this column a factor to indicate that these numbers are actually categories. 
 
 ```{r}
-#make the plot correctly by specifying that Microcystis scores are categorical rather than numeric
 (plot_bw2 <- ggplot(data = wqdata, aes(x = factor(Microcystis), y = WTSurface)) +
    geom_boxplot()
    )
 ```
 
-This is plot is what we were looking for, and it shows an increase in Microcystis with water temperature, like we anticipated.
+This is plot is what we were looking for, and it shows an increase in Microcystis with water temperature, like we anticipated. Note that scores of four are rare and scores of five are absent from the data set.
 
 Personally, I like to include all the raw data points on the box and whisker plots because it gives folks an even better understanding of the distribution of the data. To do this, we add a layer with `geom_jitter()`. It is called this because the points are "jittered" to minimize overlap among them.
 
@@ -315,11 +318,12 @@ The pattern is not as stark as for temperature, but we do see that Microcsystis 
 
 ## Barplots
 
-In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category. We will make bar plots that are analogous to the box and whisker plots above.
+In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category. 
+
+We will make bar plots that are analogous to the box and whisker plots above. We will need to calculate some summary statistics (mean, standard deviation) for the continuous variables by Microcystis score before we can make the plots.
 
 ```{r}
 
-#first let's calculate the summary statistics for WTSurface and Secchi by Microcystis score
 wqdata_means <- wqdata %>% 
   group_by(Microcystis) %>% 
   summarize(temp_mean = mean(WTSurface)
@@ -328,15 +332,15 @@ wqdata_means <- wqdata %>%
             ,secchi_sd = sd(Secchi,na.rm = T)
             )
 
-#now make the bar plot
 (plot_bar <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = temp_mean)) +
    geom_bar(stat = 'identity')
    )
 
 ```
 
+Here's another way to make the same plot.
+
 ```{r}
-#another way to make the same plot
 (plot_bar2 <- ggplot(data = wqdata_means) +
     geom_col(aes(x = factor(Microcystis), y = temp_mean))
     )
@@ -614,7 +618,7 @@ Using the Secchi depth plot, try out different point shapes, line types, and col
 
 ## Saving plots
 
-In RStudio, you can right click on a plot to copy it and then paste it elsewhere (e.g., email, word document), which works fine as a quick and dirty approach. However, a better way to export a plot involves using the ggsave() function. We will export our customized Secchi depth comparison plot.
+In RStudio, you can right click on a plot to copy it and then paste it elsewhere (e.g., email, word document), which works fine as a quick and dirty approach. However, a better way to export a plot involves using the `ggsave()` function. We will export our customized Secchi depth comparison plot.
 
 ```{r}
 #| eval: false
