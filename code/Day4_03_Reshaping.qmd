@@ -26,7 +26,7 @@ df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 #| out-width: 80%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/wideLong2-768x317.png"), rel_path = FALSE)
+knitr::include_graphics(here("code/images/wideLong2-768x317.png"), error = FALSE)
 ```
 
 ```{r}
@@ -34,7 +34,7 @@ knitr::include_graphics(here("code/images/wideLong2-768x317.png"), rel_path = FA
 #| out-width: 70%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/wideLong3-1-768x845.png"), rel_path = FALSE)
+knitr::include_graphics(here("code/images/wideLong3-1-768x845.png"), error = FALSE)
 ```
 
 Image Credit: <https://www.statology.org/long-vs-wide-data/>
