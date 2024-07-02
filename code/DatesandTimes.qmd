@@ -1,0 +1,201 @@
+---
+title: "Bonus lesson - Dates and Times"
+editor: visual
+---
+
+# Dates and Times
+
+Dates and times are one of the most annoying data classes to deal with. There are many different ways of storing date and time information, and it's easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package `lubridate`. (which is part of tidyverse)
+
+For more info, see: https://r4ds.hadley.nz/datetimes.html
+
+First, let's look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the `today` function to get a date with today's value.
+
+```{r}
+library(tidyverse)
+
+today()
+
+as.numeric(today())
+```
+
+Now let's talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.
+
+```{r}
+now()
+
+as.numeric(now())
+
+```
+
+Note that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.
+
+## Date/Time Classes
+
+If you have a list of dates and times that you are importing into R, the `read_csv` or `read_excel` functions can usually guess when they are dates, particularly if they are in YYYY-MM-DD format, but sometimes they get confused. They have an especially hard time if they are in a non-standard format, such as MM/DD/YY. In this case, the field will get read in as a character and you have to convert it to a date/time class, usually POSIXct.
+
+Before we do that, let's learn a bit about different types of date/time classes.
+
+Date - Number of days since origin.
+
+POSIXct - Number of seconds since origin. This is the most common format.
+
+POSIXlt - List of vectors with components `sec`, `min`, `hour`, `mday`, `mon`, and `year`. You probably won't use this format very often.
+
+`POSIXct` is more convenient for including in data frames, and `POSIXlt` is closer to human-readable forms. Both classes may have an attribute `tzone`, specifying the time zone. See `?DateTimeClasses` for details.
+
+Note: There is no built-in "Time" class, only "DateTime". Some packages (like `hms`) have developed ways to deal with times on their own, but it doesn't come with your base R installation.
+
+## Converting from character dates
+
+The built-in function to convert from characters to dates is `strptime`
+
+```{r}
+#| eval: false
+?strptime
+
+```
+
+To use this function, we just feed in the date in character form and specify what format it is in. The format syntax is a little annoying, but the documentation for `strptime` gives you all the options.
+
+```{r}
+#date in character format
+date1 = "2/3/2021"
+
+#Convert it. Little m for month, little d for day, capital Y for four-diget year.
+date1a = strptime(date1, format = "%m/%d/%Y")
+date1a
+```
+
+```{r}
+#Try a different format. Lowercase y for two-digit year.
+
+date2 = "2/3/21"
+date2a = strptime(date2, format = "%m/%d/%y")
+date2a
+```
+
+```{r}
+#Now one with a time on it. Note that any spaces or dashes need to be the same in the format call as in your character vector.
+
+date3 = "2-3-2021 08:15"
+date3a = strptime(date3, format = "%m-%d-%Y %H:%M")
+date3a
+
+
+```
+
+The format strings are quite annoying, so fortunately the lubridate package has a number of shortcut functions to make converting easier.
+
+```{r}
+#| eval: false
+
+?ymd
+
+```
+
+Let's try the dates we converted above with these functions.
+
+```{r}
+
+mdy(date1)
+
+mdy(date2)
+
+mdy_hm(date3)
+```
+
+Note that `strptime` defaulted the time zone to PDT, whereas `mdy_hm` defaulted to UTC. It's always wise to specify your time zone manually to make sure issues don't come up.
+
+```{r}
+
+mdy_hm(date3, tz =  "America/Los_Angeles")
+
+```
+
+Note that when I specified the time zone, I actually specified the location, since we switch time zones with Daylight Savings.
+
+To get a complete list of time zone names, see `OlsonNames()`
+
+```{r}
+#| eval: false
+OlsonNames()
+```
+
+If you have a dataset that is collected in California, but doesn't use Daylight savings, use Etc/GMT+8. GMT (Greenwich Mean Time) doesn't change with daylight savings, and we are 8 hours ahead.
+
+```{r}
+mdy_hm(date3, tz =  "Etc/GMT+8")
+```
+
+R automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the `format` function.
+
+```{r}
+date1a
+format(date1a, format = "%m/%d/%y")
+
+```
+
+But really, why would you want to change the format?
+
+![](images/clipboard-3718936377.png)
+
+https://xkcd.com/1179
+
+## Times
+
+As noted above, there is no built-in `time` class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.
+
+```{r}
+
+times = c("1:20", "2:30", "3:50", "14:00")
+
+times = strptime(times, format = "%H:%M")
+times
+
+
+```
+
+It will usually default to today's date, or sometimes to Dec 31st, 1899. If you have a "Date" and a "Time" column in your dataframe, it's best to just combine them for manipulation.
+
+```{r}
+
+datesandtimes = data.frame(times = c("1:20", "2:30", "3:50", "14:00"),
+                           dates = c("2021-01-01", "2023-12-01", "2011-06-04", "2022-10-11"))
+
+str(datesandtimes)
+
+datesandtimes = mutate(datesandtimes, 
+                       Date = ymd(dates), 
+                       Time = strptime(times, format = "%H:%M"),
+                       DateTime = ymd_hm(paste(dates, times)))
+
+str(datesandtimes)
+```
+
+If you do really want to deal with just the time part of a date/time object, use the `hms` package.
+
+```{r}
+library(hms)
+
+as_hms(times)
+```
+
+## Extracting parts of a date/time object
+
+Lubridate has a lot of really useful thing to take dates and times apart. Like figuring out the month, year, day, etc.
+
+```{r}
+#month (as number or name)
+month(date1a)
+month(date1a, label = TRUE)
+
+#year
+year(date1a)
+
+#day of year
+yday(date1a)
+
+#day of week
+wday(date1a, label = T)
+```
