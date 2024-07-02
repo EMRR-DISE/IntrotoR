@@ -1,13 +1,20 @@
 ---
 title: "Bonus lesson - Dates and Times"
 editor: visual
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
 ---
 
-# Dates and Times
+## Dates and Times
 
 Dates and times are one of the most annoying data classes to deal with. There are many different ways of storing date and time information, and it's easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package `lubridate`. (which is part of tidyverse)
 
-For more info, see: https://r4ds.hadley.nz/datetimes.html
+For more info, see: <https://r4ds.hadley.nz/datetimes.html>
 
 First, let's look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the `today` function to get a date with today's value.
 

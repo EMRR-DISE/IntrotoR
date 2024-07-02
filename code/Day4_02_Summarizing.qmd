@@ -85,9 +85,11 @@ Now, R returns the overall average DON value after ignoring the `NA` values.
 
 Now its your turn to try out these summarizing functions we just learned about.
 
-1) Use `summary` to provide simple summary statistics for "Secchi" and "WTSurface". **HINT:** Run the function on one column at a time.
+1) Use `summary` to provide simple summary statistics for "Secchi" and "WTSurface".\
+**HINT:** Run the function on one column at a time.
 
-2) Now, use `summarize` to calculate the overall minimum value for "Secchi". **HINT:** Watch out for `NA` values!
+2) Now, use `summarize` to calculate the overall minimum value for "Secchi".\
+**HINT:** Watch out for `NA` values!
 
 3) Add the minimum value for "WTSurface" to the `summarize` function used above, and assign it to an object called "df_wq_min", and print it to view the results.
 
@@ -204,9 +206,11 @@ You may be wondering how `summarize` and `mutate` are different since they both 
 
 Now its your turn to try out grouping and summarizing.
 
-1) Use `group_by` and `summarize` to calculate the minimum, median, and maximum values for "Secchi" for each station. **HINT:** Watch out for `NA` values!
+1) Use `group_by` and `summarize` to calculate the minimum, median, and maximum values for "Secchi" for each station.\
+**HINT:** Watch out for `NA` values!
 
-2) Add "Year" as a grouping variable to the operation above to calculate summary statistics for "Secchi" for each station and year combination. **HINT:** Don't forget to ungroup your output data frame!
+2) Add "Year" as a grouping variable to the operation above to calculate summary statistics for "Secchi" for each station and year combination.\
+**HINT:** Don't forget to ungroup your output data frame!
 
 3) Try the same as in #2 above, but use the `.by` argument within the `summarize` function.
 

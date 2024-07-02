@@ -1,4 +1,4 @@
-# Intro to R for DWR {.unnumbered}
+# Intro to R for DWR
 
 Welcome to the Intro to R class for the Department of Water Resources, 2024!
 
@@ -34,14 +34,15 @@ For the first time, this is not taught by outside consultants, but by your own c
 
     -   The window titled "Console" should come up and have the R version and some boilerplate information about R in it, with a blue carrot and cursor below it.
 
-    -   ![](images/clipboard-1261131084.png)
+![](images/clipboard-1261131084.png)
 
 -   Install the `tidyverse` and `here` packages
 
     -   In your console, type `install.packages("tidyverse", "here")`
     -   The package should download and install automatically. You do not need administrative privileges for this step.
     -   NOTE: There are sometimes issues accessing CRAN from within RStudio while connected to a DWR network. If you receive this message, use your home wifi or a cell phone hot spot to connect to the internet, then try again.
-    -   ![](images/clipboard-3898096622.png)
+
+![](images/clipboard-3898096622.png)
 
 ## Meet your instructors
 

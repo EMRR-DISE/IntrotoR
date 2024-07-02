@@ -28,7 +28,7 @@ Binding rows or columns from two dataframes:
 #| out-width: 70%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/bind_rows.png"))
+knitr::include_graphics(here("code/images/bind_rows.png"), rel_path = FALSE)
 ```
 
 ```{r}
@@ -36,7 +36,7 @@ knitr::include_graphics(here("code/images/bind_rows.png"))
 #| out-width: 70%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/bind_cols.png"))
+knitr::include_graphics(here("code/images/bind_cols.png"), rel_path = FALSE)
 ```
 
 Rarely use bind_cols, safer to use a join function
@@ -48,7 +48,7 @@ Joining two dataframes with a `left_join()`:
 #| out-width: 70%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/left_join.png"))
+knitr::include_graphics(here("code/images/left_join.png"), rel_path = FALSE)
 ```
 
 Image Credit: <https://stat545.stat.ubc.ca/tutorials/tibble_join/>
@@ -91,7 +91,7 @@ Add data collected from 2019-2022 at C3A to dataframe with P8 and D7
 #| out-width: 70%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/join-venn.png"))
+knitr::include_graphics(here("code/images/join-venn.png"), rel_path = FALSE)
 ```
 
 ```{r}
@@ -99,7 +99,7 @@ knitr::include_graphics(here("code/images/join-venn.png"))
 #| out-width: 70%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/join-outer.png"))
+knitr::include_graphics(here("code/images/join-outer.png"), rel_path = FALSE)
 ```
 
 ## Left join

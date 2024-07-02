@@ -10,7 +10,7 @@ execute:
   warning: false
 ---
 
-# Working with Data in R
+## Working with Data in R
 
 As data scientists, our goal to use our collected data to produce statistics and graphics that inform various management and scientific questions. In order to do this, we must first learn how to properly format our data in R. Practically, this means learning basic processes for formatting data frames.
 
@@ -22,13 +22,15 @@ One of the most important "packages" for this task is `tidyverse`, which we lear
 library(tidyverse)
 ```
 
-# Read in Data
+## Read in Data
 
 Next, we must import our data. The common function for this is `read_csv` from `readr` (which is nested in `tidyverse`). For our demonstrations, we will use the **WQ_P8D7.csv** file housed in the **data** folder.
 
 When importing data, we must specify the *filepath* where it's housed. There are multiple ways to do this. We could hard-code in the path, which is called the *absolute path*:
 
 ```{r}
+#| error: true
+
 df_wq <- read_csv('C:/R/IntrotoR/data/WQ_P8D7.csv')
 ```
 
@@ -60,7 +62,7 @@ And `glimpse` to see information about the columns:
 glimpse(df_wq)
 ```
 
-# Subsetting
+## Subsetting
 
 Lets talk a bit about the structure of the data frame. Dataframes are 2-dimensional objects (row x column). Every entry in a dataframe has a unique **index** that's defined by which row x column it's in. Since we rarely want to work on the entire dataframe at once, we can use these indices to **subset** our data.
 
@@ -92,7 +94,7 @@ You can also subset multiple columns/rows at once by using a `:`
 df_wq[,2:4] # all rows, 2-4th columns
 ```
 
-## Subset by Column Name
+### Subset by Column Name
 
 Subsetting is very powerful, but one issue is -- by access values by their numerical index -- we can get confused about what we're accessing. For example, if I wanted to work with `DissAmmonia` data, I would have to first know that it's the 4th column in my dataframe. That can get unwieldy with complex datasets.
 
@@ -134,7 +136,7 @@ df_chlpheo <- df_wq %>% select(Station:Pheophytin)
 glimpse(df_chlpheo)
 ```
 
-### Aside: Tidyverse Pipes
+#### Aside: Tidyverse Pipes
 
 You'll notice I used some new syntax there, namely, the `%>%`. This is called the *pipe operator*, Operators are functions that allows one to perform operations on other functions/variables. The pipe operator specifically allows you to chain together tidyverse commands.
 
@@ -150,7 +152,7 @@ For clarity, I can *pipe* the dataframe into the select function:
 df_wq %>% select(Station:Pheophytin)
 ```
 
-## Subset By Row Values
+### Subset By Row Values
 
 Another common goal is to subset by particular row values -- say, only a given station, date range, or analyte value range. Tidyverse also has functions for this! Specifically, we use `filter` from the `dplyr` package:
 
@@ -162,9 +164,9 @@ df_p8 <- df_wq %>% filter(Station == 'P8')
 unique(df_p8$Station)
 ```
 
-## Aside: Logical Operators
+### Aside: Logical Operators
 
-### *equality* (`==`) and *negate equality* (`!=`)
+#### *equality* (`==`) and *negate equality* (`!=`)
 
 Note we used another new symbol: `==`. This is the equality operator, a type of **logical operator**. Logical operators allow us to dictate what our code does via logical statements.
 
@@ -180,7 +182,7 @@ df_notp8 <- df_wq %>% filter(Station != 'P8')
 unique(df_notp8$Station)
 ```
 
-### *and* (`&`) and *or* (`|`)
+#### *and* (`&`) and *or* (`|`)
 
 Sometimes, we want to filter by multiple commands at once. We can use this using the logical operators *and* (`&`) or *or* ('\|\`):
 
@@ -192,7 +194,7 @@ df_wq %>% filter(Station == 'P8' & Date == '2020-01-16')
 df_wq %>% filter(Date == '2020-01-16' | Date == '2020-01-22')
 ```
 
-### *less than* `<` and *greater than* `>`
+#### *less than* `<` and *greater than* `>`
 
 Sometimes, we want all values above or below:
 
@@ -214,7 +216,7 @@ What if we want data in between two dates? We can use the and (`&`) operator!
 df_wq %>% filter(Date >= '2020-02-01' & Date <= '2020-06-30')
 ```
 
-### *in* (`%in%`)
+#### *in* (`%in%`)
 
 What if we wanted to subset by five specific dates? We could string together multiple or (`|`) commands, but that can become unwieldy to write.
 
@@ -280,7 +282,7 @@ In one filter function, how would I select data that's either before 2020-02-28 
 df_wq %>% filter(Date <= '2020-02-28' | Date >= '2022-11-01')
 ```
 
-## Subset by Column and Row
+### Subset by Column and Row
 
 Using our knowledge of pipes, it's easy to subset by column and row at the same time!
 
@@ -288,7 +290,7 @@ Using our knowledge of pipes, it's easy to subset by column and row at the same 
 df_wq %>% filter(Date == '2020-01-16' | Date == '2020-01-22') %>% select(Station:Pheophytin)
 ```
 
-### Aside: Formatting Code
+#### Aside: Formatting Code
 
 Notice that above all the code is on the same line. This can be difficult to read. You can get around this by formatting your code. Personally, I like having different functions on different lines:
 
@@ -309,7 +311,7 @@ df_wq %>% filter(Date == '2020-01-16' |
                    Date == '2020-01-22') %>% select(Station:Pheophytin)
 ```
 
-## Subset NA
+### Subset NA
 
 There's one more type of subset that we'll cover today. This is selecting data that is `NA`.
 
@@ -354,9 +356,9 @@ df_wq %>%
   select(Station, Date, DON)
 ```
 
-# Mutate Function
+## Mutate Function
 
-## New Columns
+### New Columns
 
 Sometimes, we want to modify our already existing columns, or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
 
@@ -383,7 +385,7 @@ df_wq %>%
   mutate(statdate = paste(Station,Date,sep = '_'))
 ```
 
-### Aside: Relocate Columns
+#### Aside: Relocate Columns
 
 Sometimes, we want to re-arrange our column order. For example, with our new `Lab` column, we might want that in the beginning with the other metadata. Here, we use the `relocate` function:
 
@@ -393,7 +395,7 @@ df_wq %>%
   relocate(Lab, .after = Date)
 ```
 
-## Existing Columns
+### Existing Columns
 
 We can also use mutate *to modify existing columns*
 
@@ -410,7 +412,7 @@ df_wq %>%
          Pheophytin = as.numeric(Pheophytin))
 ```
 
-### Aside: Case When
+#### Aside: Case When
 
 What if we only want to modify certain data in a column? Say, we want to add 20 to all Chla values *but only for P8*.
 
@@ -426,7 +428,7 @@ df_wq %>%
   select(c(Station:Date), Chla)
 ```
 
-# Rename
+## Rename
 
 Sometimes, we want to rename our columns (eg. if working with multiple dataframes, we want the columns to be standardized). We can do this using the `rename` function from the `dplyr` package:
 
@@ -435,7 +437,7 @@ df_wq %>%
   rename(StationCode = Station)
 ```
 
-# Final Exercise
+## Final Exercise
 
 Using pipes, modify the `df_wq` dataframe as so:
 

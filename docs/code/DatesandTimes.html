@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Dave Bosworth">
-<title>Introduction to R Training - July 2024 - 8&nbsp; Optional Extra Topics</title>
+<title>Introduction to R Training - July 2024 - Appendix A — Bonus lesson - Dates and Times</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../code/Day4_06_Final_Exercise.html" rel="next">
-<link href="../code/Day4_04_Joins_Binds.html" rel="prev">
+<link href="../code/RDefinitions.html" rel="next">
+<link href="../code/Day4_06_Final_Exercise.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -127,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_05_Extras.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/DatesandTimes.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/DatesandTimes.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -221,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link active">
+  <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
   </div>
 </li>
@@ -244,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/DatesandTimes.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/DatesandTimes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></span></a>
   </div>
 </li>
@@ -270,37 +269,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#using-across" id="toc-using-across" class="nav-link active" data-scroll-target="#using-across"><span class="header-section-number">8.1</span> Using <code>across</code></a>
-  <ul>
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">8.1.1</span> Exercise</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#combining-concepts---summarize-and-reshape" id="toc-combining-concepts---summarize-and-reshape" class="nav-link" data-scroll-target="#combining-concepts---summarize-and-reshape"><span class="header-section-number">8.2</span> Combining concepts - Summarize and Reshape</a>
-  <ul>
-<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">8.2.1</span> Exercise</a></li>
-  </ul>
-</li>
+<li><a href="#dates-and-times" id="toc-dates-and-times" class="nav-link active" data-scroll-target="#dates-and-times"><span class="header-section-number">A.1</span> Dates and Times</a></li>
+  <li><a href="#datetime-classes" id="toc-datetime-classes" class="nav-link" data-scroll-target="#datetime-classes"><span class="header-section-number">A.2</span> Date/Time Classes</a></li>
+  <li><a href="#converting-from-character-dates" id="toc-converting-from-character-dates" class="nav-link" data-scroll-target="#converting-from-character-dates"><span class="header-section-number">A.3</span> Converting from character dates</a></li>
+  <li><a href="#times" id="toc-times" class="nav-link" data-scroll-target="#times"><span class="header-section-number">A.4</span> Times</a></li>
+  <li><a href="#extracting-parts-of-a-datetime-object" id="toc-extracting-parts-of-a-datetime-object" class="nav-link" data-scroll-target="#extracting-parts-of-a-datetime-object"><span class="header-section-number">A.5</span> Extracting parts of a date/time object</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_05_Extras.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span>
-</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/DatesandTimes.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/DatesandTimes.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Appendix A — Bonus lesson - Dates and Times</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dave Bosworth </p>
-          </div>
-  </div>
     
   
     
@@ -308,137 +292,219 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="using-across" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="using-across">
-<span class="header-section-number">8.1</span> Using <code>across</code>
-</h2>
+</header><section id="dates-and-times" class="level2" data-number="A.1"><h2 data-number="A.1" class="anchored" data-anchor-id="dates-and-times">
+<span class="header-section-number">A.1</span> Dates and Times</h2>
+<p>Dates and times are one of the most annoying data classes to deal with. There are many different ways of storing date and time information, and it’s easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package <code>lubridate</code>. (which is part of tidyverse)</p>
+<p>For more info, see: <a href="https://r4ds.hadley.nz/datetimes.html" class="uri">https://r4ds.hadley.nz/datetimes.html</a></p>
+<p>First, let’s look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the <code>today</code> function to get a date with today’s value.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 62
-Columns: 21
-$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
-$ Date               &lt;date&gt; 2020-01-16, 2020-01-22, 2020-02-14, 2020-02-20, 20…
-$ Chla               &lt;dbl&gt; 0.64, 0.67, 1.46, 2.15, 1.40, 1.89, 4.73, 1.74, 6.4…
-$ Pheophytin         &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.8…
-$ TotAlkalinity      &lt;dbl&gt; 98.0, 82.0, 81.0, 86.0, 80.0, 93.0, 59.0, 78.0, 63.…
-$ DissAmmonia        &lt;dbl&gt; 0.150, 0.210, 0.250, 0.140, 0.110, 0.220, 0.050, 0.…
-$ DissNitrateNitrite &lt;dbl&gt; 2.800, 0.490, 1.700, 0.480, 1.600, 0.380, 1.070, 0.…
-$ DOC                &lt;dbl&gt; 3.90, 0.27, 2.80, 0.39, 2.00, 0.19, 2.80, 1.20, 3.1…
-$ TOC                &lt;dbl&gt; 4.10, 0.32, 2.50, 0.41, 2.10, 0.20, 2.80, 1.20, 3.1…
-$ DON                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0.30, 0.20, 0.30, 0.10, 0.5…
-$ TotPhos            &lt;dbl&gt; 0.310, 0.082, 0.130, 0.130, 0.190, 0.100, 0.188, 0.…
-$ DissOrthophos      &lt;dbl&gt; 0.200, 0.071, 0.130, 0.065, 0.140, 0.082, 0.177, 0.…
-$ TDS                &lt;dbl&gt; 380, 9500, 340, 5800, 290, 8700, 280, 7760, 227, 11…
-$ TSS                &lt;dbl&gt; 8.9, 38.0, 2.2, 18.0, 1.4, 28.0, 6.6, 35.6, 5.3, 23…
-$ TKN                &lt;dbl&gt; 0.520, 0.480, 0.430, 0.250, 0.400, 0.200, 0.400, 0.…
-$ Depth              &lt;dbl&gt; 28.9, 18.8, 39.0, 7.1, 39.0, 7.2, 37.1, 5.2, 36.7, …
-$ Secchi             &lt;dbl&gt; 116, 30, 212, 52, 340, 48, 100, 40, 160, 44, 120, 6…
-$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 3, 2, 3, 2, 4, 2, 3, 2, 2, 1, 1, …
-$ SpCndSurface       &lt;dbl&gt; 667, 15532, 647, 11369, 530, 16257, 503, 12946, 404…
-$ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 21.1…
-$ Year               &lt;dbl&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 202…</code></pre>
+<pre><code>[1] "2024-07-02"</code></pre>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">summarize</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span>, <span class="va">DissOrthophos</span><span class="op">)</span>, <span class="va">max</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-  Station  Year DissAmmonia DissNitrateNitrite DissOrthophos
-  &lt;chr&gt;   &lt;dbl&gt;       &lt;dbl&gt;              &lt;dbl&gt;         &lt;dbl&gt;
-1 D7       2020       0.22               0.49          0.103
-2 D7       2021       0.192              0.526         0.103
-3 D7       2022       0.145              0.656         0.113
-4 P8       2020       0.25               3.25          0.474
-5 P8       2021       0.299              3.58          0.455
-6 P8       2022       0.29               5.47          0.456</code></pre>
+<pre><code>[1] 19906</code></pre>
 </div>
 </div>
+<p>Now let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">summarize</span><span class="op">(</span></span>
-<span>    <span class="fu">across</span><span class="op">(</span></span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span>, <span class="va">DissOrthophos</span><span class="op">)</span>, </span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>min <span class="op">=</span> <span class="va">min</span>, max <span class="op">=</span> <span class="va">max</span><span class="op">)</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-  Station  Year DissAmmonia_min DissAmmonia_max DissNitrateNitrite_min
-  &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;                  &lt;dbl&gt;
-1 D7       2020            0.05           0.22                   0.23 
-2 D7       2021            0.05           0.192                  0.179
-3 D7       2022            0.05           0.145                  0.16 
-4 P8       2020            0.05           0.25                   0.71 
-5 P8       2021            0.05           0.299                  1.08 
-6 P8       2022            0.05           0.29                   0.8  
-# ℹ 3 more variables: DissNitrateNitrite_max &lt;dbl&gt;, DissOrthophos_min &lt;dbl&gt;,
-#   DissOrthophos_max &lt;dbl&gt;</code></pre>
+<pre><code>[1] "2024-07-02 13:13:37 PDT"</code></pre>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">summarize</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu">starts_with</span><span class="op">(</span><span class="st">"Diss"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>min <span class="op">=</span> <span class="va">min</span>, max <span class="op">=</span> <span class="va">max</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-  Station  Year DissAmmonia_min DissAmmonia_max DissNitrateNitrite_min
-  &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;                  &lt;dbl&gt;
-1 D7       2020            0.05           0.22                   0.23 
-2 D7       2021            0.05           0.192                  0.179
-3 D7       2022            0.05           0.145                  0.16 
-4 P8       2020            0.05           0.25                   0.71 
-5 P8       2021            0.05           0.299                  1.08 
-6 P8       2022            0.05           0.29                   0.8  
-# ℹ 3 more variables: DissNitrateNitrite_max &lt;dbl&gt;, DissOrthophos_min &lt;dbl&gt;,
-#   DissOrthophos_max &lt;dbl&gt;</code></pre>
+<pre><code>[1] 1719951218</code></pre>
 </div>
 </div>
-<section id="exercise" class="level3" data-number="8.1.1"><h3 data-number="8.1.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">8.1.1</span> Exercise</h3>
-</section></section><section id="combining-concepts---summarize-and-reshape" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="combining-concepts---summarize-and-reshape">
-<span class="header-section-number">8.2</span> Combining concepts - Summarize and Reshape</h2>
+<p>Note that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.</p>
+</section><section id="datetime-classes" class="level2" data-number="A.2"><h2 data-number="A.2" class="anchored" data-anchor-id="datetime-classes">
+<span class="header-section-number">A.2</span> Date/Time Classes</h2>
+<p>If you have a list of dates and times that you are importing into R, the <code>read_csv</code> or <code>read_excel</code> functions can usually guess when they are dates, particularly if they are in YYYY-MM-DD format, but sometimes they get confused. They have an especially hard time if they are in a non-standard format, such as MM/DD/YY. In this case, the field will get read in as a character and you have to convert it to a date/time class, usually POSIXct.</p>
+<p>Before we do that, let’s learn a bit about different types of date/time classes.</p>
+<p>Date - Number of days since origin.</p>
+<p>POSIXct - Number of seconds since origin. This is the most common format.</p>
+<p>POSIXlt - List of vectors with components <code>sec</code>, <code>min</code>, <code>hour</code>, <code>mday</code>, <code>mon</code>, and <code>year</code>. You probably won’t use this format very often.</p>
+<p><code>POSIXct</code> is more convenient for including in data frames, and <code>POSIXlt</code> is closer to human-readable forms. Both classes may have an attribute <code>tzone</code>, specifying the time zone. See <code><a href="https://rdrr.io/r/base/DateTimeClasses.html">?DateTimeClasses</a></code> for details.</p>
+<p>Note: There is no built-in “Time” class, only “DateTime”. Some packages (like <code>hms</code>) have developed ways to deal with times on their own, but it doesn’t come with your base R installation.</p>
+</section><section id="converting-from-character-dates" class="level2" data-number="A.3"><h2 data-number="A.3" class="anchored" data-anchor-id="converting-from-character-dates">
+<span class="header-section-number">A.3</span> Converting from character dates</h2>
+<p>The built-in function to convert from characters to dates is <code>strptime</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>Month <span class="op">=</span> <span class="fu">month</span><span class="op">(</span><span class="va">Date</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">summarize</span><span class="op">(</span>Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>, .by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Month</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Station</span>, values_from <span class="op">=</span> <span class="va">Chla</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">strptime</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To use this function, we just feed in the date in character form and specify what format it is in. The format syntax is a little annoying, but the documentation for <code>strptime</code> gives you all the options.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#date in character format</span></span>
+<span><span class="va">date1</span> <span class="op">=</span> <span class="st">"2/3/2021"</span></span>
+<span></span>
+<span><span class="co">#Convert it. Little m for month, little d for day, capital Y for four-diget year.</span></span>
+<span><span class="va">date1a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date1</span>, format <span class="op">=</span> <span class="st">"%m/%d/%Y"</span><span class="op">)</span></span>
+<span><span class="va">date1a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
-   Month    P8    D7
-   &lt;ord&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1 Jan   0.605  0.67
- 2 Feb   1.17   2.90
- 3 Mar   1.61   4.04
- 4 Jun   4.47   4.44
- 5 Jul   5.31   3.94
- 6 Aug   8.73   3.30
- 7 Sep   4.1    1.89
- 8 Oct   2.42   1.96
- 9 Nov   1.63   1.49
-10 Apr   3.08   2.90
-11 May   3.7    2.3 
-12 Dec   1.27   1.69</code></pre>
+<pre><code>[1] "2021-02-03 PST"</code></pre>
 </div>
 </div>
-<section id="exercise-1" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">8.2.1</span> Exercise</h3>
-<p>Do the same summarize and reshape as above but calculate annual maximums of TDS for each station</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>Year <span class="op">=</span> <span class="fu">year</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">summarize</span><span class="op">(</span>TDS <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">TDS</span><span class="op">)</span>, .by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Station</span>, values_from <span class="op">=</span> <span class="va">TDS</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Try a different format. Lowercase y for two-digit year.</span></span>
+<span></span>
+<span><span class="va">date2</span> <span class="op">=</span> <span class="st">"2/3/21"</span></span>
+<span><span class="va">date2a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date2</span>, format <span class="op">=</span> <span class="st">"%m/%d/%y"</span><span class="op">)</span></span>
+<span><span class="va">date2a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 PST"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Now one with a time on it. Note that any spaces or dashes need to be the same in the format call as in your character vector.</span></span>
+<span></span>
+<span><span class="va">date3</span> <span class="op">=</span> <span class="st">"2-3-2021 08:15"</span></span>
+<span><span class="va">date3a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date3</span>, format <span class="op">=</span> <span class="st">"%m-%d-%Y %H:%M"</span><span class="op">)</span></span>
+<span><span class="va">date3a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 08:15:00 PST"</code></pre>
+</div>
+</div>
+<p>The format strings are quite annoying, so fortunately the lubridate package has a number of shortcut functions to make converting easier.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">ymd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s try the dates we converted above with these functions.</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">mdy</a></span><span class="op">(</span><span class="va">date1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03"</code></pre>
+</div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">mdy</a></span><span class="op">(</span><span class="va">date2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03"</code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 08:15:00 UTC"</code></pre>
+</div>
+</div>
+<p>Note that <code>strptime</code> defaulted the time zone to PDT, whereas <code>mdy_hm</code> defaulted to UTC. It’s always wise to specify your time zone manually to make sure issues don’t come up.</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span>, tz <span class="op">=</span>  <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 08:15:00 PST"</code></pre>
+</div>
+</div>
+<p>Note that when I specified the time zone, I actually specified the location, since we switch time zones with Daylight Savings.</p>
+<p>To get a complete list of time zone names, see <code><a href="https://rdrr.io/r/base/timezones.html">OlsonNames()</a></code></p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/timezones.html">OlsonNames</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you have a dataset that is collected in California, but doesn’t use Daylight savings, use Etc/GMT+8. GMT (Greenwich Mean Time) doesn’t change with daylight savings, and we are 8 hours ahead.</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span>, tz <span class="op">=</span>  <span class="st">"Etc/GMT+8"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 08:15:00 -08"</code></pre>
+</div>
+</div>
+<p>R automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the <code>format</code> function.</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date1a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 PST"</code></pre>
+</div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date1a</span>, format <span class="op">=</span> <span class="st">"%m/%d/%y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "02/03/21"</code></pre>
+</div>
+</div>
+<p>But really, why would you want to change the format?</p>
+<p><img src="images/clipboard-3718936377.png" class="img-fluid"></p>
+<p>https://xkcd.com/1179</p>
+</section><section id="times" class="level2" data-number="A.4"><h2 data-number="A.4" class="anchored" data-anchor-id="times">
+<span class="header-section-number">A.4</span> Times</h2>
+<p>As noted above, there is no built-in <code>time</code> class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1:20"</span>, <span class="st">"2:30"</span>, <span class="st">"3:50"</span>, <span class="st">"14:00"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">times</span>, format <span class="op">=</span> <span class="st">"%H:%M"</span><span class="op">)</span></span>
+<span><span class="va">times</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2024-07-02 01:20:00 PDT" "2024-07-02 02:30:00 PDT"
+[3] "2024-07-02 03:50:00 PDT" "2024-07-02 14:00:00 PDT"</code></pre>
+</div>
+</div>
+<p>It will usually default to today’s date, or sometimes to Dec 31st, 1899. If you have a “Date” and a “Time” column in your dataframe, it’s best to just combine them for manipulation.</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datesandtimes</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1:20"</span>, <span class="st">"2:30"</span>, <span class="st">"3:50"</span>, <span class="st">"14:00"</span><span class="op">)</span>,</span>
+<span>                           dates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2021-01-01"</span>, <span class="st">"2023-12-01"</span>, <span class="st">"2011-06-04"</span>, <span class="st">"2022-10-11"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">datesandtimes</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   4 obs. of  2 variables:
+ $ times: chr  "1:20" "2:30" "3:50" "14:00"
+ $ dates: chr  "2021-01-01" "2023-12-01" "2011-06-04" "2022-10-11"</code></pre>
+</div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datesandtimes</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">datesandtimes</span>, </span>
+<span>                       Date <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span>, </span>
+<span>                       Time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">times</span>, format <span class="op">=</span> <span class="st">"%H:%M"</span><span class="op">)</span>,</span>
+<span>                       DateTime <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">ymd_hm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">dates</span>, <span class="va">times</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">datesandtimes</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   4 obs. of  5 variables:
+ $ times   : chr  "1:20" "2:30" "3:50" "14:00"
+ $ dates   : chr  "2021-01-01" "2023-12-01" "2011-06-04" "2022-10-11"
+ $ Date    : Date, format: "2021-01-01" "2023-12-01" ...
+ $ Time    : POSIXlt, format: "2024-07-02 01:20:00" "2024-07-02 02:30:00" ...
+ $ DateTime: POSIXct, format: "2021-01-01 01:20:00" "2023-12-01 02:30:00" ...</code></pre>
+</div>
+</div>
+<p>If you do really want to deal with just the time part of a date/time object, use the <code>hms</code> package.</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hms.tidyverse.org/">hms</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://hms.tidyverse.org/reference/hms.html">as_hms</a></span><span class="op">(</span><span class="va">times</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>01:20:00
+02:30:00
+03:50:00
+14:00:00</code></pre>
+</div>
+</div>
+</section><section id="extracting-parts-of-a-datetime-object" class="level2" data-number="A.5"><h2 data-number="A.5" class="anchored" data-anchor-id="extracting-parts-of-a-datetime-object">
+<span class="header-section-number">A.5</span> Extracting parts of a date/time object</h2>
+<p>Lubridate has a lot of really useful thing to take dates and times apart. Like figuring out the month, year, day, etc.</p>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#month (as number or name)</span></span>
+<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">date1a</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">date1a</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Feb
+12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec</code></pre>
+</div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#year</span></span>
+<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">date1a</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2021</code></pre>
+</div>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#day of year</span></span>
+<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/day.html">yday</a></span><span class="op">(</span><span class="va">date1a</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 34</code></pre>
+</div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#day of week</span></span>
+<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/day.html">wday</a></span><span class="op">(</span><span class="va">date1a</span>, label <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Wed
+Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
+</div>
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -847,13 +913,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../code/Day4_04_Joins_Binds.html" class="pagination-link" aria-label="Joins and Binds">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span>
+      <a href="../code/Day4_06_Final_Exercise.html" class="pagination-link" aria-label="Final Exercise">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Final Exercise</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../code/Day4_06_Final_Exercise.html" class="pagination-link" aria-label="Final Exercise">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Final Exercise</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../code/RDefinitions.html" class="pagination-link" aria-label="Definitions">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Definitions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: docs
+  execute-dir: project
 
 book:
   title: "Introduction to R Training - July 2024"
@@ -20,6 +21,8 @@ book:
       chapters:
         - code/Day1Intro.qmd
     - part: "Day 2: 7/11/2024"
+      chapters:
+        - code/Day2_DataOrg.qmd
     - part: "Day 3: 7/16/2024"
       chapters:
         - code/Day3_MakingGraphs.qmd
@@ -27,10 +30,11 @@ book:
       chapters:
         - code/Day4_02_Summarizing.qmd
         - code/Day4_03_Reshaping.qmd
-        - code/Day4_04_Joins&Binds.qmd
+        - code/Day4_04_Joins_Binds.qmd
         - code/Day4_05_Extras.qmd
         - code/Day4_06_Final_Exercise.qmd
   appendices:
+    - code/DatesandTimes.qmd
     - code/RDefinitions.qmd
     - code/Resources.qmd
 

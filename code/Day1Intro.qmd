@@ -1,7 +1,13 @@
 ---
 title: "An introduction to R"
-format: html
 editor: visual
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
 ---
 
 ## R
@@ -421,18 +427,25 @@ Everyone has trouble interpreting error messages at first. Fortunately, error me
 Another thing to know is that not all red text is errors. Some are warnings. Don't worry about what this code does for now, just see what the output looks like.
 
 ```{r}
+library(ggplot2)
+```
+
+```{r}
+#| warning: true
+
 mtcars[1,1] = NA 
 
-library(ggplot2)
 ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
 
-#everything still ran, but it gave to a warning to let you know something did not go as planned
-
 ```
+
+Everything still ran, but it gave to a warning to let you know something did not go as planned.
 
 We also sometimes get messages, which are usually not even red.
 
 ```{r}
+#| message: true
+
 #don't worry about what this code does for now, just notice that we get a message telling you what it decided to use for the smoothing term.
 ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
 
