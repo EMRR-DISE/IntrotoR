@@ -312,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><section id="introduction" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">5.1</span> Introduction</h2>
-<p>A common task that many of us need to do is to summarize or aggregate a data set to gain a simplified overview of the data or to more easily work with the data. Some of you may be familiar with pivot tables in Excel which can help with this task. The R programming language is also very helpful with summarizing data and allows for greater customization than pivot tables. We’ll start this lesson with some basic R functions to summarize your data, and then move into some more powerful R functions from the <code>dplyr</code> package to group and summarize your data.</p>
+<p>A common task that many of us need to do is to summarize or aggregate a data set to gain a simplified overview of the data or to more easily work with the data. Some of you may be familiar with pivot tables in Excel which can help with this task. The R programming language is also very helpful with summarizing data and allows for greater customization than pivot tables. We’ll start this lesson with some basic R functions to summarize your data, and then move into some more powerful R functions from the <a href="https://dplyr.tidyverse.org/index.html"><code>dplyr</code></a> package to group and summarize your data.</p>
 </section><section id="import-data" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="import-data">
 <span class="header-section-number">5.2</span> Import Data</h2>
 <p>We’ll start the day with loading packages and importing the EMP water quality data.</p>
@@ -460,7 +460,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <ol type="1">
 <li><p>Use <code>summary</code> to provide simple summary statistics for “Secchi” and “WTSurface”.<br><strong>HINT:</strong> Run the function on one column at a time.</p></li>
 <li><p>Now, use <code>summarize</code> to calculate the overall minimum value for “Secchi”.<br><strong>HINT:</strong> Watch out for <code>NA</code> values!</p></li>
-<li><p>Add the minimum value for “WTSurface” to the <code>summarize</code> function used above, and assign it to an object called “df_wq_min”, and print it to view the results.</p></li>
+<li><p>Add the minimum value for “WTSurface” to the <code>summarize</code> function used above, assign it to an object, and print it to view the results.</p></li>
 </ol>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
