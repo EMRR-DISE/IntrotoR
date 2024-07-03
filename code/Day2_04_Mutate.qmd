@@ -1,0 +1,108 @@
+---
+title: "Mutate Data"
+author: "Perry S"
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+## Introduction
+
+Sometimes, we want to modify our already existing columns, or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
+
+## Add New Columns
+
+With mutate, it's simple to add new columns. First, let's look at our current columns.
+
+```{r}
+glimpse(df_wq)
+```
+
+Now let's add a new column, *Lab*, where every value is "BSA":
+
+```{r}
+df_wq %>%
+  mutate(Lab = 'BSA') %>%
+  glimpse()
+```
+
+We can even add columns that are combinations of other ones:
+
+*add two numeric columns together*
+
+```{r}
+df_wq %>%
+  mutate(ChlPheo = Chla+Pheophytin) %>%
+  select(Station, Date, Chla, Pheophytin, ChlPheo) %>%
+  head() # looks at the first 5 entries by default
+```
+
+*concatenate two character columns*
+
+```{r}
+df_wq %>%
+  mutate(StatDate = paste(Station, Date, sep = '___')) %>%
+  select(Station, Date, StatDate) %>%
+  head()
+```
+
+::: callout-note
+## Relocate Columns
+
+Sometimes, we want to re-arrange our column order. For example, with our new `Lab` column, we might want it in the beginning with the other metadata. Here, we use the `relocate` function:
+
+```{r}
+df_wq %>%
+  mutate(Lab = 'BSA') %>%
+  relocate(Lab, .after = Date) %>%
+  head()
+```
+:::
+
+## Modify Existing Columns
+
+We can also use mutate to modify existing columns. For example, say we want to add 20 to every *Chla* value:
+
+```{r}
+df_wq %>%
+  mutate(Chla = Chla+20)
+```
+
+We can even change types! This is useful if, say, you have character column that should be numeric, or a character column that should be factor.
+
+```{r}
+df_wq %>%
+  mutate(Chla = as.numeric(Chla),
+         Station = as.factor(Station)) %>%
+  select(Station, Chla) %>%
+  str()
+```
+
+## `case_when`
+
+What if we only want to modify certain data in a column? For example, say we want to add 20 to all Chla values *only for P8*.
+
+This can be done using the `case_when` function (also available in `tidyverse`). This replaces the left-hand side of the mutate statement; now, instead of only having one logical statement, you can specify multiple!
+
+```{r}
+df_wq %>%
+  mutate(
+    Chla =
+      case_when(Station == 'P8' ~ Chla + 20, # if station is P8, add 20
+              TRUE ~ Chla) # else, keep as previous value
+  ) %>%
+  select(c(Station:Date), Chla)
+```
+
+## [Aside:]{.underline} Rename
+
+Sometimes, we want to rename our columns (eg. if working with multiple data frames, we want the columns to be standardized). We can do this using the `rename` function from the `dplyr` package:
+
+```{r}
+df_wq %>%
+  rename(StationCode = Station)
+```

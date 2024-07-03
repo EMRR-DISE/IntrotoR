@@ -1,0 +1,42 @@
+---
+title: "Day 2: 7/11/2024"
+author: "Perry S"
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+Our goal as scientists is to use our collected data to produce statistics and graphics that inform various management and scientific questions. The first step in this process is to properly format our data. Practically, this means learning how to manipulate data frames in R.
+
+An outline for today's lesson:
+
+1.  Import Data
+
+    -   Load Packages
+    -   Import Data
+
+2.  Subset Data
+
+    -   Basic Subsetting
+    -   Subset by Column Names
+        -   *Tidyverse Pipes*
+    -   Subset by Row Values
+    -   [Aside:]{.underline} Logical Operators
+    -   Subset by Column and Row
+        -   *Code Formatting*
+    -   Subset by Date
+    -   Subset `NA`
+
+3.  Mutate Data
+
+    -   Add New Columns
+    -   Relocate Columns
+    -   Modify Existing Columns
+    -   `case_when`
+    -   [Aside:]{.underline} Rename
+
+4.  Final Exercise
