@@ -10,18 +10,14 @@ execute:
   warning: false
 ---
 
-## Making Graphs in R
+## Introduction
 
-One of the greatest strengths of R is its ability to produce a wide variety of professional quality custom graphs. Today, we will cover the basics of visualizing data using the popular `ggplot2` package. We will cover a broad range of basic graphs that are useful for visualizing water quality and biological data.
+One of the greatest strengths of R is its ability to produce a wide variety of professional quality custom graphs. Today, we will cover the basics of visualizing data using the popular `ggplot2` package. We will cover a broad range of graphs that are useful for visualizing water quality and biological data.
 
+As we decide what type of graph to make, it is useful to consider the types of data we are plotting. In general, continuous data are those comprised of numbers (e.g., water temperature). Categorical data are those that fall into discrete groups or types (e.g., station).
 
-### A note on base R graphics
+When you download R, there is a suite of packages that are included. These packages include functions for carrying out a variety of basic tasks, including making graphs. I used base R graphing functions for a number of years, and there's nothing wrong with using them. However, in more recent years, I have completely switched to using the `ggplot2` package and think it is a great package for new R users to know.
 
-When you download R, there is a suite of packages that are included. These packages include functions for carrying out a variety of basic tasks, including making graphs. I used base R graphing functions for a number of years, and there's nothing wrong with using these functions. However, in more recent years, I have completely switched to using the `ggplot2` package and think it is a great package for new R users to know.
-
-### Continuous vs categorical data
-
-As we decide what type of plot to make, it is useful to consider the types of data we are plotting. Continuous data refers to numbers like water temperature. Categorical refers to types within a group (e.g., station).
 
 ## Set up
 
@@ -35,14 +31,14 @@ I will briefly show some features of the `viridis` and `patchwork` packages, but
 
 library(tidyverse) #suite of data science tools
 library(here) #setting working directory
-library(viridis) #color blind friendly color palettes
+library(viridis) #attractive, color blind friendly color palettes
 library(patchwork) #combining plots into panels
 
 ```
 
 ### Read in the dataset
 
-We will continue to use the same EMP water quality data set that you used for the first two parts of this course.
+We will continue to use the same EMP water quality data set that you used for the first two parts of this course. 
 
 ```{r}
 wqdata <- read_csv( here("data/WQ_P8D7.csv"))
@@ -50,9 +46,9 @@ wqdata <- read_csv( here("data/WQ_P8D7.csv"))
 ```
 
 
-### Look at at the data set
+### Look at the data set
 
-Let's take a quick look at the structure of the data to remind ourselves of the column names and data types in this data set
+Let's take a quick look at the structure of the data to remind ourselves of the column names and data types in this data set.
 
 ```{r}
 
@@ -60,19 +56,19 @@ glimpse(wqdata)
 
 ```
 
-Aside from staton, everything is "dbl" or "double", which just means they are considered numeric data.
+Just about everything is "dbl" or "double", which just means they are considered numeric data. As exceptions, Station is character, and Date is date.
 
-## Let's make graphs!
+## Histograms
 
-The `ggplot2` package utilizes the grammar of graphics and creates plots in "layers". We will learn about some of the core "geometries", which specify how the graph will look (e.g., bar plot vs line plot). 
+Let's start making graphs! The `ggplot2` package utilizes the grammar of graphics and creates plots in "layers". We will learn about some of the core "geometries", which specify how the graph will look (e.g., bar plot vs line plot). 
 
-### Histograms
-
-Let's start making plots, so we can learn the anatomy of the `ggplot()` function. We will begin with a histogram, which simply shows the distribution of data for a single variable. Histograms can be used to show the number of observations for each category (bin) of a categorical variable or the number of observations of a continuous variable within each number range (bin). We will plot surface water temperature (WTSurface). 
+We will begin by making a simple histogram, so we can learn the anatomy of the `ggplot()` function. Histograms show the distribution of data for a single variable (categorical or continuous). We will plot surface water temperature (WTSurface). 
 
 Within the `ggplot()` function, the first thing we should do is specify the data set we want to plot using the `data` argument. Then, we will indicate which column within the data set we want to plot. These are the most basic components. 
 
 From here, we use the `+` sign to add layers upon the foundation we have built. In this case, we want a histogram, so we use the argument `geom_histogram()`. There are many types of graphs you can make and ggplot has similarly named arguments for each of them (e.g., `geom_point`, `geom_line`). We will look at more of these shortly.
+
+I surround my plot code with parentheses, so the plots render immediately when I run the code. If you don't include those parentheses, running the plotting code will simply save the plot as the named object, which may be all you want in some cases.
 
 ```{r}
 
@@ -82,7 +78,7 @@ From here, we use the `+` sign to add layers upon the foundation we have built. 
 
 ```
 
-The default number of bins do not work very well. We can make some manual adjustments within the `geom_histogram()` argument. Let's try eight bins.
+Water temperature is a continuous variable, so the widths of the histogram bins are a bit arbitrary. R made a guess about how many bins to use, but this guess doesn't work very well. We can make some manual adjustments within the `geom_histogram()` argument. Let's try reducing the number of bins to eight.
 
 
 ```{r}
@@ -93,7 +89,7 @@ The default number of bins do not work very well. We can make some manual adjust
 
 ```
 
-#### Your Turn
+### Your Turn
 
 Based on the code above for the water temperature histogram, make a histogram of surface specific conductance (SpCndSurface) and try different numbers of bins.
 
@@ -107,12 +103,12 @@ Based on the code above for the water temperature histogram, make a histogram of
 
 ```
 
-If we had plotted data for a single station, the histogram would be roughly bell shaped, but because we are plotting data for two stations in different parts of the salinity gradient, we get a bimodal distribution.
+If we had plotted data for a single station, the histogram would have been roughly bell shaped, but because we are plotting data for two stations in different parts of the salinity gradient, we get a bimodal distribution.
 
 
 ## Time series plots
 
-Next, let's plot a time series of data. These plots are helpful for looking at monitoring data through time to identify patterns or for looking for outliers. For a histogram, there was only an x variable. For most types of plots, including time series plots, there are x and y variables to specify.
+Next, let's plot a time series of data. These plots are helpful for looking at monitoring data through time to identify patterns or for finding outliers. For a histogram, there was only an x variable. For most types of plots, including time series plots, there are x and y variables to specify.
 
 We will plot a year of Secchi depth data to see how it changes through the seasons. As a reminder, higher Secchi depth means lower turbidity. 
 
@@ -129,7 +125,7 @@ wqdata_p8 <- wqdata %>%
 wqdata_d7 <- wqdata %>% 
   filter(Station == "D7") 
 
-#now plot this subset of the data
+#now plot the P8 subset of the data
 (plot_ts_points <- ggplot(data = wqdata_p8, aes(x = Date, y = Secchi)) +
   geom_point()
 )
@@ -150,6 +146,7 @@ wqdata_d7 <- wqdata %>%
 We can start to see how Secchi depth changed over time, but it would be easier with lines connecting the points. Let's add some, which will highlight how ggplot works by building layers. As you might expect, we add the lines using `geom_line()`.
 
 ```{r}
+#| warning: true
 
 #time series plot with connecting lines
 (plot_ts_points_lines_p8 <- ggplot(data = wqdata_p8, aes(x = Date, y = Secchi)) +
@@ -158,7 +155,7 @@ We can start to see how Secchi depth changed over time, but it would be easier w
 
 ```
 
-Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers
+Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers.
 
 ```{r}
 
@@ -171,7 +168,7 @@ Now it is a little easier to see the patterns through time. We can see that Secc
 
 ### Your Turn
 
-Make a similar time series plot of Secchi depth for station D7. How does Secchi compare between the two stations?
+Make a similar time series plot of Secchi depth for station D7 (use wqdata_D7 as the data set). How does Secchi compare between the two stations?
 
 
 ```{r}
@@ -189,7 +186,9 @@ Secchi depth is generally much lower at D7 than P8, indicating higher turbidity 
 
 ## Multiple time series per plot
 
-We can plot multiple time series on the same graph in order to more easily compare them. We will plot Secchi for P8 and D7 together. The `ggplot()` function will apply two different default colors to the two stations.
+We can plot multiple time series on the same graph in order to more easily compare them. We will plot Secchi for P8 and D7 together. 
+
+To include both stations as separate lines, we use group = Station. To get different colors for the points and lines by station, we include color = Station within each geom. These are just default colors. We will see how to specify our own colors later.
 
 ```{r}
 
@@ -215,7 +214,7 @@ Next, let's make a scatterplot. These plots are great for looking at relationshi
 
 ```
 
-There appears to be a strong relationship between these two variables. Let's add a trend line. As with the time series plot, we are building layers. However, we are not simply adding lines to connect the points, so we aren't using `geom_line()`. To plot a trend line, we use `geom_smooth()`. There are various smooths that could be applied, so we need to specify what we want. In this case, we use a linear model (LM). By default, a 95% confidence interval (dark gray) is added around the trend line (blue).
+There appears to be a strong relationship between these two variables. Let's add a trend line. As with the time series plot, we are building layers. However, we are not simply adding lines to connect the points, so we aren't using `geom_line()`. To plot a trend line, we use `geom_smooth()`. There are various smooths we could apply, so we need to specify what we want. In this case, we use a linear model (LM). By default, a 95% confidence interval (dark gray) is added around the trend line (blue).
 
 ```{r}
 (plot_scatter_trend <- plot_scatter +
@@ -257,7 +256,7 @@ cor.test(wqdata$Chla,wqdata$Pheophytin)
 
 ```
 
-The correlation coefficient is -0.05, which indicates that Chla and Pheophytin are not significantly correlated. Even if we removed the outlier at high end of Chla, it would still not show a significant relationship.
+The correlation coefficient is -0.05, which indicates that Chla and Pheophytin are not significantly correlated. Even if we removed the outlier at the high end of Chla, it would still not show a significant relationship.
 
 
 ## Box and whisker plots
@@ -287,7 +286,9 @@ Note that Microcystis scores are ordered categories (i.e., ordinal), so R read t
    )
 ```
 
-This is plot is what we were looking for, and it shows an increase in Microcystis with water temperature, like we anticipated. Note that scores of four are rare and scores of five are absent from the data set.
+This plot is what we were looking for, and it shows an increase in Microcystis density with water temperature, like we anticipated. Note that scores of four are rare, and scores of five are absent from the data set.
+
+The thick horizontal bar in the middle of the box is the median (not the mean). The bottom and top box borders are the 25th percentile (i.e., 1st quartile) and 75th percentiles (i.e., 3rd quartile), respectively. The bottom and top whiskers are the interquartile range (i.e., box height) * 1.5. Points beyond the whiskers are outliers.
 
 Personally, I like to include all the raw data points on the box and whisker plots because it gives folks an even better understanding of the distribution of the data. To do this, we add a layer with `geom_jitter()`. It is called this because the points are "jittered" to minimize overlap among them.
 
@@ -301,7 +302,7 @@ Personally, I like to include all the raw data points on the box and whisker plo
 
 ### Your Turn
 
-Microcystis needs a lot of light in addition to warm water. Plot Microcystis against Secchi depth to see whether turbidity is related to Microcystis abundance. Include the points for the raw data.
+Microcystis needs a lot of light in addition to warm water. Plot Microcystis against Secchi depth to see whether turbidity is related to Microcystis density. Include the points for the raw data.
 
 ```{r}
 #| code-fold: true
@@ -318,7 +319,7 @@ The pattern is not as stark as for temperature, but we do see that Microcsystis 
 
 ## Barplots
 
-In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category. 
+Bar plots are similar to box and whisker plots but show less information. They generally include the mean and perhaps an indicator of variation.   
 
 We will make bar plots that are analogous to the box and whisker plots above. We will need to calculate some summary statistics (mean, standard deviation) for the continuous variables by Microcystis score before we can make the plots.
 
@@ -380,7 +381,7 @@ Make bar plot of Microcystis scores vs Secchi depth. Include standard error bars
 
 Sometimes we want a bar plot that simultaneously shows a total and its component parts at the same time, which is where stacked bar plots are useful.
 
-Let's go back to the subset of data for Station P8. We might want to look at Dissolved Ammonium and Dissolved Nitrate and Nitrite through time together.
+Let's go back to the subset of data for Station P8. We might want to look at Dissolved Ammonia (DissAmmonia) and Dissolved Nitrate and Nitrite (DissNitrateNitrite) through time together.
 
 ```{r}
 
@@ -413,8 +414,6 @@ Perhaps we are more interested in the relative values rather than the absolute v
 Make a stacked bar plot showing the relative amounts of ammonia and nitrate plus nitrite for D7 using the data set below (i.e., wqdata_d7_nutrients). How does the proportion of ammonia at D7 compare to that of P8?
 
 ```{r}
-#| code-fold: true
-#| eval: false
 
 wqdata_d7_nutrients <- wqdata_d7 %>% 
   #reduce data set down to just the needed columns
@@ -467,7 +466,7 @@ Make a faceted plot of nutrients for station P8 using the dataset wqdata_p8_nutr
 
 ```
 
-By default, the y-axis is standardized across the panels. This is generally a good idea. However, we can change this if we like. Ammonia concentrations are much lower than nitrate + nitrite concentrations, which makes ammonia concentrations difficult to read on the plot. Let's use different y-axis ranges for the two analytes to fix that.
+By default, the y-axis range is standardized across the panels. This is generally a good idea. However, we can change this if we like. Ammonia concentrations are much lower than nitrate plus nitrite concentrations, which makes ammonia concentrations difficult to read on the plot. Let's use different y-axis ranges for the two analytes to fix that.
 
 ```{r}
 
@@ -506,7 +505,7 @@ plot_hist_temp_bins+(plot_hist_temp_bins / plot_bar_stack_abs)
 
 As I mentioned at the outset, one of the greatest advantages of using R to make graphs is that you can customize them endlessly. We will touch on just a few common types of customizations. 
 
-We will use the Secchi depth time series again. Previously, we used color to help differentiate the two stations, but we just used the default colors. We can specify the exact colors we want. We can also change the size, shape, and color of the points and the line type, width, and color. 
+We will use the Secchi depth time series again. Previously, we used color to help differentiate the two stations, but we just used the default colors. We can specify the exact colors we want. We can also change the size, shape, and color of the points and the type, width, and color of the lines. 
 
 ### Quick references for the customizations options
 
@@ -530,12 +529,12 @@ Line types: ![](images/LineTypes.png)
   geom_line(aes(color = Station)))
 
 #different line types for different stations
-(plot_ts_points_lines_two_pts <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+(plot_ts_points_lines_two_pts_lty <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
   geom_point(aes(color = Station, shape = Station))+
   geom_line(aes(color = Station, linetype = Station)))
 
 #adjust point sizes and line widths
-(plot_ts_points_lines_two_pts <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+(plot_ts_points_lines_two_pts_lty_sz <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
   geom_point(aes(color = Station, shape = Station), size = 3)+
   geom_line(aes(color = Station, linetype = Station), size = 1.2))
 
@@ -548,7 +547,7 @@ Line types: ![](images/LineTypes.png)
 )
 
 #Customize point shapes 
-(plot_ts_points_lines_two_custom <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+(plot_ts_points_lines_two_custom2 <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
   geom_point(aes(color = Station, shape = Station), size = 3)+
   geom_line(aes(color = Station, linetype = Station), size = 1.2)+
   scale_color_manual(values =c("midnightblue","darkorange3")) +
@@ -557,7 +556,7 @@ Line types: ![](images/LineTypes.png)
 
 
 #Customize line types
-(plot_ts_points_lines_two_custom <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
+(plot_ts_points_lines_two_custom3 <- ggplot(data = wqdata, aes(x = Date, y = Secchi)) +
   geom_point(aes(color = Station, shape = Station), size = 3)+
   geom_line(aes(color = Station, linetype = Station), size = 1.2)+
   scale_color_manual(values =c("midnightblue","darkorange3")) +
@@ -569,12 +568,12 @@ Line types: ![](images/LineTypes.png)
 
 ```
 
-So far, we have used the default color palette in `ggplot2` as well as some customized colors. There are also a variety of R packages with thoughtfully developed color palettes. One example is the `viridis` package, which includes palettes are both attractive and color blind friendly. 
+So far, we have used the default color palette in `ggplot2` as well as some customized colors. There is also a variety of R packages with thoughtfully developed color palettes. One example is the `viridis` package, which includes palettes that are both attractive and color blind friendly.
+
+Our Sechi depth plot isn't a great example for showing color palettes, so we will go back to our Microcystis scores plot.
 
 ```{r}
 
-#Use color palette
-#our Sechi depth plot isn't a great example so we will go back to our Microcystis scores plot
 (plot_bar <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = temp_mean, fill = factor(Microcystis))) +
    geom_bar(stat = 'identity')+
    scale_fill_viridis(discrete = T)
@@ -593,13 +592,14 @@ There are also options for formatting the plot background. Many people dislike t
   theme_bw()
 )
 
+#change background to white with no grid and only axis lines on the left and bottom sides
 (plot_background_classic <- plot_ts_points_lines_two_custom + 
   theme_classic()
 )
 
 ```
 
-In addition, we can customize the names used to label the x-axis and y-axis and add plot titles. It is important to provide good labels for your plot axes. In particular, make sure to include the measurement units when relevant. I don't personally use plot title much, but they can be quickly inform your audience about the purpose of the plot. 
+In addition, we can customize the names used to label the x-axis and y-axis and add plot titles. It is important to provide good labels for your plot axes. In particular, make sure to include the measurement units when relevant. I don't personally use plot title much, but they can quickly inform your audience about the purpose of the plot. 
 
 ```{r}
 (plot_labels <- plot_background_classic +
@@ -610,6 +610,8 @@ In addition, we can customize the names used to label the x-axis and y-axis and 
 )
 
 ```
+
+Now our plot is looking pretty good and could be published in a report or journal.
 
 ### Your Turn
 
@@ -630,7 +632,7 @@ ggsave(plot = plot_labels #tell ggsave which plot to export
        )
 ```
 
-I used PNG which is a file type that works well for viewing on a computer. However, `ggsave()` can save plots as PDF, JPEG, TIFF, and various others. Search for `ggsave()` within 'Help' to see the full list of file types.
+I used PNG, which is a file type that works well for viewing on a computer. However, `ggsave()` can save plots as PDF, JPEG, TIFF, and various others. Search for `ggsave()` within 'Help' to see the full list of file types.
 
 By default, the plot will be saved in your working directory. I specified a subfolder within my working directory.
 
