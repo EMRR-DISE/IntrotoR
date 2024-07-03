@@ -10,6 +10,15 @@ execute:
   warning: false
 ---
 
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
 ## Introduction
 
 Let's talk a bit about the structure of a data frame. Data frames are 2-dimensional objects (row x column). Every entry in a data frame has a unique **index** that's defined by which row x column it's in. Since we rarely want to work on the entire data frame at once, we can use these indices to **subset** our data.

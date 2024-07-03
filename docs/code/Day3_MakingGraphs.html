@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Nick Rasmussen">
-<title>Introduction to R Training - July 2024 - 4&nbsp; Making Graphs</title>
+<title>Introduction to R Training - July 2024 - 7&nbsp; Making Graphs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../code/Day4_01_Outline.html" rel="next">
-<link href="../code/Day2_DataOrg.html" rel="prev">
+<link href="../code/Day2_05_FinalExercise.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html">Day 3: 7/16/2024</a></li><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Making Graphs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html">Day 3: 7/16/2024</a></li><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making Graphs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="../code/Day2_01_Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 2: 7/11/2024</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -169,8 +169,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day2_DataOrg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Manipulation</span></span></a>
+  <a href="../code/Day2_02_ImportData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_03_Subset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Subset Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_04_Mutate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_05_FinalExercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -187,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day3_MakingGraphs.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Making Graphs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making Graphs</span></span></a>
   </div>
 </li>
       </ul>
@@ -204,31 +222,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_02_Summarizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_03_Reshaping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_06_Final_Exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -271,83 +289,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li>
-<a href="#making-graphs-in-r" id="toc-making-graphs-in-r" class="nav-link active" data-scroll-target="#making-graphs-in-r"><span class="header-section-number">4.1</span> Making Graphs in R</a>
+<a href="#making-graphs-in-r" id="toc-making-graphs-in-r" class="nav-link active" data-scroll-target="#making-graphs-in-r"><span class="header-section-number">7.1</span> Making Graphs in R</a>
   <ul>
-<li><a href="#a-note-on-base-r-graphics" id="toc-a-note-on-base-r-graphics" class="nav-link" data-scroll-target="#a-note-on-base-r-graphics"><span class="header-section-number">4.1.1</span> A note on base R graphics</a></li>
-  <li><a href="#continuous-vs-categorical-data" id="toc-continuous-vs-categorical-data" class="nav-link" data-scroll-target="#continuous-vs-categorical-data"><span class="header-section-number">4.1.2</span> Continuous vs categorical data</a></li>
+<li><a href="#a-note-on-base-r-graphics" id="toc-a-note-on-base-r-graphics" class="nav-link" data-scroll-target="#a-note-on-base-r-graphics"><span class="header-section-number">7.1.1</span> A note on base R graphics</a></li>
+  <li><a href="#continuous-vs-categorical-data" id="toc-continuous-vs-categorical-data" class="nav-link" data-scroll-target="#continuous-vs-categorical-data"><span class="header-section-number">7.1.2</span> Continuous vs categorical data</a></li>
   </ul>
 </li>
   <li>
-<a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up"><span class="header-section-number">4.2</span> Set up</a>
+<a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up"><span class="header-section-number">7.2</span> Set up</a>
   <ul>
-<li><a href="#load-the-required-r-packages" id="toc-load-the-required-r-packages" class="nav-link" data-scroll-target="#load-the-required-r-packages"><span class="header-section-number">4.2.1</span> Load the required R packages</a></li>
-  <li><a href="#read-in-the-dataset" id="toc-read-in-the-dataset" class="nav-link" data-scroll-target="#read-in-the-dataset"><span class="header-section-number">4.2.2</span> Read in the dataset</a></li>
-  <li><a href="#look-at-at-the-data-set" id="toc-look-at-at-the-data-set" class="nav-link" data-scroll-target="#look-at-at-the-data-set"><span class="header-section-number">4.2.3</span> Look at at the data set</a></li>
+<li><a href="#load-the-required-r-packages" id="toc-load-the-required-r-packages" class="nav-link" data-scroll-target="#load-the-required-r-packages"><span class="header-section-number">7.2.1</span> Load the required R packages</a></li>
+  <li><a href="#read-in-the-dataset" id="toc-read-in-the-dataset" class="nav-link" data-scroll-target="#read-in-the-dataset"><span class="header-section-number">7.2.2</span> Read in the dataset</a></li>
+  <li><a href="#look-at-at-the-data-set" id="toc-look-at-at-the-data-set" class="nav-link" data-scroll-target="#look-at-at-the-data-set"><span class="header-section-number">7.2.3</span> Look at at the data set</a></li>
   </ul>
 </li>
   <li>
-<a href="#lets-make-graphs" id="toc-lets-make-graphs" class="nav-link" data-scroll-target="#lets-make-graphs"><span class="header-section-number">4.3</span> Let’s make graphs!</a>
+<a href="#lets-make-graphs" id="toc-lets-make-graphs" class="nav-link" data-scroll-target="#lets-make-graphs"><span class="header-section-number">7.3</span> Let’s make graphs!</a>
   <ul>
 <li>
-<a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="header-section-number">4.3.1</span> Histograms</a>
+<a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="header-section-number">7.3.1</span> Histograms</a>
   <ul class="collapse">
-<li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span class="header-section-number">4.3.1.1</span> Your Turn</a></li>
+<li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span class="header-section-number">7.3.1.1</span> Your Turn</a></li>
   </ul>
 </li>
   </ul>
 </li>
   <li>
-<a href="#time-series-plots" id="toc-time-series-plots" class="nav-link" data-scroll-target="#time-series-plots"><span class="header-section-number">4.4</span> Time series plots</a>
+<a href="#time-series-plots" id="toc-time-series-plots" class="nav-link" data-scroll-target="#time-series-plots"><span class="header-section-number">7.4</span> Time series plots</a>
   <ul>
-<li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><span class="header-section-number">4.4.1</span> Your Turn</a></li>
+<li><a href="#your-turn-1" id="toc-your-turn-1" class="nav-link" data-scroll-target="#your-turn-1"><span class="header-section-number">7.4.1</span> Your Turn</a></li>
   </ul>
 </li>
-  <li><a href="#multiple-time-series-per-plot" id="toc-multiple-time-series-per-plot" class="nav-link" data-scroll-target="#multiple-time-series-per-plot"><span class="header-section-number">4.5</span> Multiple time series per plot</a></li>
+  <li><a href="#multiple-time-series-per-plot" id="toc-multiple-time-series-per-plot" class="nav-link" data-scroll-target="#multiple-time-series-per-plot"><span class="header-section-number">7.5</span> Multiple time series per plot</a></li>
   <li>
-<a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots"><span class="header-section-number">4.6</span> Scatterplots</a>
+<a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots"><span class="header-section-number">7.6</span> Scatterplots</a>
   <ul>
-<li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><span class="header-section-number">4.6.1</span> Your Turn</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#box-and-whisker-plots" id="toc-box-and-whisker-plots" class="nav-link" data-scroll-target="#box-and-whisker-plots"><span class="header-section-number">4.7</span> Box and whisker plots</a>
-  <ul>
-<li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><span class="header-section-number">4.7.1</span> Your Turn</a></li>
+<li><a href="#your-turn-2" id="toc-your-turn-2" class="nav-link" data-scroll-target="#your-turn-2"><span class="header-section-number">7.6.1</span> Your Turn</a></li>
   </ul>
 </li>
   <li>
-<a href="#barplots" id="toc-barplots" class="nav-link" data-scroll-target="#barplots"><span class="header-section-number">4.8</span> Barplots</a>
+<a href="#box-and-whisker-plots" id="toc-box-and-whisker-plots" class="nav-link" data-scroll-target="#box-and-whisker-plots"><span class="header-section-number">7.7</span> Box and whisker plots</a>
   <ul>
-<li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><span class="header-section-number">4.8.1</span> Your Turn</a></li>
+<li><a href="#your-turn-3" id="toc-your-turn-3" class="nav-link" data-scroll-target="#your-turn-3"><span class="header-section-number">7.7.1</span> Your Turn</a></li>
   </ul>
 </li>
   <li>
-<a href="#stacked-bar-plot" id="toc-stacked-bar-plot" class="nav-link" data-scroll-target="#stacked-bar-plot"><span class="header-section-number">4.9</span> Stacked bar plot</a>
+<a href="#barplots" id="toc-barplots" class="nav-link" data-scroll-target="#barplots"><span class="header-section-number">7.8</span> Barplots</a>
   <ul>
-<li><a href="#your-turn-5" id="toc-your-turn-5" class="nav-link" data-scroll-target="#your-turn-5"><span class="header-section-number">4.9.1</span> Your Turn</a></li>
+<li><a href="#your-turn-4" id="toc-your-turn-4" class="nav-link" data-scroll-target="#your-turn-4"><span class="header-section-number">7.8.1</span> Your Turn</a></li>
   </ul>
 </li>
   <li>
-<a href="#faceted-plots" id="toc-faceted-plots" class="nav-link" data-scroll-target="#faceted-plots"><span class="header-section-number">4.10</span> Faceted plots</a>
+<a href="#stacked-bar-plot" id="toc-stacked-bar-plot" class="nav-link" data-scroll-target="#stacked-bar-plot"><span class="header-section-number">7.9</span> Stacked bar plot</a>
   <ul>
-<li><a href="#your-turn-6" id="toc-your-turn-6" class="nav-link" data-scroll-target="#your-turn-6"><span class="header-section-number">4.10.1</span> Your Turn</a></li>
+<li><a href="#your-turn-5" id="toc-your-turn-5" class="nav-link" data-scroll-target="#your-turn-5"><span class="header-section-number">7.9.1</span> Your Turn</a></li>
   </ul>
 </li>
-  <li><a href="#combined-plots" id="toc-combined-plots" class="nav-link" data-scroll-target="#combined-plots"><span class="header-section-number">4.11</span> Combined plots</a></li>
   <li>
-<a href="#customizing-plots" id="toc-customizing-plots" class="nav-link" data-scroll-target="#customizing-plots"><span class="header-section-number">4.12</span> Customizing plots</a>
+<a href="#faceted-plots" id="toc-faceted-plots" class="nav-link" data-scroll-target="#faceted-plots"><span class="header-section-number">7.10</span> Faceted plots</a>
   <ul>
-<li><a href="#quick-references-for-the-customizations-options" id="toc-quick-references-for-the-customizations-options" class="nav-link" data-scroll-target="#quick-references-for-the-customizations-options"><span class="header-section-number">4.12.1</span> Quick references for the customizations options</a></li>
-  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7"><span class="header-section-number">4.12.2</span> Your Turn</a></li>
+<li><a href="#your-turn-6" id="toc-your-turn-6" class="nav-link" data-scroll-target="#your-turn-6"><span class="header-section-number">7.10.1</span> Your Turn</a></li>
   </ul>
 </li>
-  <li><a href="#saving-plots" id="toc-saving-plots" class="nav-link" data-scroll-target="#saving-plots"><span class="header-section-number">4.13</span> Saving plots</a></li>
+  <li><a href="#combined-plots" id="toc-combined-plots" class="nav-link" data-scroll-target="#combined-plots"><span class="header-section-number">7.11</span> Combined plots</a></li>
+  <li>
+<a href="#customizing-plots" id="toc-customizing-plots" class="nav-link" data-scroll-target="#customizing-plots"><span class="header-section-number">7.12</span> Customizing plots</a>
+  <ul>
+<li><a href="#quick-references-for-the-customizations-options" id="toc-quick-references-for-the-customizations-options" class="nav-link" data-scroll-target="#quick-references-for-the-customizations-options"><span class="header-section-number">7.12.1</span> Quick references for the customizations options</a></li>
+  <li><a href="#your-turn-7" id="toc-your-turn-7" class="nav-link" data-scroll-target="#your-turn-7"><span class="header-section-number">7.12.2</span> Your Turn</a></li>
+  </ul>
+</li>
+  <li><a href="#saving-plots" id="toc-saving-plots" class="nav-link" data-scroll-target="#saving-plots"><span class="header-section-number">7.13</span> Saving plots</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html">Day 3: 7/16/2024</a></li><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Making Graphs</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html">Day 3: 7/16/2024</a></li><li class="breadcrumb-item"><a href="../code/Day3_MakingGraphs.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making Graphs</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Making Graphs</span>
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making Graphs</span>
 </h1>
 </div>
 
@@ -368,19 +386,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="making-graphs-in-r" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="making-graphs-in-r">
-<span class="header-section-number">4.1</span> Making Graphs in R</h2>
+</header><section id="making-graphs-in-r" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="making-graphs-in-r">
+<span class="header-section-number">7.1</span> Making Graphs in R</h2>
 <p>One of the greatest strengths of R is its ability to produce a wide variety of professional quality custom graphs. Today, we will cover the basics of visualizing data using the popular <code>ggplot2</code> package. We will cover a broad range of basic graphs that are useful for visualizing water quality and biological data.</p>
-<section id="a-note-on-base-r-graphics" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="a-note-on-base-r-graphics">
-<span class="header-section-number">4.1.1</span> A note on base R graphics</h3>
+<section id="a-note-on-base-r-graphics" class="level3" data-number="7.1.1"><h3 data-number="7.1.1" class="anchored" data-anchor-id="a-note-on-base-r-graphics">
+<span class="header-section-number">7.1.1</span> A note on base R graphics</h3>
 <p>When you download R, there is a suite of packages that are included. These packages include functions for carrying out a variety of basic tasks, including making graphs. I used base R graphing functions for a number of years, and there’s nothing wrong with using these functions. However, in more recent years, I have completely switched to using the <code>ggplot2</code> package and think it is a great package for new R users to know.</p>
-</section><section id="continuous-vs-categorical-data" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="continuous-vs-categorical-data">
-<span class="header-section-number">4.1.2</span> Continuous vs categorical data</h3>
+</section><section id="continuous-vs-categorical-data" class="level3" data-number="7.1.2"><h3 data-number="7.1.2" class="anchored" data-anchor-id="continuous-vs-categorical-data">
+<span class="header-section-number">7.1.2</span> Continuous vs categorical data</h3>
 <p>As we decide what type of plot to make, it is useful to consider the types of data we are plotting. Continuous data refers to numbers like water temperature. Categorical refers to types within a group (e.g., station).</p>
-</section></section><section id="set-up" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="set-up">
-<span class="header-section-number">4.2</span> Set up</h2>
-<section id="load-the-required-r-packages" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="load-the-required-r-packages">
-<span class="header-section-number">4.2.1</span> Load the required R packages</h3>
+</section></section><section id="set-up" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="set-up">
+<span class="header-section-number">7.2</span> Set up</h2>
+<section id="load-the-required-r-packages" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="load-the-required-r-packages">
+<span class="header-section-number">7.2.1</span> Load the required R packages</h3>
 <p>So without further ado, let’s load the packages we need for today’s tutorial. We will load the <code>tidyverse</code> because it included <code>ggplot2</code> and a variety of other useful packages. We will also load <code>here</code> to simplify reading and writing files.</p>
 <p>I will briefly show some features of the <code>viridis</code> and <code>patchwork</code> packages, but you don’t need to worry about downloading them yourself right now.</p>
 <div class="cell">
@@ -389,17 +407,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridis/">viridis</a></span><span class="op">)</span> <span class="co">#color blind friendly color palettes</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span> <span class="co">#combining plots into panels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="read-in-the-dataset" class="level3" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="read-in-the-dataset">
-<span class="header-section-number">4.2.2</span> Read in the dataset</h3>
+</section><section id="read-in-the-dataset" class="level3" data-number="7.2.2"><h3 data-number="7.2.2" class="anchored" data-anchor-id="read-in-the-dataset">
+<span class="header-section-number">7.2.2</span> Read in the dataset</h3>
 <p>We will continue to use the same EMP water quality data set that you used for the first two parts of this course.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wqdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/pkg/here/man/here.html">here</a></span><span class="op">(</span><span class="st">"data/WQ_P8D7.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wqdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span> <span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/WQ_P8D7.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="look-at-at-the-data-set" class="level3" data-number="4.2.3"><h3 data-number="4.2.3" class="anchored" data-anchor-id="look-at-at-the-data-set">
-<span class="header-section-number">4.2.3</span> Look at at the data set</h3>
+</section><section id="look-at-at-the-data-set" class="level3" data-number="7.2.3"><h3 data-number="7.2.3" class="anchored" data-anchor-id="look-at-at-the-data-set">
+<span class="header-section-number">7.2.3</span> Look at at the data set</h3>
 <p>Let’s take a quick look at the structure of the data to remind ourselves of the column names and data types in this data set</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">wqdata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">wqdata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 62
 Columns: 20
@@ -426,17 +444,17 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <p>Aside from staton, everything is “dbl” or “double”, which just means they are considered numeric data.</p>
-</section></section><section id="lets-make-graphs" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="lets-make-graphs">
-<span class="header-section-number">4.3</span> Let’s make graphs!</h2>
+</section></section><section id="lets-make-graphs" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="lets-make-graphs">
+<span class="header-section-number">7.3</span> Let’s make graphs!</h2>
 <p>The <code>ggplot2</code> package utilizes the grammar of graphics and creates plots in “layers”. We will learn about some of the core “geometries”, which specify how the graph will look (e.g., bar plot vs line plot).</p>
-<section id="histograms" class="level3" data-number="4.3.1"><h3 data-number="4.3.1" class="anchored" data-anchor-id="histograms">
-<span class="header-section-number">4.3.1</span> Histograms</h3>
-<p>Let’s start making plots, so we can learn the anatomy of the <code><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot()</a></code> function. We will begin with a histogram, which simply shows the distribution of data for a single variable. Histograms can be used to show the number of observations for each category (bin) of a categorical variable or the number of observations of a continuous variable within each number range (bin). We will plot surface water temperature (WTSurface).</p>
-<p>Within the <code><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot()</a></code> function, the first thing we should do is specify the data set we want to plot using the <code>data</code> argument. Then, we will indicate which column within the data set we want to plot. These are the most basic components.</p>
-<p>From here, we use the <code>+</code> sign to add layers upon the foundation we have built. In this case, we want a histogram, so we use the argument <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram()</a></code>. There are many types of graphs you can make and ggplot has similarly named arguments for each of them (e.g., <code>geom_point</code>, <code>geom_line</code>). We will look at more of these shortly.</p>
+<section id="histograms" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="histograms">
+<span class="header-section-number">7.3.1</span> Histograms</h3>
+<p>Let’s start making plots, so we can learn the anatomy of the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function. We will begin with a histogram, which simply shows the distribution of data for a single variable. Histograms can be used to show the number of observations for each category (bin) of a categorical variable or the number of observations of a continuous variable within each number range (bin). We will plot surface water temperature (WTSurface).</p>
+<p>Within the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function, the first thing we should do is specify the data set we want to plot using the <code>data</code> argument. Then, we will indicate which column within the data set we want to plot. These are the most basic components.</p>
+<p>From here, we use the <code>+</code> sign to add layers upon the foundation we have built. In this case, we want a histogram, so we use the argument <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>. There are many types of graphs you can make and ggplot has similarly named arguments for each of them (e.g., <code>geom_point</code>, <code>geom_line</code>). We will look at more of these shortly.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_hist_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_hist_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -445,10 +463,10 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 </div>
-<p>The default number of bins do not work very well. We can make some manual adjustments within the <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram()</a></code> argument. Let’s try eight bins.</p>
+<p>The default number of bins do not work very well. We can make some manual adjustments within the <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> argument. Let’s try eight bins.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_hist_temp_bins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_hist_temp_bins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -457,34 +475,34 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 </div>
-<section id="your-turn" class="level4" data-number="4.3.1.1"><h4 data-number="4.3.1.1" class="anchored" data-anchor-id="your-turn">
-<span class="header-section-number">4.3.1.1</span> Your Turn</h4>
+<section id="your-turn" class="level4" data-number="7.3.1.1"><h4 data-number="7.3.1.1" class="anchored" data-anchor-id="your-turn">
+<span class="header-section-number">7.3.1.1</span> Your Turn</h4>
 <p>Based on the code above for the water temperature histogram, make a histogram of surface specific conductance (SpCndSurface) and try different numbers of bins.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_hist_sc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SpCndSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_hist_sc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">SpCndSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>If we had plotted data for a single station, the histogram would be roughly bell shaped, but because we are plotting data for two stations in different parts of the salinity gradient, we get a bimodal distribution.</p>
-</section></section></section><section id="time-series-plots" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="time-series-plots">
-<span class="header-section-number">4.4</span> Time series plots</h2>
+</section></section></section><section id="time-series-plots" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="time-series-plots">
+<span class="header-section-number">7.4</span> Time series plots</h2>
 <p>Next, let’s plot a time series of data. These plots are helpful for looking at monitoring data through time to identify patterns or for looking for outliers. For a histogram, there was only an x variable. For most types of plots, including time series plots, there are x and y variables to specify.</p>
 <p>We will plot a year of Secchi depth data to see how it changes through the seasons. As a reminder, higher Secchi depth means lower turbidity.</p>
-<p>For simplicity, we will just plot the data for one station, P8. Each value for Secchi will be plotted as a point, so we will use <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point()</a></code>.</p>
+<p>For simplicity, we will just plot the data for one station, P8. Each value for Secchi will be plotted as a point, so we will use <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#filter data set to only data for station P8</span></span>
-<span><span class="va">wqdata_p8</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">"P8"</span><span class="op">)</span> </span>
+<span><span class="va">wqdata_p8</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">"P8"</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="co">#filter data set to only data for station D7</span></span>
 <span><span class="co">#we will use this a little later</span></span>
-<span><span class="va">wqdata_d7</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">"D7"</span><span class="op">)</span> </span>
+<span><span class="va">wqdata_d7</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">"D7"</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="co">#now plot this subset of the data</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_ts_points</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -495,10 +513,10 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#you can also do the filtering and plotting all at once if you want</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points2</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">"P8"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
-<span>      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_ts_points2</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">"P8"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -507,12 +525,12 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 </div>
-<p>We can start to see how Secchi depth changed over time, but it would be easier with lines connecting the points. Let’s add some, which will highlight how ggplot works by building layers. As you might expect, we add the lines using <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line()</a></code>.</p>
+<p>We can start to see how Secchi depth changed over time, but it would be easier with lines connecting the points. Let’s add some, which will highlight how ggplot works by building layers. As you might expect, we add the lines using <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line()</a></code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#time series plot with connecting lines</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_p8</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_p8</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
@@ -523,7 +541,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <p>Because we are simply building upon the previous graph made with only the points, we can also use this shortened approach, which further demonstrates that we are simply adding layers</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_ts_points_lines_p8_2</span><span class="op">&lt;-</span> <span class="va">plot_ts_points</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
@@ -532,24 +550,24 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <p>Now it is a little easier to see the patterns through time. We can see that Secchi depth varies seasonally, generally with low values in rainy winter months and high values in dry summer months. Note there is a gap in the time series in 2021 to reflect a missing value.</p>
-<section id="your-turn-1" class="level3" data-number="4.4.1"><h3 data-number="4.4.1" class="anchored" data-anchor-id="your-turn-1">
-<span class="header-section-number">4.4.1</span> Your Turn</h3>
+<section id="your-turn-1" class="level3" data-number="7.4.1"><h3 data-number="7.4.1" class="anchored" data-anchor-id="your-turn-1">
+<span class="header-section-number">7.4.1</span> Your Turn</h3>
 <p>Make a similar time series plot of Secchi depth for station D7. How does Secchi compare between the two stations?</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_ts_points_lines_d7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_d7</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_ts_points_lines_d7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_d7</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Secchi depth is generally much lower at D7 than P8, indicating higher turbidity at D7.</p>
-</section></section><section id="multiple-time-series-per-plot" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="multiple-time-series-per-plot">
-<span class="header-section-number">4.5</span> Multiple time series per plot</h2>
-<p>We can plot multiple time series on the same graph in order to more easily compare them. We will plot Secchi for P8 and D7 together. The <code><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot()</a></code> function will apply two different default colors to the two stations.</p>
+</section></section><section id="multiple-time-series-per-plot" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="multiple-time-series-per-plot">
+<span class="header-section-number">7.5</span> Multiple time series per plot</h2>
+<p>We can plot multiple time series on the same graph in order to more easily compare them. We will plot Secchi for P8 and D7 together. The <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function will apply two different default colors to the two stations.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#time series plot with connecting lines for both stations</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span>, group <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span>, group <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
@@ -558,12 +576,12 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <p>This plot clearly shows what we noted above in the individual plots of Secchi depth, namely that Secchi depth is generally much higher at P8 than D7.</p>
-</section><section id="scatterplots" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="scatterplots">
-<span class="header-section-number">4.6</span> Scatterplots</h2>
+</section><section id="scatterplots" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="scatterplots">
+<span class="header-section-number">7.6</span> Scatterplots</h2>
 <p>Next, let’s make a scatterplot. These plots are great for looking at relationships between pairs of continuous variables. As an example, we will plot dissolved organic carbon against total organic carbon. We will go back to using the dataset with both stations.</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_scatter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">DOC</span>, y <span class="op">=</span> <span class="va">TOC</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_scatter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">DOC</span>, y <span class="op">=</span> <span class="va">TOC</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -572,10 +590,10 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 </div>
-<p>There appears to be a strong relationship between these two variables. Let’s add a trend line. As with the time series plot, we are building layers. However, we are not simply adding lines to connect the points, so we aren’t using <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line()</a></code>. To plot a trend line, we use <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth()</a></code>. There are various smooths that could be applied, so we need to specify what we want. In this case, we use a linear model (LM). By default, a 95% confidence interval (dark gray) is added around the trend line (blue).</p>
+<p>There appears to be a strong relationship between these two variables. Let’s add a trend line. As with the time series plot, we are building layers. However, we are not simply adding lines to connect the points, so we aren’t using <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line()</a></code>. To plot a trend line, we use <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></code>. There are various smooths that could be applied, so we need to specify what we want. In this case, we use a linear model (LM). By default, a 95% confidence interval (dark gray) is added around the trend line (blue).</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_scatter_trend</span> <span class="op">&lt;-</span> <span class="va">plot_scatter</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -602,13 +620,13 @@ sample estimates:
 </div>
 </div>
 <p>The correlation is very strong between TOC and DOC (0.99). By convention, a correlation coefficient between 0.7 and 1.00 (the max) is considered a strong correlation.</p>
-<section id="your-turn-2" class="level3" data-number="4.6.1"><h3 data-number="4.6.1" class="anchored" data-anchor-id="your-turn-2">
-<span class="header-section-number">4.6.1</span> Your Turn</h3>
+<section id="your-turn-2" class="level3" data-number="7.6.1"><h3 data-number="7.6.1" class="anchored" data-anchor-id="your-turn-2">
+<span class="header-section-number">7.6.1</span> Your Turn</h3>
 <p>Plot the relationship between Chla and Pheophytin and fit a line to it.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_scatter_trend_phyto</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Chla</span>, y <span class="op">=</span> <span class="va">Pheophytin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_scatter_trend_phyto</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Chla</span>, y <span class="op">=</span> <span class="va">Pheophytin</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -618,8 +636,8 @@ sample estimates:
 </details>
 </div>
 <p>The correlation coefficient is -0.05, which indicates that Chla and Pheophytin are not significantly correlated. Even if we removed the outlier at high end of Chla, it would still not show a significant relationship.</p>
-</section></section><section id="box-and-whisker-plots" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="box-and-whisker-plots">
-<span class="header-section-number">4.7</span> Box and whisker plots</h2>
+</section></section><section id="box-and-whisker-plots" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="box-and-whisker-plots">
+<span class="header-section-number">7.7</span> Box and whisker plots</h2>
 <p>In scatter plots, we plot a continuous variable against another continuous variable. In some cases, we want to plot a continuous variable against a categorical variable. One type of plot that is useful in this situation is a box and whisker plot. These are great for initial data exploration and sometimes even in publications.</p>
 <p>Microcystis abundance data is collected using a visual scoring system of 1 - 5, with 5 being the highest.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -628,8 +646,8 @@ sample estimates:
 </div>
 <p>Microcystis blooms are associated with high water temperature. Let’s plot the Microcystis scores (categorical) against water temperature (continuous).</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bw1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Microcystis</span>, y <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bw1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Microcystis</span>, y <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Continuous x aesthetic
@@ -644,8 +662,8 @@ sample estimates:
 </div>
 <p>Note that Microcystis scores are ordered categories (i.e., ordinal), so R read them in as numeric data. If we try to make the plot with numeric Microcystis data, we don’t get the plot we expect. We will make this column a factor to indicate that these numbers are actually categories.</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bw2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bw2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">WTSurface</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -655,10 +673,10 @@ sample estimates:
 </div>
 </div>
 <p>This is plot is what we were looking for, and it shows an increase in Microcystis with water temperature, like we anticipated. Note that scores of four are rare and scores of five are absent from the data set.</p>
-<p>Personally, I like to include all the raw data points on the box and whisker plots because it gives folks an even better understanding of the distribution of the data. To do this, we add a layer with <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_jitter.html">geom_jitter()</a></code>. It is called this because the points are “jittered” to minimize overlap among them.</p>
+<p>Personally, I like to include all the raw data points on the box and whisker plots because it gives folks an even better understanding of the distribution of the data. To do this, we add a layer with <code><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter()</a></code>. It is called this because the points are “jittered” to minimize overlap among them.</p>
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bw_points</span> <span class="op">&lt;-</span> <span class="va">plot_bw2</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -667,32 +685,32 @@ sample estimates:
 </div>
 </div>
 </div>
-<section id="your-turn-3" class="level3" data-number="4.7.1"><h3 data-number="4.7.1" class="anchored" data-anchor-id="your-turn-3">
-<span class="header-section-number">4.7.1</span> Your Turn</h3>
+<section id="your-turn-3" class="level3" data-number="7.7.1"><h3 data-number="7.7.1" class="anchored" data-anchor-id="your-turn-3">
+<span class="header-section-number">7.7.1</span> Your Turn</h3>
 <p>Microcystis needs a lot of light in addition to warm water. Plot Microcystis against Secchi depth to see whether turbidity is related to Microcystis abundance. Include the points for the raw data.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bw_turb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bw_turb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>The pattern is not as stark as for temperature, but we do see that Microcsystis scores are higher when Secchi depth is greater.</p>
-</section></section><section id="barplots" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="barplots">
-<span class="header-section-number">4.8</span> Barplots</h2>
+</section></section><section id="barplots" class="level2" data-number="7.8"><h2 data-number="7.8" class="anchored" data-anchor-id="barplots">
+<span class="header-section-number">7.8</span> Barplots</h2>
 <p>In addition to box and whisker plots, you can make bar plots. Bar plots generally show less information than box and whisker plots, simply showing the means of a continuous variable by category.</p>
 <p>We will make bar plots that are analogous to the box and whisker plots above. We will need to calculate some summary statistics (mean, standard deviation) for the continuous variables by Microcystis score before we can make the plots.</p>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wqdata_means</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/summarise.html">summarize</a></span><span class="op">(</span>temp_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">WTSurface</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wqdata_means</span> <span class="op">&lt;-</span> <span class="va">wqdata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>temp_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">WTSurface</span><span class="op">)</span></span>
 <span>            ,temp_sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">WTSurface</span><span class="op">)</span></span>
 <span>            ,secchi_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Secchi</span>,na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
 <span>            ,secchi_sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Secchi</span>,na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
 <span>            <span class="op">)</span></span>
 <span></span>
-<span><span class="op">(</span><span class="va">plot_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -703,8 +721,8 @@ sample estimates:
 </div>
 <p>Here’s another way to make the same plot.</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span><span class="op">)</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -715,9 +733,9 @@ sample estimates:
 </div>
 <p>Adding error bars to bar plots provides more information about the distribution of the data, a bit like the whiskers in the box and whisker plots above. There are different options for types of error bars (e.g., standard deviation, standard error, 95% confidence interval). We will add error bars to our Microcystis plot based on standard deviation.</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_error</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
-<span>     <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">temp_mean</span><span class="op">-</span><span class="va">temp_sd</span>, ymax <span class="op">=</span> <span class="va">temp_mean</span><span class="op">+</span><span class="va">temp_sd</span><span class="op">)</span>,width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_error</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
+<span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">temp_mean</span><span class="op">-</span><span class="va">temp_sd</span>, ymax <span class="op">=</span> <span class="va">temp_mean</span><span class="op">+</span><span class="va">temp_sd</span><span class="op">)</span>,width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -727,31 +745,31 @@ sample estimates:
 </div>
 </div>
 <p>With the addition of error bars, we can see there is more variation in temperature for Microcystis score 1 than for Microcystis score 4.</p>
-<section id="your-turn-4" class="level3" data-number="4.8.1"><h3 data-number="4.8.1" class="anchored" data-anchor-id="your-turn-4">
-<span class="header-section-number">4.8.1</span> Your Turn</h3>
+<section id="your-turn-4" class="level3" data-number="7.8.1"><h3 data-number="7.8.1" class="anchored" data-anchor-id="your-turn-4">
+<span class="header-section-number">7.8.1</span> Your Turn</h3>
 <p>Make bar plot of Microcystis scores vs Secchi depth. Include standard error bars. This is analogous to the box and whisker plot you made previously.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_error_secchi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">secchi_mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
-<span>     <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">secchi_mean</span><span class="op">-</span><span class="va">secchi_sd</span>, ymax <span class="op">=</span> <span class="va">secchi_mean</span><span class="op">+</span><span class="va">secchi_sd</span><span class="op">)</span>,width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_error_secchi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">secchi_mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
+<span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">secchi_mean</span><span class="op">-</span><span class="va">secchi_sd</span>, ymax <span class="op">=</span> <span class="va">secchi_mean</span><span class="op">+</span><span class="va">secchi_sd</span><span class="op">)</span>,width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="stacked-bar-plot" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="stacked-bar-plot">
-<span class="header-section-number">4.9</span> Stacked bar plot</h2>
+</section></section><section id="stacked-bar-plot" class="level2" data-number="7.9"><h2 data-number="7.9" class="anchored" data-anchor-id="stacked-bar-plot">
+<span class="header-section-number">7.9</span> Stacked bar plot</h2>
 <p>Sometimes we want a bar plot that simultaneously shows a total and its component parts at the same time, which is where stacked bar plots are useful.</p>
 <p>Let’s go back to the subset of data for Station P8. We might want to look at Dissolved Ammonium and Dissolved Nitrate and Nitrite through time together.</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#first we will rearrange the data frame a bit to make plotting easier</span></span>
-<span><span class="va">wqdata_p8_nutrients</span> <span class="op">&lt;-</span> <span class="va">wqdata_p8</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
+<span><span class="va">wqdata_p8_nutrients</span> <span class="op">&lt;-</span> <span class="va">wqdata_p8</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="co">#reduce data set down to just the needed columns</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/select.html">select</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="co">#convert from wide to long format</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>,<span class="va">DissNitrateNitrite</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"Nutrient"</span>, values_to <span class="op">=</span> <span class="st">"Value"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>,<span class="va">DissNitrateNitrite</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"Nutrient"</span>, values_to <span class="op">=</span> <span class="st">"Value"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_stack_abs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">Nutrient</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_stack_abs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">Nutrient</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -762,8 +780,8 @@ sample estimates:
 </div>
 <p>Perhaps we are more interested in the relative values rather than the absolute values. We just make a minor modification to the code above to accomplish this.</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_stack_rel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">Nutrient</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_stack_rel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">Nutrient</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span>
 <span> <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -772,33 +790,33 @@ sample estimates:
 </div>
 </div>
 </div>
-<section id="your-turn-5" class="level3" data-number="4.9.1"><h3 data-number="4.9.1" class="anchored" data-anchor-id="your-turn-5">
-<span class="header-section-number">4.9.1</span> Your Turn</h3>
+<section id="your-turn-5" class="level3" data-number="7.9.1"><h3 data-number="7.9.1" class="anchored" data-anchor-id="your-turn-5">
+<span class="header-section-number">7.9.1</span> Your Turn</h3>
 <p>Make a stacked bar plot showing the relative amounts of ammonia and nitrate plus nitrite for D7 using the data set below (i.e., wqdata_d7_nutrients). How does the proportion of ammonia at D7 compare to that of P8?</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wqdata_d7_nutrients</span> <span class="op">&lt;-</span> <span class="va">wqdata_d7</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wqdata_d7_nutrients</span> <span class="op">&lt;-</span> <span class="va">wqdata_d7</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="co">#reduce data set down to just the needed columns</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/select.html">select</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DissAmmonia</span>, <span class="va">DissNitrateNitrite</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="co">#convert from wide to long format</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>,<span class="va">DissNitrateNitrite</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"Nutrient"</span>, values_to <span class="op">=</span> <span class="st">"Value"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">DissAmmonia</span>,<span class="va">DissNitrateNitrite</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"Nutrient"</span>, values_to <span class="op">=</span> <span class="st">"Value"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_stack_rel_d7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_d7_nutrients</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">Nutrient</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_bar_stack_rel_d7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_d7_nutrients</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">Nutrient</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="faceted-plots" class="level2" data-number="4.10"><h2 data-number="4.10" class="anchored" data-anchor-id="faceted-plots">
-<span class="header-section-number">4.10</span> Faceted plots</h2>
+</section></section><section id="faceted-plots" class="level2" data-number="7.10"><h2 data-number="7.10" class="anchored" data-anchor-id="faceted-plots">
+<span class="header-section-number">7.10</span> Faceted plots</h2>
 <p>Sometimes we want to show the same type of plot for multiple groups at once, so we can compare them. It is easy to make multi-panel plots in <code>ggplot2</code> using facets.</p>
 <p>Above, we plotted Secchi depth for both stations on the same plot. Sometimes, it is more useful to create a two panel plot, in which each time series is plotted on a separate graph.</p>
 <div class="cell">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#faceted time series plot for Dissolved Ammonia</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_facet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">Station</span><span class="op">~</span><span class="va">.</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_facet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">Station</span><span class="op">~</span><span class="va">.</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
@@ -806,23 +824,23 @@ sample estimates:
 </div>
 </div>
 </div>
-<section id="your-turn-6" class="level3" data-number="4.10.1"><h3 data-number="4.10.1" class="anchored" data-anchor-id="your-turn-6">
-<span class="header-section-number">4.10.1</span> Your Turn</h3>
+<section id="your-turn-6" class="level3" data-number="7.10.1"><h3 data-number="7.10.1" class="anchored" data-anchor-id="your-turn-6">
+<span class="header-section-number">7.10.1</span> Your Turn</h3>
 <p>Make a faceted plot of nutrients for station P8 using the dataset wqdata_p8_nutrients. Show the absolute amounts rather than the relative amounts. Show the time series stacked on top of each other like the plot above for Secchi depth.</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#time series plot for two analytes</span></span>
-<span><span class="op">(</span><span class="va">plot_bar_stack_abs_facet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">Nutrient</span><span class="op">~</span><span class="va">.</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_bar_stack_abs_facet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">Nutrient</span><span class="op">~</span><span class="va">.</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>By default, the y-axis is standardized across the panels. This is generally a good idea. However, we can change this if we like. Ammonia concentrations are much lower than nitrate + nitrite concentrations, which makes ammonia concentrations difficult to read on the plot. Let’s use different y-axis ranges for the two analytes to fix that.</p>
 <div class="cell">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#time series plot for two analytes with different y-axis ranges</span></span>
-<span><span class="op">(</span><span class="va">plot_bar_stack_abs_facet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">Nutrient</span><span class="op">~</span><span class="va">.</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_bar_stack_abs_facet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_p8_nutrients</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">Nutrient</span><span class="op">~</span><span class="va">.</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -831,9 +849,9 @@ sample estimates:
 </div>
 </div>
 </div>
-</section></section><section id="combined-plots" class="level2" data-number="4.11"><h2 data-number="4.11" class="anchored" data-anchor-id="combined-plots">
-<span class="header-section-number">4.11</span> Combined plots</h2>
-<p>Sometimes, it is useful to combine multiple plots into a panel that do not share a common x or y axis (i.e., are not produced using <code><a href="https://rdrr.io/pkg/ggplot2/man/facet_grid.html">facet_grid()</a></code> or <code><a href="https://rdrr.io/pkg/ggplot2/man/facet_wrap.html">facet_wrap()</a></code>). These plot panels are particularly useful in publications like journal articles.</p>
+</section></section><section id="combined-plots" class="level2" data-number="7.11"><h2 data-number="7.11" class="anchored" data-anchor-id="combined-plots">
+<span class="header-section-number">7.11</span> Combined plots</h2>
+<p>Sometimes, it is useful to combine multiple plots into a panel that do not share a common x or y axis (i.e., are not produced using <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code> or <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code>). These plot panels are particularly useful in publications like journal articles.</p>
 <div class="cell">
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#two side by side</span></span>
 <span><span class="va">plot_hist_temp_bins</span> <span class="op">+</span> <span class="va">plot_bar_stack_abs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -864,20 +882,20 @@ sample estimates:
 </div>
 </div>
 </div>
-</section><section id="customizing-plots" class="level2" data-number="4.12"><h2 data-number="4.12" class="anchored" data-anchor-id="customizing-plots">
-<span class="header-section-number">4.12</span> Customizing plots</h2>
+</section><section id="customizing-plots" class="level2" data-number="7.12"><h2 data-number="7.12" class="anchored" data-anchor-id="customizing-plots">
+<span class="header-section-number">7.12</span> Customizing plots</h2>
 <p>As I mentioned at the outset, one of the greatest advantages of using R to make graphs is that you can customize them endlessly. We will touch on just a few common types of customizations.</p>
 <p>We will use the Secchi depth time series again. Previously, we used color to help differentiate the two stations, but we just used the default colors. We can specify the exact colors we want. We can also change the size, shape, and color of the points and the line type, width, and color.</p>
-<section id="quick-references-for-the-customizations-options" class="level3" data-number="4.12.1"><h3 data-number="4.12.1" class="anchored" data-anchor-id="quick-references-for-the-customizations-options">
-<span class="header-section-number">4.12.1</span> Quick references for the customizations options</h3>
+<section id="quick-references-for-the-customizations-options" class="level3" data-number="7.12.1"><h3 data-number="7.12.1" class="anchored" data-anchor-id="quick-references-for-the-customizations-options">
+<span class="header-section-number">7.12.1</span> Quick references for the customizations options</h3>
 <p>Colors: <a href="https://r-charts.com/colors/" class="uri">https://r-charts.com/colors/</a></p>
 <p>Point shapes: <img src="images/PointShapes.png" class="img-fluid"></p>
 <p>Line types: <img src="images/LineTypes.png" class="img-fluid"></p>
 <div class="cell">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#basic time series plot with connecting lines for both stations</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
@@ -885,9 +903,9 @@ sample estimates:
 </div>
 </div>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#different point types for different stations</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-37-2.png" class="img-fluid figure-img" width="672"></p>
@@ -895,9 +913,9 @@ sample estimates:
 </div>
 </div>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#different line types for different stations</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-37-3.png" class="img-fluid figure-img" width="672"></p>
@@ -905,9 +923,9 @@ sample estimates:
 </div>
 </div>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#adjust point sizes and line widths</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_pts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="Day3_MakingGraphs_files/figure-html/unnamed-chunk-37-4.png" class="img-fluid figure-img" width="672"></p>
@@ -915,10 +933,10 @@ sample estimates:
 </div>
 </div>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Customize colors </span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"midnightblue"</span>,<span class="st">"darkorange3"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"midnightblue"</span>,<span class="st">"darkorange3"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -927,11 +945,11 @@ sample estimates:
 </div>
 </div>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Customize point shapes </span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"midnightblue"</span>,<span class="st">"darkorange3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>,<span class="fl">17</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"midnightblue"</span>,<span class="st">"darkorange3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>,<span class="fl">17</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -940,12 +958,12 @@ sample estimates:
 </div>
 </div>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Customize line types</span></span>
-<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"midnightblue"</span>,<span class="st">"darkorange3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>,<span class="fl">17</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_linetype_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dotted"</span>,<span class="st">"longdash"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_ts_points_lines_two_custom</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Date</span>, y <span class="op">=</span> <span class="va">Secchi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, shape <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Station</span>, linetype <span class="op">=</span> <span class="va">Station</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"midnightblue"</span>,<span class="st">"darkorange3"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>,<span class="fl">17</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_linetype_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dotted"</span>,<span class="st">"longdash"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -958,9 +976,9 @@ sample estimates:
 <div class="cell">
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Use color palette</span></span>
 <span><span class="co">#our Sechi depth plot isn't a great example so we will go back to our Microcystis scores plot</span></span>
-<span><span class="op">(</span><span class="va">plot_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span>, fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
-<span>   <span class="fu"><a href="https://rdrr.io/pkg/viridis/man/scale_viridis.html">scale_fill_viridis</a></span><span class="op">(</span>discrete <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">plot_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">wqdata_means</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span>, y <span class="op">=</span> <span class="va">temp_mean</span>, fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Microcystis</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span><span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://sjmgarnier.github.io/viridis/reference/scale_viridis.html">scale_fill_viridis</a></span><span class="op">(</span>discrete <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
 <span>   <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -973,7 +991,7 @@ sample estimates:
 <div class="cell">
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#change background from gray with white grid to white with gray grid</span></span>
 <span><span class="op">(</span><span class="va">plot_background_bw</span> <span class="op">&lt;-</span> <span class="va">plot_ts_points_lines_two_custom</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -982,7 +1000,7 @@ sample estimates:
 </div>
 </div>
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_background_classic</span> <span class="op">&lt;-</span> <span class="va">plot_ts_points_lines_two_custom</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -994,7 +1012,7 @@ sample estimates:
 <p>In addition, we can customize the names used to label the x-axis and y-axis and add plot titles. It is important to provide good labels for your plot axes. In particular, make sure to include the measurement units when relevant. I don’t personally use plot title much, but they can be quickly inform your audience about the purpose of the plot.</p>
 <div class="cell">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">plot_labels</span> <span class="op">&lt;-</span> <span class="va">plot_background_classic</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Sampling Date"</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Sampling Date"</span></span>
 <span>       , y <span class="op">=</span> <span class="st">"Secchi depth (cm)"</span></span>
 <span>       ,title <span class="op">=</span> <span class="st">"Secchi depth comparison"</span></span>
 <span>       <span class="op">)</span></span>
@@ -1006,20 +1024,20 @@ sample estimates:
 </div>
 </div>
 </div>
-</section><section id="your-turn-7" class="level3" data-number="4.12.2"><h3 data-number="4.12.2" class="anchored" data-anchor-id="your-turn-7">
-<span class="header-section-number">4.12.2</span> Your Turn</h3>
+</section><section id="your-turn-7" class="level3" data-number="7.12.2"><h3 data-number="7.12.2" class="anchored" data-anchor-id="your-turn-7">
+<span class="header-section-number">7.12.2</span> Your Turn</h3>
 <p>Using the Secchi depth plot, try out different point shapes, line types, and color combinations.</p>
-</section></section><section id="saving-plots" class="level2" data-number="4.13"><h2 data-number="4.13" class="anchored" data-anchor-id="saving-plots">
-<span class="header-section-number">4.13</span> Saving plots</h2>
-<p>In RStudio, you can right click on a plot to copy it and then paste it elsewhere (e.g., email, word document), which works fine as a quick and dirty approach. However, a better way to export a plot involves using the <code><a href="https://rdrr.io/pkg/ggplot2/man/ggsave.html">ggsave()</a></code> function. We will export our customized Secchi depth comparison plot.</p>
+</section></section><section id="saving-plots" class="level2" data-number="7.13"><h2 data-number="7.13" class="anchored" data-anchor-id="saving-plots">
+<span class="header-section-number">7.13</span> Saving plots</h2>
+<p>In RStudio, you can right click on a plot to copy it and then paste it elsewhere (e.g., email, word document), which works fine as a quick and dirty approach. However, a better way to export a plot involves using the <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code> function. We will export our customized Secchi depth comparison plot.</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggsave.html">ggsave</a></span><span class="op">(</span>plot <span class="op">=</span> <span class="va">plot_labels</span> <span class="co">#tell ggsave which plot to export</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span>plot <span class="op">=</span> <span class="va">plot_labels</span> <span class="co">#tell ggsave which plot to export</span></span>
 <span>       , filename <span class="op">=</span> <span class="st">"images/secchi_depth_comp.png"</span> <span class="co">#provide the name for the image file</span></span>
 <span>       , width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span><span class="fl">4</span>, units <span class="op">=</span> <span class="st">"in"</span> <span class="co">#dimensions of the exported image</span></span>
 <span>       , dpi <span class="op">=</span> <span class="fl">300</span> <span class="co">#resolution of the image (dots per inch)</span></span>
 <span>       <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>I used PNG which is a file type that works well for viewing on a computer. However, <code><a href="https://rdrr.io/pkg/ggplot2/man/ggsave.html">ggsave()</a></code> can save plots as PDF, JPEG, TIFF, and various others. Search for <code><a href="https://rdrr.io/pkg/ggplot2/man/ggsave.html">ggsave()</a></code> within ‘Help’ to see the full list of file types.</p>
+<p>I used PNG which is a file type that works well for viewing on a computer. However, <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code> can save plots as PDF, JPEG, TIFF, and various others. Search for <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code> within ‘Help’ to see the full list of file types.</p>
 <p>By default, the plot will be saved in your working directory. I specified a subfolder within my working directory.</p>
 
 
@@ -1432,8 +1450,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../code/Day2_DataOrg.html" class="pagination-link" aria-label="Data Manipulation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Manipulation</span></span>
+      <a href="../code/Day2_05_FinalExercise.html" class="pagination-link" aria-label="Final Exercise">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

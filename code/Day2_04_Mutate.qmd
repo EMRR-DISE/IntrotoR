@@ -10,6 +10,15 @@ execute:
   warning: false
 ---
 
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
 ## Introduction
 
 Sometimes, we want to modify our already existing columns, or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
