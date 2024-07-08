@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -320,22 +320,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span></span>
 <span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-03"</code></pre>
+<pre><code>[1] "2024-07-08"</code></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 19907</code></pre>
+<pre><code>[1] 19912</code></pre>
 </div>
 </div>
 <p>Now let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-03 14:50:35 PDT"</code></pre>
+<pre><code>[1] "2024-07-08 16:52:43 PDT"</code></pre>
 </div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1720043436</code></pre>
+<pre><code>[1] 1720482764</code></pre>
 </div>
 </div>
 <p>Note that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.</p>
@@ -447,8 +447,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">times</span>, format <span class="op">=</span> <span class="st">"%H:%M"</span><span class="op">)</span></span>
 <span><span class="va">times</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-03 01:20:00 PDT" "2024-07-03 02:30:00 PDT"
-[3] "2024-07-03 03:50:00 PDT" "2024-07-03 14:00:00 PDT"</code></pre>
+<pre><code>[1] "2024-07-08 01:20:00 PDT" "2024-07-08 02:30:00 PDT"
+[3] "2024-07-08 03:50:00 PDT" "2024-07-08 14:00:00 PDT"</code></pre>
 </div>
 </div>
 <p>It will usually default to today’s date, or sometimes to Dec 31st, 1899. If you have a “Date” and a “Time” column in your dataframe, it’s best to just combine them for manipulation.</p>
@@ -473,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ times   : chr  "1:20" "2:30" "3:50" "14:00"
  $ dates   : chr  "2021-01-01" "2023-12-01" "2011-06-04" "2022-10-11"
  $ Date    : Date, format: "2021-01-01" "2023-12-01" ...
- $ Time    : POSIXlt, format: "2024-07-03 01:20:00" "2024-07-03 02:30:00" ...
+ $ Time    : POSIXlt, format: "2024-07-08 01:20:00" "2024-07-08 02:30:00" ...
  $ DateTime: POSIXct, format: "2021-01-01 01:20:00" "2023-12-01 02:30:00" ...</code></pre>
 </div>
 </div>

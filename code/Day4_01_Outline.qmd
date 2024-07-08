@@ -16,7 +16,7 @@ Now that we have covered the basics of using R and RStudio including importing, 
     - Basics of Data Structure
     - Converting between Data Structures
 
-3. Joins and Binds
+3. Binds and Joins
 
     - Differences and Usage
     - Bind Rows

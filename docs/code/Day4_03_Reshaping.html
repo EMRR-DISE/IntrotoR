@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -457,11 +457,11 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <p>Now you can see that the nutrient parameters repeat in a “Parameter” column and the data values are now in the “Value” column. Let’s take a closer look on how to use the <code>pivot_longer</code> function. The three necessary arguments in this function (after the first argument which is the data frame itself) are:</p>
 <ul>
 <li>
-<code>cols</code> defines which columns are to be moved into one column</li>
+<code>cols</code> defines which columns are to be moved into one column.</li>
 <li>
-<code>names_to</code> names the variable to move the columns in <code>cols</code> to</li>
+<code>names_to</code> names the variable to move the columns in <code>cols</code> to.</li>
 <li>
-<code>values_to</code> names the variable to move the cell values of the columns in <code>cols</code> to</li>
+<code>values_to</code> names the variable to move the cell values of the columns in <code>cols</code> to.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -540,7 +540,7 @@ Note
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Take a look at df_wq_meas_long</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">df_wq_meas_long</span><span class="op">)</span></span>
+<span><span class="va">df_wq_meas_long</span></span>
 <span></span>
 <span><span class="co"># Reshape df_wq_meas_long back to it's original "Wide" structure</span></span>
 <span><span class="va">df_wq_meas_long</span> <span class="op">%&gt;%</span> <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">WQ_Measurement</span>, values_from <span class="op">=</span> <span class="va">Result</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -962,8 +962,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../code/Day4_04_Joins_Binds.html" class="pagination-link" aria-label="Joins and Binds">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../code/Day4_04_Joins_Binds.html" class="pagination-link" aria-label="Binds and Joins">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

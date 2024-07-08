@@ -91,9 +91,9 @@ print(df_wq_nutr_long, n = 30)
 
 Now you can see that the nutrient parameters repeat in a "Parameter" column and the data values are now in the "Value" column. Let's take a closer look on how to use the `pivot_longer` function. The three necessary arguments in this function (after the first argument which is the data frame itself) are:
 
-* `cols` defines which columns are to be moved into one column
-* `names_to` names the variable to move the columns in `cols` to
-* `values_to` names the variable to move the cell values of the columns in `cols` to
+* `cols` defines which columns are to be moved into one column.
+* `names_to` names the variable to move the columns in `cols` to.
+* `values_to` names the variable to move the cell values of the columns in `cols` to.
 
 ::: {.callout-note}
 Note that the variables in both `names_to` and `values_to` require "quotes" since we are creating new columns.
@@ -144,7 +144,7 @@ df_wq_meas_long <- df_wq %>%
   )
 
 # Take a look at df_wq_meas_long
-print(df_wq_meas_long)
+df_wq_meas_long
 
 # Reshape df_wq_meas_long back to it's original "Wide" structure
 df_wq_meas_long %>% pivot_wider(names_from = WQ_Measurement, values_from = Result)

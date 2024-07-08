@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dave Bosworth">
-<title>Introduction to R Training - July 2024 - 10&nbsp; Joins and Binds</title>
+<title>Introduction to R Training - July 2024 - 10&nbsp; Binds and Joins</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins_Binds.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins_Binds.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,26 +288,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#differences-between-them" id="toc-differences-between-them" class="nav-link active" data-scroll-target="#differences-between-them"><span class="header-section-number">10.1</span> Differences between them</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
+  <li><a href="#differences-between-binds-and-joins" id="toc-differences-between-binds-and-joins" class="nav-link" data-scroll-target="#differences-between-binds-and-joins"><span class="header-section-number">10.2</span> Differences between Binds and Joins</a></li>
   <li>
-<a href="#bind-rows" id="toc-bind-rows" class="nav-link" data-scroll-target="#bind-rows"><span class="header-section-number">10.2</span> Bind rows</a>
+<a href="#bind-rows" id="toc-bind-rows" class="nav-link" data-scroll-target="#bind-rows"><span class="header-section-number">10.3</span> Bind rows</a>
   <ul>
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">10.2.1</span> Exercise</a></li>
+<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">10.3.1</span> Exercise</a></li>
   </ul>
 </li>
-  <li><a href="#join-basics" id="toc-join-basics" class="nav-link" data-scroll-target="#join-basics"><span class="header-section-number">10.3</span> Join basics</a></li>
+  <li><a href="#join-basics" id="toc-join-basics" class="nav-link" data-scroll-target="#join-basics"><span class="header-section-number">10.4</span> Join basics</a></li>
   <li>
-<a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">10.4</span> Left join</a>
+<a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">10.5</span> Left join</a>
   <ul>
-<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">10.4.1</span> Exercise</a></li>
+<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">10.5.1</span> Exercise</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins_Binds.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins_Binds.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span>
+<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span>
 </h1>
 </div>
 
@@ -328,9 +329,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="differences-between-them" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="differences-between-them">
-<span class="header-section-number">10.1</span> Differences between them</h2>
-<p>Binding rows or columns from two dataframes:</p>
+</header><section id="introduction" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">10.1</span> Introduction</h2>
+<p>Sometimes your data analysis project requires more than one data set that need to be combined in order to perform your analysis. This chapter covers two common methods of combining more than one data set in R - binds and joins. We’ll start this lesson covering the differences between these two methods including the situations to best use them in, and then move into the powerful R functions from the <a href="https://dplyr.tidyverse.org/index.html"><code>dplyr</code></a> package that help with combining data frames.</p>
+</section><section id="differences-between-binds-and-joins" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="differences-between-binds-and-joins">
+<span class="header-section-number">10.2</span> Differences between Binds and Joins</h2>
+<p>Binding either rows or columns from multiple data frames involves a simple combination of data frames. For example binding two data frames by row, makes a single data frame with more rows:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -339,6 +343,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Notice that in this graphic, R recognizes that the two data frames share the same columns and simply appends the rows from Z to X with the proper column assignments.</p>
+<p>In contrast, binding two data frames by columns performs the perpendicular operation resulting in a single data frame with more columns:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -347,24 +353,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Rarely use bind_cols, safer to use a join function</p>
-<p>Joining two dataframes with a <code>left_join()</code>:</p>
+<p>Binding data frames by columns combines the data in the order in which they appear, which can create unintended results without you realizing it. It is much safer to use a <strong>join</strong> when you want to add columns from one data frame to another. For example, here is a simple graphic demonstrating a left join to join two data frames together:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/left_join.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
-</figure>
+<figure class="figure"><p><img src="images/left_join.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Image Credit <a href="https://stat545.stat.ubc.ca/tutorials/tibble_join/" class="uri">https://stat545.stat.ubc.ca/tutorials/tibble_join/</a></figcaption></figure>
 </div>
 </div>
 </div>
-<p>Image Credit: <a href="https://stat545.stat.ubc.ca/tutorials/tibble_join/" class="uri">https://stat545.stat.ubc.ca/tutorials/tibble_join/</a></p>
-</section><section id="bind-rows" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="bind-rows">
-<span class="header-section-number">10.2</span> Bind rows</h2>
-<p>Import additional WQ data collected in 2019 at P8 and D7</p>
+<p>Joins are a safer method of combining data frame columns because they rely on <strong>keys</strong>, which are variables used to make the connection between two data frames. In the simple example above, the <code>ID</code> column is the key with which the tables are joined. If this was performed by simply combining columns, you would get much a different and erroneous result. There is a lot more to cover with the concept of keys, but the most important thing to remember is that they are unique for each observation or row in a data set.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+When should I use bind vs.&nbsp;join?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After all this information, you may be wondering when is it best to use bind vs.&nbsp;join when combining data frames. Here are some simple guidelines:</p>
+<ul>
+<li><p>When you want to add new <strong>rows</strong> from one data frame to another use bind rows. The columns should (mostly) be the same in the two data sets for this to be effective.</p></li>
+<li><p>When you want to add new <strong>columns</strong> from one data frame to another, preferably use a join if they share a common key. Only use bind columns when you have no other option and pay close attention to the order in which the rows appear in the two data sets.</p></li>
+</ul>
+</div>
+</div>
+</section><section id="bind-rows" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="bind-rows">
+<span class="header-section-number">10.3</span> Bind rows</h2>
+<p>Now that we have a better understanding of what it means to bind the rows of multiple data frames, let’s learn about how to actually perform this operation. The <code>bind_rows</code> function within the <code>dplyr</code> package is the easiest way I’ve found to accomplish this. Let’s use the EMP water quality data set we’ve been working with to demonstrate how to bind rows. To start, we need a second data frame to bind to it. We’ll import some additional EMP water quality data collected in 2019 at the same two stations - P8 and D7 - to be combined to the 2020-2022 data.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_2019</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/WQ_2019.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Look at structure of both dataframes to bind</p>
+<p>Let’s take a look at the structure and columns of the two data frames before binding them.</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2020-2022 data:</span></span>
 <span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -439,7 +461,7 @@ $ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26,
 [19] "SpCndSurface"       "WTSurface"         </code></pre>
 </div>
 </div>
-<p>Add 2019 data to 2020-2022 data by binding rows:</p>
+<p>You can see that all the column names and their types (classes) are the same which makes combining them by row a simple operation. We’ll use the <code>bind_rows</code> function to add the 2019 data to the 2020-2022 data and assign it to a new data frame object.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_2019_2022</span> <span class="op">&lt;-</span> <span class="fu">bind_rows</span><span class="op">(</span><span class="va">df_wq_2019</span>, <span class="va">df_wq</span><span class="op">)</span></span>
 <span><span class="va">df_wq_2019_2022</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -463,12 +485,44 @@ $ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26,
 #   TKN &lt;dbl&gt;, Depth &lt;dbl&gt;, Secchi &lt;dbl&gt;, Microcystis &lt;dbl&gt;,
 #   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">df_wq_2019_2022</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2019-01-15" "2022-12-19"</code></pre>
 </div>
-<section id="exercise" class="level3" data-number="10.2.1"><h3 data-number="10.2.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">10.2.1</span> Exercise</h3>
-<p>Add data collected from 2019-2022 at C3A to dataframe with P8 and D7</p>
-</section></section><section id="join-basics" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="join-basics">
-<span class="header-section-number">10.3</span> Join basics</h2>
+</div>
+<p>The new data frame now has EMP water quality data from 2019-2022.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may be wondering what would happen if the two data frames had a few columns with different names. <code>bind_rows</code> would still combine the two data frames but it would preserve separate columns for the ones with different names.</p>
+<p>However, if the two data frames had a few columns with the same names but with different types (classes - numeric, character, etc.), <code>bind_rows</code> will not work and give you an error. It is always best practice to check this by using <code>glimpse</code> or <code>str</code> on the two data frames before proceeding with binding their rows.</p>
+</div>
+</div>
+<section id="exercise" class="level3" data-number="10.3.1"><h3 data-number="10.3.1" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">10.3.1</span> Exercise</h3>
+<p>Now its your turn to try out combining two data sets by binding rows.</p>
+<p>Add water quality data collected from 2020-2022 at C3A to the original data frame (<code>df_wq</code>) with data from P8 and D7.</p>
+<p>Click below for the answer when you are done!</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import EMP water quality data for C3A</span></span>
+<span><span class="va">df_wq_c3a</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/WQ_C3A_2020_2022.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Add C3A to original data frame with P8 and D7</span></span>
+<span><span class="va">df_wq_p8_d7_c3a</span> <span class="op">&lt;-</span> <span class="fu">bind_rows</span><span class="op">(</span><span class="va">df_wq</span>, <span class="va">df_wq_c3a</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Take a look at the combined data set</span></span>
+<span><span class="va">df_wq_p8_d7_c3a</span> <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="va">Date</span>, <span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section></section><section id="join-basics" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="join-basics">
+<span class="header-section-number">10.4</span> Join basics</h2>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -485,11 +539,11 @@ $ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26,
 </div>
 </div>
 </div>
-</section><section id="left-join" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="left-join">
-<span class="header-section-number">10.4</span> Left join</h2>
+</section><section id="left-join" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="left-join">
+<span class="header-section-number">10.5</span> Left join</h2>
 <p>Join Delta inflow and outflow data from DayFlow to WQ data</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import Delta inflow and outflow data</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import Delta inflow and outflow data</span></span>
 <span><span class="va">df_dayflow</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/Dayflow_2019_2023.csv"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Join Delta flow data to 2019-2022 WQ data</span></span>
@@ -522,9 +576,9 @@ $ Inflow             &lt;dbl&gt; 27349, 42029, 129533, 107109, 129444, 105932, 1
 $ Outflow            &lt;dbl&gt; 21963, 42727, 130451, 95024, 121805, 97089, 100003,…</code></pre>
 </div>
 </div>
-<section id="exercise-1" class="level3" data-number="10.4.1"><h3 data-number="10.4.1" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">10.4.1</span> Exercise</h3>
-<p>Add weather observation data to WQ data (2019-2022, P8, D7, and C3A)</p>
+<section id="exercise-1" class="level3" data-number="10.5.1"><h3 data-number="10.5.1" class="anchored" data-anchor-id="exercise-1">
+<span class="header-section-number">10.5.1</span> Exercise</h3>
+<p>Add weather observation data to WQ data (2020-2022, P8, D7, and C3A)</p>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
