@@ -10,4 +10,4 @@ execute:
 
 ## Final Course Exercise
 
-Maybe have people work in pairs, Dave show solution at end (30 min)
+

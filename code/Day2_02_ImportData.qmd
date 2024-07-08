@@ -1,0 +1,61 @@
+---
+title: "Import Data"
+author: "Perry S"
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+## Load Packages
+
+One of the most important *packages* for this task is `tidyverse`, which we learned about yesterday. We'll import it here:
+
+```{r}
+library(tidyverse)
+```
+
+## Read in Data
+
+Next, we must import our data. The common function for this is `read_csv` from `readr` (which is nested in `tidyverse`). For our demonstrations, we will use the **WQ_P8D7.csv** file housed in the **data** folder.
+
+When importing data, we must specify the *filepath* where it's housed. There are multiple ways to do this. We could hard-code in the path, which is called the **absolute path**:
+
+```{r}
+#| error: true
+
+df_wq <- read_csv('C:/R/IntrotoR/data/WQ_P8D7.csv')
+```
+
+However, this code is very specific and will break when used on other computers. If we instead house data in a **Project**, we can make use of **relative filepaths**. These are ideal because anyone who uses the Project can run the code:
+
+```{r}
+df_wq <- read_csv('data/WQ_P8D7.csv')
+```
+
+**If you received an error here**, this is because your Rmd files are not being evaluated at the Project level. One way to fix this is to change your options in `Tools` \> `Global Options` \> `R Markdown` \> `evaluate chunks in directory` to `Project`.
+
+You can also use the `here` package instead, which automatically evaluates at the Project level:
+
+```{r}
+library(here)
+
+df_wq <- read_csv(here('data/WQ_P8D7.csv'))
+```
+
+------------------------------------------------------------------------
+
+We now have a data frame *object* called `df_wq`. We can use `head` to see what this data frame looks like:
+
+```{r}
+head(df_wq)
+```
+
+And `glimpse` to see information about the columns:
+
+```{r}
+glimpse(df_wq)
+```

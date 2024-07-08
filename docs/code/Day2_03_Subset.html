@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Perry S">
-<title>Introduction to R Training - July 2024 - 3&nbsp; Data Manipulation</title>
+<title>Introduction to R Training - July 2024 - 4&nbsp; Subset Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../code/Day3_MakingGraphs.html" rel="next">
-<link href="../code/Day1Intro.html" rel="prev">
+<link href="../code/Day2_04_Mutate.html" rel="next">
+<link href="../code/Day2_02_ImportData.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -119,12 +119,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day2_DataOrg.html">Day 2: 7/11/2024</a></li><li class="breadcrumb-item"><a href="../code/Day2_DataOrg.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Manipulation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
+=======
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day2_01_Intro.html">Day 2: 7/11/2024</a></li><li class="breadcrumb-item"><a href="../code/Day2_03_Subset.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Subset Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
@@ -160,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="../code/Day2_01_Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 2: 7/11/2024</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -169,8 +175,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day2_DataOrg.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Manipulation</span></span></a>
+  <a href="../code/Day2_02_ImportData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_03_Subset.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Subset Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_04_Mutate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_05_FinalExercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -187,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day3_MakingGraphs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Making Graphs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making Graphs</span></span></a>
   </div>
 </li>
       </ul>
@@ -204,31 +228,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_02_Summarizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_03_Reshaping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_06_Final_Exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -270,64 +294,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#working-with-data-in-r" id="toc-working-with-data-in-r" class="nav-link active" data-scroll-target="#working-with-data-in-r"><span class="header-section-number">3.1</span> Working with Data in R</a></li>
-  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages"><span class="header-section-number">3.2</span> Load Packages</a></li>
-  <li><a href="#read-in-data" id="toc-read-in-data" class="nav-link" data-scroll-target="#read-in-data"><span class="header-section-number">3.3</span> Read in Data</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
+  <li><a href="#basic-subsetting" id="toc-basic-subsetting" class="nav-link" data-scroll-target="#basic-subsetting"><span class="header-section-number">4.2</span> Basic Subsetting</a></li>
+  <li><a href="#subset-by-column-names" id="toc-subset-by-column-names" class="nav-link" data-scroll-target="#subset-by-column-names"><span class="header-section-number">4.3</span> Subset by Column Names</a></li>
+  <li><a href="#subset-by-row-values" id="toc-subset-by-row-values" class="nav-link" data-scroll-target="#subset-by-row-values"><span class="header-section-number">4.4</span> Subset By Row Values</a></li>
   <li>
-<a href="#subsetting" id="toc-subsetting" class="nav-link" data-scroll-target="#subsetting"><span class="header-section-number">3.4</span> Subsetting</a>
+<a href="#aside-logical-operators" id="toc-aside-logical-operators" class="nav-link" data-scroll-target="#aside-logical-operators"><span class="header-section-number">4.5</span> <u>Aside:</u> Logical Operators</a>
   <ul>
-<li>
-<a href="#subset-by-column-name" id="toc-subset-by-column-name" class="nav-link" data-scroll-target="#subset-by-column-name"><span class="header-section-number">3.4.1</span> Subset by Column Name</a>
-  <ul class="collapse">
-<li><a href="#aside-tidyverse-pipes" id="toc-aside-tidyverse-pipes" class="nav-link" data-scroll-target="#aside-tidyverse-pipes"><span class="header-section-number">3.4.1.1</span> Aside: Tidyverse Pipes</a></li>
+<li><a href="#equality-and-negate-equality" id="toc-equality-and-negate-equality" class="nav-link" data-scroll-target="#equality-and-negate-equality"><span class="header-section-number">4.5.1</span> <em>equality</em> (<code>==</code>) and <em>negate equality</em> (<code>!=</code>)</a></li>
+  <li><a href="#and-and-or" id="toc-and-and-or" class="nav-link" data-scroll-target="#and-and-or"><span class="header-section-number">4.5.2</span> <em>and</em> (<code>&amp;</code>) and <em>or</em> (<code>|</code>)</a></li>
+  <li><a href="#less-than-and-greater-than" id="toc-less-than-and-greater-than" class="nav-link" data-scroll-target="#less-than-and-greater-than"><span class="header-section-number">4.5.3</span> <em>less than</em> <code>&lt;</code> and <em>greater than</em> <code>&gt;</code></a></li>
+  <li><a href="#in-in" id="toc-in-in" class="nav-link" data-scroll-target="#in-in"><span class="header-section-number">4.5.4</span> <em>in</em> (<code>%in%</code>)</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">4.5.5</span> Exercise</a></li>
   </ul>
 </li>
-  <li><a href="#subset-by-row-values" id="toc-subset-by-row-values" class="nav-link" data-scroll-target="#subset-by-row-values"><span class="header-section-number">3.4.2</span> Subset By Row Values</a></li>
-  <li>
-<a href="#aside-logical-operators" id="toc-aside-logical-operators" class="nav-link" data-scroll-target="#aside-logical-operators"><span class="header-section-number">3.4.3</span> Aside: Logical Operators</a>
-  <ul class="collapse">
-<li><a href="#equality-and-negate-equality" id="toc-equality-and-negate-equality" class="nav-link" data-scroll-target="#equality-and-negate-equality"><span class="header-section-number">3.4.3.1</span> <em>equality</em> (<code>==</code>) and <em>negate equality</em> (<code>!=</code>)</a></li>
-  <li><a href="#and-and-or" id="toc-and-and-or" class="nav-link" data-scroll-target="#and-and-or"><span class="header-section-number">3.4.3.2</span> <em>and</em> (<code>&amp;</code>) and <em>or</em> (<code>|</code>)</a></li>
-  <li><a href="#less-than-and-greater-than" id="toc-less-than-and-greater-than" class="nav-link" data-scroll-target="#less-than-and-greater-than"><span class="header-section-number">3.4.3.3</span> <em>less than</em> <code>&lt;</code> and <em>greater than</em> <code>&gt;</code></a></li>
-  <li><a href="#in-in" id="toc-in-in" class="nav-link" data-scroll-target="#in-in"><span class="header-section-number">3.4.3.4</span> <em>in</em> (<code>%in%</code>)</a></li>
-  </ul>
-</li>
-  <li><a href="#aside-the-lubridate-package" id="toc-aside-the-lubridate-package" class="nav-link" data-scroll-target="#aside-the-lubridate-package"><span class="header-section-number">3.4.4</span> Aside: the lubridate package</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">3.4.5</span> Exercise</a></li>
-  <li>
-<a href="#subset-by-column-and-row" id="toc-subset-by-column-and-row" class="nav-link" data-scroll-target="#subset-by-column-and-row"><span class="header-section-number">3.4.6</span> Subset by Column and Row</a>
-  <ul class="collapse">
-<li><a href="#aside-formatting-code" id="toc-aside-formatting-code" class="nav-link" data-scroll-target="#aside-formatting-code"><span class="header-section-number">3.4.6.1</span> Aside: Formatting Code</a></li>
-  </ul>
-</li>
-  <li><a href="#subset-na" id="toc-subset-na" class="nav-link" data-scroll-target="#subset-na"><span class="header-section-number">3.4.7</span> Subset NA</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#mutate-function" id="toc-mutate-function" class="nav-link" data-scroll-target="#mutate-function"><span class="header-section-number">3.5</span> Mutate Function</a>
-  <ul>
-<li>
-<a href="#new-columns" id="toc-new-columns" class="nav-link" data-scroll-target="#new-columns"><span class="header-section-number">3.5.1</span> New Columns</a>
-  <ul class="collapse">
-<li><a href="#aside-relocate-columns" id="toc-aside-relocate-columns" class="nav-link" data-scroll-target="#aside-relocate-columns"><span class="header-section-number">3.5.1.1</span> Aside: Relocate Columns</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#existing-columns" id="toc-existing-columns" class="nav-link" data-scroll-target="#existing-columns"><span class="header-section-number">3.5.2</span> Existing Columns</a>
-  <ul class="collapse">
-<li><a href="#aside-case-when" id="toc-aside-case-when" class="nav-link" data-scroll-target="#aside-case-when"><span class="header-section-number">3.5.2.1</span> Aside: Case When</a></li>
-  </ul>
-</li>
-  </ul>
-</li>
-  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename"><span class="header-section-number">3.6</span> Rename</a></li>
-  <li><a href="#final-exercise" id="toc-final-exercise" class="nav-link" data-scroll-target="#final-exercise"><span class="header-section-number">3.7</span> Final Exercise</a></li>
+  <li><a href="#subset-by-column-and-row" id="toc-subset-by-column-and-row" class="nav-link" data-scroll-target="#subset-by-column-and-row"><span class="header-section-number">4.6</span> Subset by Column and Row</a></li>
+  <li><a href="#subset-by-dates" id="toc-subset-by-dates" class="nav-link" data-scroll-target="#subset-by-dates"><span class="header-section-number">4.7</span> Subset by Dates</a></li>
+  <li><a href="#subset-na" id="toc-subset-na" class="nav-link" data-scroll-target="#subset-na"><span class="header-section-number">4.8</span> Subset <code>NA</code></a></li>
   </ul></nav>
     </div>
 <!-- main -->
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+=======
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day2_01_Intro.html">Day 2: 7/11/2024</a></li><li class="breadcrumb-item"><a href="../code/Day2_03_Subset.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Subset Data</span></a></li></ol></nav><div class="quarto-title">
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <h1 class="title">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Manipulation</span>
+<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Subset Data</span>
 </h1>
 </div>
 
@@ -347,6 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 </header><section id="working-with-data-in-r" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="working-with-data-in-r">
 <span class="header-section-number">3.1</span> Working with Data in R</h2>
 <p>As data scientists, our goal to use our collected data to produce statistics and graphics that inform various management and scientific questions. In order to do this, we must first learn how to properly format our data in R. Practically, this means learning basic processes for formatting data frames.</p>
@@ -430,6 +424,17 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <p>For example, if I want to look at the value in the 1st row of the 2nd column:</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+
+</header><section id="introduction" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">4.1</span> Introduction</h2>
+<p>Let’s talk a bit about the structure of a data frame. Data frames are 2-dimensional objects (row x column). Every entry in a data frame has a unique <strong>index</strong> that’s defined by which row x column it’s in. Since we rarely want to work on the entire data frame at once, we can use these indices to <strong>subset</strong> our data.</p>
+</section><section id="basic-subsetting" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="basic-subsetting">
+<span class="header-section-number">4.2</span> Basic Subsetting</h2>
+<p>For example, if I want to look at the value in the 1st row of the 2nd column, I can call the index [1,2]:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   Date      
@@ -439,7 +444,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>or, perhaps, the 2nd row of the 1st column:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   Station
@@ -449,7 +454,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>We can also access an entire row or column at once:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="co"># entire row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="co"># entire row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 20
   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -462,7 +467,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span> <span class="co"># entire column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span> <span class="co"># entire column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 62 × 1
    Station
@@ -482,7 +487,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>You can also subset multiple columns/rows at once by using a <code>:</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="co"># all rows, 2-4th columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="co"># all rows, 2-4th columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 62 × 3
    Date        Chla Pheophytin
@@ -500,12 +505,12 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 # ℹ 52 more rows</code></pre>
 </div>
 </div>
-<section id="subset-by-column-name" class="level3" data-number="3.4.1"><h3 data-number="3.4.1" class="anchored" data-anchor-id="subset-by-column-name">
-<span class="header-section-number">3.4.1</span> Subset by Column Name</h3>
-<p>Subsetting is very powerful, but one issue is – by access values by their numerical index – we can get confused about what we’re accessing. For example, if I wanted to work with <code>DissAmmonia</code> data, I would have to first know that it’s the 4th column in my dataframe. That can get unwieldy with complex datasets.</p>
+</section><section id="subset-by-column-names" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="subset-by-column-names">
+<span class="header-section-number">4.3</span> Subset by Column Names</h2>
+<p>Subsetting is very powerful. However, if we specify values by their numerical index, we can get confused about what we’re accessing. For example, if I wanted to work with <code>DissAmmonia</code> data, I would have to know that it’s the 4th column in my data frame. That can get unwieldy with complex datasets.</p>
 <p>Instead, we can use the <strong>column header</strong> to call a particular column:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="st">'DissAmmonia'</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">[</span><span class="st">'DissAmmonia'</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 62 × 1
    DissAmmonia
@@ -524,7 +529,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">[</span><span class="st">'DissAmmonia'</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">[</span><span class="st">'DissAmmonia'</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [62 × 1] (S3: tbl_df/tbl/data.frame)
  $ DissAmmonia: num [1:62] 0.15 0.21 0.25 0.14 0.11 0.22 0.05 0.05 0.05 0.05 ...</code></pre>
@@ -533,7 +538,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <p>This returns a tibble that only contains the relevant column.</p>
 <p>We can also call the column as a vector (this is the more common syntax):</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">$</span><span class="va">DissAmmonia</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">$</span><span class="va">DissAmmonia</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.150 0.210 0.250 0.140 0.110 0.220 0.050 0.050 0.050 0.050 0.050 0.050
 [13] 0.062 0.060 0.050 0.050 0.050 0.123 0.299 0.135 0.063 0.078 0.050 0.093
@@ -544,14 +549,18 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DissAmmonia</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DissAmmonia</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> num [1:62] 0.15 0.21 0.25 0.14 0.11 0.22 0.05 0.05 0.05 0.05 ...</code></pre>
 </div>
 </div>
 <p>To select multiple columns by name, we use our <code>:</code> technique within the <code>select</code> function from the <code>dplyr</code> package (in tidyverse):</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 62 × 4
    Station Date        Chla Pheophytin
@@ -571,10 +580,17 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>If this is the only data I want to work with, I can store this as a unique object:</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_chlpheo</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_chlpheo</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_chlpheo</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_chlpheo</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 62
 Columns: 4
@@ -584,6 +600,7 @@ $ Chla       &lt;dbl&gt; 0.64, 0.67, 1.46, 2.15, 1.40, 1.89, 4.73, 1.74, 6.40, 2
 $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0.85,…</code></pre>
 </div>
 </div>
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <section id="aside-tidyverse-pipes" class="level4" data-number="3.4.1.1"><h4 data-number="3.4.1.1" class="anchored" data-anchor-id="aside-tidyverse-pipes">
 <span class="header-section-number">3.4.1.1</span> Aside: Tidyverse Pipes</h4>
 <p>You’ll notice I used some new syntax there, namely, the <code>%&gt;%</code>. This is called the <em>pipe operator</em>, Operators are functions that allows one to perform operations on other functions/variables. The pipe operator specifically allows you to chain together tidyverse commands.</p>
@@ -625,41 +642,66 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
  9 P8      2020-07-13  6.4        0.88
 10 D7      2020-07-16  2.79       0.85
 # ℹ 52 more rows</code></pre>
+=======
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tidyverse Pipes
 </div>
 </div>
-</section></section><section id="subset-by-row-values" class="level3" data-number="3.4.2"><h3 data-number="3.4.2" class="anchored" data-anchor-id="subset-by-row-values">
-<span class="header-section-number">3.4.2</span> Subset By Row Values</h3>
+<div class="callout-body-container callout-body">
+<p>You’ll notice I used some new syntax, namely, the <code>%&gt;%</code>. This is called the <strong>pipe operator</strong>, <strong>Operators</strong> are functions that allows one to perform operations on other functions/variables. The pipe operator specifically allows you to chain together tidyverse commands. Using pipes helps keep code readable and easy to follow.</p>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
+</div>
+</div>
+</section><section id="subset-by-row-values" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="subset-by-row-values">
+<span class="header-section-number">4.4</span> Subset By Row Values</h2>
 <p>Another common goal is to subset by particular row values – say, only a given station, date range, or analyte value range. Tidyverse also has functions for this! Specifically, we use <code>filter</code> from the <code>dplyr</code> package:</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_p8</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">'P8'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_p8</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">'P8'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_p8</span><span class="op">$</span><span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_p8</span><span class="op">$</span><span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "P8"</code></pre>
 </div>
 </div>
-</section><section id="aside-logical-operators" class="level3" data-number="3.4.3"><h3 data-number="3.4.3" class="anchored" data-anchor-id="aside-logical-operators">
-<span class="header-section-number">3.4.3</span> Aside: Logical Operators</h3>
-<section id="equality-and-negate-equality" class="level4" data-number="3.4.3.1"><h4 data-number="3.4.3.1" class="anchored" data-anchor-id="equality-and-negate-equality">
-<span class="header-section-number">3.4.3.1</span> <em>equality</em> (<code>==</code>) and <em>negate equality</em> (<code>!=</code>)</h4>
-<p>Note we used another new symbol: <code>==</code>. This is the equality operator, a type of <strong>logical operator</strong>. Logical operators allow us to dictate what our code does via logical statements.</p>
+<hr></section><section id="aside-logical-operators" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="aside-logical-operators">
+<span class="header-section-number">4.5</span> <u>Aside:</u> Logical Operators</h2>
+<section id="equality-and-negate-equality" class="level3" data-number="4.5.1"><h3 data-number="4.5.1" class="anchored" data-anchor-id="equality-and-negate-equality">
+<span class="header-section-number">4.5.1</span> <em>equality</em> (<code>==</code>) and <em>negate equality</em> (<code>!=</code>)</h3>
+<p>Note we used another new symbol: <code>==</code>. This is the equality operator, a type of <strong>logical operator</strong>. Logical operators allow us to dictate what our code does via logical statements; they are the backbone of programming.</p>
 <p><strong>Equality</strong>, as we saw above, tells the code to find all values from the right-hand side that are equal to the left-hand side.</p>
 <p><strong>Negate</strong> does the opposite; it gives us the values that do not match. Here, we apply it to the equality operator, but note that <code>!</code> is the <strong>general negate operator</strong>; it can be applied to <em>any logical statement</em>.</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_notp8</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">!=</span> <span class="st">'P8'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_notp8</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">!=</span> <span class="st">'P8'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_notp8</span><span class="op">$</span><span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_notp8</span><span class="op">$</span><span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "D7"</code></pre>
 </div>
 </div>
-</section><section id="and-and-or" class="level4" data-number="3.4.3.2"><h4 data-number="3.4.3.2" class="anchored" data-anchor-id="and-and-or">
-<span class="header-section-number">3.4.3.2</span> <em>and</em> (<code>&amp;</code>) and <em>or</em> (<code>|</code>)</h4>
-<p>Sometimes, we want to filter by multiple commands at once. We can use this using the logical operators <em>and</em> (<code>&amp;</code>) or <em>or</em> (’|`):</p>
+</section><section id="and-and-or" class="level3" data-number="4.5.2"><h3 data-number="4.5.2" class="anchored" data-anchor-id="and-and-or">
+<span class="header-section-number">4.5.2</span> <em>and</em> (<code>&amp;</code>) and <em>or</em> (<code>|</code>)</h3>
+<p>Sometimes, we want to filter by multiple commands at once. We can use this using the logical operators <em>and</em> (<code>&amp;</code>) or <em>or</em> (<code>|</code>):</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">'P8'</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">'P8'</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 20
   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -672,7 +714,11 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 </div>
 </div>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span> <span class="op">|</span> <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-22'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span> <span class="op">|</span> <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-22'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 20
   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -685,12 +731,16 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 #   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section><section id="less-than-and-greater-than" class="level4" data-number="3.4.3.3"><h4 data-number="3.4.3.3" class="anchored" data-anchor-id="less-than-and-greater-than">
-<span class="header-section-number">3.4.3.3</span> <em>less than</em> <code>&lt;</code> and <em>greater than</em> <code>&gt;</code>
-</h4>
+</section><section id="less-than-and-greater-than" class="level3" data-number="4.5.3"><h3 data-number="4.5.3" class="anchored" data-anchor-id="less-than-and-greater-than">
+<span class="header-section-number">4.5.3</span> <em>less than</em> <code>&lt;</code> and <em>greater than</em> <code>&gt;</code>
+</h3>
 <p>Sometimes, we want all values above or below:</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2020-02-01'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2020-02-01'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 60 × 20
    Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -713,7 +763,11 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 </div>
 </div>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">'2020-06-30'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">'2020-06-30'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 20
   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -733,7 +787,11 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 </div>
 </div>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2020-06-30'</span><span class="op">)</span><span class="op">)</span> <span class="co"># same thing but using negate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2020-06-30'</span><span class="op">)</span><span class="op">)</span> <span class="co"># same thing but using negate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 20
   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -752,9 +810,13 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 #   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>What if we want data in between two dates? We can use the and (<code>&amp;</code>) operator!</p>
+<p>What if we want data in between two dates? We can use the <code>&amp;</code> operator!</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2020-02-01'</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">'2020-06-30'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2020-02-01'</span> <span class="op">&amp;</span> <span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">'2020-06-30'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 20
   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -771,13 +833,17 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 #   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section><section id="in-in" class="level4" data-number="3.4.3.4"><h4 data-number="3.4.3.4" class="anchored" data-anchor-id="in-in">
-<span class="header-section-number">3.4.3.4</span> <em>in</em> (<code>%in%</code>)</h4>
-<p>What if we wanted to subset by five specific dates? We could string together multiple or (<code>|</code>) commands, but that can become unwieldy to write.</p>
-<p>What if I instead had a vector of those five specific dates? Then I could subset by all the data in my dataset that matches one of the values in that vector.</p>
+</section><section id="in-in" class="level3" data-number="4.5.4"><h3 data-number="4.5.4" class="anchored" data-anchor-id="in-in">
+<span class="header-section-number">4.5.4</span> <em>in</em> (<code>%in%</code>)</h3>
+<p>What if we wanted to subset by five specific dates? We could string together multiple <code>|</code> commands, but that can become unwieldy to write.</p>
+<p>What if I instead had a vector of those five specific dates? Then I could subset by all the values in my dataset that match one of the values in that vector.</p>
 <p>This is what the <code>%in%</code> function does:</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'2020-02-14'</span>,<span class="st">'2020-03-06'</span>,<span class="st">'2020-06-11'</span>,<span class="st">'2021-03-05'</span>,<span class="st">'2021-04-05'</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'2020-02-14'</span>,<span class="st">'2020-03-06'</span>,<span class="st">'2020-06-11'</span>,<span class="st">'2021-03-05'</span>,<span class="st">'2021-04-05'</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 20
   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -793,13 +859,60 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 #   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section></section><section id="aside-the-lubridate-package" class="level3" data-number="3.4.4"><h3 data-number="3.4.4" class="anchored" data-anchor-id="aside-the-lubridate-package">
-<span class="header-section-number">3.4.4</span> Aside: the lubridate package</h3>
+</section><section id="exercise" class="level3" data-number="4.5.5"><h3 data-number="4.5.5" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">4.5.5</span> Exercise</h3>
+<p>In one filter function, how would I select data that’s either before 2020-02-28 <em>or</em> after 2022-11-01?</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">'2020-02-28'</span> <span class="op">|</span> <span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2022-11-01'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<hr></section></section><section id="subset-by-column-and-row" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="subset-by-column-and-row">
+<span class="header-section-number">4.6</span> Subset by Column and Row</h2>
+<p>Using our knowledge of pipes, it’s easy to subset by column and row at the same time!</p>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span> <span class="op">|</span> <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-22'</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  Station Date        Chla Pheophytin
+  &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+1 P8      2020-01-16  0.64       0.5 
+2 D7      2020-01-22  0.67       0.87</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Formatting Code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that above all the code is on the same line. This can be difficult to read. You can get around this by formatting your code. Personally, I like having different functions on different lines:</p>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span> <span class="op">|</span> <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-22'</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also use <code>ctrl+shift+A</code> to auto-format code! Note that it looks different from above; this is fine. As long as you deem the code readable (and it works), you’re set.</p>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># original</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span> <span class="op">|</span> <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-22'</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># ctrl+shift+A</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-16'</span> <span class="op">|</span></span>
+<span>                   <span class="va">Date</span> <span class="op">==</span> <span class="st">'2020-01-22'</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Pheophytin</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<hr></section><section id="subset-by-dates" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="subset-by-dates">
+<span class="header-section-number">4.7</span> Subset by Dates</h2>
 <p>What if I want to subset all values in a given year? If I had a vector of all the years in my dataset, then I could simply use <code>%in%</code>! But how would I get that vector?</p>
-<p>The <code>lubridate</code> package allows you to manipulate dates. Since dates are complicated in R, we won’t go into too much detail. However, a few useful functions are <code>day</code>, <code>month</code>, and <code>year</code>, which returns the days, months, and years (as vectors) from a vector of dates:</p>
+<p>The <code>lubridate</code> package allows you to manipulate dates. Since dates are complicated in R, we won’t go into too much detail. However, a few useful functions are <code>day</code>, <code>month</code>, and <code>year</code>, which return the days, months, and years (as vectors) from a vector of dates that are of the <strong>Date class</strong>:</p>
 <p><em>Original:</em></p>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "2020-01-16" "2020-01-22" "2020-02-14" "2020-02-20" "2020-03-03"
  [6] "2020-03-06" "2020-06-11" "2020-06-17" "2020-07-13" "2020-07-16"
@@ -816,9 +929,19 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 [61] "2022-11-15" "2022-12-14"</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span> <span class="co"># check that it's the correct class</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Date"</code></pre>
+</div>
+</div>
 <p><em>Days:</em></p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/day.html">day</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">day</span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 16 22 14 20  3  6 11 17 13 16 11 17  9 24  8 13  6 12  5 10  5  8  5 10  3
 [26]  8 16 21 16 19 10 16 13 18 10 16 10 15 12 14 16 27 27 27 25 22 20 19 18 19
@@ -827,7 +950,11 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 </div>
 <p><em>Months:</em></p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">month</span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  1  2  2  3  3  6  6  7  7  8  8  9  9 10 10 11 11  3  3  4  4  5  5  6
 [26]  6  7  7  8  8  9  9 10 10 11 11 12 12  1  2  3  4  5  6  7  8  9 10 11 12
@@ -836,7 +963,11 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 </div>
 <p><em>Years:</em></p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">year</span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 2020
 [16] 2020 2020 2020 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021
@@ -845,9 +976,13 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 [61] 2022 2022</code></pre>
 </div>
 </div>
-<p>One use for these functions is subsetting! Say we want all entries from the year 2021:</p>
+<p>One use for these functions is to subset. Say we want all entries from the year 2021:</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="st">'2021'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">year</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="st">'2021'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 20
    Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -879,9 +1014,15 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 </div>
 </div>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># same thing but using negate</span></span>
 <span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span></span>
 <span>  <span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'2020'</span>,<span class="st">'2022'</span><span class="op">)</span><span class="op">)</span></span>
+=======
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># same thing but using negate</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span></span>
+<span>  <span class="op">!</span><span class="op">(</span><span class="fu">year</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'2020'</span>,<span class="st">'2022'</span><span class="op">)</span><span class="op">)</span></span>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 20
@@ -913,10 +1054,13 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 #   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section><section id="exercise" class="level3" data-number="3.4.5"><h3 data-number="3.4.5" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">3.4.5</span> Exercise</h3>
-<p>In one filter function, how would I select data that’s either before 2020-02-28 <em>or</em> after 2022-11-01?</p>
+<hr></section><section id="subset-na" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="subset-na">
+<span class="header-section-number">4.8</span> Subset <code>NA</code>
+</h2>
+<p>The final type of subset that we’ll cover today is by <code>NA</code> data.</p>
+<p><code>NA</code> is a <strong>logical constant</strong> of length 1 which contains a missing value indicator:</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <details><summary>Code</summary><div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&lt;=</span> <span class="st">'2020-02-28'</span> <span class="op">|</span> <span class="va">Date</span> <span class="op">&gt;=</span> <span class="st">'2022-11-01'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -976,25 +1120,28 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 <p><code>NA</code> is a logical constant of length 1 which contains a missing value indicator:</p>
 <div class="cell">
 <div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span> <span class="co"># NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="cn">NA</span><span class="op">)</span> <span class="co"># NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logical"</code></pre>
 </div>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="st">'NA'</span><span class="op">)</span> <span class="co"># not the same</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="st">'NA'</span><span class="op">)</span> <span class="co"># not the same</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>Sometimes, we want to select only NA data, or omit it entirely. Looking at the Chla column, we see that there are NAs:</p>
+<p>Sometimes, we want to select only <code>NA</code> data or omit it entirely. Looking at the DON column, we see that there are <code>NA</code>s:</p>
 <div class="cell">
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span> <span class="co"># returns unique values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   NA 0.30 0.20 0.10 0.50 0.22 0.19 0.11 0.53 0.13 0.46 0.25 0.37 0.29 0.17
 [16] 0.24 0.27 0.21 0.35 0.12 0.18 0.16 1.07 0.33 0.40 0.44 0.43 0.42 0.38</code></pre>
 </div>
 </div>
-<p>A quicker to check this is the <code>is.na</code> function:</p>
+<p>A quicker way to check this is the <code>is.na</code> function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
 [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
@@ -1006,9 +1153,15 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 </div>
 <p>This returns a logical vector. If I want to subset by this, I can use the <code>filter</code> function:</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DON</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DON</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Station Date         DON
@@ -1021,9 +1174,10 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 6 D7      2020-03-06    NA</code></pre>
 </div>
 </div>
-<p><strong>Question:</strong> What operator would I use if I want all data <em>except</em> NAs (hint: I want to <em>negate</em> NA)</p>
+<p><strong>Question:</strong> What operator would I use if I want all data <em>except</em> <code>NA</code>s (hint: I want to <em>negate</em> <code>NA</code>)</p>
 <p><strong>Challenge Exercise</strong>: How would I write this statement? (Hint: examples are above)</p>
 <div class="cell">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
 <details><summary>Code</summary><div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># use the ! operator before the function to negate it</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DON</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1301,6 +1455,11 @@ $ Pheophytin &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.88, 0
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">df_new</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">DON</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># use the ! operator before the function to negate it</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">DON</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
 </details>
 </div>
 
@@ -1538,6 +1697,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+<<<<<<< HEAD:docs/code/Day2_DataOrg.html
       <a href="../code/Day1Intro.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An introduction to R</span></span>
       </a>          
@@ -1545,6 +1705,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-next">
       <a href="../code/Day3_MakingGraphs.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Making Graphs</span></span> <i class="bi bi-arrow-right-short"></i>
+=======
+      <a href="../code/Day2_02_ImportData.html" class="pagination-link" aria-label="Import Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import Data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../code/Day2_04_Mutate.html" class="pagination-link" aria-label="Mutate Data">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span></span> <i class="bi bi-arrow-right-short"></i>
+>>>>>>> f9b01cbf8eae713d1cd1e58ccd2d650996de3736:docs/code/Day2_03_Subset.html
       </a>
   </div>
 </nav>

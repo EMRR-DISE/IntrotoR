@@ -1,0 +1,71 @@
+---
+title: "Final Exercise"
+author: "Perry S"
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
+## Final Exercise
+
+Using pipes, modify the `df_wq` data frame as so:
+
+-   assign it to a new object named `df_new`
+
+-   filter `Date` to 2021 data only
+
+-   select only the `Station`, `Date`, `Chla`, and `Pheophytin` columns
+
+-   mutate `Station` in-place so it's a factor column
+
+**Challenge**:
+
+Modify the `df_new` data frame as so:
+
+-   mutate `Chla` so it's +20 specifically for the *case when* the month is April *and* the station is P8
+
+    -   *Hint: April is the 4th month*
+
+-   assign it to the object `df_new` (ie. the same name)
+
+    -   can you access the "original" `df_new` now? what happens if you re-run the code?
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+df_new <- df_wq %>%
+  filter(Date > '2020-12-31' & Date < '2022-12-31') %>% # can also use lubridate
+  select(c(Station, Date, Chla, Pheophytin)) %>%
+  mutate(Station = factor(Station))
+
+glimpse(df_new)
+```
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+df_new <- df_new %>%
+  mutate(
+    Chla = case_when(
+      month(Date) == 04 & Station == 'P8' ~ Chla + 20,
+      TRUE ~ Chla
+    )
+  )
+
+df_new
+```

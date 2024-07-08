@@ -12,7 +12,7 @@ execute:
 
 ## Introduction
 
-A common task that many of us need to do is to summarize or aggregate a data set to gain a simplified overview of the data or to more easily work with the data. Some of you may be familiar with pivot tables in Excel which can help with this task. The R programming language is also very helpful with summarizing data and allows for greater customization than pivot tables. We'll start this lesson with some basic R functions to summarize your data, and then move into some more powerful R functions from the `dplyr` package to group and summarize your data.
+A common task that many of us need to do is to summarize or aggregate a data set to gain a simplified overview of the data or to more easily work with the data. Some of you may be familiar with pivot tables in Excel which can help with this task. The R programming language is also very helpful with summarizing data and allows for greater customization than pivot tables. We'll start this lesson with some basic R functions to summarize your data, and then move into some more powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package to group and summarize your data.
 
 ## Import Data
 
@@ -91,7 +91,7 @@ Now its your turn to try out these summarizing functions we just learned about.
 2) Now, use `summarize` to calculate the overall minimum value for "Secchi".\
 **HINT:** Watch out for `NA` values!
 
-3) Add the minimum value for "WTSurface" to the `summarize` function used above, and assign it to an object called "df_wq_min", and print it to view the results.
+3) Add the minimum value for "WTSurface" to the `summarize` function used above, assign it to an object, and print it to view the results.
 
 Click below for the answer when you are done!
 
