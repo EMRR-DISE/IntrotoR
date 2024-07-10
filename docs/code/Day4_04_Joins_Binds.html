@@ -502,17 +502,24 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>You may be wondering what would happen if the two data frames had a few columns with different names. <code>bind_rows</code> would still combine the two data frames but it would preserve separate columns for the ones with different names.</p>
-<p>However, if the two data frames had a few columns with the same names but with different types (classes - numeric, character, etc.), <code>bind_rows</code> will not work and give you an error. It is always best practice to check this by using <code>glimpse</code> or <code>str</code> on the two data frames before proceeding with binding their rows.</p>
+<p>However, if the two data frames had columns with the same name but with different types (classes - numeric, character, etc.), <code>bind_rows</code> will not work and give you an error. It is always best practice to check this by using <code>glimpse</code> or <code>str</code> on the two data frames before proceeding with binding their rows.</p>
 </div>
 </div>
 <section id="exercise" class="level3" data-number="10.3.1"><h3 data-number="10.3.1" class="anchored" data-anchor-id="exercise">
 <span class="header-section-number">10.3.1</span> Exercise</h3>
 <p>Now its your turn to try out combining two data sets by binding rows.</p>
-<p>Add water quality data collected from 2020-2022 at C3A to the original data frame (<code>df_wq</code>) with data from P8 and D7.</p>
+<p>Add water quality data collected from 2020-2022 at C3A to the original data frame (<code>df_wq</code>) with data from P8 and D7. Assign this data frame to a new object to be used later. The C3A data is in the “data/WQ_C3A_2020_2022.csv” file.</p>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import EMP water quality data for C3A</span></span>
 <span><span class="va">df_wq_c3a</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/WQ_C3A_2020_2022.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check the structure and column names of the two data frames</span></span>
+<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_c3a</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df_wq_c3a</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Add C3A to original data frame with P8 and D7</span></span>
 <span><span class="va">df_wq_p8_d7_c3a</span> <span class="op">&lt;-</span> <span class="fu">bind_rows</span><span class="op">(</span><span class="va">df_wq</span>, <span class="va">df_wq_c3a</span><span class="op">)</span></span>
@@ -523,32 +530,78 @@ Note
 </div>
 </section></section><section id="join-basics" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="join-basics">
 <span class="header-section-number">10.4</span> Join basics</h2>
+<p>The <code>dplyr</code> package provides various methods to join data frames together:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/join-venn.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
-</figure>
+<figure class="figure"><p><img src="images/join-venn.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Image Credit <a href="https://r4ds.hadley.nz/joins" class="uri">https://r4ds.hadley.nz/joins</a></figcaption></figure>
 </div>
 </div>
 </div>
+<p>In the section above, we touched on the concept of <strong>keys</strong> and their importance with joins. Here is an illustration that helps explain keys further and how they assist with various types of joins:</p>
 <div class="cell" data-layout-align="left">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/join-outer.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
-</figure>
+<figure class="figure"><p><img src="images/join-outer.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Image Credit <a href="https://r4ds.hadley.nz/joins" class="uri">https://r4ds.hadley.nz/joins</a></figcaption></figure>
 </div>
 </div>
 </div>
+<p>In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lies in how they handle keys that don’t have a match. In short, a <code>left_join</code> keeps all rows in the first data frame, a <code>right_join</code> keeps all observations in the second data frame, and a <code>full_join</code> keeps all rows from both data frames.</p>
 </section><section id="left-join" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="left-join">
 <span class="header-section-number">10.5</span> Left join</h2>
-<p>Join Delta inflow and outflow data from DayFlow to WQ data</p>
+<p>While all these joining methods can be useful, we’ll focus on the most commonly-used joining method - <code>left_join</code>. We’ll use a <code>left_join</code> to add Delta inflow and outflow data from DayFlow to the 2019-2022 EMP water quality data. First, we’ll need to import the DayFlow data:</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import Delta inflow and outflow data</span></span>
-<span><span class="va">df_dayflow</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/Dayflow_2019_2023.csv"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Join Delta flow data to 2019-2022 WQ data</span></span>
-<span><span class="va">df_wq_flow</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">df_wq_2019_2022</span>, <span class="va">df_dayflow</span><span class="op">)</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_flow</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">df_dayflow</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/Dayflow_2019_2023.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s take a look at the structure of the two data frames before joining them.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2019-2022 EMP water quality data:</span></span>
+<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_2019_2022</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 86
+Columns: 20
+$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
+$ Date               &lt;date&gt; 2019-01-15, 2019-01-17, 2019-02-15, 2019-02-20, 20…
+$ Chla               &lt;dbl&gt; 0.84, 0.88, 2.29, 1.92, 2.60, 2.53, 1.59, 2.81, 1.0…
+$ Pheophytin         &lt;dbl&gt; 1.21, 0.64, 1.03, 2.32, 1.42, 1.35, 1.25, 1.19, 0.5…
+$ TotAlkalinity      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ DissAmmonia        &lt;dbl&gt; 0.200, 0.214, 0.090, 0.070, 0.050, 0.050, 0.050, 0.…
+$ DissNitrateNitrite &lt;dbl&gt; 3.600, 0.570, 1.030, 0.370, 0.540, 0.300, 0.420, 0.…
+$ DOC                &lt;dbl&gt; 6.00, 1.70, 6.10, 4.20, 3.60, 2.50, 2.60, 2.30, 2.2…
+$ TOC                &lt;dbl&gt; 6.00, 1.70, 5.60, 4.20, 3.60, 2.50, 2.60, 2.10, 2.2…
+$ DON                &lt;dbl&gt; 0.50, 0.10, 0.50, 0.30, 0.38, 0.20, 0.20, 0.16, 0.2…
+$ TotPhos            &lt;dbl&gt; 0.370, 0.094, 0.153, 0.180, 0.070, 0.080, 0.100, 0.…
+$ DissOrthophos      &lt;dbl&gt; 0.329, 0.092, 0.120, 0.071, 0.075, 0.065, 0.072, 0.…
+$ TDS                &lt;dbl&gt; 491, 8530, 160, 133, 112, 108, 109, 94, 118, 150, 5…
+$ TSS                &lt;dbl&gt; 12.0, 24.0, 17.0, 108.0, 6.0, 36.0, 27.0, 22.0, 4.0…
+$ TKN                &lt;dbl&gt; 0.800, 0.380, 0.700, 0.600, 0.400, 0.400, 0.300, 0.…
+$ Depth              &lt;dbl&gt; 38.7, 8.2, 17.0, 8.0, 36.7, 8.2, 39.0, 7.0, 37.8, 6…
+$ Secchi             &lt;dbl&gt; 100, 52, 44, 16, 76, 28, 92, 28, 100, 40, 80, 44, 1…
+$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 4, …
+$ SpCndSurface       &lt;dbl&gt; 878, 14498, 276, 228, 194, 189, 195, 168, 214, 276,…
+$ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26, 14.…</code></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># DayFlow data:</span></span>
+<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_dayflow</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,734
+Columns: 3
+$ Date    &lt;date&gt; 2019-01-01, 2019-01-02, 2019-01-03, 2019-01-04, 2019-01-05, 2…
+$ Inflow  &lt;dbl&gt; 14763, 14049, 13830, 13435, 13354, 15286, 19296, 25543, 30357,…
+$ Outflow &lt;dbl&gt; 7335, 6445, 6425, 6273, 7534, 17086, 21143, 27350, 33043, 3447…</code></pre>
+</div>
+</div>
+<p>Both data frames share the <code>Date</code> column which will be our join key. Note that the <code>Date</code> columns are “date” class in both data sets. This is important - if they were different data classes, R wouldn’t know how to match them together. Also note that the DayFlow data set has observations for every day between 1/1/2019 to 9/30/2023, while the EMP water quality data frame only has a few observations per month. Because we are interested in adding the DayFlow values to the water quality data set, we’ll join them together with a <code>left_join</code> with the water quality data frame as the first data frame. This will only keep the rows within the water quality data set and drop the unmatching rows from the DayFlow data set.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Join Delta flow data to 2019-2022 WQ data</span></span>
+<span><span class="va">df_wq_flow</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">df_wq_2019_2022</span>, <span class="va">df_dayflow</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(Date)`</code></pre>
+</div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_flow</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 86
 Columns: 22
@@ -576,9 +629,31 @@ $ Inflow             &lt;dbl&gt; 27349, 42029, 129533, 107109, 129444, 105932, 1
 $ Outflow            &lt;dbl&gt; 21963, 42727, 130451, 95024, 121805, 97089, 100003,…</code></pre>
 </div>
 </div>
+<p>The resulting data frame has the same number of rows as the <code>df_wq_2019_2022</code> water quality data set with the addition of two columns - <code>Inflow</code> and <code>Outflow</code> - which are the joined values from the DayFlow data set. Note that R gave an informative message regarding which columns it performed the join by, which in this case is the <code>Date</code> column.</p>
 <section id="exercise-1" class="level3" data-number="10.5.1"><h3 data-number="10.5.1" class="anchored" data-anchor-id="exercise-1">
 <span class="header-section-number">10.5.1</span> Exercise</h3>
-<p>Add weather observation data to WQ data (2020-2022, P8, D7, and C3A)</p>
+<p>Now its your turn to try out joining two data sets.</p>
+<p>Use a <code>left_join</code> to add weather observation data to the 2020-2022 water quality data collected at P8, D7, and C3A (the data frame you created in the bind rows exercise above). The weather observation data is in the “data/Weather_Obs_P8_D7_C3A_2020_2022.csv” file.</p>
+<p>Click below for the answer when you are done!</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import the weather observation data</span></span>
+<span><span class="va">df_weather</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/Weather_Obs_P8_D7_C3A_2020_2022.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check the structure of the two data frames to be joined</span></span>
+<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_p8_d7_c3a</span><span class="op">)</span></span>
+<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_weather</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Note that the two data frames share the "Station" and "Date" columns.</span></span>
+<span><span class="co"># These will be the two columns that the data frames will be joined by.</span></span>
+<span><span class="co"># In combination they form a unique combination, which is known as a </span></span>
+<span><span class="co"># compound key.</span></span>
+<span><span class="co"># Join the weather data to the water quality data</span></span>
+<span><span class="va">df_wq_weather</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">df_wq_p8_d7_c3a</span>, <span class="va">df_weather</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Take a look at the joined data set</span></span>
+<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_weather</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

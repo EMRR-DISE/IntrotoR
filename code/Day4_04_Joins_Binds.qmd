@@ -103,14 +103,14 @@ The new data frame now has EMP water quality data from 2019-2022.
 ::: callout-note
 You may be wondering what would happen if the two data frames had a few columns with different names. `bind_rows` would still combine the two data frames but it would preserve separate columns for the ones with different names.
 
-However, if the two data frames had a few columns with the same names but with different types (classes - numeric, character, etc.), `bind_rows` will not work and give you an error. It is always best practice to check this by using `glimpse` or `str` on the two data frames before proceeding with binding their rows.
+However, if the two data frames had columns with the same name but with different types (classes - numeric, character, etc.), `bind_rows` will not work and give you an error. It is always best practice to check this by using `glimpse` or `str` on the two data frames before proceeding with binding their rows.
 :::
 
 ### Exercise
 
 Now its your turn to try out combining two data sets by binding rows.
 
-Add water quality data collected from 2020-2022 at C3A to the original data frame (`df_wq`) with data from P8 and D7.
+Add water quality data collected from 2020-2022 at C3A to the original data frame (`df_wq`) with data from P8 and D7. Assign this data frame to a new object to be used later. The C3A data is in the "data/WQ_C3A_2020_2022.csv" file.
 
 Click below for the answer when you are done!
 
@@ -121,6 +121,13 @@ Click below for the answer when you are done!
 # Import EMP water quality data for C3A
 df_wq_c3a <- read_csv(here("data/WQ_C3A_2020_2022.csv"))
 
+# Check the structure and column names of the two data frames
+glimpse(df_wq_c3a)
+names(df_wq_c3a)
+
+glimpse(df_wq)
+names(df_wq)
+
 # Add C3A to original data frame with P8 and D7
 df_wq_p8_d7_c3a <- bind_rows(df_wq, df_wq_c3a)
 
@@ -130,35 +137,88 @@ df_wq_p8_d7_c3a %>% arrange(Date, Station)
 
 ## Join basics
 
+The `dplyr` package provides various methods to join data frames together:
+
 ```{r}
 #| echo: FALSE
 #| out-width: 70%
 #| fig-align: left
+#| fig-cap: Image Credit <https://r4ds.hadley.nz/joins>
 
 knitr::include_graphics(here("code/images/join-venn.png"), error = FALSE)
 ```
 
+In the section above, we touched on the concept of **keys** and their importance with joins. Here is an illustration that helps explain keys further and how they assist with various types of joins:
+
 ```{r}
 #| echo: FALSE
 #| out-width: 70%
 #| fig-align: left
+#| fig-cap: Image Credit <https://r4ds.hadley.nz/joins>
 
 knitr::include_graphics(here("code/images/join-outer.png"), error = FALSE)
 ```
 
+In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lies in how they handle keys that don't have a match. In short, a `left_join` keeps all rows in the first data frame, a `right_join` keeps all observations in the second data frame, and a `full_join` keeps all rows from both data frames.
+
 ## Left join
 
-Join Delta inflow and outflow data from DayFlow to WQ data
+While all these joining methods can be useful, we'll focus on the most commonly-used joining method - `left_join`. We'll use a `left_join` to add Delta inflow and outflow data from DayFlow to the 2019-2022 EMP water quality data. First, we'll need to import the DayFlow data:
 
 ```{r}
 # Import Delta inflow and outflow data
 df_dayflow <- read_csv(here("data/Dayflow_2019_2023.csv"))
+```
+
+Let's take a look at the structure of the two data frames before joining them.
+
+```{r}
+# 2019-2022 EMP water quality data:
+glimpse(df_wq_2019_2022)
+
+# DayFlow data:
+glimpse(df_dayflow)
+```
+
+Both data frames share the `Date` column which will be our join key. Note that the `Date` columns are "date" class in both data sets. This is important - if they were different data classes, R wouldn't know how to match them together. Also note that the DayFlow data set has observations for every day between 1/1/2019 to 9/30/2023, while the EMP water quality data frame only has a few observations per month. Because we are interested in adding the DayFlow values to the water quality data set, we'll join them together with a `left_join` with the water quality data frame as the first data frame. This will only keep the rows within the water quality data set and drop the unmatching rows from the DayFlow data set. 
+
+```{r}
+#| message: true
 
 # Join Delta flow data to 2019-2022 WQ data
 df_wq_flow <- left_join(df_wq_2019_2022, df_dayflow)
 glimpse(df_wq_flow)
 ```
 
+The resulting data frame has the same number of rows as the `df_wq_2019_2022` water quality data set with the addition of two columns - `Inflow` and `Outflow` - which are the joined values from the DayFlow data set. Note that R gave an informative message regarding which columns it performed the join by, which in this case is the `Date` column.
+
 ### Exercise
 
-Add weather observation data to WQ data (2020-2022, P8, D7, and C3A)
+Now its your turn to try out joining two data sets.
+
+Use a `left_join` to add weather observation data to the 2020-2022 water quality data collected at P8, D7, and C3A (the data frame you created in the bind rows exercise above). The weather observation data is in the "data/Weather_Obs_P8_D7_C3A_2020_2022.csv" file.
+
+Click below for the answer when you are done!
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+# Import the weather observation data
+df_weather <- read_csv(here("data/Weather_Obs_P8_D7_C3A_2020_2022.csv"))
+
+# Check the structure of the two data frames to be joined
+glimpse(df_wq_p8_d7_c3a)
+glimpse(df_weather)
+
+# Note that the two data frames share the "Station" and "Date" columns.
+# These will be the two columns that the data frames will be joined by.
+# In combination they form a unique combination, which is known as a 
+# compound key.
+# Join the weather data to the water quality data
+df_wq_weather <- left_join(df_wq_p8_d7_c3a, df_weather)
+
+# Take a look at the joined data set
+glimpse(df_wq_weather)
+```
+
