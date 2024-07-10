@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="The Intro to R Team">
+<meta name="author" content="Perry S">
 
-<title>Introduction to R Training - July 2024 - Appendix C — Useful Resources</title>
+<title>Introduction to R Training - July 2024 - Day 2: 7/11/2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../code/RDefinitions.html" rel="prev">
+<link href="../code/Day2_02_ImportData.html" rel="next">
+<link href="../code/Day1Intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -104,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/DatesandTimes.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/Resources.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Useful Resources</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day2_01_Intro.html">Day 2: 7/11/2024</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -141,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../code/Day2_01_Intro.html" class="sidebar-item-text sidebar-link">
+            <a href="../code/Day2_01_Intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Day 2: 7/11/2024</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -255,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Resources.html" class="sidebar-item-text sidebar-link active">
+  <a href="../code/Resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Useful Resources</span></span></a>
   </div>
 </li>
@@ -272,9 +273,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/DatesandTimes.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/Resources.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Useful Resources</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Appendix C — Useful Resources</h1>
+<h1 class="title">Day 2: 7/11/2024</h1>
 </div>
 
 
@@ -284,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>The Intro to R Team </p>
+             <p>Perry S </p>
           </div>
   </div>
     
@@ -297,15 +298,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Our goal as scientists is to use our collected data to produce statistics and graphics that inform various management and scientific questions. The first step in this process is to properly format our data. Practically, this means learning how to manipulate data frames in R.</p>
+<p>An outline for today’s lesson:</p>
+<ol type="1">
+<li><p>Import Data</p>
 <ul>
-<li><p>R For Data Science - a must-read e-book for how to handle data in R. <a href="https://r4ds.hadley.nz" class="uri">https://r4ds.hadley.nz</a></p></li>
-<li><p>Cheetsheets for popular R packages. <a href="https://rstudio.github.io/cheatsheets" class="uri">https://rstudio.github.io/cheatsheets</a></p></li>
-<li><p>IEP Data Science Project Workteam homepage. <a href="https://interagencyecologicalprogram.github.io/DataScience/" class="uri">https://interagencyecologicalprogram.github.io/DataScience/</a></p></li>
-<li><p>RSeek - Google for R related websites. <a href="https://rseek.org/" class="uri">https://rseek.org/</a></p></li>
-<li><p>Chat GPT and other generative AI apps can help you write code. <a href="https://chatgpt.com/" class="uri">https://chatgpt.com/</a></p></li>
-<li><p>The R Graph Gallery - get ideas for new types of graphs, and the code to make them. <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a></p></li>
-<li><p>More information on the <code>tidyverse</code> packages. <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></p></li>
-</ul>
+<li>Load Packages</li>
+<li>Import Data</li>
+</ul></li>
+<li><p>Subset Data</p>
+<ul>
+<li>Basic Subsetting</li>
+<li>Subset by Column Names
+<ul>
+<li><em>Tidyverse Pipes</em></li>
+</ul></li>
+<li>Subset by Row Values</li>
+<li><u>Aside:</u> Logical Operators</li>
+<li>Subset by Column and Row
+<ul>
+<li><em>Code Formatting</em></li>
+</ul></li>
+<li>Subset by Date</li>
+<li>Subset <code>NA</code></li>
+</ul></li>
+<li><p>Mutate Data</p>
+<ul>
+<li>Add New Columns</li>
+<li>Relocate Columns</li>
+<li>Modify Existing Columns</li>
+<li><code>case_when</code></li>
+<li><u>Aside:</u> Rename</li>
+</ul></li>
+<li><p>Final Exercise</p></li>
+</ol>
 
 
 
@@ -721,11 +747,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../code/RDefinitions.html" class="pagination-link" aria-label="Definitions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Definitions</span></span>
+      <a href="../code/Day1Intro.html" class="pagination-link" aria-label="An introduction to R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An introduction to R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../code/Day2_02_ImportData.html" class="pagination-link" aria-label="Import Data">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

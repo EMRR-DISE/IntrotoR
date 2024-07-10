@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dave Bosworth">
-<title>Introduction to R Training - July 2024 - 5&nbsp; Summarizing Data</title>
+<title>Introduction to R Training - July 2024 - 8&nbsp; Summarizing Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_02_Summarizing.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing Data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_02_Summarizing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summarizing Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="../code/Day2_01_Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 2: 7/11/2024</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -169,8 +169,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day2_DataOrg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Manipulation</span></span></a>
+  <a href="../code/Day2_02_ImportData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_03_Subset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Subset Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_04_Mutate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code/Day2_05_FinalExercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -187,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day3_MakingGraphs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Making Graphs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making Graphs</span></span></a>
   </div>
 </li>
       </ul>
@@ -204,31 +222,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_02_Summarizing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summarizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_03_Reshaping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Joins and Binds</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Day4_06_Final_Exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -270,26 +288,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
-  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="header-section-number">5.2</span> Import Data</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">8.1</span> Introduction</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="header-section-number">8.2</span> Import Data</a></li>
   <li>
-<a href="#basic-summarizing" id="toc-basic-summarizing" class="nav-link" data-scroll-target="#basic-summarizing"><span class="header-section-number">5.3</span> Basic Summarizing</a>
+<a href="#basic-summarizing" id="toc-basic-summarizing" class="nav-link" data-scroll-target="#basic-summarizing"><span class="header-section-number">8.3</span> Basic Summarizing</a>
   <ul>
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">5.3.1</span> Exercise</a></li>
+<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">8.3.1</span> Exercise</a></li>
   </ul>
 </li>
   <li>
-<a href="#grouping" id="toc-grouping" class="nav-link" data-scroll-target="#grouping"><span class="header-section-number">5.4</span> Grouping</a>
+<a href="#grouping" id="toc-grouping" class="nav-link" data-scroll-target="#grouping"><span class="header-section-number">8.4</span> Grouping</a>
   <ul>
-<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">5.4.1</span> Exercise</a></li>
+<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">8.4.1</span> Exercise</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_02_Summarizing.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing Data</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_02_Summarizing.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summarizing Data</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summarizing Data</span>
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summarizing Data</span>
 </h1>
 </div>
 
@@ -310,11 +328,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="introduction" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">5.1</span> Introduction</h2>
-<p>A common task that many of us need to do is to summarize or aggregate a data set to gain a simplified overview of the data or to more easily work with the data. Some of you may be familiar with pivot tables in Excel which can help with this task. The R programming language is also very helpful with summarizing data and allows for greater customization than pivot tables. We’ll start this lesson with some basic R functions to summarize your data, and then move into some more powerful R functions from the <code>dplyr</code> package to group and summarize your data.</p>
-</section><section id="import-data" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="import-data">
-<span class="header-section-number">5.2</span> Import Data</h2>
+</header><section id="introduction" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">8.1</span> Introduction</h2>
+<p>A common task that many of us need to do is to summarize or aggregate a data set to gain a simplified overview of the data or to more easily work with the data. Some of you may be familiar with pivot tables in Excel which can help with this task. The R programming language is also very helpful with summarizing data and allows for greater customization than pivot tables. We’ll start this lesson with some basic R functions to summarize your data, and then move into some more powerful R functions from the <a href="https://dplyr.tidyverse.org/index.html"><code>dplyr</code></a> package to group and summarize your data.</p>
+</section><section id="import-data" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="import-data">
+<span class="header-section-number">8.2</span> Import Data</h2>
 <p>We’ll start the day with loading packages and importing the EMP water quality data.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
@@ -351,8 +369,8 @@ $ SpCndSurface       &lt;dbl&gt; 667, 15532, 647, 11369, 530, 16257, 503, 12946,
 $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 21.1…</code></pre>
 </div>
 </div>
-</section><section id="basic-summarizing" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="basic-summarizing">
-<span class="header-section-number">5.3</span> Basic Summarizing</h2>
+</section><section id="basic-summarizing" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="basic-summarizing">
+<span class="header-section-number">8.3</span> Basic Summarizing</h2>
 <p>For a basic overall summary of your data set, use the <code>summary</code> function. Here is what that looks like when you use it with the EMP water quality data set.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Simple overall summary statistics of entire data frame</span></span>
@@ -454,13 +472,13 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <p>Now, R returns the overall average DON value after ignoring the <code>NA</code> values.</p>
-<section id="exercise" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">5.3.1</span> Exercise</h3>
+<section id="exercise" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">8.3.1</span> Exercise</h3>
 <p>Now its your turn to try out these summarizing functions we just learned about.</p>
 <ol type="1">
 <li><p>Use <code>summary</code> to provide simple summary statistics for “Secchi” and “WTSurface”.<br><strong>HINT:</strong> Run the function on one column at a time.</p></li>
 <li><p>Now, use <code>summarize</code> to calculate the overall minimum value for “Secchi”.<br><strong>HINT:</strong> Watch out for <code>NA</code> values!</p></li>
-<li><p>Add the minimum value for “WTSurface” to the <code>summarize</code> function used above, and assign it to an object called “df_wq_min”, and print it to view the results.</p></li>
+<li><p>Add the minimum value for “WTSurface” to the <code>summarize</code> function used above, assign it to an object, and print it to view the results.</p></li>
 </ol>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
@@ -484,8 +502,8 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <span><span class="va">df_wq_min</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="grouping" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="grouping">
-<span class="header-section-number">5.4</span> Grouping</h2>
+</section></section><section id="grouping" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="grouping">
+<span class="header-section-number">8.4</span> Grouping</h2>
 <p>Calculating overall summary statistics is useful, but the real power of <code>summarize</code> becomes more apparent when its used in combination with the <code>group_by</code> function (also within the <code>dplyr</code> package). Using <code>group_by</code> with <code>summarize</code> allows for calculating summary statistics for groups of data within your data set. Examples include averages for each station, seasonal and annual statistics, or other combinations that you can imagine. Here is a simple example using these two functions to calculate overall average chlorophyll-<em>a</em> values for each station in the EMP water quality data set (D7 and P8).</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Group by Station</span></span>
@@ -611,8 +629,8 @@ Summarize vs.&nbsp;Mutate
 <p>You may be wondering how <code>summarize</code> and <code>mutate</code> are different since they both do similar things. The main difference is that <code>mutate</code> always returns the same number of rows in the data frame, and <code>summarize</code> returns just one row for the specified summary function(s). <code>summarize</code> with <code>group_by</code> returns a row for each combination of grouping variables.</p>
 </div>
 </div>
-<section id="exercise-1" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">5.4.1</span> Exercise</h3>
+<section id="exercise-1" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="exercise-1">
+<span class="header-section-number">8.4.1</span> Exercise</h3>
 <p>Now its your turn to try out grouping and summarizing.</p>
 <ol type="1">
 <li><p>Use <code>group_by</code> and <code>summarize</code> to calculate the minimum, median, and maximum values for “Secchi” for each station.<br><strong>HINT:</strong> Watch out for <code>NA</code> values!</p></li>
@@ -1069,7 +1087,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../code/Day4_03_Reshaping.html" class="pagination-link" aria-label="Reshaping Data">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

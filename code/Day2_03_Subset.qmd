@@ -10,6 +10,15 @@ execute:
   warning: false
 ---
 
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+```
+
 ## Introduction
 
 Let's talk a bit about the structure of a data frame. Data frames are 2-dimensional objects (row x column).\

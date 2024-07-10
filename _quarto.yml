@@ -20,9 +20,12 @@ book:
     - part: "Day 1: 7/9/2024"
       chapters:
         - code/Day1Intro.qmd
-    - part: "Day 2: 7/11/2024"
+    - part: code/Day2_01_Intro.qmd
       chapters:
-        - code/Day2_DataOrg.qmd
+        - code/Day2_02_ImportData.qmd
+        - code/Day2_03_Subset.qmd
+        - code/Day2_04_Mutate.qmd
+        - code/Day2_05_FinalExercise.qmd
     - part: "Day 3: 7/16/2024"
       chapters:
         - code/Day3_MakingGraphs.qmd

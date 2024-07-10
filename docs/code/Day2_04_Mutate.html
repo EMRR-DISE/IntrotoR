@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Dave Bosworth">
-<title>Introduction to R Training - July 2024 - 10&nbsp; Binds and Joins</title>
+<meta name="author" content="Perry S">
+<title>Introduction to R Training - July 2024 - 5&nbsp; Mutate Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../code/Day4_05_Extras.html" rel="next">
-<link href="../code/Day4_03_Reshaping.html" rel="prev">
+<link href="../code/Day2_05_FinalExercise.html" rel="next">
+<link href="../code/Day2_03_Subset.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins_Binds.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day2_01_Intro.html">Day 2: 7/11/2024</a></li><li class="breadcrumb-item"><a href="../code/Day2_04_Mutate.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day2_04_Mutate.html" class="sidebar-item-text sidebar-link">
+  <a href="../code/Day2_04_Mutate.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span></span></a>
   </div>
 </li>
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link active">
+  <a href="../code/Day4_04_Joins_Binds.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
   </div>
 </li>
@@ -288,27 +288,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
-  <li><a href="#differences-between-binds-and-joins" id="toc-differences-between-binds-and-joins" class="nav-link" data-scroll-target="#differences-between-binds-and-joins"><span class="header-section-number">10.2</span> Differences between Binds and Joins</a></li>
-  <li>
-<a href="#bind-rows" id="toc-bind-rows" class="nav-link" data-scroll-target="#bind-rows"><span class="header-section-number">10.3</span> Bind rows</a>
-  <ul>
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">10.3.1</span> Exercise</a></li>
-  </ul>
-</li>
-  <li><a href="#join-basics" id="toc-join-basics" class="nav-link" data-scroll-target="#join-basics"><span class="header-section-number">10.4</span> Join basics</a></li>
-  <li>
-<a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">10.5</span> Left join</a>
-  <ul>
-<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">10.5.1</span> Exercise</a></li>
-  </ul>
-</li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
+  <li><a href="#add-new-columns" id="toc-add-new-columns" class="nav-link" data-scroll-target="#add-new-columns"><span class="header-section-number">5.2</span> Add New Columns</a></li>
+  <li><a href="#modify-existing-columns" id="toc-modify-existing-columns" class="nav-link" data-scroll-target="#modify-existing-columns"><span class="header-section-number">5.3</span> Modify Existing Columns</a></li>
+  <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">5.4</span> <code>case_when</code></a></li>
+  <li><a href="#aside-rename" id="toc-aside-rename" class="nav-link" data-scroll-target="#aside-rename"><span class="header-section-number">5.5</span> <u>Aside:</u> Rename</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4: 7/18/2024</a></li><li class="breadcrumb-item"><a href="../code/Day4_04_Joins_Binds.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day2_01_Intro.html">Day 2: 7/11/2024</a></li><li class="breadcrumb-item"><a href="../code/Day2_04_Mutate.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span>
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutate Data</span>
 </h1>
 </div>
 
@@ -319,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Dave Bosworth </p>
+             <p>Perry S </p>
           </div>
   </div>
     
@@ -329,67 +319,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="introduction" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">10.1</span> Introduction</h2>
-<p>Sometimes your data analysis project requires more than one data set that need to be combined in order to perform your analysis. This chapter covers two common methods of combining more than one data set in R - binds and joins. We’ll start this lesson covering the differences between these two methods including the situations to best use them in, and then move into the powerful R functions from the <a href="https://dplyr.tidyverse.org/index.html"><code>dplyr</code></a> package that help with combining data frames.</p>
-</section><section id="differences-between-binds-and-joins" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="differences-between-binds-and-joins">
-<span class="header-section-number">10.2</span> Differences between Binds and Joins</h2>
-<p>Binding either rows or columns from multiple data frames involves a simple combination of data frames. For example binding two data frames by row, makes a single data frame with more rows:</p>
-<div class="cell" data-layout-align="left">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/bind_rows.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Notice that in this graphic, R recognizes that the two data frames share the same columns and simply appends the rows from Z to X with the proper column assignments.</p>
-<p>In contrast, binding two data frames by columns performs the perpendicular operation resulting in a single data frame with more columns:</p>
-<div class="cell" data-layout-align="left">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/bind_cols.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Binding data frames by columns combines the data in the order in which they appear, which can create unintended results without you realizing it. It is much safer to use a <strong>join</strong> when you want to add columns from one data frame to another. For example, here is a simple graphic demonstrating a left join to join two data frames together:</p>
-<div class="cell" data-layout-align="left">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/left_join.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Image Credit <a href="https://stat545.stat.ubc.ca/tutorials/tibble_join/" class="uri">https://stat545.stat.ubc.ca/tutorials/tibble_join/</a></figcaption></figure>
-</div>
-</div>
-</div>
-<p>Joins are a safer method of combining data frame columns because they rely on <strong>keys</strong>, which are variables used to make the connection between two data frames. In the simple example above, the <code>ID</code> column is the key with which the tables are joined. If this was performed by simply combining columns, you would get much a different and erroneous result. There is a lot more to cover with the concept of keys, but the most important thing to remember is that they are unique for each observation or row in a data set.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-When should I use bind vs.&nbsp;join?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>After all this information, you may be wondering when is it best to use bind vs.&nbsp;join when combining data frames. Here are some simple guidelines:</p>
-<ul>
-<li><p>When you want to add new <strong>rows</strong> from one data frame to another use bind rows. The columns should (mostly) be the same in the two data sets for this to be effective.</p></li>
-<li><p>When you want to add new <strong>columns</strong> from one data frame to another, preferably use a join if they share a common key. Only use bind columns when you have no other option and pay close attention to the order in which the rows appear in the two data sets.</p></li>
-</ul>
-</div>
-</div>
-</section><section id="bind-rows" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="bind-rows">
-<span class="header-section-number">10.3</span> Bind rows</h2>
-<p>Now that we have a better understanding of what it means to bind the rows of multiple data frames, let’s learn about how to actually perform this operation. The <code>bind_rows</code> function within the <code>dplyr</code> package is the easiest way I’ve found to accomplish this. Let’s use the EMP water quality data set we’ve been working with to demonstrate how to bind rows. To start, we need a second data frame to bind to it. We’ll import some additional EMP water quality data collected in 2019 at the same two stations - P8 and D7 - to be combined to the 2020-2022 data.</p>
+</header><section id="introduction" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">5.1</span> Introduction</h2>
+<p>Sometimes, we want to modify our already existing columns, or even add new ones. This is where the <code>mutate</code> function from the <code>dplyr</code> package comes in.</p>
+</section><section id="add-new-columns" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="add-new-columns">
+<span class="header-section-number">5.2</span> Add New Columns</h2>
+<p>With mutate, it’s simple to add new columns. First, let’s look at our current columns.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_2019</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/WQ_2019.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Let’s take a look at the structure and columns of the two data frames before binding them.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2020-2022 data:</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 62
 Columns: 20
@@ -414,249 +351,209 @@ $ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 3, 2, 3, 2, 4, 2, 3, 2, 2, 1,
 $ SpCndSurface       &lt;dbl&gt; 667, 15532, 647, 11369, 530, 16257, 503, 12946, 404…
 $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 21.1…</code></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Station"            "Date"               "Chla"              
- [4] "Pheophytin"         "TotAlkalinity"      "DissAmmonia"       
- [7] "DissNitrateNitrite" "DOC"                "TOC"               
-[10] "DON"                "TotPhos"            "DissOrthophos"     
-[13] "TDS"                "TSS"                "TKN"               
-[16] "Depth"              "Secchi"             "Microcystis"       
-[19] "SpCndSurface"       "WTSurface"         </code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2019 data:</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_2019</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 24
-Columns: 20
-$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
-$ Date               &lt;date&gt; 2019-01-15, 2019-01-17, 2019-02-15, 2019-02-20, 20…
-$ Chla               &lt;dbl&gt; 0.84, 0.88, 2.29, 1.92, 2.60, 2.53, 1.59, 2.81, 1.0…
-$ Pheophytin         &lt;dbl&gt; 1.21, 0.64, 1.03, 2.32, 1.42, 1.35, 1.25, 1.19, 0.5…
-$ TotAlkalinity      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ DissAmmonia        &lt;dbl&gt; 0.200, 0.214, 0.090, 0.070, 0.050, 0.050, 0.050, 0.…
-$ DissNitrateNitrite &lt;dbl&gt; 3.600, 0.570, 1.030, 0.370, 0.540, 0.300, 0.420, 0.…
-$ DOC                &lt;dbl&gt; 6.00, 1.70, 6.10, 4.20, 3.60, 2.50, 2.60, 2.30, 2.2…
-$ TOC                &lt;dbl&gt; 6.00, 1.70, 5.60, 4.20, 3.60, 2.50, 2.60, 2.10, 2.2…
-$ DON                &lt;dbl&gt; 0.50, 0.10, 0.50, 0.30, 0.38, 0.20, 0.20, 0.16, 0.2…
-$ TotPhos            &lt;dbl&gt; 0.370, 0.094, 0.153, 0.180, 0.070, 0.080, 0.100, 0.…
-$ DissOrthophos      &lt;dbl&gt; 0.329, 0.092, 0.120, 0.071, 0.075, 0.065, 0.072, 0.…
-$ TDS                &lt;dbl&gt; 491, 8530, 160, 133, 112, 108, 109, 94, 118, 150, 5…
-$ TSS                &lt;dbl&gt; 12.0, 24.0, 17.0, 108.0, 6.0, 36.0, 27.0, 22.0, 4.0…
-$ TKN                &lt;dbl&gt; 0.800, 0.380, 0.700, 0.600, 0.400, 0.400, 0.300, 0.…
-$ Depth              &lt;dbl&gt; 38.7, 8.2, 17.0, 8.0, 36.7, 8.2, 39.0, 7.0, 37.8, 6…
-$ Secchi             &lt;dbl&gt; 100, 52, 44, 16, 76, 28, 92, 28, 100, 40, 80, 44, 1…
-$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 4, …
-$ SpCndSurface       &lt;dbl&gt; 878, 14498, 276, 228, 194, 189, 195, 168, 214, 276,…
-$ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26, 14.…</code></pre>
-</div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df_wq_2019</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Station"            "Date"               "Chla"              
- [4] "Pheophytin"         "TotAlkalinity"      "DissAmmonia"       
- [7] "DissNitrateNitrite" "DOC"                "TOC"               
-[10] "DON"                "TotPhos"            "DissOrthophos"     
-[13] "TDS"                "TSS"                "TKN"               
-[16] "Depth"              "Secchi"             "Microcystis"       
-[19] "SpCndSurface"       "WTSurface"         </code></pre>
-</div>
-</div>
-<p>You can see that all the column names and their types (classes) are the same which makes combining them by row a simple operation. We’ll use the <code>bind_rows</code> function to add the 2019 data to the 2020-2022 data and assign it to a new data frame object.</p>
+<p>Now let’s add a new column, <em>Lab</em>, where every value is “BSA”:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_2019_2022</span> <span class="op">&lt;-</span> <span class="fu">bind_rows</span><span class="op">(</span><span class="va">df_wq_2019</span>, <span class="va">df_wq</span><span class="op">)</span></span>
-<span><span class="va">df_wq_2019_2022</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Lab <span class="op">=</span> <span class="st">'BSA'</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">glimpse</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 86 × 20
-   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
-   &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
- 1 P8      2019-01-15  0.84       1.21            NA       0.2  
- 2 D7      2019-01-17  0.88       0.64            NA       0.214
- 3 P8      2019-02-15  2.29       1.03            NA       0.09 
- 4 D7      2019-02-20  1.92       2.32            NA       0.07 
- 5 P8      2019-03-14  2.6        1.42            NA       0.05 
- 6 D7      2019-03-18  2.53       1.35            NA       0.05 
- 7 P8      2019-04-12  1.59       1.25            NA       0.05 
- 8 D7      2019-04-16  2.81       1.19            NA       0.05 
- 9 P8      2019-05-13  1.03       0.5             NA       0.05 
-10 D7      2019-05-15  2.1        0.69            NA       0.05 
-# ℹ 76 more rows
-# ℹ 14 more variables: DissNitrateNitrite &lt;dbl&gt;, DOC &lt;dbl&gt;, TOC &lt;dbl&gt;,
-#   DON &lt;dbl&gt;, TotPhos &lt;dbl&gt;, DissOrthophos &lt;dbl&gt;, TDS &lt;dbl&gt;, TSS &lt;dbl&gt;,
-#   TKN &lt;dbl&gt;, Depth &lt;dbl&gt;, Secchi &lt;dbl&gt;, Microcystis &lt;dbl&gt;,
-#   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
+<pre><code>Rows: 62
+Columns: 21
+$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
+$ Date               &lt;date&gt; 2020-01-16, 2020-01-22, 2020-02-14, 2020-02-20, 20…
+$ Chla               &lt;dbl&gt; 0.64, 0.67, 1.46, 2.15, 1.40, 1.89, 4.73, 1.74, 6.4…
+$ Pheophytin         &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.8…
+$ TotAlkalinity      &lt;dbl&gt; 98.0, 82.0, 81.0, 86.0, 80.0, 93.0, 59.0, 78.0, 63.…
+$ DissAmmonia        &lt;dbl&gt; 0.150, 0.210, 0.250, 0.140, 0.110, 0.220, 0.050, 0.…
+$ DissNitrateNitrite &lt;dbl&gt; 2.800, 0.490, 1.700, 0.480, 1.600, 0.380, 1.070, 0.…
+$ DOC                &lt;dbl&gt; 3.90, 0.27, 2.80, 0.39, 2.00, 0.19, 2.80, 1.20, 3.1…
+$ TOC                &lt;dbl&gt; 4.10, 0.32, 2.50, 0.41, 2.10, 0.20, 2.80, 1.20, 3.1…
+$ DON                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0.30, 0.20, 0.30, 0.10, 0.5…
+$ TotPhos            &lt;dbl&gt; 0.310, 0.082, 0.130, 0.130, 0.190, 0.100, 0.188, 0.…
+$ DissOrthophos      &lt;dbl&gt; 0.200, 0.071, 0.130, 0.065, 0.140, 0.082, 0.177, 0.…
+$ TDS                &lt;dbl&gt; 380, 9500, 340, 5800, 290, 8700, 280, 7760, 227, 11…
+$ TSS                &lt;dbl&gt; 8.9, 38.0, 2.2, 18.0, 1.4, 28.0, 6.6, 35.6, 5.3, 23…
+$ TKN                &lt;dbl&gt; 0.520, 0.480, 0.430, 0.250, 0.400, 0.200, 0.400, 0.…
+$ Depth              &lt;dbl&gt; 28.9, 18.8, 39.0, 7.1, 39.0, 7.2, 37.1, 5.2, 36.7, …
+$ Secchi             &lt;dbl&gt; 116, 30, 212, 52, 340, 48, 100, 40, 160, 44, 120, 6…
+$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 3, 2, 3, 2, 4, 2, 3, 2, 2, 1, 1, …
+$ SpCndSurface       &lt;dbl&gt; 667, 15532, 647, 11369, 530, 16257, 503, 12946, 404…
+$ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 21.1…
+$ Lab                &lt;chr&gt; "BSA", "BSA", "BSA", "BSA", "BSA", "BSA", "BSA", "B…</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">df_wq_2019_2022</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can even add columns that are combinations of other ones:</p>
+<p><em>add two numeric columns together</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>ChlPheo <span class="op">=</span> <span class="va">Chla</span><span class="op">+</span><span class="va">Pheophytin</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">Chla</span>, <span class="va">Pheophytin</span>, <span class="va">ChlPheo</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># looks at the first 5 entries by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2019-01-15" "2022-12-19"</code></pre>
+<pre><code># A tibble: 6 × 5
+  Station Date        Chla Pheophytin ChlPheo
+  &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;
+1 P8      2020-01-16  0.64       0.5     1.14
+2 D7      2020-01-22  0.67       0.87    1.54
+3 P8      2020-02-14  1.46       0.69    2.15
+4 D7      2020-02-20  2.15       0.5     2.65
+5 P8      2020-03-03  1.4        0.56    1.96
+6 D7      2020-03-06  1.89       1.13    3.02</code></pre>
 </div>
 </div>
-<p>The new data frame now has EMP water quality data from 2019-2022.</p>
+<p><em>concatenate two character columns</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>StatDate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, sep <span class="op">=</span> <span class="st">'___'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">StatDate</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  Station Date       StatDate       
+  &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;          
+1 P8      2020-01-16 P8___2020-01-16
+2 D7      2020-01-22 D7___2020-01-22
+3 P8      2020-02-14 P8___2020-02-14
+4 D7      2020-02-20 D7___2020-02-20
+5 P8      2020-03-03 P8___2020-03-03
+6 D7      2020-03-06 D7___2020-03-06</code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Relocate Columns
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You may be wondering what would happen if the two data frames had a few columns with different names. <code>bind_rows</code> would still combine the two data frames but it would preserve separate columns for the ones with different names.</p>
-<p>However, if the two data frames had columns with the same name but with different types (classes - numeric, character, etc.), <code>bind_rows</code> will not work and give you an error. It is always best practice to check this by using <code>glimpse</code> or <code>str</code> on the two data frames before proceeding with binding their rows.</p>
-</div>
-</div>
-<section id="exercise" class="level3" data-number="10.3.1"><h3 data-number="10.3.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">10.3.1</span> Exercise</h3>
-<p>Now its your turn to try out combining two data sets by binding rows.</p>
-<p>Add water quality data collected from 2020-2022 at C3A to the original data frame (<code>df_wq</code>) with data from P8 and D7. Assign this data frame to a new object to be used later. The C3A data is in the “data/WQ_C3A_2020_2022.csv” file.</p>
-<p>Click below for the answer when you are done!</p>
+<p>Sometimes, we want to re-arrange our column order. For example, with our new <code>Lab</code> column, we might want it in the beginning with the other metadata. Here, we use the <code>relocate</code> function:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import EMP water quality data for C3A</span></span>
-<span><span class="va">df_wq_c3a</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/WQ_C3A_2020_2022.csv"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Check the structure and column names of the two data frames</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_c3a</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df_wq_c3a</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Add C3A to original data frame with P8 and D7</span></span>
-<span><span class="va">df_wq_p8_d7_c3a</span> <span class="op">&lt;-</span> <span class="fu">bind_rows</span><span class="op">(</span><span class="va">df_wq</span>, <span class="va">df_wq_c3a</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Take a look at the combined data set</span></span>
-<span><span class="va">df_wq_p8_d7_c3a</span> <span class="op">%&gt;%</span> <span class="fu">arrange</span><span class="op">(</span><span class="va">Date</span>, <span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section></section><section id="join-basics" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="join-basics">
-<span class="header-section-number">10.4</span> Join basics</h2>
-<p>The <code>dplyr</code> package provides various methods to join data frames together:</p>
-<div class="cell" data-layout-align="left">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/join-venn.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Image Credit <a href="https://r4ds.hadley.nz/joins" class="uri">https://r4ds.hadley.nz/joins</a></figcaption></figure>
-</div>
-</div>
-</div>
-<p>In the section above, we touched on the concept of <strong>keys</strong> and their importance with joins. Here is an illustration that helps explain keys further and how they assist with various types of joins:</p>
-<div class="cell" data-layout-align="left">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><img src="images/join-outer.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Image Credit <a href="https://r4ds.hadley.nz/joins" class="uri">https://r4ds.hadley.nz/joins</a></figcaption></figure>
-</div>
-</div>
-</div>
-<p>In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lies in how they handle keys that don’t have a match. In short, a <code>left_join</code> keeps all rows in the first data frame, a <code>right_join</code> keeps all observations in the second data frame, and a <code>full_join</code> keeps all rows from both data frames.</p>
-</section><section id="left-join" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="left-join">
-<span class="header-section-number">10.5</span> Left join</h2>
-<p>While all these joining methods can be useful, we’ll focus on the most commonly-used joining method - <code>left_join</code>. We’ll use a <code>left_join</code> to add Delta inflow and outflow data from DayFlow to the 2019-2022 EMP water quality data. First, we’ll need to import the DayFlow data:</p>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import Delta inflow and outflow data</span></span>
-<span><span class="va">df_dayflow</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/Dayflow_2019_2023.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Let’s take a look at the structure of the two data frames before joining them.</p>
-<div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2019-2022 EMP water quality data:</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_2019_2022</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Lab <span class="op">=</span> <span class="st">'BSA'</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">relocate</span><span class="op">(</span><span class="va">Lab</span>, .after <span class="op">=</span> <span class="va">Date</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 86
-Columns: 20
-$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
-$ Date               &lt;date&gt; 2019-01-15, 2019-01-17, 2019-02-15, 2019-02-20, 20…
-$ Chla               &lt;dbl&gt; 0.84, 0.88, 2.29, 1.92, 2.60, 2.53, 1.59, 2.81, 1.0…
-$ Pheophytin         &lt;dbl&gt; 1.21, 0.64, 1.03, 2.32, 1.42, 1.35, 1.25, 1.19, 0.5…
-$ TotAlkalinity      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ DissAmmonia        &lt;dbl&gt; 0.200, 0.214, 0.090, 0.070, 0.050, 0.050, 0.050, 0.…
-$ DissNitrateNitrite &lt;dbl&gt; 3.600, 0.570, 1.030, 0.370, 0.540, 0.300, 0.420, 0.…
-$ DOC                &lt;dbl&gt; 6.00, 1.70, 6.10, 4.20, 3.60, 2.50, 2.60, 2.30, 2.2…
-$ TOC                &lt;dbl&gt; 6.00, 1.70, 5.60, 4.20, 3.60, 2.50, 2.60, 2.10, 2.2…
-$ DON                &lt;dbl&gt; 0.50, 0.10, 0.50, 0.30, 0.38, 0.20, 0.20, 0.16, 0.2…
-$ TotPhos            &lt;dbl&gt; 0.370, 0.094, 0.153, 0.180, 0.070, 0.080, 0.100, 0.…
-$ DissOrthophos      &lt;dbl&gt; 0.329, 0.092, 0.120, 0.071, 0.075, 0.065, 0.072, 0.…
-$ TDS                &lt;dbl&gt; 491, 8530, 160, 133, 112, 108, 109, 94, 118, 150, 5…
-$ TSS                &lt;dbl&gt; 12.0, 24.0, 17.0, 108.0, 6.0, 36.0, 27.0, 22.0, 4.0…
-$ TKN                &lt;dbl&gt; 0.800, 0.380, 0.700, 0.600, 0.400, 0.400, 0.300, 0.…
-$ Depth              &lt;dbl&gt; 38.7, 8.2, 17.0, 8.0, 36.7, 8.2, 39.0, 7.0, 37.8, 6…
-$ Secchi             &lt;dbl&gt; 100, 52, 44, 16, 76, 28, 92, 28, 100, 40, 80, 44, 1…
-$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 4, …
-$ SpCndSurface       &lt;dbl&gt; 878, 14498, 276, 228, 194, 189, 195, 168, 214, 276,…
-$ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26, 14.…</code></pre>
-</div>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># DayFlow data:</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_dayflow</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 1,734
-Columns: 3
-$ Date    &lt;date&gt; 2019-01-01, 2019-01-02, 2019-01-03, 2019-01-04, 2019-01-05, 2…
-$ Inflow  &lt;dbl&gt; 14763, 14049, 13830, 13435, 13354, 15286, 19296, 25543, 30357,…
-$ Outflow &lt;dbl&gt; 7335, 6445, 6425, 6273, 7534, 17086, 21143, 27350, 33043, 3447…</code></pre>
+<pre><code># A tibble: 6 × 21
+  Station Date       Lab    Chla Pheophytin TotAlkalinity DissAmmonia
+  &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt; &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+1 P8      2020-01-16 BSA    0.64       0.5             98        0.15
+2 D7      2020-01-22 BSA    0.67       0.87            82        0.21
+3 P8      2020-02-14 BSA    1.46       0.69            81        0.25
+4 D7      2020-02-20 BSA    2.15       0.5             86        0.14
+5 P8      2020-03-03 BSA    1.4        0.56            80        0.11
+6 D7      2020-03-06 BSA    1.89       1.13            93        0.22
+# ℹ 14 more variables: DissNitrateNitrite &lt;dbl&gt;, DOC &lt;dbl&gt;, TOC &lt;dbl&gt;,
+#   DON &lt;dbl&gt;, TotPhos &lt;dbl&gt;, DissOrthophos &lt;dbl&gt;, TDS &lt;dbl&gt;, TSS &lt;dbl&gt;,
+#   TKN &lt;dbl&gt;, Depth &lt;dbl&gt;, Secchi &lt;dbl&gt;, Microcystis &lt;dbl&gt;,
+#   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>Both data frames share the <code>Date</code> column which will be our join key. Note that the <code>Date</code> columns are “date” class in both data sets. This is important - if they were different data classes, R wouldn’t know how to match them together. Also note that the DayFlow data set has observations for every day between 1/1/2019 to 9/30/2023, while the EMP water quality data frame only has a few observations per month. Because we are interested in adding the DayFlow values to the water quality data set, we’ll join them together with a <code>left_join</code> with the water quality data frame as the first data frame. This will only keep the rows within the water quality data set and drop the unmatching rows from the DayFlow data set.</p>
+</div>
+</div>
+</section><section id="modify-existing-columns" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="modify-existing-columns">
+<span class="header-section-number">5.3</span> Modify Existing Columns</h2>
+<p>We can also use mutate to modify existing columns. For example, say we want to add 20 to every <em>Chla</em> value:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Join Delta flow data to 2019-2022 WQ data</span></span>
-<span><span class="va">df_wq_flow</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">df_wq_2019_2022</span>, <span class="va">df_dayflow</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Joining with `by = join_by(Date)`</code></pre>
-</div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_flow</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Chla <span class="op">=</span> <span class="va">Chla</span><span class="op">+</span><span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 86
-Columns: 22
-$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
-$ Date               &lt;date&gt; 2019-01-15, 2019-01-17, 2019-02-15, 2019-02-20, 20…
-$ Chla               &lt;dbl&gt; 0.84, 0.88, 2.29, 1.92, 2.60, 2.53, 1.59, 2.81, 1.0…
-$ Pheophytin         &lt;dbl&gt; 1.21, 0.64, 1.03, 2.32, 1.42, 1.35, 1.25, 1.19, 0.5…
-$ TotAlkalinity      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ DissAmmonia        &lt;dbl&gt; 0.200, 0.214, 0.090, 0.070, 0.050, 0.050, 0.050, 0.…
-$ DissNitrateNitrite &lt;dbl&gt; 3.600, 0.570, 1.030, 0.370, 0.540, 0.300, 0.420, 0.…
-$ DOC                &lt;dbl&gt; 6.00, 1.70, 6.10, 4.20, 3.60, 2.50, 2.60, 2.30, 2.2…
-$ TOC                &lt;dbl&gt; 6.00, 1.70, 5.60, 4.20, 3.60, 2.50, 2.60, 2.10, 2.2…
-$ DON                &lt;dbl&gt; 0.50, 0.10, 0.50, 0.30, 0.38, 0.20, 0.20, 0.16, 0.2…
-$ TotPhos            &lt;dbl&gt; 0.370, 0.094, 0.153, 0.180, 0.070, 0.080, 0.100, 0.…
-$ DissOrthophos      &lt;dbl&gt; 0.329, 0.092, 0.120, 0.071, 0.075, 0.065, 0.072, 0.…
-$ TDS                &lt;dbl&gt; 491, 8530, 160, 133, 112, 108, 109, 94, 118, 150, 5…
-$ TSS                &lt;dbl&gt; 12.0, 24.0, 17.0, 108.0, 6.0, 36.0, 27.0, 22.0, 4.0…
-$ TKN                &lt;dbl&gt; 0.800, 0.380, 0.700, 0.600, 0.400, 0.400, 0.300, 0.…
-$ Depth              &lt;dbl&gt; 38.7, 8.2, 17.0, 8.0, 36.7, 8.2, 39.0, 7.0, 37.8, 6…
-$ Secchi             &lt;dbl&gt; 100, 52, 44, 16, 76, 28, 92, 28, 100, 40, 80, 44, 1…
-$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 4, …
-$ SpCndSurface       &lt;dbl&gt; 878, 14498, 276, 228, 194, 189, 195, 168, 214, 276,…
-$ WTSurface          &lt;dbl&gt; 10.03, 10.37, 10.87, 9.19, 12.12, 12.70, 14.26, 14.…
-$ Inflow             &lt;dbl&gt; 27349, 42029, 129533, 107109, 129444, 105932, 10488…
-$ Outflow            &lt;dbl&gt; 21963, 42727, 130451, 95024, 121805, 97089, 100003,…</code></pre>
+<pre><code># A tibble: 62 × 20
+   Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
+   &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+ 1 P8      2020-01-16  20.6       0.5             98        0.15
+ 2 D7      2020-01-22  20.7       0.87            82        0.21
+ 3 P8      2020-02-14  21.5       0.69            81        0.25
+ 4 D7      2020-02-20  22.2       0.5             86        0.14
+ 5 P8      2020-03-03  21.4       0.56            80        0.11
+ 6 D7      2020-03-06  21.9       1.13            93        0.22
+ 7 P8      2020-06-11  24.7       1.25            59        0.05
+ 8 D7      2020-06-17  21.7       0.89            78        0.05
+ 9 P8      2020-07-13  26.4       0.88            63        0.05
+10 D7      2020-07-16  22.8       0.85            80        0.05
+# ℹ 52 more rows
+# ℹ 14 more variables: DissNitrateNitrite &lt;dbl&gt;, DOC &lt;dbl&gt;, TOC &lt;dbl&gt;,
+#   DON &lt;dbl&gt;, TotPhos &lt;dbl&gt;, DissOrthophos &lt;dbl&gt;, TDS &lt;dbl&gt;, TSS &lt;dbl&gt;,
+#   TKN &lt;dbl&gt;, Depth &lt;dbl&gt;, Secchi &lt;dbl&gt;, Microcystis &lt;dbl&gt;,
+#   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>The resulting data frame has the same number of rows as the <code>df_wq_2019_2022</code> water quality data set with the addition of two columns - <code>Inflow</code> and <code>Outflow</code> - which are the joined values from the DayFlow data set. Note that R gave an informative message regarding which columns it performed the join by, which in this case is the <code>Date</code> column.</p>
-<section id="exercise-1" class="level3" data-number="10.5.1"><h3 data-number="10.5.1" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">10.5.1</span> Exercise</h3>
-<p>Now its your turn to try out joining two data sets.</p>
-<p>Use a <code>left_join</code> to add weather observation data to the 2020-2022 water quality data collected at P8, D7, and C3A (the data frame you created in the bind rows exercise above). The weather observation data is in the “data/Weather_Obs_P8_D7_C3A_2020_2022.csv” file.</p>
-<p>Click below for the answer when you are done!</p>
+<p>We can even change types! This is useful if, say, you have character column that should be numeric, or a character column that should be factor.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Import the weather observation data</span></span>
-<span><span class="va">df_weather</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data/Weather_Obs_P8_D7_C3A_2020_2022.csv"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Check the structure of the two data frames to be joined</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_p8_d7_c3a</span><span class="op">)</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_weather</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Note that the two data frames share the "Station" and "Date" columns.</span></span>
-<span><span class="co"># These will be the two columns that the data frames will be joined by.</span></span>
-<span><span class="co"># In combination they form a unique combination, which is known as a </span></span>
-<span><span class="co"># compound key.</span></span>
-<span><span class="co"># Join the weather data to the water quality data</span></span>
-<span><span class="va">df_wq_weather</span> <span class="op">&lt;-</span> <span class="fu">left_join</span><span class="op">(</span><span class="va">df_wq_p8_d7_c3a</span>, <span class="va">df_weather</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Take a look at the joined data set</span></span>
-<span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq_weather</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
+<span>         Station <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">Station</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Chla</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [62 × 2] (S3: tbl_df/tbl/data.frame)
+ $ Station: Factor w/ 2 levels "D7","P8": 2 1 2 1 2 1 2 1 2 1 ...
+ $ Chla   : num [1:62] 0.64 0.67 1.46 2.15 1.4 1.89 4.73 1.74 6.4 2.79 ...</code></pre>
+</div>
+</div>
+</section><section id="case_when" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="case_when">
+<span class="header-section-number">5.4</span> <code>case_when</code>
+</h2>
+<p>What if we only want to modify certain data in a column? For example, say we want to add 20 to all Chla values <em>only for P8</em>.</p>
+<p>This can be done using the <code>case_when</code> function (also available in <code>tidyverse</code>). This replaces the left-hand side of the mutate statement; now, instead of only having one logical statement, you can specify multiple!</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span></span>
+<span>    Chla <span class="op">=</span></span>
+<span>      <span class="fu">case_when</span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">'P8'</span> <span class="op">~</span> <span class="va">Chla</span> <span class="op">+</span> <span class="fl">20</span>, <span class="co"># if station is P8, add 20</span></span>
+<span>              <span class="cn">TRUE</span> <span class="op">~</span> <span class="va">Chla</span><span class="op">)</span> <span class="co"># else, keep as previous value</span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Station</span><span class="op">:</span><span class="va">Date</span><span class="op">)</span>, <span class="va">Chla</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 62 × 3
+   Station Date        Chla
+   &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;
+ 1 P8      2020-01-16 20.6 
+ 2 D7      2020-01-22  0.67
+ 3 P8      2020-02-14 21.5 
+ 4 D7      2020-02-20  2.15
+ 5 P8      2020-03-03 21.4 
+ 6 D7      2020-03-06  1.89
+ 7 P8      2020-06-11 24.7 
+ 8 D7      2020-06-17  1.74
+ 9 P8      2020-07-13 26.4 
+10 D7      2020-07-16  2.79
+# ℹ 52 more rows</code></pre>
+</div>
+</div>
+</section><section id="aside-rename" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="aside-rename">
+<span class="header-section-number">5.5</span> <u>Aside:</u> Rename</h2>
+<p>Sometimes, we want to rename our columns (eg. if working with multiple data frames, we want the columns to be standardized). We can do this using the <code>rename</code> function from the <code>dplyr</code> package:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">rename</span><span class="op">(</span>StationCode <span class="op">=</span> <span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 62 × 20
+   StationCode Date        Chla Pheophytin TotAlkalinity DissAmmonia
+   &lt;chr&gt;       &lt;date&gt;     &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+ 1 P8          2020-01-16  0.64       0.5             98        0.15
+ 2 D7          2020-01-22  0.67       0.87            82        0.21
+ 3 P8          2020-02-14  1.46       0.69            81        0.25
+ 4 D7          2020-02-20  2.15       0.5             86        0.14
+ 5 P8          2020-03-03  1.4        0.56            80        0.11
+ 6 D7          2020-03-06  1.89       1.13            93        0.22
+ 7 P8          2020-06-11  4.73       1.25            59        0.05
+ 8 D7          2020-06-17  1.74       0.89            78        0.05
+ 9 P8          2020-07-13  6.4        0.88            63        0.05
+10 D7          2020-07-16  2.79       0.85            80        0.05
+# ℹ 52 more rows
+# ℹ 14 more variables: DissNitrateNitrite &lt;dbl&gt;, DOC &lt;dbl&gt;, TOC &lt;dbl&gt;,
+#   DON &lt;dbl&gt;, TotPhos &lt;dbl&gt;, DissOrthophos &lt;dbl&gt;, TDS &lt;dbl&gt;, TSS &lt;dbl&gt;,
+#   TKN &lt;dbl&gt;, Depth &lt;dbl&gt;, Secchi &lt;dbl&gt;, Microcystis &lt;dbl&gt;,
+#   SpCndSurface &lt;dbl&gt;, WTSurface &lt;dbl&gt;</code></pre>
+</div>
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1065,13 +962,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../code/Day4_03_Reshaping.html" class="pagination-link" aria-label="Reshaping Data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reshaping Data</span></span>
+      <a href="../code/Day2_03_Subset.html" class="pagination-link" aria-label="Subset Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Subset Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../code/Day4_05_Extras.html" class="pagination-link" aria-label="Optional Extra Topics">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../code/Day2_05_FinalExercise.html" class="pagination-link" aria-label="Final Exercise">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Final Exercise</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

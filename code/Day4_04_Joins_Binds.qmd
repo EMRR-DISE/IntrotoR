@@ -1,5 +1,5 @@
 ---
-title: "Joins and Binds"
+title: "Binds and Joins"
 author: "Dave Bosworth"
 format:
   html:
@@ -19,9 +19,13 @@ library(here)
 df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 ```
 
-## Differences between them
+## Introduction
 
-Binding rows or columns from two dataframes:
+Sometimes your data analysis project requires more than one data set that need to be combined in order to perform your analysis. This chapter covers two common methods of combining more than one data set in R - binds and joins. We'll start this lesson covering the differences between these two methods including the situations to best use them in, and then move into the powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package that help with combining data frames.
+
+## Differences between Binds and Joins
+
+Binding either rows or columns from multiple data frames involves a simple combination of data frames. For example binding two data frames by row, makes a single data frame with more rows:
 
 ```{r}
 #| echo: FALSE
@@ -31,6 +35,10 @@ Binding rows or columns from two dataframes:
 knitr::include_graphics(here("code/images/bind_rows.png"), error = FALSE)
 ```
 
+Notice that in this graphic, R recognizes that the two data frames share the same columns and simply appends the rows from Z to X with the proper column assignments.
+
+In contrast, binding two data frames by columns performs the perpendicular operation resulting in a single data frame with more columns:
+
 ```{r}
 #| echo: FALSE
 #| out-width: 70%
@@ -39,29 +47,38 @@ knitr::include_graphics(here("code/images/bind_rows.png"), error = FALSE)
 knitr::include_graphics(here("code/images/bind_cols.png"), error = FALSE)
 ```
 
-Rarely use bind_cols, safer to use a join function
-
-Joining two dataframes with a `left_join()`:
+Binding data frames by columns combines the data in the order in which they appear, which can create unintended results without you realizing it. It is much safer to use a **join** when you want to add columns from one data frame to another. For example, here is a simple graphic demonstrating a left join to join two data frames together:
 
 ```{r}
 #| echo: FALSE
 #| out-width: 70%
 #| fig-align: left
+#| fig-cap: Image Credit <https://stat545.stat.ubc.ca/tutorials/tibble_join/>
 
 knitr::include_graphics(here("code/images/left_join.png"), error = FALSE)
 ```
 
-Image Credit: <https://stat545.stat.ubc.ca/tutorials/tibble_join/>
+Joins are a safer method of combining data frame columns because they rely on **keys**, which are variables used to make the connection between two data frames. In the simple example above, the `ID` column is the key with which the tables are joined. If this was performed by simply combining columns, you would get much a different and erroneous result. There is a lot more to cover with the concept of keys, but the most important thing to remember is that they are unique for each observation or row in a data set.
+
+::: callout-note
+## When should I use bind vs. join?
+
+After all this information, you may be wondering when is it best to use bind vs. join when combining data frames. Here are some simple guidelines:
+
+-   When you want to add new **rows** from one data frame to another use bind rows. The columns should (mostly) be the same in the two data sets for this to be effective.
+
+-    When you want to add new **columns** from one data frame to another, preferably use a join if they share a common key. Only use bind columns when you have no other option and pay close attention to the order in which the rows appear in the two data sets.
+:::
 
 ## Bind rows
 
-Import additional WQ data collected in 2019 at P8 and D7
+Now that we have a better understanding of what it means to bind the rows of multiple data frames, let's learn about how to actually perform this operation. The `bind_rows` function within the `dplyr` package is the easiest way I've found to accomplish this. Let's use the EMP water quality data set we've been working with to demonstrate how to bind rows. To start, we need a second data frame to bind to it. We'll import some additional EMP water quality data collected in 2019 at the same two stations - P8 and D7 - to be combined to the 2020-2022 data.
 
 ```{r}
 df_wq_2019 <- read_csv(here("data/WQ_2019.csv"))
 ```
 
-Look at structure of both dataframes to bind
+Let's take a look at the structure and columns of the two data frames before binding them.
 
 ```{r}
 # 2020-2022 data:
@@ -73,49 +90,135 @@ glimpse(df_wq_2019)
 names(df_wq_2019)
 ```
 
-Add 2019 data to 2020-2022 data by binding rows:
+You can see that all the column names and their types (classes) are the same which makes combining them by row a simple operation. We'll use the `bind_rows` function to add the 2019 data to the 2020-2022 data and assign it to a new data frame object.
 
 ```{r}
 df_wq_2019_2022 <- bind_rows(df_wq_2019, df_wq)
 df_wq_2019_2022
+range(df_wq_2019_2022$Date)
 ```
+
+The new data frame now has EMP water quality data from 2019-2022.
+
+::: callout-note
+You may be wondering what would happen if the two data frames had a few columns with different names. `bind_rows` would still combine the two data frames but it would preserve separate columns for the ones with different names.
+
+However, if the two data frames had columns with the same name but with different types (classes - numeric, character, etc.), `bind_rows` will not work and give you an error. It is always best practice to check this by using `glimpse` or `str` on the two data frames before proceeding with binding their rows.
+:::
 
 ### Exercise
 
-Add data collected from 2019-2022 at C3A to dataframe with P8 and D7
+Now its your turn to try out combining two data sets by binding rows.
+
+Add water quality data collected from 2020-2022 at C3A to the original data frame (`df_wq`) with data from P8 and D7. Assign this data frame to a new object to be used later. The C3A data is in the "data/WQ_C3A_2020_2022.csv" file.
+
+Click below for the answer when you are done!
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+# Import EMP water quality data for C3A
+df_wq_c3a <- read_csv(here("data/WQ_C3A_2020_2022.csv"))
+
+# Check the structure and column names of the two data frames
+glimpse(df_wq_c3a)
+names(df_wq_c3a)
+
+glimpse(df_wq)
+names(df_wq)
+
+# Add C3A to original data frame with P8 and D7
+df_wq_p8_d7_c3a <- bind_rows(df_wq, df_wq_c3a)
+
+# Take a look at the combined data set
+df_wq_p8_d7_c3a %>% arrange(Date, Station)
+```
 
 ## Join basics
+
+The `dplyr` package provides various methods to join data frames together:
 
 ```{r}
 #| echo: FALSE
 #| out-width: 70%
 #| fig-align: left
+#| fig-cap: Image Credit <https://r4ds.hadley.nz/joins>
 
 knitr::include_graphics(here("code/images/join-venn.png"), error = FALSE)
 ```
 
+In the section above, we touched on the concept of **keys** and their importance with joins. Here is an illustration that helps explain keys further and how they assist with various types of joins:
+
 ```{r}
 #| echo: FALSE
 #| out-width: 70%
 #| fig-align: left
+#| fig-cap: Image Credit <https://r4ds.hadley.nz/joins>
 
 knitr::include_graphics(here("code/images/join-outer.png"), error = FALSE)
 ```
 
+In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lies in how they handle keys that don't have a match. In short, a `left_join` keeps all rows in the first data frame, a `right_join` keeps all observations in the second data frame, and a `full_join` keeps all rows from both data frames.
+
 ## Left join
 
-Join Delta inflow and outflow data from DayFlow to WQ data
+While all these joining methods can be useful, we'll focus on the most commonly-used joining method - `left_join`. We'll use a `left_join` to add Delta inflow and outflow data from DayFlow to the 2019-2022 EMP water quality data. First, we'll need to import the DayFlow data:
 
 ```{r}
 # Import Delta inflow and outflow data
 df_dayflow <- read_csv(here("data/Dayflow_2019_2023.csv"))
+```
+
+Let's take a look at the structure of the two data frames before joining them.
+
+```{r}
+# 2019-2022 EMP water quality data:
+glimpse(df_wq_2019_2022)
+
+# DayFlow data:
+glimpse(df_dayflow)
+```
+
+Both data frames share the `Date` column which will be our join key. Note that the `Date` columns are "date" class in both data sets. This is important - if they were different data classes, R wouldn't know how to match them together. Also note that the DayFlow data set has observations for every day between 1/1/2019 to 9/30/2023, while the EMP water quality data frame only has a few observations per month. Because we are interested in adding the DayFlow values to the water quality data set, we'll join them together with a `left_join` with the water quality data frame as the first data frame. This will only keep the rows within the water quality data set and drop the unmatching rows from the DayFlow data set. 
+
+```{r}
+#| message: true
 
 # Join Delta flow data to 2019-2022 WQ data
 df_wq_flow <- left_join(df_wq_2019_2022, df_dayflow)
 glimpse(df_wq_flow)
 ```
 
+The resulting data frame has the same number of rows as the `df_wq_2019_2022` water quality data set with the addition of two columns - `Inflow` and `Outflow` - which are the joined values from the DayFlow data set. Note that R gave an informative message regarding which columns it performed the join by, which in this case is the `Date` column.
+
 ### Exercise
 
-Add weather observation data to WQ data (2019-2022, P8, D7, and C3A)
+Now its your turn to try out joining two data sets.
+
+Use a `left_join` to add weather observation data to the 2020-2022 water quality data collected at P8, D7, and C3A (the data frame you created in the bind rows exercise above). The weather observation data is in the "data/Weather_Obs_P8_D7_C3A_2020_2022.csv" file.
+
+Click below for the answer when you are done!
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+# Import the weather observation data
+df_weather <- read_csv(here("data/Weather_Obs_P8_D7_C3A_2020_2022.csv"))
+
+# Check the structure of the two data frames to be joined
+glimpse(df_wq_p8_d7_c3a)
+glimpse(df_weather)
+
+# Note that the two data frames share the "Station" and "Date" columns.
+# These will be the two columns that the data frames will be joined by.
+# In combination they form a unique combination, which is known as a 
+# compound key.
+# Join the weather data to the water quality data
+df_wq_weather <- left_join(df_wq_p8_d7_c3a, df_weather)
+
+# Take a look at the joined data set
+glimpse(df_wq_weather)
+```
 
