@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-new-columns" id="toc-add-new-columns" class="nav-link" data-scroll-target="#add-new-columns"><span class="header-section-number">5.2</span> Add New Columns</a></li>
   <li><a href="#modify-existing-columns" id="toc-modify-existing-columns" class="nav-link" data-scroll-target="#modify-existing-columns"><span class="header-section-number">5.3</span> Modify Existing Columns</a></li>
   <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">5.4</span> <code>case_when</code></a></li>
-  <li><a href="#aside-rename" id="toc-aside-rename" class="nav-link" data-scroll-target="#aside-rename"><span class="header-section-number">5.5</span> <u>Aside:</u> Rename</a></li>
+  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename"><span class="header-section-number">5.5</span> Rename</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -321,10 +321,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><section id="introduction" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">5.1</span> Introduction</h2>
-<p>Sometimes, we want to modify our already existing columns, or even add new ones. This is where the <code>mutate</code> function from the <code>dplyr</code> package comes in.</p>
+<p>Sometimes, we want to modify our already existing columns or even add new ones. This is where the <code>mutate</code> function from the <code>dplyr</code> package comes in.</p>
 </section><section id="add-new-columns" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="add-new-columns">
 <span class="header-section-number">5.2</span> Add New Columns</h2>
-<p>With mutate, it’s simple to add new columns. First, let’s look at our current columns.</p>
+<p>With <code>mutate</code>, it’s simple to add new columns. First, let’s look at our current ones:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -389,7 +389,7 @@ $ Lab                &lt;chr&gt; "BSA", "BSA", "BSA", "BSA", "BSA", "BSA", "BSA"
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>ChlPheo <span class="op">=</span> <span class="va">Chla</span><span class="op">+</span><span class="va">Pheophytin</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span>, <span class="va">Chla</span>, <span class="va">Pheophytin</span>, <span class="va">ChlPheo</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># looks at the first 5 entries by default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   Station Date        Chla Pheophytin ChlPheo
@@ -499,6 +499,7 @@ Relocate Columns
 </h2>
 <p>What if we only want to modify certain data in a column? For example, say we want to add 20 to all Chla values <em>only for P8</em>.</p>
 <p>This can be done using the <code>case_when</code> function (also available in <code>tidyverse</code>). This replaces the left-hand side of the mutate statement; now, instead of only having one logical statement, you can specify multiple!</p>
+<p>(Note: the tilde operator <code>~</code> differentiates the left- and right-hand sides of the formula.)</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
@@ -524,8 +525,8 @@ Relocate Columns
 # ℹ 52 more rows</code></pre>
 </div>
 </div>
-</section><section id="aside-rename" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="aside-rename">
-<span class="header-section-number">5.5</span> <u>Aside:</u> Rename</h2>
+</section><section id="rename" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="rename">
+<span class="header-section-number">5.5</span> Rename</h2>
 <p>Sometimes, we want to rename our columns (eg. if working with multiple data frames, we want the columns to be standardized). We can do this using the <code>rename</code> function from the <code>dplyr</code> package:</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
