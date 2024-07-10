@@ -12,11 +12,11 @@ execute:
 
 ## Introduction
 
-Sometimes, we want to modify our already existing columns, or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
+Sometimes, we want to modify our already existing columns or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
 
 ## Add New Columns
 
-With mutate, it's simple to add new columns. First, let's look at our current columns.
+With `mutate`, it's simple to add new columns. First, let's look at our current ones:
 
 ```{r}
 glimpse(df_wq)
@@ -38,7 +38,7 @@ We can even add columns that are combinations of other ones:
 df_wq %>%
   mutate(ChlPheo = Chla+Pheophytin) %>%
   select(Station, Date, Chla, Pheophytin, ChlPheo) %>%
-  head() # looks at the first 5 entries by default
+  head()
 ```
 
 *concatenate two character columns*
@@ -88,6 +88,8 @@ What if we only want to modify certain data in a column? For example, say we wan
 
 This can be done using the `case_when` function (also available in `tidyverse`). This replaces the left-hand side of the mutate statement; now, instead of only having one logical statement, you can specify multiple!
 
+(Note: the tilde operator `~` differentiates the left- and right-hand sides of the formula.)
+
 ```{r}
 df_wq %>%
   mutate(
@@ -98,7 +100,7 @@ df_wq %>%
   select(c(Station:Date), Chla)
 ```
 
-## [Aside:]{.underline} Rename
+## Rename
 
 Sometimes, we want to rename our columns (eg. if working with multiple data frames, we want the columns to be standardized). We can do this using the `rename` function from the `dplyr` package:
 

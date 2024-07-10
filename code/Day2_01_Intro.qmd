@@ -10,7 +10,7 @@ execute:
   warning: false
 ---
 
-Our goal as scientists is to use our collected data to produce statistics and graphics that inform various management and scientific questions. The first step in this process is to properly format our data. Practically, this means learning how to manipulate data frames in R.
+Our goal as scientists is to use our collected data to produce statistics and graphics that inform various management and scientific questions. The first step in this process is to properly format our data. **Practically, this means learning how to manipulate data frames in R**.
 
 An outline for today's lesson:
 
@@ -23,11 +23,9 @@ An outline for today's lesson:
 
     -   Basic Subsetting
     -   Subset by Column Names
-        -   *Tidyverse Pipes*
     -   Subset by Row Values
-    -   [Aside:]{.underline} Logical Operators
+    -   Logical Operators
     -   Subset by Column and Row
-        -   *Code Formatting*
     -   Subset by Date
     -   Subset `NA`
 
@@ -37,6 +35,8 @@ An outline for today's lesson:
     -   Relocate Columns
     -   Modify Existing Columns
     -   `case_when`
-    -   [Aside:]{.underline} Rename
+    -   Rename
 
 4.  Final Exercise
+
+5.  **Bonus: Markdown Files**
