@@ -10,8 +10,6 @@ execute:
   warning: false
 ---
 
-## Markdown Files
-
 There are two ways to write and save R code: **scripts** (.R) and **markdown files** (.Rmd or .qmd).
 
 **Scripts** are very bare bones. You cannot add "normal" text or formatting to them and their output is not saved anywhere in the file. [This is the ideal format for purely utilitarian code.]{.underline} They are equivalent to writing a document in Notepad.
