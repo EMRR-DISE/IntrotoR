@@ -37,6 +37,7 @@ book:
         - code/Day4_05_Extras.qmd
         - code/Day4_06_Final_Exercise.qmd
   appendices:
+    - code/MarkdownFiles.qmd
     - code/DatesandTimes.qmd
     - code/RDefinitions.qmd
     - code/Resources.qmd

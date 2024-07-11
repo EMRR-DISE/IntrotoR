@@ -643,80 +643,102 @@
     ]
   },
   {
-    "objectID": "code/DatesandTimes.html",
-    "href": "code/DatesandTimes.html",
-    "title": "Appendix A — Bonus lesson - Dates and Times",
+    "objectID": "code/MarkdownFiles.html",
+    "href": "code/MarkdownFiles.html",
+    "title": "Appendix A — Bonus lesson - Markdown Files",
     "section": "",
-    "text": "A.1 Dates and Times\nDates and times are one of the most annoying data classes to deal with. There are many different ways of storing date and time information, and it’s easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package lubridate. (which is part of tidyverse)\nFor more info, see: https://r4ds.hadley.nz/datetimes.html\nFirst, let’s look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the today function to get a date with today’s value.\nlibrary(tidyverse)\n\ntoday()\n\n[1] \"2024-07-10\"\n\nas.numeric(today())\n\n[1] 19914\nNow let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.\nnow()\n\n[1] \"2024-07-10 16:02:49 PDT\"\n\nas.numeric(now())\n\n[1] 1720652569\nNote that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.",
+    "text": "A.1 Markdown Files\nThere are two ways to write and save R code: scripts (.R) and markdown files (.Rmd or .qmd).\nScripts are very bare bones. You cannot add “normal” text or formatting to them and their output is not saved anywhere in the file. This is the ideal format for purely utilitarian code. They are equivalent to writing a document in Notepad.\nMarkdown files are formatted files that allow you to present code in a reader-friendly design. Unlike scripts, you can add “normal” text and formatting, and the code output can be saved and displayed directly in the file. You can even add code from multiple different languages! This is the ideal format when visually examining your output matters. They are equivalent to writing a document in Word.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Bonus lesson - Markdown Files</span>"
+    ]
+  },
+  {
+    "objectID": "code/MarkdownFiles.html#markdown-files",
+    "href": "code/MarkdownFiles.html#markdown-files",
+    "title": "Appendix A — Bonus lesson - Markdown Files",
+    "section": "",
+    "text": "Markdown\n\n\n\nWhy are they called “Markdown files”? Markdown is simply a language for creating formatted text (like html). For practical use, all that matters is markdown files preserve formatting (and therefore allow text, images, etc. to be in the file) while scripts do not.\n\n\n\n\n\n\n\n\n.Rmd vs. .qmd\n\n\n\nNewer versions of R have three versions of markdown files: R markdown, R notebook, and Quarto document.\nR markdown and R notebook files are functionally the same from a coding perspective (hence why they have the same extension, .Rmd). The only practical difference is you can preview R notebooks without knitting them; this can be useful if you want to quickly view the output.\nQuarto documents (.qmd) differ from R markdown in that they’re more general; unlike R markdown, which was primarily built with the R language in mind, Quarto is language agnostic. However, aside from some syntax differences, it’s practically the same as a .Rmd file.\nYou can use either format for your code. Quarto is newer and has less documentation currently, but it will likely have more support in the long run, and is preferable for some complex use cases.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Bonus lesson - Markdown Files</span>"
+    ]
+  },
+  {
+    "objectID": "code/DatesandTimes.html",
+    "href": "code/DatesandTimes.html",
+    "title": "Appendix B — Bonus lesson - Dates and Times",
+    "section": "",
+    "text": "B.1 Dates and Times\nDates and times are one of the most annoying data classes to deal with. There are many different ways of storing date and time information, and it’s easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package lubridate. (which is part of tidyverse)\nFor more info, see: https://r4ds.hadley.nz/datetimes.html\nFirst, let’s look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the today function to get a date with today’s value.\nlibrary(tidyverse)\n\ntoday()\n\n[1] \"2024-07-11\"\n\nas.numeric(today())\n\n[1] 19915\nNow let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.\nnow()\n\n[1] \"2024-07-11 09:33:26 PDT\"\n\nas.numeric(now())\n\n[1] 1720715607\nNote that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
     ]
   },
   {
     "objectID": "code/DatesandTimes.html#datetime-classes",
     "href": "code/DatesandTimes.html#datetime-classes",
-    "title": "Appendix A — Bonus lesson - Dates and Times",
-    "section": "\nA.2 Date/Time Classes",
-    "text": "A.2 Date/Time Classes\nIf you have a list of dates and times that you are importing into R, the read_csv or read_excel functions can usually guess when they are dates, particularly if they are in YYYY-MM-DD format, but sometimes they get confused. They have an especially hard time if they are in a non-standard format, such as MM/DD/YY. In this case, the field will get read in as a character and you have to convert it to a date/time class, usually POSIXct.\nBefore we do that, let’s learn a bit about different types of date/time classes.\nDate - Number of days since origin.\nPOSIXct - Number of seconds since origin. This is the most common format.\nPOSIXlt - List of vectors with components sec, min, hour, mday, mon, and year. You probably won’t use this format very often.\nPOSIXct is more convenient for including in data frames, and POSIXlt is closer to human-readable forms. Both classes may have an attribute tzone, specifying the time zone. See ?DateTimeClasses for details.\nNote: There is no built-in “Time” class, only “DateTime”. Some packages (like hms) have developed ways to deal with times on their own, but it doesn’t come with your base R installation.",
+    "title": "Appendix B — Bonus lesson - Dates and Times",
+    "section": "\nB.2 Date/Time Classes",
+    "text": "B.2 Date/Time Classes\nIf you have a list of dates and times that you are importing into R, the read_csv or read_excel functions can usually guess when they are dates, particularly if they are in YYYY-MM-DD format, but sometimes they get confused. They have an especially hard time if they are in a non-standard format, such as MM/DD/YY. In this case, the field will get read in as a character and you have to convert it to a date/time class, usually POSIXct.\nBefore we do that, let’s learn a bit about different types of date/time classes.\nDate - Number of days since origin.\nPOSIXct - Number of seconds since origin. This is the most common format.\nPOSIXlt - List of vectors with components sec, min, hour, mday, mon, and year. You probably won’t use this format very often.\nPOSIXct is more convenient for including in data frames, and POSIXlt is closer to human-readable forms. Both classes may have an attribute tzone, specifying the time zone. See ?DateTimeClasses for details.\nNote: There is no built-in “Time” class, only “DateTime”. Some packages (like hms) have developed ways to deal with times on their own, but it doesn’t come with your base R installation.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
     ]
   },
   {
     "objectID": "code/DatesandTimes.html#converting-from-character-dates",
     "href": "code/DatesandTimes.html#converting-from-character-dates",
-    "title": "Appendix A — Bonus lesson - Dates and Times",
-    "section": "\nA.3 Converting from character dates",
-    "text": "A.3 Converting from character dates\nThe built-in function to convert from characters to dates is strptime\n\n?strptime\n\nTo use this function, we just feed in the date in character form and specify what format it is in. The format syntax is a little annoying, but the documentation for strptime gives you all the options.\n\n#date in character format\ndate1 = \"2/3/2021\"\n\n#Convert it. Little m for month, little d for day, capital Y for four-diget year.\ndate1a = strptime(date1, format = \"%m/%d/%Y\")\ndate1a\n\n[1] \"2021-02-03 PST\"\n\n\n\n#Try a different format. Lowercase y for two-digit year.\n\ndate2 = \"2/3/21\"\ndate2a = strptime(date2, format = \"%m/%d/%y\")\ndate2a\n\n[1] \"2021-02-03 PST\"\n\n\n\n#Now one with a time on it. Note that any spaces or dashes need to be the same in the format call as in your character vector.\n\ndate3 = \"2-3-2021 08:15\"\ndate3a = strptime(date3, format = \"%m-%d-%Y %H:%M\")\ndate3a\n\n[1] \"2021-02-03 08:15:00 PST\"\n\n\nThe format strings are quite annoying, so fortunately the lubridate package has a number of shortcut functions to make converting easier.\n\n?ymd\n\nLet’s try the dates we converted above with these functions.\n\nmdy(date1)\n\n[1] \"2021-02-03\"\n\nmdy(date2)\n\n[1] \"2021-02-03\"\n\nmdy_hm(date3)\n\n[1] \"2021-02-03 08:15:00 UTC\"\n\n\nNote that strptime defaulted the time zone to PDT, whereas mdy_hm defaulted to UTC. It’s always wise to specify your time zone manually to make sure issues don’t come up.\n\nmdy_hm(date3, tz =  \"America/Los_Angeles\")\n\n[1] \"2021-02-03 08:15:00 PST\"\n\n\nNote that when I specified the time zone, I actually specified the location, since we switch time zones with Daylight Savings.\nTo get a complete list of time zone names, see OlsonNames()\n\nOlsonNames()\n\nIf you have a dataset that is collected in California, but doesn’t use Daylight savings, use Etc/GMT+8. GMT (Greenwich Mean Time) doesn’t change with daylight savings, and we are 8 hours ahead.\n\nmdy_hm(date3, tz =  \"Etc/GMT+8\")\n\n[1] \"2021-02-03 08:15:00 -08\"\n\n\nR automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the format function.\n\ndate1a\n\n[1] \"2021-02-03 PST\"\n\nformat(date1a, format = \"%m/%d/%y\")\n\n[1] \"02/03/21\"\n\n\nBut really, why would you want to change the format?\n\nhttps://xkcd.com/1179",
+    "title": "Appendix B — Bonus lesson - Dates and Times",
+    "section": "\nB.3 Converting from character dates",
+    "text": "B.3 Converting from character dates\nThe built-in function to convert from characters to dates is strptime\n\n?strptime\n\nTo use this function, we just feed in the date in character form and specify what format it is in. The format syntax is a little annoying, but the documentation for strptime gives you all the options.\n\n#date in character format\ndate1 = \"2/3/2021\"\n\n#Convert it. Little m for month, little d for day, capital Y for four-diget year.\ndate1a = strptime(date1, format = \"%m/%d/%Y\")\ndate1a\n\n[1] \"2021-02-03 PST\"\n\n\n\n#Try a different format. Lowercase y for two-digit year.\n\ndate2 = \"2/3/21\"\ndate2a = strptime(date2, format = \"%m/%d/%y\")\ndate2a\n\n[1] \"2021-02-03 PST\"\n\n\n\n#Now one with a time on it. Note that any spaces or dashes need to be the same in the format call as in your character vector.\n\ndate3 = \"2-3-2021 08:15\"\ndate3a = strptime(date3, format = \"%m-%d-%Y %H:%M\")\ndate3a\n\n[1] \"2021-02-03 08:15:00 PST\"\n\n\nThe format strings are quite annoying, so fortunately the lubridate package has a number of shortcut functions to make converting easier.\n\n?ymd\n\nLet’s try the dates we converted above with these functions.\n\nmdy(date1)\n\n[1] \"2021-02-03\"\n\nmdy(date2)\n\n[1] \"2021-02-03\"\n\nmdy_hm(date3)\n\n[1] \"2021-02-03 08:15:00 UTC\"\n\n\nNote that strptime defaulted the time zone to PDT, whereas mdy_hm defaulted to UTC. It’s always wise to specify your time zone manually to make sure issues don’t come up.\n\nmdy_hm(date3, tz =  \"America/Los_Angeles\")\n\n[1] \"2021-02-03 08:15:00 PST\"\n\n\nNote that when I specified the time zone, I actually specified the location, since we switch time zones with Daylight Savings.\nTo get a complete list of time zone names, see OlsonNames()\n\nOlsonNames()\n\nIf you have a dataset that is collected in California, but doesn’t use Daylight savings, use Etc/GMT+8. GMT (Greenwich Mean Time) doesn’t change with daylight savings, and we are 8 hours ahead.\n\nmdy_hm(date3, tz =  \"Etc/GMT+8\")\n\n[1] \"2021-02-03 08:15:00 -08\"\n\n\nR automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the format function.\n\ndate1a\n\n[1] \"2021-02-03 PST\"\n\nformat(date1a, format = \"%m/%d/%y\")\n\n[1] \"02/03/21\"\n\n\nBut really, why would you want to change the format?\n\nhttps://xkcd.com/1179",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
     ]
   },
   {
     "objectID": "code/DatesandTimes.html#times",
     "href": "code/DatesandTimes.html#times",
-    "title": "Appendix A — Bonus lesson - Dates and Times",
-    "section": "\nA.4 Times",
-    "text": "A.4 Times\nAs noted above, there is no built-in time class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.\n\ntimes = c(\"1:20\", \"2:30\", \"3:50\", \"14:00\")\n\ntimes = strptime(times, format = \"%H:%M\")\ntimes\n\n[1] \"2024-07-10 01:20:00 PDT\" \"2024-07-10 02:30:00 PDT\"\n[3] \"2024-07-10 03:50:00 PDT\" \"2024-07-10 14:00:00 PDT\"\n\n\nIt will usually default to today’s date, or sometimes to Dec 31st, 1899. If you have a “Date” and a “Time” column in your dataframe, it’s best to just combine them for manipulation.\n\ndatesandtimes = data.frame(times = c(\"1:20\", \"2:30\", \"3:50\", \"14:00\"),\n                           dates = c(\"2021-01-01\", \"2023-12-01\", \"2011-06-04\", \"2022-10-11\"))\n\nstr(datesandtimes)\n\n'data.frame':   4 obs. of  2 variables:\n $ times: chr  \"1:20\" \"2:30\" \"3:50\" \"14:00\"\n $ dates: chr  \"2021-01-01\" \"2023-12-01\" \"2011-06-04\" \"2022-10-11\"\n\ndatesandtimes = mutate(datesandtimes, \n                       Date = ymd(dates), \n                       Time = strptime(times, format = \"%H:%M\"),\n                       DateTime = ymd_hm(paste(dates, times)))\n\nstr(datesandtimes)\n\n'data.frame':   4 obs. of  5 variables:\n $ times   : chr  \"1:20\" \"2:30\" \"3:50\" \"14:00\"\n $ dates   : chr  \"2021-01-01\" \"2023-12-01\" \"2011-06-04\" \"2022-10-11\"\n $ Date    : Date, format: \"2021-01-01\" \"2023-12-01\" ...\n $ Time    : POSIXlt, format: \"2024-07-10 01:20:00\" \"2024-07-10 02:30:00\" ...\n $ DateTime: POSIXct, format: \"2021-01-01 01:20:00\" \"2023-12-01 02:30:00\" ...\n\n\nIf you do really want to deal with just the time part of a date/time object, use the hms package.\n\nlibrary(hms)\n\nas_hms(times)\n\n01:20:00\n02:30:00\n03:50:00\n14:00:00",
+    "title": "Appendix B — Bonus lesson - Dates and Times",
+    "section": "\nB.4 Times",
+    "text": "B.4 Times\nAs noted above, there is no built-in time class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.\n\ntimes = c(\"1:20\", \"2:30\", \"3:50\", \"14:00\")\n\ntimes = strptime(times, format = \"%H:%M\")\ntimes\n\n[1] \"2024-07-11 01:20:00 PDT\" \"2024-07-11 02:30:00 PDT\"\n[3] \"2024-07-11 03:50:00 PDT\" \"2024-07-11 14:00:00 PDT\"\n\n\nIt will usually default to today’s date, or sometimes to Dec 31st, 1899. If you have a “Date” and a “Time” column in your dataframe, it’s best to just combine them for manipulation.\n\ndatesandtimes = data.frame(times = c(\"1:20\", \"2:30\", \"3:50\", \"14:00\"),\n                           dates = c(\"2021-01-01\", \"2023-12-01\", \"2011-06-04\", \"2022-10-11\"))\n\nstr(datesandtimes)\n\n'data.frame':   4 obs. of  2 variables:\n $ times: chr  \"1:20\" \"2:30\" \"3:50\" \"14:00\"\n $ dates: chr  \"2021-01-01\" \"2023-12-01\" \"2011-06-04\" \"2022-10-11\"\n\ndatesandtimes = mutate(datesandtimes, \n                       Date = ymd(dates), \n                       Time = strptime(times, format = \"%H:%M\"),\n                       DateTime = ymd_hm(paste(dates, times)))\n\nstr(datesandtimes)\n\n'data.frame':   4 obs. of  5 variables:\n $ times   : chr  \"1:20\" \"2:30\" \"3:50\" \"14:00\"\n $ dates   : chr  \"2021-01-01\" \"2023-12-01\" \"2011-06-04\" \"2022-10-11\"\n $ Date    : Date, format: \"2021-01-01\" \"2023-12-01\" ...\n $ Time    : POSIXlt, format: \"2024-07-11 01:20:00\" \"2024-07-11 02:30:00\" ...\n $ DateTime: POSIXct, format: \"2021-01-01 01:20:00\" \"2023-12-01 02:30:00\" ...\n\n\nIf you do really want to deal with just the time part of a date/time object, use the hms package.\n\nlibrary(hms)\n\nas_hms(times)\n\n01:20:00\n02:30:00\n03:50:00\n14:00:00",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
     ]
   },
   {
     "objectID": "code/DatesandTimes.html#extracting-parts-of-a-datetime-object",
     "href": "code/DatesandTimes.html#extracting-parts-of-a-datetime-object",
-    "title": "Appendix A — Bonus lesson - Dates and Times",
-    "section": "\nA.5 Extracting parts of a date/time object",
-    "text": "A.5 Extracting parts of a date/time object\nLubridate has a lot of really useful thing to take dates and times apart. Like figuring out the month, year, day, etc.\n\n#month (as number or name)\nmonth(date1a)\n\n[1] 2\n\nmonth(date1a, label = TRUE)\n\n[1] Feb\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec\n\n#year\nyear(date1a)\n\n[1] 2021\n\n#day of year\nyday(date1a)\n\n[1] 34\n\n#day of week\nwday(date1a, label = T)\n\n[1] Wed\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat",
+    "title": "Appendix B — Bonus lesson - Dates and Times",
+    "section": "\nB.5 Extracting parts of a date/time object",
+    "text": "B.5 Extracting parts of a date/time object\nLubridate has a lot of really useful thing to take dates and times apart. Like figuring out the month, year, day, etc.\n\n#month (as number or name)\nmonth(date1a)\n\n[1] 2\n\nmonth(date1a, label = TRUE)\n\n[1] Feb\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec\n\n#year\nyear(date1a)\n\n[1] 2021\n\n#day of year\nyday(date1a)\n\n[1] 34\n\n#day of week\nwday(date1a, label = T)\n\n[1] Wed\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Bonus lesson - Dates and Times</span>"
     ]
   },
   {
     "objectID": "code/RDefinitions.html",
     "href": "code/RDefinitions.html",
-    "title": "Appendix B — Definitions",
+    "title": "Appendix C — Definitions",
     "section": "",
     "text": "Argument- one of possibly several expressions that are passed to a function\nAssignment - Giving a value to a variable. &lt;- is known as the “assignment operator”.\nComment: Text written in a script that is not treated as code to be run, but rather as text that describes what the code is doing. These are usually short notes, beginning with a #\nConsole - Place you run your code. It prints all the inputs and outputs - but then it’s gone!\nComprehensive R Archive Network (CRAN) - A public repository of R packages\nData frame - A two-dimensional data structure for storing tabular data in memory. Rows represent records and columns represent variables.\nEnvironment - A collection of functions, objects, and variables that are available for you to work with.\nFunction - A code block which gathers a sequence of operations into a whole, preserving it for ongoing use by defining a set of tasks that takes zero or more required and optional arguments as inputs and returns expected outputs (return values), if any. Functions enable repeating these defined tasks with one command, known as a function call.\nGUI - “Graphical User Interface” - anything you can point-and-click to get what you want. This is in contrast to the “command line” where you have to write out what you want.\nScript - Text file with code you want to run\nProject - Set of scripts, data, and outputs that are associated with a working directory and are related to each other using an .Proj file.\nPackage - A collection of code, data, and documentation that can be distributed and re-used. Also referred to in some languages as a library or module.\nPipe operator: The %&gt;% used to make the output of one function the input of the next. Piping works particularly well with Tidyverse packages.\nObject - A data set, a variable, plot, or more formally, almost everything in R. If it has a mode, it is an object. Includes data frames, vectors, matrices, arrays, lists and functions.\nTidyverse - A collection of R packages for operating on tabular data in consistent ways.\nVector - A list of items of the same type (e.g., a list of numbers or words).\nWorking directory - The folder that contains all the scripts and data you are working with.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Definitions</span>"
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Definitions</span>"
     ]
   },
   {
     "objectID": "code/Resources.html",
     "href": "code/Resources.html",
-    "title": "Appendix C — Useful Resources",
+    "title": "Appendix D — Useful Resources",
     "section": "",
     "text": "R For Data Science - a must-read e-book for how to handle data in R. https://r4ds.hadley.nz\nCheetsheets for popular R packages. https://rstudio.github.io/cheatsheets\nIEP Data Science Project Workteam homepage. https://interagencyecologicalprogram.github.io/DataScience/\nRSeek - Google for R related websites. https://rseek.org/\nChat GPT and other generative AI apps can help you write code. https://chatgpt.com/\nThe R Graph Gallery - get ideas for new types of graphs, and the code to make them. https://r-graph-gallery.com/\nMore information on the tidyverse packages. https://www.tidyverse.org/",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Useful Resources</span>"
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Useful Resources</span>"
     ]
   }
 ]

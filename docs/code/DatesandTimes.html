@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Introduction to R Training - July 2024 - Appendix A — Bonus lesson - Dates and Times</title>
+<title>Introduction to R Training - July 2024 - Appendix B — Bonus lesson - Dates and Times</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../code/RDefinitions.html" rel="next">
-<link href="../code/Day4_06_Final_Exercise.html" rel="prev">
+<link href="../code/MarkdownFiles.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/DatesandTimes.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/DatesandTimes.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/MarkdownFiles.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/DatesandTimes.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -261,20 +261,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../code/MarkdownFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Markdown Files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../code/DatesandTimes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/RDefinitions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Definitions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Definitions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../code/Resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Useful Resources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Useful Resources</span></span></a>
   </div>
 </li>
       </ul>
@@ -287,16 +293,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#dates-and-times" id="toc-dates-and-times" class="nav-link active" data-scroll-target="#dates-and-times"><span class="header-section-number">A.1</span> Dates and Times</a></li>
-  <li><a href="#datetime-classes" id="toc-datetime-classes" class="nav-link" data-scroll-target="#datetime-classes"><span class="header-section-number">A.2</span> Date/Time Classes</a></li>
-  <li><a href="#converting-from-character-dates" id="toc-converting-from-character-dates" class="nav-link" data-scroll-target="#converting-from-character-dates"><span class="header-section-number">A.3</span> Converting from character dates</a></li>
-  <li><a href="#times" id="toc-times" class="nav-link" data-scroll-target="#times"><span class="header-section-number">A.4</span> Times</a></li>
-  <li><a href="#extracting-parts-of-a-datetime-object" id="toc-extracting-parts-of-a-datetime-object" class="nav-link" data-scroll-target="#extracting-parts-of-a-datetime-object"><span class="header-section-number">A.5</span> Extracting parts of a date/time object</a></li>
+<li><a href="#dates-and-times" id="toc-dates-and-times" class="nav-link active" data-scroll-target="#dates-and-times"><span class="header-section-number">B.1</span> Dates and Times</a></li>
+  <li><a href="#datetime-classes" id="toc-datetime-classes" class="nav-link" data-scroll-target="#datetime-classes"><span class="header-section-number">B.2</span> Date/Time Classes</a></li>
+  <li><a href="#converting-from-character-dates" id="toc-converting-from-character-dates" class="nav-link" data-scroll-target="#converting-from-character-dates"><span class="header-section-number">B.3</span> Converting from character dates</a></li>
+  <li><a href="#times" id="toc-times" class="nav-link" data-scroll-target="#times"><span class="header-section-number">B.4</span> Times</a></li>
+  <li><a href="#extracting-parts-of-a-datetime-object" id="toc-extracting-parts-of-a-datetime-object" class="nav-link" data-scroll-target="#extracting-parts-of-a-datetime-object"><span class="header-section-number">B.5</span> Extracting parts of a date/time object</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/DatesandTimes.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/DatesandTimes.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Appendix A — Bonus lesson - Dates and Times</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/MarkdownFiles.html">Appendices</a></li><li class="breadcrumb-item"><a href="../code/DatesandTimes.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Bonus lesson - Dates and Times</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Appendix B — Bonus lesson - Dates and Times</h1>
 </div>
 
 
@@ -310,8 +316,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="dates-and-times" class="level2" data-number="A.1"><h2 data-number="A.1" class="anchored" data-anchor-id="dates-and-times">
-<span class="header-section-number">A.1</span> Dates and Times</h2>
+</header><section id="dates-and-times" class="level2" data-number="B.1"><h2 data-number="B.1" class="anchored" data-anchor-id="dates-and-times">
+<span class="header-section-number">B.1</span> Dates and Times</h2>
 <p>Dates and times are one of the most annoying data classes to deal with. There are many different ways of storing date and time information, and it’s easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package <code>lubridate</code>. (which is part of tidyverse)</p>
 <p>For more info, see: <a href="https://r4ds.hadley.nz/datetimes.html" class="uri">https://r4ds.hadley.nz/datetimes.html</a></p>
 <p>First, let’s look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the <code>today</code> function to get a date with today’s value.</p>
@@ -320,27 +326,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">today</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-10"</code></pre>
+<pre><code>[1] "2024-07-11"</code></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">today</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 19914</code></pre>
+<pre><code>[1] 19915</code></pre>
 </div>
 </div>
 <p>Now let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">now</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-10 16:02:49 PDT"</code></pre>
+<pre><code>[1] "2024-07-11 09:33:26 PDT"</code></pre>
 </div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">now</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1720652569</code></pre>
+<pre><code>[1] 1720715607</code></pre>
 </div>
 </div>
 <p>Note that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.</p>
-</section><section id="datetime-classes" class="level2" data-number="A.2"><h2 data-number="A.2" class="anchored" data-anchor-id="datetime-classes">
-<span class="header-section-number">A.2</span> Date/Time Classes</h2>
+</section><section id="datetime-classes" class="level2" data-number="B.2"><h2 data-number="B.2" class="anchored" data-anchor-id="datetime-classes">
+<span class="header-section-number">B.2</span> Date/Time Classes</h2>
 <p>If you have a list of dates and times that you are importing into R, the <code>read_csv</code> or <code>read_excel</code> functions can usually guess when they are dates, particularly if they are in YYYY-MM-DD format, but sometimes they get confused. They have an especially hard time if they are in a non-standard format, such as MM/DD/YY. In this case, the field will get read in as a character and you have to convert it to a date/time class, usually POSIXct.</p>
 <p>Before we do that, let’s learn a bit about different types of date/time classes.</p>
 <p>Date - Number of days since origin.</p>
@@ -348,8 +354,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>POSIXlt - List of vectors with components <code>sec</code>, <code>min</code>, <code>hour</code>, <code>mday</code>, <code>mon</code>, and <code>year</code>. You probably won’t use this format very often.</p>
 <p><code>POSIXct</code> is more convenient for including in data frames, and <code>POSIXlt</code> is closer to human-readable forms. Both classes may have an attribute <code>tzone</code>, specifying the time zone. See <code><a href="https://rdrr.io/r/base/DateTimeClasses.html">?DateTimeClasses</a></code> for details.</p>
 <p>Note: There is no built-in “Time” class, only “DateTime”. Some packages (like <code>hms</code>) have developed ways to deal with times on their own, but it doesn’t come with your base R installation.</p>
-</section><section id="converting-from-character-dates" class="level2" data-number="A.3"><h2 data-number="A.3" class="anchored" data-anchor-id="converting-from-character-dates">
-<span class="header-section-number">A.3</span> Converting from character dates</h2>
+</section><section id="converting-from-character-dates" class="level2" data-number="B.3"><h2 data-number="B.3" class="anchored" data-anchor-id="converting-from-character-dates">
+<span class="header-section-number">B.3</span> Converting from character dates</h2>
 <p>The built-in function to convert from characters to dates is <code>strptime</code></p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">strptime</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -438,8 +444,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>But really, why would you want to change the format?</p>
 <p><img src="images/clipboard-3718936377.png" class="img-fluid"></p>
 <p>https://xkcd.com/1179</p>
-</section><section id="times" class="level2" data-number="A.4"><h2 data-number="A.4" class="anchored" data-anchor-id="times">
-<span class="header-section-number">A.4</span> Times</h2>
+</section><section id="times" class="level2" data-number="B.4"><h2 data-number="B.4" class="anchored" data-anchor-id="times">
+<span class="header-section-number">B.4</span> Times</h2>
 <p>As noted above, there is no built-in <code>time</code> class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.</p>
 <div class="cell">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1:20"</span>, <span class="st">"2:30"</span>, <span class="st">"3:50"</span>, <span class="st">"14:00"</span><span class="op">)</span></span>
@@ -447,8 +453,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">times</span>, format <span class="op">=</span> <span class="st">"%H:%M"</span><span class="op">)</span></span>
 <span><span class="va">times</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-10 01:20:00 PDT" "2024-07-10 02:30:00 PDT"
-[3] "2024-07-10 03:50:00 PDT" "2024-07-10 14:00:00 PDT"</code></pre>
+<pre><code>[1] "2024-07-11 01:20:00 PDT" "2024-07-11 02:30:00 PDT"
+[3] "2024-07-11 03:50:00 PDT" "2024-07-11 14:00:00 PDT"</code></pre>
 </div>
 </div>
 <p>It will usually default to today’s date, or sometimes to Dec 31st, 1899. If you have a “Date” and a “Time” column in your dataframe, it’s best to just combine them for manipulation.</p>
@@ -473,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ times   : chr  "1:20" "2:30" "3:50" "14:00"
  $ dates   : chr  "2021-01-01" "2023-12-01" "2011-06-04" "2022-10-11"
  $ Date    : Date, format: "2021-01-01" "2023-12-01" ...
- $ Time    : POSIXlt, format: "2024-07-10 01:20:00" "2024-07-10 02:30:00" ...
+ $ Time    : POSIXlt, format: "2024-07-11 01:20:00" "2024-07-11 02:30:00" ...
  $ DateTime: POSIXct, format: "2021-01-01 01:20:00" "2023-12-01 02:30:00" ...</code></pre>
 </div>
 </div>
@@ -489,8 +495,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 14:00:00</code></pre>
 </div>
 </div>
-</section><section id="extracting-parts-of-a-datetime-object" class="level2" data-number="A.5"><h2 data-number="A.5" class="anchored" data-anchor-id="extracting-parts-of-a-datetime-object">
-<span class="header-section-number">A.5</span> Extracting parts of a date/time object</h2>
+</section><section id="extracting-parts-of-a-datetime-object" class="level2" data-number="B.5"><h2 data-number="B.5" class="anchored" data-anchor-id="extracting-parts-of-a-datetime-object">
+<span class="header-section-number">B.5</span> Extracting parts of a date/time object</h2>
 <p>Lubridate has a lot of really useful thing to take dates and times apart. Like figuring out the month, year, day, etc.</p>
 <div class="cell">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#month (as number or name)</span></span>
@@ -931,13 +937,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../code/Day4_06_Final_Exercise.html" class="pagination-link" aria-label="Final Exercise">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Final Exercise</span></span>
+      <a href="../code/MarkdownFiles.html" class="pagination-link" aria-label="Bonus lesson - Markdown Files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Bonus lesson - Markdown Files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../code/RDefinitions.html" class="pagination-link" aria-label="Definitions">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Definitions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Definitions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
