@@ -34,8 +34,7 @@ book:
         - code/Day4_02_Summarizing.qmd
         - code/Day4_03_Reshaping.qmd
         - code/Day4_04_Joins_Binds.qmd
-        - code/Day4_05_Extras.qmd
-        - code/Day4_06_Final_Exercise.qmd
+        - code/Day4_05_Final_Exercise.qmd
   appendices:
     - code/MarkdownFiles.qmd
     - code/DatesandTimes.qmd

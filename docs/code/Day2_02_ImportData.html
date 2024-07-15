@@ -239,14 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day4_05_Extras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optional Extra Topics</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../code/Day4_06_Final_Exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
+  <a href="../code/Day4_05_Final_Exercise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Final Exercise</span></span></a>
   </div>
 </li>
       </ul>
@@ -334,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The common function for this is <code>read_csv</code> from <code>readr</code> (which is nested in <code>tidyverse</code>). For our demonstrations, we will use the <strong>WQ_P8D7.csv</strong> file housed in the <strong>data</strong> folder.</p>
 <p>When importing data, we must specify the <em>filepath</em> where it’s housed. There are multiple ways to do this. We could hard-code in the path, which is called the <strong>absolute path</strong>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'C:/R/IntrotoR/data/WQ_P8D7.csv'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'C:/R/IntrotoR/data/WQ_P8D7.csv'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: 'C:/R/IntrotoR/data/WQ_P8D7.csv' does not exist.</code></pre>
 </div>
@@ -342,7 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>However, this code is very specific and will break when used on other computers.</p>
 <p>If we instead house data in a <strong>Project</strong>, we can make use of <strong>relative filepaths</strong>. These are ideal because anyone who uses the Project can run the code:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'data/WQ_P8D7.csv'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'data/WQ_P8D7.csv'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>If you received an error here</strong>, this is because your Rmd files are not being evaluated at the Project level.</p>
 <p>One way to fix this is to change your options in <code>Tools</code> &gt; <code>Global Options</code> &gt; <code>R Markdown</code> &gt; <code>evaluate chunks in directory</code> to <code>Project</code>.</p>
@@ -350,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">df_wq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/here/man/here.html">here</a></span><span class="op">(</span><span class="st">'data/WQ_P8D7.csv'</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">df_wq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">'data/WQ_P8D7.csv'</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -365,7 +359,7 @@ Data File Extensions and Delimiters
 <p>Here, we used the <code>read_csv</code> function, which takes .csv files by default. But what is a csv?</p>
 <p>“csv” stands for “comma separated values”, where the comma is called a <strong>delimiter</strong>; it tells the code where to separate the data cells. If you want to use a different delimiter, you can use the <code>read_delim</code> function (also from the <code>readr</code> package):</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_delim</a></span><span class="op">(</span><span class="st">'data/delim_ex.txt'</span>, delim <span class="op">=</span> <span class="st">'|'</span><span class="op">)</span> <span class="co"># data separated by |</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span><span class="st">'data/delim_ex.txt'</span>, delim <span class="op">=</span> <span class="st">'|'</span><span class="op">)</span> <span class="co"># data separated by |</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   col   headers are       first    
@@ -376,7 +370,7 @@ Data File Extensions and Delimiters
 </div>
 <p>for tab delimited data (a fairly frequent format), there’s <code>read_tsv</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">'data/tab_ex.tsv'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">'data/tab_ex.tsv'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   col   headers are       first    
@@ -389,7 +383,7 @@ Data File Extensions and Delimiters
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/readxl/man/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">'data/excel_ex.xlsx'</span>, sheet <span class="op">=</span> <span class="st">'Sheet1'</span><span class="op">)</span> <span class="co"># read the first sheet (by name)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">'data/excel_ex.xlsx'</span>, sheet <span class="op">=</span> <span class="st">'Sheet1'</span><span class="op">)</span> <span class="co"># read the first sheet (by name)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   col   headers are   first  
@@ -397,7 +391,7 @@ Data File Extensions and Delimiters
 1 here  is      an    example
 2 of    an      excel file   </code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/readxl/man/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">'data/excel_ex.xlsx'</span>, sheet <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># read the second sheet (by number)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">'data/excel_ex.xlsx'</span>, sheet <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># read the second sheet (by number)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   col   headers are   first  
@@ -430,7 +424,7 @@ Data File Extensions and Delimiters
 </div>
 <p>And <code>glimpse</code> to see information about the columns:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 62
 Columns: 20

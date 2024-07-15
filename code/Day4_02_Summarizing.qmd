@@ -194,7 +194,7 @@ df_wq_c %>%
   ) 
 ```
 
-We won't cover it here, but the `group_by` function also works with other functions in the `dplyr` package including `mutate`, `filter`, and `arrange`. There are also many other useful things you can do with the `summarize` function that we may not have enough time to discuss including using it with the `across` function. Please see the [Optional Extra Topics](Day4_05_Extras.qmd) chapter for more information.
+We won't cover it here, but the `group_by` function also works with other functions in the `dplyr` package including `mutate`, `filter`, and `arrange`. There are also many other useful things you can do with the `summarize` function that we won't cover in this class including using it with the [`across`](https://dplyr.tidyverse.org/reference/across.html) function. The `across` function allows for the `summarize` and `mutate` functions to apply operations across multiple columns in a data frame. Using it in combination with [tidyselect](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html) functions allows for much more efficient code.
 
 ::: {.callout-note}
 ## Summarize vs. Mutate

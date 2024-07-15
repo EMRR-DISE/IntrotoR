@@ -22,12 +22,7 @@ Now that we have covered the basics of using R and RStudio including importing, 
     - Bind Rows
     - Join Basics
     - Left Join
-    
-4. Optional Extra Topics
 
-    - Using `across`
-    - Combining concepts - Summarize and Reshape
+4. Final Course Exercise
 
-5. Final Course Exercise
-
-Maybe have people work in pairs, Dave show solution at end (30 min)
+Students will have the opportunity to bring many of the class concepts together in this final exercise.
