@@ -1,5 +1,5 @@
 ---
-title: "Final Exercise"
+title: "Final Course Exercise"
 author: "Dave Bosworth"
 format: html
 code-copy: true
@@ -8,144 +8,133 @@ execute:
   warning: false
 ---
 
-## Final Course Exercise
+In this final course exercise, we will combine many of the concepts we've learned in this class together to explore a couple new data sets. The first data set we'll be using contains continuous water quality data for various parameters collected at the Toe Drain at Lisbon Weir (LIS) site from 2014-2019. This data file contains measurements collected every 15 minutes with a YSI multi-parameter sonde. The data file "rtm_wq_lis_2014_2018.rds" has the following columns:
+
+- `DateTime` - Date and time of measurement in PST
+- `WaterTemp` - Water temperature in degrees Celsius
+- `Turbidity` - Turbidity (water clarity) in FNU
+- `SpCnd` - Specific conductance in uS/cm
+- `pH` - pH (unitless)
+- `DO` - Dissolved oxygen in mg/L
+- `Chla` - Chlorophyll-*a* fluorescence in ug/L
+- columns ending with `_Qual` - Quality code columns for each water quality parameter
+
+1) Start with importing the continuous water quality data for LIS. The file should be at the following path in your R project: "data/rtm_wq_lis_2014_2018.rds"
+
+::: callout-note
+## A note about .rds and .RData files
+
+.rds and .RData files are file extensions specific to the R programming language. Both file types offer compression to reduce storage space on your computer.
+
+.rds files store a single R object, typically a data frame, while .RData files contain multiple R objects.
+
+In this exercise, we are importing a .rds file. You can use either the `readRDS` or `read_rds` functions to import it into your R session.
+:::
+
+2) After importing the LIS data, take a look at its structure to make sure all data read in properly.
+
+3) Notice that the `DateTime` column was imported as a character data class. It will need to be converted to a date-time class in order to proceed with the rest of this exercise. Do so now.
+
+4) After cleaning up the `DateTime` column in your data set, create a time-series plot of one of the water quality parameters collected at LIS.
+
+5) It looks like we have data from 2014-2018. We are only interested in the 2015-2016 data, so create a new data frame with just the LIS data for those two years.
+
+6) Now, re-create the time-series plot you made above for years 2015-2016.
+
+7) To check the 2015-2016 data for outliers or erroneous values, plot all continuous water quality parameters (`WaterTemp`, `Turbidity`, `SpCnd`, `pH`, `DO`, `Chla`) in time-series plots using `facet_wrap` to put each parameter in its own subplot.\
+**HINT:** You will need to pivot the data frame to the long format before plotting the data in facets. The long data frame will have three columns: `DateTime`, a column identifying the water quality parameter, and another for the values. Also, before pivoting the data, you will need to remove the columns ending with `_Qual`.
+
+8) Some of the parameters are difficult to see clearly, so re-create the plot above giving each facet a different y-axis range.
+
+9) Boxplots are also nice to use to look for potential outliers in the data, so make a box and whisker plot of the 2015-2016 data using year as the categorical variable and using `facet_wrap` to put each parameter in its own subplot. Give each facet a different y-axis range.\
+**HINT:** You will need to use the data frame in the long format to create this plot. Also, be sure to convert year to a factor to plot it as a categorical variable.
+
+10) The box and whisker plots show that there may be some possible outliers in some of the parameters, but for the most part, the data looks pretty clean in the time-series plots, so we will use it as is. It turns out that you are only interested in the chlorophyll (`Chla`) data for 2015-2016. Averaging this data will help smooth out any potential outliers in the data. Calculate the daily average chlorophyll values for 2015-2016 in a new data frame object to be used later.\
+**HINT:** Use the `date` function from the `lubridate` package to extract the date from the `DateTime` column. Also, watch out for `NA` values in `Chla`.
+
+11) Now, make a time-series plot of the 2015-2016 daily average chlorophyll data. Assign this plot to a new object so it can be used later.
+
+12) This plot is interesting, let's see how daily average chlorophyll values from a nearby station in the Sacramento River (SRH) compares. Import the 2014-2018 SRH daily average chlorophyll data. The data file should be at the following path in your R project: "data/dv_chla_srh_2014_2018.csv". This data file has the following columns:
+
+    - `Station` - Identifies station where data was collected. In this case "SRH".
+    - `Date` - Date of measurement
+    - `Chla_mean` - Daily average chlorophyll-*a* fluorescence in ug/L
+
+13) Again, we are only interested in the 2015-2016 data from SRH, so create a new data frame with just the 2015-2016 data.
+
+14) Bind the daily average chlorophyll data from SRH to the daily averages from LIS so they can be plotted together.\
+**HINT:** Watch out for possibly different column names. Also, the LIS data needs a new column for `Station` so it can be differentiated from SRH.
+
+15) Now, create time-series plots of the daily average chlorophyll values for LIS and SRH on the same plot with different colors for the stations.
+
+16) It turns out your supervisor really likes this plot, but would like to put it in a report, so they want it to have some nicer formatting. Remake this plot with the following customizations:
+
+    - Make each station have a different point shape. You can choose from any of [these options](https://r-graphics.org/recipe-scatter-shapes).
+    - Change the size of the points to 2 for both stations.
+    - Change the color of the time-series points and lines so LIS is a shade of blue and SRH is a shade of orange. You can use this [color chart](https://r-charts.com/colors/) to help you choose colors.
+    - Change the plot theme to `theme_bw`.
+    - Give the plot an informative title and descriptive axis labels.
+
+    Be sure to assign this plot to a new object so it can be exported as a png file later.
+
+17) Export the figure for your supervisor's report as a png file with a width of 6 inches and height of 4 inches and a dpi of 300. You also want the 2015-2016 daily average chlorophyll data for LIS and SRH, so export that as a csv file.
+
+18) After thinking about the results more, you notice that LIS varies throughout the summer months in 2016. Could this have something to do with water flow at LIS? It turns out we in luck because water flow is also collected at LIS. Import 2014-2018 daily average water flow (cfs) collected at LIS. The data file should be at the following path in your R project: "data/dv_flow_lis_2014_2018.csv". This data file has the following columns:
+
+    - `Date` - Date of measurement
+    - `Flow` - Daily average water flow in cfs
+
+19) Again, we are only interested in the 2015-2016 flow data from LIS, so create a new data frame with just the 2015-2016 data.
+
+20) Create a time-series plot of the 2015-2016 daily average flow data for LIS. Assign this plot to a new object so it can be used later.
+
+21) Combine the 2015-2016 chlorophyll and water flow plots for LIS into one plot arranged vertically using the `patchwork` package to take a look at how chlorophyll and flow vary across time.
+
+22) There does seem to be some relationship between chlorophyll and flow particularly during 2016 at LIS. We'll use a scatterplot of chlorophyll and flow data to take a look at this possible relationship in a different way. To accomplish this, first you will need to join the daily average flow data for LIS to the daily average chlorophyll data and filter it to just 2016.
+
+23) Next, create the scatterplot of the 2016 LIS data with daily average flow on the x-axis and daily average chlorophyll on the y-axis.
+
+24) **Bonus:** Add a trend line to this scatterplot using a linear model (LM).
+
+If you have some extra time, explore other aspects of the data on your own.
+
+Click below for the answer when you are done!
 
 ```{r}
-library(tidyverse)
-library(readxl)
-library(patchwork)
-library(here)
-```
-
-```{r}
-#| include: false
+#| code-fold: true
 #| eval: false
 
-rtm_raw_fp <- "C:/Users/dboswort/California Department of Water Resources/North Delta Flow Action - Documents/2011-2019 Synthesis Study-FASTR/WQ_Subteam/Raw_Data/Continuous"
+# Load packages
+library(tidyverse)
+library(patchwork)
+library(here)
 
-# LIS water quality
-wqes_col_names <- c(
-  "DateTime",
-  "WaterTemp",
-  "WaterTemp_Qual",
-  "Turbidity",
-  "Turbidity_Qual",
-  "SpCnd",
-  "SpCnd_Qual",
-  "pH",
-  "pH_Qual",
-  "DO",
-  "DO_Qual",
-  "Chla",
-  "Chla_Qual"
-)
-  
-df_wq_lis <- read_csv(
-  file = file.path(rtm_raw_fp, "RTM_RAW_DWR LIS_2013-2019.csv"),
-  col_names = wqes_col_names,
-  skip = 3,
-  col_types = "cdd-------dd-dd-dd-dd-dd-"
-)
-
-df_wq_lis_c <- df_wq_lis %>% 
-  mutate(
-    DateTime = mdy_hm(DateTime, tz = "Etc/GMT+8"),
-    across(ends_with("_Qual"), as.character)
-  ) %>% 
-  filter(
-    !if_all(where(is.numeric), is.na),
-    year(DateTime) %in% 2014:2018
-  )
-
-# SRH daily average chlorophyll
-srh_fp <- dir(rtm_raw_fp, pattern = "DWR SRH_", full.names = T)
-df_wq_srh <- map(srh_fp, ~ read_csv(.x, skip = 4)) %>% list_rbind()
-
-df_chla_srh <- df_wq_srh %>% 
-  transmute(
-    Station = "SRH",
-    DateTime = mdy_hm(DATE, tz = "Etc/GMT+8"),
-    Value = VALUE,
-    Qual = `QAQC Flag`,
-    Parameter = READING_TYPE
-  ) %>% 
-  filter(
-    str_detect(Parameter, "Fluorescence"),
-    Qual != "X",
-    year(DateTime) %in% 2014:2018
-  ) %>% 
-  drop_na(Value) %>% 
-  filter(Value > 0) %>% 
-  mutate(Date = date(DateTime)) %>% 
-  summarize(Chla_mean = mean(Value, na.rm = TRUE), .by = c(Station, Date)) 
-
-# LIS daily average flow
-df_q_lis <- read_excel(
-  path = file.path(rtm_raw_fp, "RTM_RAW_DWR RCS LIS Flow_2011-2019.xlsx"),
-  sheet = "LIS",
-  col_names = c("DateTime", "Flow", "Flow_Qual"),
-  skip = 3,
-  col_types = c("date", "numeric", "numeric")
-) 
-
-df_q_lis_c <- df_q_lis %>% 
-  drop_na(Flow) %>% 
-  filter(year(DateTime) %in% 2014:2018) %>% 
-  mutate(Date = date(DateTime)) %>% 
-  summarize(Flow = mean(Flow, na.rm = TRUE), .by = Date)
-
-# Export data for exercise
-df_wq_lis_c %>% 
-  mutate(DateTime = format(DateTime, "%Y-%m-%d %H:%M:%S")) %>% 
-  saveRDS(here("data/rtm_wq_lis_2014_2018.rds"))
-
-df_chla_srh %>% write_csv(here("data/dv_chla_srh_2014_2018.csv"))
-df_q_lis_c %>% write_csv(here("data/dv_flow_lis_2014_2018.csv"))
-```
-
-Import LIS data
-
-```{r}
+# 1) Import LIS water quality data
 df_wq_lis <- readRDS(here("data/rtm_wq_lis_2014_2018.rds"))
-```
 
-Take a look at its structure to make sure all data read in properly
-
-```{r}
+# 2) Take a look at the structure of the imported data frame
 glimpse(df_wq_lis)
-```
 
-It looks like the `DateTime` column was imported as a character data class, but it needs to be converted to a date-time class.
-
-```{r}
+# 3) Convert DateTime column from character to date-time class
 df_wq_lis_c <- df_wq_lis %>% mutate(DateTime = ymd_hms(DateTime, tz = "Etc/GMT+8"))
-```
 
-Now, create a time-series plot of the water temperature (`WaterTemp`) data
-
-```{r}
+# 4) Create a time-series plot of the water temperature data
 df_wq_lis_c %>% 
   ggplot(aes(x = DateTime, y = WaterTemp)) +
   geom_point()
-```
 
-It looks like we have data from 2014-2018. we are only interested in the 2015-2016 data so create a new data frame with just the data for those two years.
-
-```{r}
+# 5) Create a new data frame for LIS water quality data for just 2015-2016
 df_wq_lis_1516 <- df_wq_lis_c %>% filter(year(DateTime) %in% 2015:2016)
-```
 
-Now, create a time-series plot of the water temperature (`WaterTemp`) data for just 2015-2016
-
-```{r}
+# 6) Re-create the time-series plot of water temperature for years 2015-2016
 df_wq_lis_1516 %>% 
   ggplot(aes(x = DateTime, y = WaterTemp)) +
   geom_point()
-```
 
-To check the 2015-2016 data for outliers or erroneous values, plot all continuous water quality parameters (`WaterTemp`, `Turbidity`, `SpCnd`, `pH`, `DO`, `Chla`) in time-series plots using facet_wrap to put each parameter in its own subplot
+# 7) Plot all continuous water quality parameters in time-series plots using
+  # facet_wrap to put each parameter in its own subplot.
 
-```{r}
+# Pivot the data frame to the long format before plotting the data
 lis_wq_param <- c("WaterTemp", "Turbidity", "SpCnd", "DO", "pH", "Chla")
 
 df_wq_lis_1516_l <- df_wq_lis_1516 %>% 
@@ -157,166 +146,140 @@ df_wq_lis_1516_l <- df_wq_lis_1516 %>%
   ) %>% 
   drop_na(Value)
 
+# Create plot
 df_wq_lis_1516_l %>% 
   ggplot(aes(x = DateTime, y = Value)) +
   geom_point() +
   facet_wrap(vars(Parameter))
-```
 
-Some of the parameters are difficult to see clearly, so give each facet a different y-axis range
-
-```{r}
+# 8) Re-create the plot above giving each facet a different y-axis range
 df_wq_lis_1516_l %>% 
   ggplot(aes(x = DateTime, y = Value)) +
   geom_point() +
   facet_wrap(vars(Parameter), scales = "free_y")
-```
 
-Boxplots are also nice to use to look for potential outliers in the data, so make a box and whisker plot of the 2015-2016 data using year as the categorical variable and using facet_wrap to put each parameter in its own subplot giving each facet a different y-axis range.
-
-```{r}
+# 9) Create a box and whisker plot of the 2015-2016 data using year as the
+  # categorical variable and using facet_wrap to put each parameter in its own
+  # subplot. Give each facet a different y-axis range.
 df_wq_lis_1516_l %>% 
+  # Create a categorical (factor) column for Year
   mutate(Year = factor(year(DateTime))) %>% 
   ggplot(aes(x = Year, y = Value)) +
   geom_boxplot() +
   facet_wrap(vars(Parameter), scales = "free_y")
-```
 
-The box and whisker plots show that there may be some possible outliers in some of the parameters, but for the most part, the data looks pretty clean in the time-series plots, so we will use it as is. It turns out that you are only interested in the chlorophyll (`Chla`) data for 2015-2016. Averaging this data will help smooth out any potential outliers in the data. Calculate the daily average chlorophyll values in a new data frame object to be used later.
-HINT: Use the `date` function from the `lubridate` package to extract the date from the `DateTime` column. Also, watch out for `NA` values in `Chla`.
-
-```{r}
+# 10) Calculate daily average chlorophyll values for 2015-2016 in a new data
+  # frame object to be used later
 df_chla_lis_1516 <- df_wq_lis_1516 %>% 
+  # Create a column for Date
   mutate(Date = date(DateTime)) %>% 
   group_by(Date) %>% 
+  # Use na.rm = TRUE to ignore NA values in Chla
   summarize(Chla = mean(Chla, na.rm = TRUE))
-```
 
-Now make a time-series plot of the 2015-2016 chlorophyll data. Assign this plot to a new object so it can be used later.
-
-```{r}
+# 11) Create a time-series plot of the 2015-2016 daily average chlorophyll data.
+  # Assign this plot to a new object so it can be used later
 plt_chla_lis_1516 <- df_chla_lis_1516 %>% 
   ggplot(aes(x = Date, y = Chla)) +
   geom_point() +
   geom_line()
 
+# Print out plot
 plt_chla_lis_1516
-```
 
-This plot is interesting, let's see how daily average chlorophyll values from a nearby station in the Sacramento River (SRH) compares. 
-
-Import the 2014-2018 SRH daily average chlorophyll data.
-
-```{r}
+# 12) Import SRH daily average chlorophyll data
 df_chla_srh <- read_csv(here("data/dv_chla_srh_2014_2018.csv"))
-```
 
-Again, we are only interested in the 2015-2016 data so create a new data frame with just the 2015-2016 data
-
-```{r}
+# 13) Create a new data frame for SRH daily average chlorophyll data for just 2015-2016
 df_chla_srh_1516 <- df_chla_srh %>% filter(year(Date) %in% 2015:2016)
-```
 
-Bind the SRH data to the LIS data so they can be plotted together
-HINT: Watch out for possibly different column names. Also, the LIS data needs a new column for `StationCode` so it can be differentiated from SRH.
+# 14) Bind the daily average chlorophyll data from SRH to the daily averages from LIS
 
-```{r}
+# Rename Chla column in SRH data frame so it matches the LIS data frame
 df_chla_srh_1516_c <- df_chla_srh_1516 %>% rename(Chla = Chla_mean)
 
 df_chla_1516 <- df_chla_lis_1516 %>% 
+  # Create a new column for Station in the LIS data frame
   mutate(Station = "LIS", .before = Date) %>% 
   bind_rows(df_chla_srh_1516_c)
-```
 
-Now create time-series plots of the chlorophyll values on the same plot with different colors for the stations
-
-```{r}
+# 15) Create time-series plots of the daily average chlorophyll values for LIS
+  # and SRH on the same plot with different colors for the stations
 df_chla_1516 %>% 
   ggplot(aes(x = Date, y = Chla, color = Station)) +
   geom_point() +
   geom_line()
-```
 
-It turns out your supervisor really likes this plot, but would like to put it in a report, so they want it to have some nicer formatting. Remake this plot with the following customizations: 
-
-Be sure to assign this plot to a new object so it can be exported as a png file later
-
-```{r}
+# 16) Remake the plot above with the specified customizations. Assign this plot
+  # to a new object so it can be exported as a png file later
 plt_chla_1516 <- df_chla_1516 %>% 
   ggplot(aes(x = Date, y = Chla, color = Station)) +
   geom_point(aes(shape = Station), size = 2) +
   geom_line() +
   theme_bw() +
-  scale_color_manual(values = c("midnightblue", "darkorange3")) +
+  scale_color_manual(values = c(LIS = "midnightblue", SRH = "darkorange3")) +
   scale_shape_manual(values = c(15, 17)) +
   labs(
     title = "Chlorophyll Comparision between LIS and SRH in 2015-2016",
     y = "Daily Average Chlorophyll (ug/L)"
   )
 
+# Print out plot
 plt_chla_1516
-```
 
-Export the figure as a png file with a width of 6 inches and height of 4 inches and a dpi of 300
+# 17) Export the figure for your supervisor's report as a png file. Also export
+  # the 2015-2016 daily average chlorophyll data for LIS and SHR as a csv file.
 
-You also want the 2015-2016 daily average chlorophyll data for LIS and SRH, so export that as a csv.
+# Export plot
+ggsave(
+  plot = plt_chla_1516,
+  filename = "chla_lis_srh_comp.png",
+  width = 6, 
+  height = 4, 
+  units = "in",
+  dpi = 300
+)
 
-After thinking about the results more...
-It looks like LIS varies throughout the summer months in 2016. Could this have something to do with water flow at LIS?
+# Export daily average chlorophyll data
+df_chla_1516 %>% write_csv("dv_chla_lis_srh_2015_2016.csv")
 
-It turns out we in luck because water flow is also collected at LIS. 
-
-Import 2014-2018 daily average water flow (cfs) for LIS
-
-```{r}
+# 18) Import 2014-2018 daily average water flow (cfs) collected at LIS
 df_q_lis <- read_csv(here("data/dv_flow_lis_2014_2018.csv"))
-```
 
-We are only interested in the 2015-2016 data so create a new data frame with just the 2015-2016 data
-
-```{r}
+# 19) Create a new data frame for LIS daily average water flow for just 2015-2016
 df_q_lis_1516 <- df_q_lis %>% filter(year(Date) %in% 2015:2016)
-```
 
-Make a time-series plot of the 2015-2016 daily average flow data for LIS. Assign this plot to a new object so it can be used later.
-
-```{r}
+# 20) Create a time-series plot of the 2015-2016 daily average flow data for
+  # LIS. Assign this plot to a new object so it can be used later
 plt_q_lis_1516 <- df_q_lis_1516 %>% 
   ggplot(aes(x = Date, y = Flow)) + 
   geom_point() +
   geom_line()
 
+# Print out plot
 plt_q_lis_1516
-```
 
-Combine the 2015-2016 chlorophyll and flow plots for LIS into one plot arranged vertically using the `patchwork` package to take a look at how chlorophyll and flow vary across time
-
-```{r}
+# 21) Combine the 2015-2016 chlorophyll and water flow plots for LIS into one
+  # plot arranged vertically using the patchwork package
 plt_chla_lis_1516 / plt_q_lis_1516
-```
 
-There does seem to be some relationship between chlorophyll and flow particularly during 2016. Make a scatterplot of flow on the x-axis and chlorophyll on the y-axis for 2016 to take a look at this relationship in a different way.
-
-First, you will need to join the flow data to the chlorophyll data and filter it to just 2016
-
-```{r}
+# 22) Join the daily average flow data for LIS to the daily average chlorophyll
+  # data and filter it to just 2016
 df_chla_q_lis_16 <- df_chla_lis_1516 %>% 
+  # Join flow data to chlorophyll data
   left_join(df_q_lis_1516, by = join_by(Date)) %>% 
+  # Filter to just 2016
   filter(year(Date) == 2016) %>% 
+  # Remove rows with NA values in Flow column
   drop_na(Flow)
-```
 
-Next, make the scatterplot
-
-```{r}
+# 23) Create a scatterplot of the 2016 LIS data with daily average flow on the
+  # x-axis and daily average chlorophyll on the y-axis
 df_chla_q_lis_16 %>% 
   ggplot(aes(x = Flow, y = Chla)) +
   geom_point()
-```
 
-Bonus: add a trend line using a linear model (LM) to the plot
-
-```{r}
+# 24) Add a trend line to the scatterplot above using a linear model (LM)
 df_chla_q_lis_16 %>% 
   ggplot(aes(x = Flow, y = Chla)) +
   geom_point() +
