@@ -163,7 +163,7 @@ df_wq_c %>%
   )
 ```
 
-Wow, now we are starting to get somewhere with summarizing our data set. You'll see that now we have an another column added to the tibble for "Year in addition to "Station" with the desired summary statistics for each combination in the following columns. You may also have noticed that the printout of the tibble indicates that it is still grouped by "Station". This is because the default behavior of using `summarize` after `group_by` is to drop the last level of grouping ("Year") in its output. It is always good practice to ungroup a data frame when you no longer need it to be grouped because you can get unintended results when using other functions on it. You can ungroup the data frame by using the `ungroup` function within the `dplyr` package.
+Wow, now we are starting to get somewhere with summarizing our data set. You'll see that now we have another column added to the tibble for "Year" in addition to "Station" with the desired summary statistics for each combination in the following columns. You may also have noticed that the printout of the tibble indicates that it is still grouped by "Station". This is because the default behavior of using `summarize` after `group_by` is to drop the last level of grouping ("Year") in its output. It is always good practice to ungroup a data frame when you no longer need it to be grouped because you can get unintended results when using other functions on it. You can ungroup the data frame by using the `ungroup` function within the `dplyr` package.
 
 ```{r}
 # Always best practice to ungroup data after finished with operation
