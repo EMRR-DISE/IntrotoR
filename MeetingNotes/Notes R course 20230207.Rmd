@@ -155,3 +155,12 @@ list of packages
 - what we want for later
 
 - Practice break out rooms before the date. 
+
+## Things to do differently next time
+
+- Make the TA"s co-organizers on the Teams meetings so they can bounce between breakout roooms.
+- Spend more time on projects. Show how a project folder is orgainzied. Make sure they know to open the project rather than their code file the next day.
+- Be a little more clear in the beginning when people should be listening and when they should be coding.
+- Move some of the Day 4 material to Day 2, some of the Day 2 material to Day 1.
+- Have an hour for the final exercise. Maybe do it in two, half-hour chunks and go over the first chunk so people don't get stuck.
+
