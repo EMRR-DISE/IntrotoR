@@ -10,97 +10,6 @@ execute:
   warning: false
 ---
 
-## R
-
-R is a flexible coding language that anyone can learn
-
-I am taking a lot of this tutorial from the e-book "Hands on Programming in R" <https://rstudio-education.github.io/hopr/>
-
-**Isn’t R a language?**
-
-You may hear me speak of R in the third person. For example, I might say, “Tell R to do this” or “Tell R to do that”, but of course R can’t do anything; it is just a language. This way of speaking is shorthand for saying, “Tell your computer to do this by writing a command in the R language at the command line of your RStudio console.” Your computer, and not R, does the actual work.
-
-Is this shorthand confusing and slightly lazy to use? Yes. Do a lot of people use it? Everyone I know–probably because it is so convenient.
-
-Rstudio - integrated development environment
-
-## Why use code?
-
-There is a very steep learning curve to R (or any coding language). You are likely to get frustrated when code doesn't work. The first things you learn are probably things you could do easier and faster in Excel. So why bother?
-
-1.  Reproducibility. Your workflow will be documented and can be repeated quickly and easily. It is also easier to fix your mistakes because you can see exactly what you did in every step of the process!
-2.  Large datasets. The larger your dataset is, the more difficult it will be to analyze in Excel or other GUI-based programs.
-3.  Advanced statistical capabilities. You can go a lot further with tools like mixed models, multivariate analyses, machine learning, and population models that are impossible in Excel.
-4.  Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probably been done before, and there is a publicly-available package to help you out.
-
-## Part 1: The Very basics
-
-OK, everyone, open Rstudio. Click on the new project button. A 'project' is basically an organized directory that has all of the data, code, and outputs for a particular work product. It's especially useful once you start working on multiple files and reading in and out data and stuff, so it's good to get in the habit of always working in a project. For now, choose a location for a folder that will contain all the work you want to do for this class. This folder is your "working directory", meaning, the default location for loading inputs and writing outputs, scripts, etc.
-
-![](images/clipboard-1877319971.png)
-
-Now let's take a look at your RStudio Screen. Go over the different panes and how to navigate and customize.
-
-This should be in your console:
-
-![](images/clipboard-1223953277.png)
-
-Now go to File –\> new file –\> R script.
-
-This will be your first R script. You will type things in the script, then transfer them to the console to run them. You can technically type directly into the console, but then you can't save them, and that's bad, so get into the habit of writing everything in your script.
-
-### Comments
-
-Another good habit to start early is commenting your code. Comments are indicated by hashtags `#`. They are parts of your script that don't do anything, just give you information about what you intended in your code and why you did what you did. RStudio helpfully color-codes them for you.
-
-For example:
-
-```{r}
-#This is my first R script
-
-#test out addition
-1+1
-
-#use a function
-sum(c(1,1))
-```
-
-### Running code
-
-From your script, you can hit the 'Run' icon in the top right corner to move a line of code from your script to your console.
-
-You can also hit ctrl+enter to do the same thing.
-
-Highlight multiple lines of code to run more than one thing at once.
-
-The "source" button at the top of the script runs the entire script at once without printing all the output. This is useful of you have a script that is mostly setup stuff or homemade functions.
-
-You will notice that in the console all the lines of code you run start with a `>`. If you have multiple lines of code strung together, there will be `+` at the start of the new lines until the end of the code. In an R script, you can break your code up into lines to make it all fit on your screen, so long as the parentheses line up.
-
-The output does not start with a carrot or plus sign. (explain the brackets)
-
-### Exercise
-
-Now your turn!
-
-1.  Use comments to write a title, date, and your name at the top of the script.
-2.  Save your script in your project working directory
-3.  Type `24/2` in your script
-4.  Run the script
-
-Click below for the answer when you are done!
-
-```{r}
-#| code-fold: true
-#| eval: false
-
-# My First R script
-#
-
-24/2
-
-```
-
 ## Part 2: Objects and Assignment
 
 The joy of coding is that you can quickly to a lot of things at once. So, if I had a dataset with temperatures in Fahrenheit that I want to convert to Celsius, we can use R to do that all at once.
@@ -188,13 +97,13 @@ We can call `temps` and `temps_C` *objects*. Specifically, they are numeric vect
 
 -   Scalars - single value
 
--   Vectors - list if values (one dimensional)
+-   Vectors - list if values (one dimensional), all the same data class
 
--   Matrices - values in rows and columns, all the same type (two dimensional)
+-   Matrices - values in rows and columns, all the same class (two dimensional)
 
 -   Arrays - multiple matrices stacked up (three-dimensional)
 
--   Data Frames - Data of different types in rows and columns, where all columns are the same length and all rows are the same width.
+-   Data Frames - Data of different types in rows and columns, where all columns are the same length and all rows are the same width. Data in the different columns can be of different classes.
 
 -   Lists - data of different types and different lengths in rows and columns.
 
@@ -202,13 +111,13 @@ We can call `temps` and `temps_C` *objects*. Specifically, they are numeric vect
 
 -   numeric - Numbers (duh), these can be integers, real numbers, etc.
 
--   character - Any sequence of letters and numbers
+-   character - Any sequence of letters and numbers or special characters.
 
--   logical - TRUE/FALSE (always in all caps)
+-   logical - `TRUE`/`FALSE` (always in all caps, or abbreviated `T` and `F`)
 
 -   factor - Categorical variables that take a limited set of values. May be ordered (like water year types), or unordered (like families of fishes)
 
--   date/time classes (giant can of worms)
+-   date/time classes (giant can of worms, we'll talk about those later)
 
 Using `class` and `str` to get info about objects. also `View` and `head`.
 
@@ -220,7 +129,7 @@ class(foo)
 str(foo)
 class(dog)
 
-foo2 = c("Cat", "dog", "Mouse", "Squirrel")
+foo2 = c("Mouse", "Cat", "dog", "Squirrel")
 str(foo2)
 ```
 
@@ -250,6 +159,62 @@ mean(c(1,2,3,4))
 ```
 
 Notice that as you start typing the function, a box pops up in RStudio that prompts you with the arguments you might want to use. Also note that we have to "feed" the `mean` function a vector of values with `c` (concatenate) in front of it.
+
+You can convert between data classes using `as.class` . This is particularly useful for factors. If you have a bunch of character strings, R automatically puts them in alphabetical order, but if you have a factor, you can specify which order the different factor levels should go in.
+
+```{r}
+
+dog2 <- as.character(dog)
+dog2
+class(dog2)
+
+# This only works if things are compatible
+as.numeric(foo)
+as.numeric(dog2)
+
+#let's look at factors
+foo3 = as.factor(foo2)
+str(foo3)
+
+#You can specify factor order
+foo4 <- factor(foo2, levels = c("Squirrel","Mouse", "Cat", "dog"))
+str(foo4)
+
+#turn it baack into a character
+as.character(foo4)
+
+#factors are internally stored as numbers, so you can even convert to numeric
+as.numeric(foo4)
+
+#you can change the labels
+foo5 <- factor(foo2, levels = c("Squirrel","Mouse", "Cat", "dog"),
+               labels = c("Wet", "Normal", "Dry", "Critical"))
+str(foo5)
+
+```
+
+You can even write your own functions! This often intimidates people at first, but it can be really useful as you get more advanced, since it is a "short cut" that means you can get more done with less typing.
+
+For example, if you wanted to convert a bunch of numbers from farenheight to celcius (like we did above), you can write a function that takes a number, subtracts 32, and multiplies by 5/9 all at once.
+
+```{r}
+
+#we'll name our function FtoC
+#it takes a single argument - temperatur ein Farenheight, which we'll call TempF
+
+FtoC <- function(TempF) {
+  C <- (TempF-32)*5/9
+  return(C) #tell the function what to give you back
+}
+
+FtoC(32)
+
+FtoC(c(23,24,56,101))
+
+FtoC(Temps)
+```
+
+Don't worry about writing your own functions too much right now, but I want you to know it's a possibility
 
 #### Exercise
 
@@ -405,7 +370,73 @@ Now go to the documentation for dplyr and look through the "Introduction to dply
 vignette("dplyr")	
 ```
 
-## Part 4: Errors and Getting Help
+## Part 4: Importing and Exporting data
+
+Next, we must import our data.
+
+The common function for this is `read_csv` from `readr` (which is nested in `tidyverse`). For our demonstrations, we will use the **WQ_P8D7.csv** file housed in the **data** folder.
+
+When importing data, we must specify the *filepath* where it's housed. There are multiple ways to do this. We could hard-code in the path, which is called the **absolute path**:
+
+```{r}
+#| error: true
+
+df_wq <- read_csv('C:/R/IntrotoR/data/WQ_P8D7.csv')
+```
+
+However, this code is very specific and will break when used on other computers.
+
+If we instead house data in a **Project**, we can make use of **relative filepaths**. These are ideal because anyone who uses the Project can run the code:
+
+```{r}
+df_wq <- read_csv('data/WQ_P8D7.csv')
+```
+
+**If you received an error here**, this is probably because you either didn't save the file in the right folder, or you are not working in a project.
+
+::: callout-note
+### Data File Extensions and Delimiters
+
+Here, we used the `read_csv` function, which takes .csv files by default. But what is a csv?
+
+"csv" stands for "comma separated values", where the comma is called a **delimiter**; it tells the code where to separate the data cells. If you want to use a different delimiter, you can use the `read_delim` function (also from the `readr` package):
+
+```{r}
+read_delim('data/delim_ex.txt', delim = '|') # data separated by |
+```
+
+for tab delimited data (a fairly frequent format), there's `read_tsv`:
+
+```{r}
+read_tsv('data/tab_ex.tsv')
+```
+
+Excel files (.xlsx) are unique because they're not solely defined by their delimiters, which allows for more complicated file formatting. To import these, we use `read_excel` from the `readxl` package:
+
+```{r}
+library(readxl)
+
+read_excel('data/excel_ex.xlsx', sheet = 'Sheet1') # read the first sheet (by name)
+
+read_excel('data/excel_ex.xlsx', sheet = 2) # read the second sheet (by number)
+```
+:::
+
+------------------------------------------------------------------------
+
+We now have a data frame *object* called `df_wq`. We can use `head` to see what the first few rows of the data frame look like:
+
+```{r}
+head(df_wq)
+```
+
+And `glimpse` to see information about the columns:
+
+```{r}
+glimpse(df_wq)
+```
+
+## Part 5: Errors and Getting Help
 
 One of the most frustrating parts of coding is errors. Your computer is very good at doing exactly what you tell it to, but that might not be what you want.
 
