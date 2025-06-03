@@ -1,5 +1,5 @@
 ---
-title: "An introduction to R"
+title: "Day 1 - Errors and help"
 editor: visual
 format:
   html:
@@ -10,7 +10,7 @@ execute:
   warning: false
 ---
 
-## Part 5: Errors and Getting Help
+## Errors and Getting Help
 
 One of the most frustrating parts of coding is errors. Your computer is very good at doing exactly what you tell it to, but that might not be what you want.
 
@@ -19,6 +19,7 @@ One of the most frustrating parts of coding is errors. Your computer is very goo
 
 dates = c("Monday", "Tuesday", "Wednesday")
 
+#select the first element of the `dates` vector (more on this tomorrow)
 date[1]
 
 ```
@@ -67,7 +68,7 @@ The first thing to learn, is how to read the documentation for a function.
 
 The documentation has a few standard parts
 
--   function and package in curly brackets at top
+-   Function and package in curly brackets at top
 
 -   Title
 

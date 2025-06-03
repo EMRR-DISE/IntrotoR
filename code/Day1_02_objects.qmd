@@ -1,5 +1,5 @@
 ---
-title: "An introduction to R"
+title: "Day 1 - Objects and Functions"
 editor: visual
 format:
   html:
@@ -10,7 +10,7 @@ execute:
   warning: false
 ---
 
-## Part 2: Objects and Assignment
+## Objects and Assignment
 
 The joy of coding is that you can quickly to a lot of things at once. So, if I had a dataset with temperatures in Fahrenheit that I want to convert to Celsius, we can use R to do that all at once.
 
@@ -195,12 +195,12 @@ str(foo5)
 
 You can even write your own functions! This often intimidates people at first, but it can be really useful as you get more advanced, since it is a "short cut" that means you can get more done with less typing.
 
-For example, if you wanted to convert a bunch of numbers from farenheight to celcius (like we did above), you can write a function that takes a number, subtracts 32, and multiplies by 5/9 all at once.
+For example, if you wanted to convert a bunch of numbers from Farenheit to Celcius (like we did above), you can write a function that takes a number, subtracts 32, and multiplies by 5/9 all at once.
 
 ```{r}
 
 #we'll name our function FtoC
-#it takes a single argument - temperatur ein Farenheight, which we'll call TempF
+#it takes a single argument - temperatur ein Farenheit, which we'll call TempF
 
 FtoC <- function(TempF) {
   C <- (TempF-32)*5/9
@@ -214,7 +214,7 @@ FtoC(c(23,24,56,101))
 FtoC(Temps)
 ```
 
-Don't worry about writing your own functions too much right now, but I want you to know it's a possibility
+Don't worry about writing your own functions too much right now, but I want you to know it's a possibility.
 
 #### Exercise
 
@@ -263,328 +263,4 @@ exp(20)
 
 exp(log(10))
 
-```
-
-## Part 3: Packages
-
-The real benefit of R is that it is open-source, and tons and tons of people have developed 'expansion packs' for R. You can go a very long way with just the built-in R functions, but many people have developed slightly different ways of doing things, easier methods, and more advanced things.
-
-Let's go over to the R website and talk packages - <https://www.r-project.org/>
-
-We had everyone install the `tidyverse` packages before getting started. This is actually a set of packages that all work together to make code a little more intuitive. Let's go over to the "Packages" tab in RStudio and check them out.
-
--   dplyr - data manipulation
-
--   lubridate - dates and times
-
--   ggplot2 - graphics
-
--   tidyr - more data manipulation
-
--   forcats - working with categorical variables (factors)
-
--   readr - importing data from spreadsheets
-
--   stringr - working with character strings
-
--   tibble - nicer checking and formatting for tables and data frames
-
-You'll notice that besides the tidyverse, there are a number of other packages in this tab that you didn't install - they came along with base R.
-
-When you want to install or update packages, you can use the `install.packages` command, or the GUI in RStudio. This command reaches out to (incomplete). You only have to do this once. However, at the start of every R session you will need to load the package into your environment using the `library` command. This is usually done at the top of your script.
-
-```{r}
-#load required libraries
-library(readr)
-```
-
-Let's check out the documentation
-
-```{r}
-#| eval: false
-#check out documentation
-?readr
-
-```
-
-Click on the index, then one of the vignettes - those are very useful!
-
-![](images/clipboard-1741072157.png)
-
-### Package conflicts
-
-After you've loaded a package, you might get some warnings about conflicted packages. These are different functions with the same name in two different packages. Mostly it isn't a problem, but sometimes you'll have to specify which function you mean.
-
-Specify which you want with `package::function`
-
-```{r}
-library(lubridate)
-```
-
-If you really want the base version instead of the one from a package, you can use the `exclude` argument.
-
-```{r}
-#remove the lubrdate library we just loaded
-detach("package:lubridate")
-
-#now reload with the exclusion
-library(lubridate, exclude = "date")
-```
-
-### Exercise
-
-Let's try using a function that is in a package. `glimpse` is an simple function that tells you about a data frame. R has a number of built-in data sets that you can play with, and one is `mtcars`. It's just a table of different makes and models of cars and their stats.
-
-```{r}
-#| eval: false
-
-#The View function is built in. 
-View(mtcars)
-```
-
-```{r}
-#| error: true
-
-#the "glimpse" function is in the dplyr package. It's part of the tidyverse set of packages. You should have installed it already
-glimpse(mtcars)
-```
-
-Even though you installed it, you still need to load it into your workspace using the `library` command.
-
-```{r}
-
-library(dplyr)
-
-glimpse(mtcars)
-```
-
-### Exercise
-
-Now go to the documentation for dplyr and look through the "Introduction to dplyr" vignette. Take 10 mins and see if you try out some of the examples. We'll be using a lot of these dplyr functions later in the class.
-
-```{r}
-#| eval: FALSE
-
-?dplyr
-
-vignette("dplyr")	
-```
-
-## Part 4: Importing and Exporting data
-
-Next, we must import our data.
-
-The common function for this is `read_csv` from `readr` (which is nested in `tidyverse`). For our demonstrations, we will use the **WQ_P8D7.csv** file housed in the **data** folder.
-
-When importing data, we must specify the *filepath* where it's housed. There are multiple ways to do this. We could hard-code in the path, which is called the **absolute path**:
-
-```{r}
-#| error: true
-
-df_wq <- read_csv('C:/R/IntrotoR/data/WQ_P8D7.csv')
-```
-
-However, this code is very specific and will break when used on other computers.
-
-If we instead house data in a **Project**, we can make use of **relative filepaths**. These are ideal because anyone who uses the Project can run the code:
-
-```{r}
-df_wq <- read_csv('data/WQ_P8D7.csv')
-```
-
-**If you received an error here**, this is probably because you either didn't save the file in the right folder, or you are not working in a project.
-
-::: callout-note
-### Data File Extensions and Delimiters
-
-Here, we used the `read_csv` function, which takes .csv files by default. But what is a csv?
-
-"csv" stands for "comma separated values", where the comma is called a **delimiter**; it tells the code where to separate the data cells. If you want to use a different delimiter, you can use the `read_delim` function (also from the `readr` package):
-
-```{r}
-read_delim('data/delim_ex.txt', delim = '|') # data separated by |
-```
-
-for tab delimited data (a fairly frequent format), there's `read_tsv`:
-
-```{r}
-read_tsv('data/tab_ex.tsv')
-```
-
-Excel files (.xlsx) are unique because they're not solely defined by their delimiters, which allows for more complicated file formatting. To import these, we use `read_excel` from the `readxl` package:
-
-```{r}
-library(readxl)
-
-read_excel('data/excel_ex.xlsx', sheet = 'Sheet1') # read the first sheet (by name)
-
-read_excel('data/excel_ex.xlsx', sheet = 2) # read the second sheet (by number)
-```
-:::
-
-------------------------------------------------------------------------
-
-We now have a data frame *object* called `df_wq`. We can use `head` to see what the first few rows of the data frame look like:
-
-```{r}
-head(df_wq)
-```
-
-And `glimpse` to see information about the columns:
-
-```{r}
-glimpse(df_wq)
-```
-
-## Part 5: Errors and Getting Help
-
-One of the most frustrating parts of coding is errors. Your computer is very good at doing exactly what you tell it to, but that might not be what you want.
-
-```{r}
-#| error: true
-
-dates = c("Monday", "Tuesday", "Wednesday")
-
-date[1]
-
-```
-
-This is one of my least favorite error messages. What the heck does that even mean?
-
-It turns out we accidentally typed `date` instead of `dates`, and `date` is a reserved term in R, so it was trying to subset a word that designates a data type and everyone was confused. But don't worry! It gets worse.
-
-Everyone has trouble interpreting error messages at first. Fortunately, error messages are improving, and you will get better at understanding them.
-
-Another thing to know is that not all red text is errors. Some are warnings. Don't worry about what this code does for now, just see what the output looks like.
-
-```{r}
-library(ggplot2)
-```
-
-```{r}
-#| warning: true
-
-mtcars[1,1] = NA 
-
-ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
-
-```
-
-Everything still ran, but it gave to a warning to let you know something did not go as planned.
-
-We also sometimes get messages, which are usually not even red.
-
-```{r}
-#| message: true
-
-#don't worry about what this code does for now, just notice that we get a message telling you what it decided to use for the smoothing term.
-ggplot(mtcars, aes(x = mpg, y = hp))+ geom_point()+ geom_smooth()
-
-
-```
-
-The first thing to learn, is how to read the documentation for a function.
-
-```{r}
-#| eval: false
-
-?mean
-```
-
-The documentation has a few standard parts
-
--   function and package in curly brackets at top
-
--   Title
-
--   Description- Frequently not all that helpful, but sometimes useful
-
--   Usage (Function and arguments)
-
-    ![](images/clipboard-960713081.png)
-
--   Arguments - description of what all the arguments should contain
-
-    ![](images/clipboard-3567295094.png)
-
--   Value - output
-
-    ![](images/clipboard-2924046281.png)
-
--   References - articles or more info
-
--   See Also - similar functions or functions you might want if you want this one
-
--   ![](images/clipboard-3033732603.png)
-
--   Examples - THE MOST USEFUL PART!
-
-    ![](images/clipboard-1798966994.png)
-
--   Sometimes there are other parts, including more details on statistical methods, but these are the basics.
-
-### Exercise
-
-Look up the documentation for these functions and see if you can run the examples.
-
-`rnorm`
-
-`aov`
-
-`sample`
-
-Click below to see the answer when you are done.
-
-```{r}
-#| code-fold: true
-#| eval: false
-
-?rnorm
-#rnorm generates a random number or numbers from a normal distribution. You can specify the mean and standard deviation
-
-#this generates 20 random numbers with a mean of 10 and a standard deviation of 3
-rnorm(20, mean = 10, sd =3)
-
-?aov
-#aov runs an ANOVA (analysis of variance), which tests for differences between groups
-
-#the examples use the "npk" dataset which is built into R
-aov(yield ~ block + N * P + K, npk)
-
-?sample
-#this function takes a subsample of a larger set of number of a specified size 
-
-x <- 1:12
-# a random permutation
-sample(x)
-# bootstrap resampling -- only if length(x) > 1 !
-sample(x, replace = TRUE)
-```
-
-### Online help options
-
--   <https://rseek.org/>
-
--   <https://chatgpt.com/>
-
--   <https://posit.co/resources/cheatsheets/>
-
-![](images/clipboard-2816609803.png)
-
-## Closing for the day
-
-How to save your workspace image.
-
-```{r}
-#| eval: false
-
-save.image()
-#also little save icon on environment
-```
-
-How to clear your workspace.
-
-```{r}
-rm(list = ls())
-#also little broom icon on the environment
 ```

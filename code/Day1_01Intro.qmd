@@ -1,5 +1,5 @@
 ---
-title: "An introduction to R"
+title: "Day 1 - An introduction to R"
 editor: visual
 format:
   html:
@@ -37,7 +37,7 @@ There is a very steep learning curve to R (or any coding language). You are like
 3.  Advanced statistical capabilities. You can go a lot further with tools like mixed models, multivariate analyses, machine learning, and population models that are impossible in Excel.
 4.  Huge crowd-sourced base of packages and help. The R community is really what makes it special. Pretty much anything you want to do has probably been done before, and there is a publicly-available package to help you out.
 
-## Part 1: The Very basics
+## The Very basics
 
 OK, everyone, open Rstudio. Click on the new project button. A 'project' is basically an organized directory that has all of the data, code, and outputs for a particular work product. It's especially useful once you start working on multiple files and reading in and out data and stuff, so it's good to get in the habit of always working in a project. For now, choose a location for a folder that will contain all the work you want to do for this class. This folder is your "working directory", meaning, the default location for loading inputs and writing outputs, scripts, etc.
 
@@ -47,7 +47,7 @@ Now let's take a look at your RStudio Screen. Go over the different panes and ho
 
 This should be in your console:
 
-![](images/clipboard-1223953277.png)
+![](images/clipboard-3022569080.png)
 
 Now go to File –\> new file –\> R script.
 
@@ -56,6 +56,8 @@ This will be your first R script. You will type things in the script, then trans
 ### Comments
 
 Another good habit to start early is commenting your code. Comments are indicated by hashtags `#`. They are parts of your script that don't do anything, just give you information about what you intended in your code and why you did what you did. RStudio helpfully color-codes them for you.
+
+Comments are extra useful if you are sharing code with someone else. And remember "Someone else" might just be you in the future!
 
 For example:
 
@@ -81,7 +83,7 @@ The "source" button at the top of the script runs the entire script at once with
 
 You will notice that in the console all the lines of code you run start with a `>`. If you have multiple lines of code strung together, there will be `+` at the start of the new lines until the end of the code. In an R script, you can break your code up into lines to make it all fit on your screen, so long as the parentheses line up.
 
-The output does not start with a carrot or plus sign. (explain the brackets)
+The output does not start with a carrot or plus sign.
 
 ### Exercise
 
