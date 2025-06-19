@@ -10,18 +10,18 @@ execute:
   warning: false
 ---
 
-```{r}
-#| include: false
-
-library(tidyverse)
-library(here)
-
-df_wq <- read_csv(here("data/WQ_P8D7.csv"))
-```
-
 ## Introduction
 
 Sometimes your data analysis project requires more than one data set that need to be combined in order to perform your analysis. This chapter covers two common methods of combining more than one data set in R - binds and joins. We'll start this lesson covering the differences between these two methods including the situations to best use them in, and then move into the powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package that help with combining data frames.
+
+## Load Packages
+
+We'll start the day with loading packages
+
+```{r load packages}
+library(tidyverse)
+library(here)
+```
 
 ## Differences between Binds and Joins
 
@@ -72,9 +72,10 @@ After all this information, you may be wondering when is it best to use bind vs.
 
 ## Bind rows
 
-Now that we have a better understanding of what it means to bind the rows of multiple data frames, let's learn about how to actually perform this operation. The `bind_rows` function within the `dplyr` package is the easiest way I've found to accomplish this. Let's use the EMP water quality data set we've been working with to demonstrate how to bind rows. To start, we need a second data frame to bind to it. We'll import some additional EMP water quality data collected in 2019 at the same two stations - P8 and D7 - to be combined to the 2020-2022 data.
+Now that we have a better understanding of what it means to bind the rows of multiple data frames, let's learn about how to actually perform this operation. The `bind_rows` function within the `dplyr` package is the easiest way I've found to accomplish this. Let's use the EMP water quality data set we've been working with to demonstrate how to bind rows. To start, we need a second data frame to bind to it. We'll import both the 2020-2022 EMP data we've been working with and some additional EMP water quality data collected in 2019 at the same two stations - P8 and D7 - to be combined to the 2020-2022 data.
 
 ```{r}
+df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 df_wq_2019 <- read_csv(here("data/WQ_2019.csv"))
 ```
 

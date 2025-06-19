@@ -1,6 +1,5 @@
 ---
 title: "Bonus lesson - Markdown Files"
-editor: visual
 format:
   html:
     code-link: true
