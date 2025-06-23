@@ -16,6 +16,8 @@ R is a flexible coding language that anyone can learn
 
 I am taking a lot of this tutorial from the e-book "Hands on Programming in R" <https://rstudio-education.github.io/hopr/>
 
+We're setting this up as an online web-book where there are chucks of code that you can copy and paste into your console by clicking on the clipboard icon in the top right. For the exercises, we have hidden the answers but you can check yourself once you have tried it.
+
 **Isn’t R a language?**
 
 You may hear me speak of R in the third person. For example, I might say, “Tell R to do this” or “Tell R to do that”, but of course R can’t do anything; it is just a language. This way of speaking is shorthand for saying, “Tell your computer to do this by writing a command in the R language at the command line of your RStudio console.” Your computer, and not R, does the actual work.
