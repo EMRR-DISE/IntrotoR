@@ -1,6 +1,6 @@
 ---
-title: "Bonus lesson - Dates and Times"
-editor: visual
+title: "Dates and Times"
+author: "Dave Bosworth"
 format:
   html:
     code-link: true
@@ -12,9 +12,9 @@ execute:
 
 ## Dates and Times
 
-Dates and times are one of the most annoying data classes to deal with. There are many different ways of storing date and time information, and it's easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package `lubridate`. (which is part of tidyverse)
+Dates and times are one of the more challenging data classes to deal with. There are many different ways of storing date and time information, and it's easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package [`lubridate`](https://lubridate.tidyverse.org/index.html), which is part of the tidyverse.
 
-For more info, see: <https://r4ds.hadley.nz/datetimes.html>
+For more info, see the Dates and Times chapter in [R for Data Science](https://r4ds.hadley.nz/datetimes.html).
 
 First, let's look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the `today` function to get a date with today's value.
 
@@ -32,7 +32,6 @@ Now let's talk about date-times. R automatically stores the dates and times toge
 now()
 
 as.numeric(now())
-
 ```
 
 Note that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.
@@ -60,51 +59,43 @@ The built-in function to convert from characters to dates is `strptime`
 ```{r}
 #| eval: false
 ?strptime
-
 ```
 
 To use this function, we just feed in the date in character form and specify what format it is in. The format syntax is a little annoying, but the documentation for `strptime` gives you all the options.
 
 ```{r}
-#date in character format
-date1 = "2/3/2021"
+# Date in character format
+date1 <- "2/3/2021"
 
-#Convert it. Little m for month, little d for day, capital Y for four-diget year.
-date1a = strptime(date1, format = "%m/%d/%Y")
-date1a
+# Convert it. Little m for month, little d for day, capital Y for four-digit year.
+date1_conv <- strptime(date1, format = "%m/%d/%Y")
+date1_conv
 ```
 
 ```{r}
-#Try a different format. Lowercase y for two-digit year.
-
-date2 = "2/3/21"
-date2a = strptime(date2, format = "%m/%d/%y")
-date2a
+# Try a different format. Lowercase y for two-digit year.
+date2 <- "2/3/21"
+date2_conv <- strptime(date2, format = "%m/%d/%y")
+date2_conv
 ```
 
 ```{r}
-#Now one with a time on it. Note that any spaces or dashes need to be the same in the format call as in your character vector.
-
-date3 = "2-3-2021 08:15"
-date3a = strptime(date3, format = "%m-%d-%Y %H:%M")
-date3a
-
-
+# Now one with time included. Note that any spaces or dashes need to be the same in the format call as in your character vector.
+date3 <- "2-3-2021 08:15"
+date3_conv <- strptime(date3, format = "%m-%d-%Y %H:%M")
+date3_conv
 ```
 
 The format strings are quite annoying, so fortunately the lubridate package has a number of shortcut functions to make converting easier.
 
 ```{r}
 #| eval: false
-
 ?ymd
-
 ```
 
 Let's try the dates we converted above with these functions.
 
 ```{r}
-
 mdy(date1)
 
 mdy(date2)
@@ -115,9 +106,7 @@ mdy_hm(date3)
 Note that `strptime` defaulted the time zone to PDT, whereas `mdy_hm` defaulted to UTC. It's always wise to specify your time zone manually to make sure issues don't come up.
 
 ```{r}
-
-mdy_hm(date3, tz =  "America/Los_Angeles")
-
+mdy_hm(date3, tz = "America/Los_Angeles")
 ```
 
 Note that when I specified the time zone, I actually specified the location, since we switch time zones with Daylight Savings.
@@ -129,18 +118,41 @@ To get a complete list of time zone names, see `OlsonNames()`
 OlsonNames()
 ```
 
-If you have a dataset that is collected in California, but doesn't use Daylight savings, use Etc/GMT+8. GMT (Greenwich Mean Time) doesn't change with daylight savings, and we are 8 hours ahead.
+If you have a dataset that is collected in California, but doesn't use Daylight savings, use "Etc/GMT+8". GMT (Greenwich Mean Time) doesn't change with daylight savings, and we are 8 hours behind. Most if not all water quality data collected by DWR is recorded in Pacific Standard Time (PST) year-round, so "Etc/GMT+8" is the correct time zone to use for these instances.
 
 ```{r}
-mdy_hm(date3, tz =  "Etc/GMT+8")
+mdy_hm(date3, tz = "Etc/GMT+8")
 ```
 
-R automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the `format` function.
+The lubridate package also has a few other useful functions for working with time zones - `tz`, `force_tz`, and `with_tz`. 
+
+You can check the time zone of a date-time object with the `tz` function.
 
 ```{r}
-date1a
-format(date1a, format = "%m/%d/%y")
+date4 <- ymd_hms("2025-06-19 14:00:00")
+tz(date4)
+```
 
+If you have a date-time object that is in the wrong time zone, you can use `force_tz` to change the time zone but keep the same clock time. For example,
+
+```{r}
+date4
+date4_conv <- force_tz(date4, tzone = "Etc/GMT+8")
+date4_conv 
+```
+
+If you want to convert a date-time object to an new time zone, converting both the clock time and time zone, you can use the 'with_tz' function.
+
+```{r}
+date4_conv
+with_tz(date4_conv, tzone = "America/Los_Angeles")
+```
+
+R automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the `format` function. Note that this converts the date back to a character class.
+
+```{r}
+date1_conv
+format(date1_conv, format = "%m/%d/%y")
 ```
 
 But really, why would you want to change the format?
@@ -154,55 +166,61 @@ https://xkcd.com/1179
 As noted above, there is no built-in `time` class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.
 
 ```{r}
-
-times = c("1:20", "2:30", "3:50", "14:00")
-
-times = strptime(times, format = "%H:%M")
+times <- c("1:20", "2:30", "3:50", "14:00")
+times <- strptime(times, format = "%H:%M")
 times
-
-
 ```
 
 It will usually default to today's date, or sometimes to Dec 31st, 1899. If you have a "Date" and a "Time" column in your dataframe, it's best to just combine them for manipulation.
 
 ```{r}
+df_date_times <- tibble(
+  times = c("1:20", "2:30", "3:50", "14:00"),
+  dates = c("2021-01-01", "2023-12-01", "2011-06-04", "2022-10-11")
+)
 
-datesandtimes = data.frame(times = c("1:20", "2:30", "3:50", "14:00"),
-                           dates = c("2021-01-01", "2023-12-01", "2011-06-04", "2022-10-11"))
+glimpse(df_date_times)
 
-str(datesandtimes)
+df_date_times_c <- df_date_times %>% 
+  mutate(
+    Date = ymd(dates), 
+    Time = strptime(times, format = "%H:%M"),
+    DateTime = ymd_hm(paste(dates, times), tz = "America/Los_Angeles")
+  )
 
-datesandtimes = mutate(datesandtimes, 
-                       Date = ymd(dates), 
-                       Time = strptime(times, format = "%H:%M"),
-                       DateTime = ymd_hm(paste(dates, times)))
-
-str(datesandtimes)
+glimpse(df_date_times_c)
+tz(df_date_times_c$DateTime)
 ```
 
-If you do really want to deal with just the time part of a date/time object, use the `hms` package.
+If you do really want to deal with just the time part of a date-time object, use the `hms` package.
 
 ```{r}
 library(hms)
 
+times
 as_hms(times)
 ```
 
-## Extracting parts of a date/time object
+## Extracting parts of a date-time object
 
-Lubridate has a lot of really useful thing to take dates and times apart. Like figuring out the month, year, day, etc.
+the lubridate package has a lot of really useful functions to extract components from dates and times such as month, year, day, etc.
 
 ```{r}
-#month (as number or name)
-month(date1a)
-month(date1a, label = TRUE)
+date1_conv
 
-#year
-year(date1a)
+# Year
+year(date1_conv)
 
-#day of year
-yday(date1a)
+# Month (as number or name)
+month(date1_conv)
+month(date1_conv, label = TRUE)
 
-#day of week
-wday(date1a, label = T)
+# Day
+day(date1_conv)
+
+# Day of year
+yday(date1_conv)
+
+# Day of week
+wday(date1_conv, label = TRUE)
 ```

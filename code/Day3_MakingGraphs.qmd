@@ -452,7 +452,7 @@ Above, we plotted Secchi depth for both stations on the same plot. Sometimes, it
 
 ### Your Turn
 
-Make a faceted plot of nutrients for station P8 using the dataset wqdata_p8_nutrients. Show the absolute amounts rather than the relative amounts. Show the time series stacked on top of each other like the plot above for Secchi depth.
+Make a faceted plot of nutrients for station P8 using the dataset wqdata_p8_nutrients. Show the absolute amounts rather than the relative amounts. Show the two facets of the time series stacked on top of each other like the plot above for Secchi depth.
 
 ```{r}
 #| code-fold: true
@@ -506,6 +506,8 @@ plot_hist_temp_bins+(plot_hist_temp_bins / plot_bar_stack_abs)
 As I mentioned at the outset, one of the greatest advantages of using R to make graphs is that you can customize them endlessly. We will touch on just a few common types of customizations. 
 
 We will use the Secchi depth time series again. Previously, we used color to help differentiate the two stations, but we just used the default colors. We can specify the exact colors we want. We can also change the size, shape, and color of the points and the type, width, and color of the lines. 
+
+It is best to not rely solely on color for differentiating groups in plots because they can be hard to distinguish by folks with color blindness. I recommend using different point types and/or line types in addition to, or instead of, colors for this reason.
 
 ### Quick references for the customizations options
 
@@ -599,7 +601,7 @@ There are also options for formatting the plot background. Many people dislike t
 
 ```
 
-In addition, we can customize the names used to label the x-axis and y-axis and add plot titles. It is important to provide good labels for your plot axes. In particular, make sure to include the measurement units when relevant. I don't personally use plot title much, but they can quickly inform your audience about the purpose of the plot. 
+In addition, we can customize the names used to label the x-axis and y-axis and add plot titles. It is important to provide good labels for your plot axes. In particular, make sure to include the measurement units when relevant. I don't personally use plot titles much, but they can quickly inform your audience about the purpose of the plot. 
 
 ```{r}
 (plot_labels <- plot_background_classic +
