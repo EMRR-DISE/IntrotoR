@@ -25,13 +25,12 @@ When you download R, there is a suite of packages that are included. These packa
 
 So without further ado, let's load the packages we need for today's tutorial. We will load the `tidyverse` because it included `ggplot2` and a variety of other useful packages. We will also load `here` to simplify reading and writing files. 
 
-I will briefly show some features of the `viridis` and `patchwork` packages, but you don't need to worry about downloading them yourself right now.
+Toward the end of our lesson, I will briefly show some features of the `patchwork` package, which is used for making multi-panel plots, but you don't need to worry about downloading it yourself right now.
 
 ```{r}
 
 library(tidyverse) #suite of data science tools
 library(here) #setting working directory
-library(viridis) #attractive, color blind friendly color palettes
 library(patchwork) #combining plots into panels
 
 ```
@@ -570,7 +569,7 @@ Line types: ![](images/LineTypes.png)
 
 ```
 
-So far, we have used the default color palette in `ggplot2` as well as some customized colors. There is also a variety of R packages with thoughtfully developed color palettes. One example is the `viridis` package, which includes palettes that are both attractive and color blind friendly.
+So far, we have used the default color palette in `ggplot2` as well as some customized colors. There is also a variety of R packages with thoughtfully developed color palettes. One example is the `viridis` package, which includes palettes that are both attractive and color blind friendly. It is so popular it is now built into `ggplot2`. 
 
 Our Sechi depth plot isn't a great example for showing color palettes, so we will go back to our Microcystis scores plot.
 
@@ -578,7 +577,7 @@ Our Sechi depth plot isn't a great example for showing color palettes, so we wil
 
 (plot_bar <- ggplot(data = wqdata_means, aes(x = factor(Microcystis), y = temp_mean, fill = factor(Microcystis))) +
    geom_bar(stat = 'identity')+
-   scale_fill_viridis(discrete = T)
+   scale_fill_viridis_d()
    )
 
 
