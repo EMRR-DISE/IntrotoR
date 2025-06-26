@@ -10,16 +10,28 @@ execute:
   warning: false
 ---
 
-```{r}
-#| include: false
+## Basic Setup
 
+The first step when working with data is almost always loading the relevant packages and importing it. One of the most important ones for this task is `tidyverse`, which we learned about yesterday. We'll import it here:
+
+```{r}
 library(tidyverse)
 library(here)
-
-df_wq <- read_csv(here("data/WQ_P8D7.csv"))
 ```
 
-## Introduction
+Next, we read in the data. As we learned yesterday, since I'm in a **project**, I can use **relative file paths** for import:
+
+```{r}
+df_wq <- read_csv('data/WQ_P8D7.csv')
+```
+
+As a reminder, we can use **head** to check what our data looks like:
+
+```{r}
+head(df_wq)
+```
+
+## Data Structure
 
 Let's talk a bit about the structure of a data frame. Data frames are 2-dimensional objects (row x column).\
 
@@ -28,14 +40,12 @@ Let's talk a bit about the structure of a data frame. Data frames are 2-dimensio
 #| out-width: 80%
 #| fig-align: left
 
-knitr::include_graphics(here('images/dataframe.png'), error = FALSE)
+knitr::include_graphics('images/dataframe.png')
 ```
 
-\
-\
-Note the column of numbers on the left-hand side, separate from the data frame itself. This is called the **row index**. Similarily, every column has its own **column index**. Combined, this means every entry in a data frame has a unique, 2-dimensional **index** that's defined by which row x column it's in.
+Note that, on the far-left side, there is a column of numbers separate from the data frame itself. This is called the **row index**. Similarly, every column has its own **column index**. Combined, this means every entry in a data frame has a unique, 2-dimensional **index** that's defined by which row x column it's in.
 
-In R, the syntax for this is `[row, column]`. (Note that square brackets `[ ]` , in general, are used exclusively for indexing objects).
+In R, the syntax for this is `[row, column]`. (Note that square brackets `[ ]` are used almost exclusively for indexing objects).
 
 Since we rarely want to work on the entire data frame at once, we can use these indices to **subset** our data.
 
@@ -72,9 +82,9 @@ df_wq[,2:4] %>%
 ```
 
 ::: callout-note
-### Tidyverse Pipes
+### Operators and Pipes
 
-You'll notice I used some new syntax, namely, the `%>%`. This is called the **pipe operator**. **Operators** are functions that allows one to perform operations on other functions/variables. The colon operator, for example, is a function that operates on a vector to generates a sequence. The pipe operator, specifically, is a function that allows you to chain together tidyverse commands. Using pipes helps keep code readable and easy to follow.
+You'll notice I used some new syntax, namely, the `%>%`. This is called the **pipe operator**. **Operators** are functions that allows one to perform operations on other functions/variables. The `:` operator, for example, is a function that operates on a vector to generates a sequence. The pipe operator, specifically, is a function that allows you to chain together tidyverse commands. Using pipes helps keep code readable and easy to follow.
 :::
 
 ## Subset by Column Names
@@ -113,7 +123,7 @@ df_wq$`DissAmmonia` %>%
 str(df_wq$DissAmmonia)
 ```
 
-To select multiple columns by name, we use our `:` operator within the `select` function from the `dplyr` package (in tidyverse):
+To select multiple columns by name, we use the `:` operator within the `select` function from the `dplyr` package (in tidyverse):
 
 ```{r}
 df_wq %>% select(Station:Pheophytin) %>%
@@ -140,7 +150,7 @@ df_p8 <- df_wq %>% filter(Station == 'P8')
 df_p8 %>% head()
 ```
 
-To check that this code work correctly, we can look at all the unique values in the Station column using the `unique` function:
+To check that this code worked correctly, we can look at all the unique values in the Station column using the `unique` function:
 
 ```{r}
 unique(df_p8$Station)
@@ -154,14 +164,14 @@ Note we used another new symbol: `==`. This is the equality operator, a type of 
 
 We defined operators above as functions that perform operations on other functions/variables. It follows, then, that logical operators perform operators based on logical statements! **Logical statements are the backbone of programming.** Every single coding task (including every single function) can, at its core, be broken down into logical statements.
 
-Therefore, if you're stuck on a coding task, try to reword it as a series of logical statemens! That way, when you Google your questions (or put them into ChatGPT), you'll get better and more precise answers.
+Therefore, if you're stuck on a coding task, try to reword it as a series of logical statements! That way, when you Google your questions (or put them into ChatGPT), you'll get better and more precise answers.
 
 [Example:\
-]{.underline}"I want all of my data in `df_wq` where the `Station` is P8"
+]{.underline}"I want all of the data in `df_wq` where the `Station` is P8"
 
 becomes
 
-"*given* `df_wq` , *if* the value in the `Station` column *equals* P8, keep that value (return *TRUE*).
+"*given* `df_wq` , *if* the value in the `Station` column *equals* P8, return *TRUE* (keep the value)"
 
 ::: callout-note
 ### Boolean Type
@@ -190,7 +200,7 @@ df_wq %>% filter(Station == 'P8') %>%
   head()
 ```
 
-**Negate** does the opposite; it gives us the values that do not match. Here, we apply it to the equality operator, but note that `!` is the **general negate operator**; it can be applied to *any logical statement*.
+**Negate equality** does the opposite; it gives us the values that do not match. It's actually a combination of two operators: negate (`!`) and equality (`==`). **`!` is the** **general negate operator**; it can be applied to *any logical operator*.
 
 ```{r}
 df_wq %>% filter(Station != 'P8') %>%
@@ -211,7 +221,7 @@ df_wq %>% filter(Date == '2020-01-16' | Date == '2020-01-22')
 
 ### *less than* `<` and *greater than* `>`
 
-Sometimes, we want all values above or below:
+Sometimes, we want all values above or below; we can use less/greater than (`<` and `>`) for this task. Similarly, we can use "less/greater than or equal to" (`<=` and `>=`)
 
 ```{r}
 df_wq %>% filter(Date >= '2020-02-01')
@@ -221,8 +231,10 @@ df_wq %>% filter(Date >= '2020-02-01')
 df_wq %>% filter(Date <= '2020-06-30')
 ```
 
+At times, it may make more sense to use the negate operator (ie. it's easier to explain your reasoning that way). When using the negate operator with `filter`, we negate the entire statement use the syntax below:
+
 ```{r}
-df_wq %>% filter(!(Date >= '2020-06-30')) # same thing but using negate
+df_wq %>% filter(!(Date >= '2020-06-30')) # negate greater than
 ```
 
 What if we want data in between two dates? We can use the `&` operator!
@@ -235,7 +247,7 @@ df_wq %>% filter(Date >= '2020-02-01' & Date <= '2020-06-30')
 
 What if we wanted to subset by five specific dates? We could string together multiple `|` commands, but that can become unwieldy to write.
 
-What if I instead had a vector of those five specific dates? Then I could subset by all the values in my dataset that match one of the values in that vector.
+What if, instead, we had a vector of those five specific dates? Then we could subset by all the values in the data that match one of the values in that vector.
 
 This is what the `%in%` function does:
 
@@ -334,7 +346,7 @@ df_wq %>% filter(year(Date) == '2021') %>%
 ```
 
 ```{r}
-# same thing but using negate
+# same thing but using negate (negate the years 2020 and 2022)
 df_wq %>% filter(
   !(year(Date) %in% c('2020','2022'))
   )
@@ -344,12 +356,13 @@ df_wq %>% filter(
 
 ## Subset `NA`
 
-The final type of subset that we'll cover today is by `NA` data.
+The final type of subset that we'll cover is by `NA` data.
 
 `NA` is a **logical constant** of length 1 which contains a missing value indicator:
 
 ```{r}
 typeof(NA) # NA
+
 
 typeof('NA') # not the same
 ```
@@ -363,7 +376,7 @@ unique(df_wq$DON) # returns unique values
 A quicker way to check this is the `is.na` function:
 
 ```{r}
-is.na(df_wq$DON)
+any(is.na(df_wq$DON))
 ```
 
 This returns a logical vector. If I want to subset by this, I can use the `filter` function:
@@ -374,9 +387,9 @@ df_wq %>%
   select(Station, Date, DON)
 ```
 
-**Question:** What operator would I use if I want all data *except* `NA`s (hint: I want to *negate* `NA`)
+**Question:** What operator would I use if I want to *filter* all data *except* `NA`s?
 
-**Challenge Exercise**: How would I write this statement? (Hint: examples are above)
+**Exercise**: How would I write this statement? (Hint: examples are above)
 
 ```{r}
 #| code-fold: true

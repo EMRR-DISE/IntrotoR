@@ -20,11 +20,10 @@ We'll start the day with loading packages and importing the EMP water quality da
 
 ```{r load packages}
 library(tidyverse)
-library(here)
 ```
 
 ```{r import emp wq data}
-df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+df_wq <- read_csv("data/WQ_P8D7.csv")
 ```
 
 As a reminder, here is the structure of the EMP water quality data.
@@ -202,7 +201,66 @@ We won't cover it here, but the `group_by` function also works with other functi
 You may be wondering how `summarize` and `mutate` are different since they both do similar things. The main difference is that `mutate` always returns the same number of rows in the data frame, and `summarize` returns just one row for the specified summary function(s). `summarize` with `group_by` returns a row for each combination of grouping variables.
 :::
 
-### Exercise
+## Pivoting (not finished)
+
+In all of our examples, we've had each analyte as a column header. some cases, however, it would be more advantageous for all analyte names to be in one column with their values in another. How would we achieve this?
+
+What we want to do is *pivot* the rows and columns. `tidyverse` has two handy functions for this: `pivot_longer` and `pivot_wider`. 
+
+### `pivot_longer`
+
+When we gather multiple columns into two columns (one for names, another for values), we make the dataset longer; hence, `pivot_longer`. For this function, you need to specify:
+- which columns to include
+- what to call the name column
+- what to call the value column
+
+Lets use this to pivot all the analytes into two columns. I could achieve this by writing out all the column names. However, a handy shortcut is to use the `-` operator; similar to negate, this tells the code to consider all columns *but* the ones included:
+
+```{r}
+df_wq_long <- df_wq %>%
+  pivot_longer(
+    cols = -c(Station, Date),
+    names_to = 'Analyte',
+    values_to = 'Value'
+  )
+```
+
+```{r}
+df_wq_long
+```
+
+We can see that our data shape has changed:
+
+```{r}
+dim(df_wq_long)
+```
+
+### `pivot_wider`
+
+We see that we went from 20 columns to 4. However, we also went from 62 rows to 1116. This is because there are 62 unique dates and each of the 18 analytes has a row for each one. Your data and goals will dictate which structure is more advantageous; sometimes you even need both!
+
+For now, though, say we decided we want to pivot back to our old way. Here, we are transforming two columns into >2 columns, making the dataset wider. Hence, `pivot_wider`. Here, instead of pivoting to columns, we pivot from them, and need:
+- which column to take the names from
+- which column to take the values from
+
+```{r}
+df_wq_wide <- df_wq_long %>%
+  pivot_wider(
+    names_from = Analyte,
+    values_from = Value
+  )
+```
+
+```{r}
+df_wq_wide
+```
+
+```{r}
+dim(df_wq_wide)
+```
+Now we're back to our original dimensions!
+
+### Exercise (not finished)
 
 Now its your turn to try out grouping and summarizing.
 

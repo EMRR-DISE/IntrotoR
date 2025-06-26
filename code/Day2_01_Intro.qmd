@@ -1,5 +1,5 @@
 ---
-title: "Day 2: 7/11/2024"
+title: "Day 2 - Manipulating Data"
 author: "Perry S"
 format:
   html:
@@ -24,7 +24,7 @@ An outline for today's lesson:
     -   Basic Subsetting
     -   Subset by Column Names
     -   Subset by Row Values
-    -   Logical Operators
+    -   **Logical Operators**
     -   Subset by Column and Row
     -   Subset by Date
     -   Subset `NA`
@@ -37,6 +37,12 @@ An outline for today's lesson:
     -   `case_when`
     -   Rename
 
-4.  Final Exercise
+4.  Summarize
 
-5.  **Bonus: Markdown Files**
+    -   Summarize Data
+
+    -   Pivot Data
+
+    -   Grouping Data
+
+5.  Final Exercise

@@ -16,12 +16,12 @@ execute:
 library(tidyverse)
 library(here)
 
-df_wq <- read_csv(here("data/WQ_P8D7.csv"))
+df_wq <- read_csv("data/WQ_P8D7.csv")
 ```
 
 ## Introduction
 
-Sometimes, we want to modify our already existing columns or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
+Sometimes, we want to modify existing columns values or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
 
 ## Add New Columns
 
@@ -31,6 +31,7 @@ With `mutate`, it's simple to add new columns. First, let's look at our current 
 glimpse(df_wq)
 ```
 
+\
 Now let's add a new column, *Lab*, where every value is "BSA":
 
 ```{r}
@@ -45,7 +46,7 @@ We can even add columns that are combinations of other ones:
 
 ```{r}
 df_wq %>%
-  mutate(ChlPheo = Chla+Pheophytin) %>%
+  mutate(ChlPheo = Chla + Pheophytin) %>%
   select(Station, Date, Chla, Pheophytin, ChlPheo) %>%
   head()
 ```
@@ -81,7 +82,7 @@ df_wq %>%
   mutate(Chla = Chla+20)
 ```
 
-We can even change types! This is useful if, say, you have character column that should be numeric, or a character column that should be factor.
+We can even change data types! This is useful if, say, you have character column that should be numeric, or a character column that should be factor. We do this by using the `as.numeric` and `as.factor` functions (`as.character` is also an option):
 
 ```{r}
 df_wq %>%
@@ -93,11 +94,19 @@ df_wq %>%
 
 ## `case_when`
 
-What if we only want to modify certain data in a column? For example, say we want to add 20 to all Chla values *only for P8*.
+Sometimes you only want to change certain values in a column. For example, maybe you want to add 20 to `chla` values, but only for rows where the station is P8. You can do this using the `case_when()` function for this.
 
-This can be done using the `case_when` function (also available in `tidyverse`). This replaces the left-hand side of the mutate statement; now, instead of only having one logical statement, you can specify multiple!
+`case_when()` lets you assign new values based on conditions. It takes each row and sequentially compared it to each condition, using the value for the first one that is true. The format looks like this:
 
-(Note: the tilde operator `~` differentiates the left- and right-hand sides of the formula.)
+```         
+case_when(
+  condition1 ~ value1,
+  condition2 ~ value2,
+  TRUE ~ default_value
+  )
+```
+
+Since every row must get a value, it’s important to end with `TRUE ~ result` to handle all remaining cases.
 
 ```{r}
 df_wq %>%
