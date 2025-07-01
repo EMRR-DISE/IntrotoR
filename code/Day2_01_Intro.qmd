@@ -1,6 +1,6 @@
 ---
 title: "Day 2 - Manipulating Data"
-author: "Perry S"
+author: "S Perry"
 format:
   html:
     code-link: true
@@ -41,8 +41,8 @@ An outline for today's lesson:
 
     -   Summarize Data
 
-    -   Pivot Data
-
     -   Grouping Data
+
+    -   Pivot Data
 
 5.  Final Exercise

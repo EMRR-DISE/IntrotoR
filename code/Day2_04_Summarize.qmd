@@ -1,6 +1,6 @@
 ---
 title: "Summarizing Data"
-author: "Dave Bosworth"
+author: "S Perry"
 format:
   html:
     code-link: true
@@ -12,7 +12,7 @@ execute:
 
 ## Introduction
 
-A common task that many of us need to do is to summarize or aggregate a data set to gain a simplified overview of the data or to more easily work with the data. Some of you may be familiar with pivot tables in Excel which can help with this task. The R programming language is also very helpful with summarizing data and allows for greater customization than pivot tables. We'll start this lesson with some basic R functions to summarize your data, and then move into some more powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package to group and summarize your data.
+A common task scientists need to do is summarizing or aggregating a data set to get a clearer overview it. We'll start this lesson with some basic R functions for this task, and then move into some more powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package to group and summarize your data.
 
 ## Import Data
 
@@ -26,7 +26,7 @@ library(tidyverse)
 df_wq <- read_csv("data/WQ_P8D7.csv")
 ```
 
-As a reminder, here is the structure of the EMP water quality data.
+As a reminder, here is the structure of the EMP water quality data:
 
 ```{r view emp wq data}
 glimpse(df_wq)
@@ -34,7 +34,7 @@ glimpse(df_wq)
 
 ## Basic Summarizing
 
-For a basic overall summary of your data set, use the `summary` function. Here is what that looks like when you use it with the EMP water quality data set.
+For a basic overall summary of your data set, use the `summary` function. Here is what that looks like when you use it with the EMP water quality data set:
 
 ```{r simple summary all columns}
 # Simple overall summary statistics of entire data frame
@@ -54,10 +54,11 @@ Now, we'll introduce a more powerful summarizing function from the `dplyr` packa
 
 ```{r}
 # Calculate overall mean of one column
-df_wq %>% summarize(mean_Chla = mean(Chla))
+df_wq %>%
+  summarize(mean_Chla = mean(Chla))
 ```
 
-You may have noticed that unlike the `summary` function, `summarize` provides the summarized data in a tibble or data frame. This is useful if you intend to continue working with the data. Also note that I provided a name for the summarized data column "mean_Chla", which is a lot like the `dplyr::mutate` function we learned about earlier.
+You may have noticed that, unlike the `summary` function, `summarize` provides the summarized data in a tibble or data frame. This is useful if you intend to continue working with the data. Also note that I provided a name for the summarized data column "mean_Chla", which is a lot like the `dplyr::mutate` function we learned about earlier.
 
 You can calculate multiple values at once by providing additional arguments to `summarize`. For example, let's calculate the overall averages of both chlorophyll-*a* and Pheophytin.
 
@@ -84,13 +85,13 @@ Now, R returns the overall average DON value after ignoring the `NA` values.
 
 Now its your turn to try out these summarizing functions we just learned about.
 
-1) Use `summary` to provide simple summary statistics for "Secchi" and "WTSurface".\
-**HINT:** Run the function on one column at a time.
+1)  Use `summary` to provide simple summary statistics for "Secchi" and "WTSurface".\
+    **HINT:** Run the function on one column at a time.
 
-2) Now, use `summarize` to calculate the overall minimum value for "Secchi".\
-**HINT:** Watch out for `NA` values!
+2)  Now, use `summarize` to calculate the overall minimum value for "Secchi".\
+    **HINT:** Watch out for `NA` values!
 
-3) Add the minimum value for "WTSurface" to the `summarize` function used above, assign it to an object, and print it to view the results.
+3)  Add the minimum value for "WTSurface" to the `summarize` function used above, assign it to an object, and print it to view the results.
 
 Click below for the answer when you are done!
 
@@ -195,24 +196,31 @@ df_wq_c %>%
 
 We won't cover it here, but the `group_by` function also works with other functions in the `dplyr` package including `mutate`, `filter`, and `arrange`. There are also many other useful things you can do with the `summarize` function that we won't cover in this class including using it with the [`across`](https://dplyr.tidyverse.org/reference/across.html) function. The `across` function allows for the `summarize` and `mutate` functions to apply operations across multiple columns in a data frame. Using it in combination with [tidyselect](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html) functions allows for much more efficient code.
 
-::: {.callout-note}
+::: callout-note
 ## Summarize vs. Mutate
 
 You may be wondering how `summarize` and `mutate` are different since they both do similar things. The main difference is that `mutate` always returns the same number of rows in the data frame, and `summarize` returns just one row for the specified summary function(s). `summarize` with `group_by` returns a row for each combination of grouping variables.
 :::
 
-## Pivoting (not finished)
+## Pivoting
 
-In all of our examples, we've had each analyte as a column header. some cases, however, it would be more advantageous for all analyte names to be in one column with their values in another. How would we achieve this?
+Let's look at our column headers again:
 
-What we want to do is *pivot* the rows and columns. `tidyverse` has two handy functions for this: `pivot_longer` and `pivot_wider`. 
+```{r}
+colnames(df_wq)
+```
+
+We note the structure here: we have metadata for Station and Date, and then each of the 18 analytes has its own columns. Therefore, our dimensions are 62 rows x 20 columns. Sometimes, however, it's more advantageous to structure the data in a different way. For example, maybe we want all analyte names in one column with their values in another.
+
+We can achieve this by *pivoting* the rows and columns. `tidyverse` has two handy functions for this: `pivot_longer` and `pivot_wider`.
 
 ### `pivot_longer`
 
 When we gather multiple columns into two columns (one for names, another for values), we make the dataset longer; hence, `pivot_longer`. For this function, you need to specify:
-- which columns to include
-- what to call the name column
-- what to call the value column
+
+-   which columns to include (`cols`)
+-   what to call the name column (`names_to`)
+-   what to call the value column (`values_to`)
 
 Lets use this to pivot all the analytes into two columns. I could achieve this by writing out all the column names. However, a handy shortcut is to use the `-` operator; similar to negate, this tells the code to consider all columns *but* the ones included:
 
@@ -229,7 +237,7 @@ df_wq_long <- df_wq %>%
 df_wq_long
 ```
 
-We can see that our data shape has changed:
+We can see that our data shape has changed; we have fewer columns and many more rows:
 
 ```{r}
 dim(df_wq_long)
@@ -237,11 +245,12 @@ dim(df_wq_long)
 
 ### `pivot_wider`
 
-We see that we went from 20 columns to 4. However, we also went from 62 rows to 1116. This is because there are 62 unique dates and each of the 18 analytes has a row for each one. Your data and goals will dictate which structure is more advantageous; sometimes you even need both!
+We see that we went from 20 columns to 4. However, we also went from 62 rows to 1116. Why 1116? The columns we did not specify (Station and Date) were used to help create a `key`; every row is a unique combination of Station, Date, and our new name column Analyte. There are 62 unique Date/Station combos, and each of the 18 analytes has a row for each one, leading to 1116 rows.
 
-For now, though, say we decided we want to pivot back to our old way. Here, we are transforming two columns into >2 columns, making the dataset wider. Hence, `pivot_wider`. Here, instead of pivoting to columns, we pivot from them, and need:
-- which column to take the names from
-- which column to take the values from
+Lets pretend this was the original format we received the data in, and we rather have each analyte be its own column. In other words, our goal is to transform two columns into \>2 columns, making the dataset wider. The best function for this, as you might suspect, is `pivot_wider`. Here, instead of pivoting to columns, we pivot from them, and need:
+
+-   which column to take the names from (`names_from`)
+-   which column to take the values from (`values_from`)
 
 ```{r}
 df_wq_wide <- df_wq_long %>%
@@ -258,19 +267,21 @@ df_wq_wide
 ```{r}
 dim(df_wq_wide)
 ```
+
 Now we're back to our original dimensions!
 
-### Exercise (not finished)
+**Note:** The pivot functions are very powerful and have a large amount of flexibility. For example, you can specify multiple `value` columns or combine columns to create a single `names` column. The `help` documentation has useful examples to reference for cases like these.
+
+### Exercise
 
 Now its your turn to try out grouping and summarizing.
 
-1) Use `group_by` and `summarize` to calculate the minimum, median, and maximum values for "Secchi" for each station.\
-**HINT:** Watch out for `NA` values!
+1)  Use `group_by` and `summarize` to calculate the minimum, median, and maximum values for "Secchi" for each station.\
+    **HINT:** Watch out for `NA` values!
 
-2) Add "Year" as a grouping variable to the operation above to calculate summary statistics for "Secchi" for each station and year combination.\
-**HINT:** Don't forget to ungroup your output data frame!
+2)  Add "Year" as a grouping variable to the operation above to calculate summary statistics for "Secchi" for each station and year combination. Assign this as it's own object named `df_summary`. **HINT:** Don't forget to ungroup your output data frame!
 
-3) Try the same as in #2 above, but use the `.by` argument within the `summarize` function.
+3)  Pivot `df_summary` so that the secchi statistics are rows and the years are columns. **HINT:** You will use both pivot longer and pivot wider
 
 Click below for the answer when you are done!
 
@@ -288,7 +299,7 @@ df_wq %>%
   )
 
 # Add "Year" as a grouping variable to the operation above
-df_wq %>% 
+df_summary <- df_wq %>% 
   mutate(Year = year(Date)) %>% 
   group_by(Station, Year) %>% 
   summarize(
@@ -298,14 +309,19 @@ df_wq %>%
   ) %>% 
   ungroup()
 
-# Try the same as in the operation above, but use the `.by` argument within the `summarize` function.
-df_wq %>% 
-  mutate(Year = year(Date)) %>% 
-  summarize(
-    min_Secchi = min(Secchi, na.rm = TRUE),
-    median_Secchi = median(Secchi, na.rm = TRUE),
-    max_Secchi = max(Secchi, na.rm = TRUE),
-    .by = c(Station, Year)
-  )
-```
+# Pivot the data; first make the secchi columns into rows, then the year rows into columns
+df_summary_long <- df_summary %>%
+  pivot_longer(cols = c('min_Secchi','median_Secchi','max_Secchi'),
+               names_to = 'SecchiStat',
+               values_to = 'Value')
 
+df_summary_wide <- df_summary_long %>%
+  pivot_wider(names_from = Year, values_from = Value)
+
+# Can also complete in one step
+df_summary_wide <- df_summary %>%
+  pivot_longer(cols = starts_with('min_'):starts_with('max_'),
+               names_to = 'SecchiStat',
+               values_to = 'Value') %>%
+  pivot_wider(names_from = Year, values_from = Value)
+```

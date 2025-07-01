@@ -1,6 +1,6 @@
 ---
 title: "Mutate Data"
-author: "Perry S"
+author: "S Perry"
 format:
   html:
     code-link: true
@@ -108,6 +108,8 @@ case_when(
 
 Since every row must get a value, it’s important to end with `TRUE ~ result` to handle all remaining cases.
 
+To go back to our example, the code would look like this:
+
 ```{r}
 df_wq %>%
   mutate(
@@ -116,6 +118,31 @@ df_wq %>%
               TRUE ~ Chla) # else, keep as previous value
   ) %>%
   select(c(Station:Date), Chla)
+```
+
+Note that `case_when` is nested in the `mutate` function and that we had to specify which column we wanted to manipulate (in this case, Chla). As you may assume, since it's part of mutate, this means we can also create new columns via this process.
+
+### Exercise
+
+Now its your turn to try out these summarizing functions we just learned about.
+
+1)  Use `case_when` to multiple Pheophytin values by 2 for station D7.
+
+2)  Use `case_when` (nested in `mutate`) to create a new column, `DON_ND`, where the value is 0 when when DON is `NA` (ie. a non-detect)\
+    **HINT:** we can use `is.na` to check if a column is NA
+
+Click below for the answer when you are done!
+
+```{r}
+#| code-fold: true
+#| eval: false
+#| 
+df_wq %>%
+  mutate(
+    Test = 
+      case_when(is.na(DON) ~ 0,
+                TRUE ~ DON)
+  )
 ```
 
 ## Rename

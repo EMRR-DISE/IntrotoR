@@ -1,6 +1,6 @@
 ---
 title: "Subset Data"
-author: "Perry S"
+author: "S Perry"
 format:
   html:
     code-link: true
