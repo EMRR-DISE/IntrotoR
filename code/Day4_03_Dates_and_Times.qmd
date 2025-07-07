@@ -82,13 +82,14 @@ date2_conv
 ```
 
 ```{r}
-# Now one with time included. Note that any spaces or dashes need to be the same in the format call as in your character vector.
+# Now one with time included. Note that any spaces or dashes need to be the same 
+# in the format call as in your character vector.
 date3 <- "2-3-2021 08:15"
 date3_conv <- strptime(date3, format = "%m-%d-%Y %H:%M")
 date3_conv
 ```
 
-The format strings are quite annoying, so fortunately the lubridate package has a number of shortcut functions to make converting easier.
+The format strings are quite annoying, so fortunately the `lubridate` package has a number of shortcut functions to make converting easier.
 
 ```{r}
 #| eval: false
@@ -126,7 +127,49 @@ If you have a dataset that is collected in California, but doesn't use Daylight 
 mdy_hm(date3, tz = "Etc/GMT+8")
 ```
 
-The lubridate package also has a few other useful functions for working with time zones - `tz`, `force_tz`, and `with_tz`. 
+R automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the `format` function. Note that this converts the date back to a character class.
+
+```{r}
+date1_conv
+format(date1_conv, format = "%m/%d/%y")
+```
+
+But really, why would you want to change the format?
+
+![](images/clipboard-3718936377.png)
+
+https://xkcd.com/1179
+
+### Exercise
+
+Now its your turn to try out working with dates and times.
+
+Create a new object for a date and time in a character format. Then, try using `strptime` and the functions from the `lubridate` package to convert the object to a date-time object. If you want, try this a few times with different date-time formats. Make sure to specify the time zone. 
+
+Click below for the answer when you are done!
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+# Create a new object for a date and time in a character format
+my_datetime_chr <- "7/7/2025 13:00"
+
+# Convert character object to date-time object using strptime
+strptime(my_datetime_chr, format = "%m/%d/%Y %H:%M")
+
+# Convert character object to date-time object using lubridate package
+mdy_hm(my_datetime_chr, tz = "America/Los_Angeles")
+
+# Try this again with a different date-time format
+my_datetime_chr2 <- "2025-07-07 13:00:00"
+strptime(my_datetime_chr2, format = "%Y-%m-%d %H:%M:%S")
+ymd_hms(my_datetime_chr2, tz = "America/Los_Angeles")
+```
+
+## Time Zones
+
+The `lubridate` package also has a few other useful functions for working with time zones - `tz`, `force_tz`, and `with_tz`. 
 
 You can check the time zone of a date-time object with the `tz` function.
 
@@ -150,18 +193,30 @@ date4_conv
 with_tz(date4_conv, tzone = "America/Los_Angeles")
 ```
 
-R automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the `format` function. Note that this converts the date back to a character class.
+### Exercise
+
+Now its your turn to try out working with time zones.
+
+Create a new object for a date and time as a date-time object. Check its time zone. Then, change its time zone to Pacific Standard Time ("Etc/GMT+8") keeping it as the same clock time. Next, convert its time zone to the US Eastern time zone changing both the clock time and time zone. Hint: use `OlsonNames()` to find the time zone name.
+
+Click below for the answer when you are done!
 
 ```{r}
-date1_conv
-format(date1_conv, format = "%m/%d/%y")
+#| code-fold: true
+#| eval: false
+
+# Create a new object for a date and time
+my_datetime <- ymd_hms("2025-07-07 13:00:00")
+
+# Check its time zone
+tz(my_datetime)
+
+# Change time zone to PST keeping it as same clock time
+force_tz(my_datetime, tzone = "Etc/GMT+8")
+
+# Change time zone to US Eastern time zone changing both clock time and time zone
+with_tz(my_datetime, tzone = "US/Eastern")
 ```
-
-But really, why would you want to change the format?
-
-![](images/clipboard-3718936377.png)
-
-https://xkcd.com/1179
 
 ## Times
 
@@ -205,7 +260,7 @@ as_hms(times)
 
 ## Extracting parts of a date-time object
 
-the lubridate package has a lot of really useful functions to extract components from dates and times such as month, year, day, etc.
+The `lubridate` package has a lot of really useful functions to extract components from dates and times such as month, year, day, etc.
 
 ```{r}
 date1_conv
@@ -220,9 +275,38 @@ month(date1_conv, label = TRUE)
 # Day
 day(date1_conv)
 
+# Date
+date(date1_conv)
+
 # Day of year
 yday(date1_conv)
 
 # Day of week
 wday(date1_conv, label = TRUE)
 ```
+
+### Exercise
+
+Now its your turn to try extracting parts from a date-time object.
+
+Use the date-time object you created in the last exercise. Try extracting various components from it using the functions in the `lubridate` package.
+
+Click below for the answer when you are done!
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+# View the date-time object created in last exercise
+my_datetime
+
+# Extract the Date
+date(my_datetime)
+
+# Extract the Year
+year(my_datetime)
+
+# Extract the Month as label
+month(my_datetime, label = TRUE)
+```
+
