@@ -10,11 +10,13 @@ execute:
   warning: false
 ---
 
-## Dates and Times
+## Introduction
 
 Dates and times are one of the more challenging data classes to deal with. There are many different ways of storing date and time information, and it's easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package [`lubridate`](https://lubridate.tidyverse.org/index.html), which is part of the tidyverse.
 
 For more info, see the Dates and Times chapter in [R for Data Science](https://r4ds.hadley.nz/datetimes.html).
+
+## Date/Time Basics
 
 First, let's look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the `today` function to get a date with today's value.
 
