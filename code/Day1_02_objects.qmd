@@ -1,5 +1,5 @@
 ---
-title: "Day 1 - Objects and Functions"
+title: "Objects and Functions"
 editor: visual
 format:
   html:

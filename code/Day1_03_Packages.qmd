@@ -1,5 +1,5 @@
 ---
-title: "Day 1 - Packages and importing data"
+title: "Packages and importing data"
 editor: visual
 format:
   html:
