@@ -180,5 +180,3 @@ And `glimpse` to see information about the columns:
 ```{r}
 glimpse(df_wq)
 ```
-
-## 

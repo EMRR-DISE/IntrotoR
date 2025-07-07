@@ -17,7 +17,7 @@ Now that we have covered the basics of using R and RStudio including importing, 
 
     - Basics and Classes
     - Converting from character dates
-    - Timezones
+    - Time Zones
     - Extracting parts of a date-time object
     
 

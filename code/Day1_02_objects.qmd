@@ -211,7 +211,7 @@ FtoC(32)
 
 FtoC(c(23,24,56,101))
 
-FtoC(Temps)
+FtoC(temps)
 ```
 
 Don't worry about writing your own functions too much right now, but I want you to know it's a possibility.
