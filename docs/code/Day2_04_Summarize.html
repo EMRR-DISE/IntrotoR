@@ -284,21 +284,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
-  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="header-section-number">7.2</span> Import Data</a></li>
-  <li>
-<a href="#basic-summarizing" id="toc-basic-summarizing" class="nav-link" data-scroll-target="#basic-summarizing"><span class="header-section-number">7.3</span> Basic Summarizing</a>
+<li>
+<a href="#basic-summarizing" id="toc-basic-summarizing" class="nav-link active" data-scroll-target="#basic-summarizing"><span class="header-section-number">7.1</span> Basic Summarizing</a>
   <ul>
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">7.3.1</span> Exercise</a></li>
+<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">7.1.0.1</span> Exercise</a></li>
   </ul>
 </li>
-  <li><a href="#grouping" id="toc-grouping" class="nav-link" data-scroll-target="#grouping"><span class="header-section-number">7.4</span> Grouping</a></li>
+  <li><a href="#grouping" id="toc-grouping" class="nav-link" data-scroll-target="#grouping"><span class="header-section-number">7.2</span> Grouping</a></li>
   <li>
-<a href="#pivoting" id="toc-pivoting" class="nav-link" data-scroll-target="#pivoting"><span class="header-section-number">7.5</span> Pivoting</a>
+<a href="#pivoting" id="toc-pivoting" class="nav-link" data-scroll-target="#pivoting"><span class="header-section-number">7.3</span> Pivoting</a>
   <ul>
-<li><a href="#pivot_longer" id="toc-pivot_longer" class="nav-link" data-scroll-target="#pivot_longer"><span class="header-section-number">7.5.1</span> <code>pivot_longer</code></a></li>
-  <li><a href="#pivot_wider" id="toc-pivot_wider" class="nav-link" data-scroll-target="#pivot_wider"><span class="header-section-number">7.5.2</span> <code>pivot_wider</code></a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">7.5.3</span> Exercise</a></li>
+<li><a href="#pivot_longer" id="toc-pivot_longer" class="nav-link" data-scroll-target="#pivot_longer"><span class="header-section-number">7.3.1</span> <code>pivot_longer</code></a></li>
+  <li><a href="#pivot_wider" id="toc-pivot_wider" class="nav-link" data-scroll-target="#pivot_wider"><span class="header-section-number">7.3.2</span> <code>pivot_wider</code></a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">7.3.3</span> Exercise</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -327,51 +325,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="introduction" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">7.1</span> Introduction</h2>
-<p>A common task scientists need to do is summarizing or aggregating a data set to get a clearer overview it. We’ll start this lesson with some basic R functions for this task, and then move into some more powerful R functions from the <a href="https://dplyr.tidyverse.org/index.html"><code>dplyr</code></a> package to group and summarize your data.</p>
-</section><section id="import-data" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="import-data">
-<span class="header-section-number">7.2</span> Import Data</h2>
-<p>We’ll start the day with loading packages and importing the EMP water quality data.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/WQ_P8D7.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>As a reminder, here is the structure of the EMP water quality data:</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 62
-Columns: 20
-$ Station            &lt;chr&gt; "P8", "D7", "P8", "D7", "P8", "D7", "P8", "D7", "P8…
-$ Date               &lt;date&gt; 2020-01-16, 2020-01-22, 2020-02-14, 2020-02-20, 20…
-$ Chla               &lt;dbl&gt; 0.64, 0.67, 1.46, 2.15, 1.40, 1.89, 4.73, 1.74, 6.4…
-$ Pheophytin         &lt;dbl&gt; 0.50, 0.87, 0.69, 0.50, 0.56, 1.13, 1.25, 0.89, 0.8…
-$ TotAlkalinity      &lt;dbl&gt; 98.0, 82.0, 81.0, 86.0, 80.0, 93.0, 59.0, 78.0, 63.…
-$ DissAmmonia        &lt;dbl&gt; 0.150, 0.210, 0.250, 0.140, 0.110, 0.220, 0.050, 0.…
-$ DissNitrateNitrite &lt;dbl&gt; 2.800, 0.490, 1.700, 0.480, 1.600, 0.380, 1.070, 0.…
-$ DOC                &lt;dbl&gt; 3.90, 0.27, 2.80, 0.39, 2.00, 0.19, 2.80, 1.20, 3.1…
-$ TOC                &lt;dbl&gt; 4.10, 0.32, 2.50, 0.41, 2.10, 0.20, 2.80, 1.20, 3.1…
-$ DON                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0.30, 0.20, 0.30, 0.10, 0.5…
-$ TotPhos            &lt;dbl&gt; 0.310, 0.082, 0.130, 0.130, 0.190, 0.100, 0.188, 0.…
-$ DissOrthophos      &lt;dbl&gt; 0.200, 0.071, 0.130, 0.065, 0.140, 0.082, 0.177, 0.…
-$ TDS                &lt;dbl&gt; 380, 9500, 340, 5800, 290, 8700, 280, 7760, 227, 11…
-$ TSS                &lt;dbl&gt; 8.9, 38.0, 2.2, 18.0, 1.4, 28.0, 6.6, 35.6, 5.3, 23…
-$ TKN                &lt;dbl&gt; 0.520, 0.480, 0.430, 0.250, 0.400, 0.200, 0.400, 0.…
-$ Depth              &lt;dbl&gt; 28.9, 18.8, 39.0, 7.1, 39.0, 7.2, 37.1, 5.2, 36.7, …
-$ Secchi             &lt;dbl&gt; 116, 30, 212, 52, 340, 48, 100, 40, 160, 44, 120, 6…
-$ Microcystis        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 3, 2, 3, 2, 4, 2, 3, 2, 2, 1, 1, …
-$ SpCndSurface       &lt;dbl&gt; 667, 15532, 647, 11369, 530, 16257, 503, 12946, 404…
-$ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 21.1…</code></pre>
-</div>
-</div>
-</section><section id="basic-summarizing" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="basic-summarizing">
-<span class="header-section-number">7.3</span> Basic Summarizing</h2>
+</header><section id="basic-summarizing" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="basic-summarizing">
+<span class="header-section-number">7.1</span> Basic Summarizing</h2>
+<p>A common task scientists need to do is summarizing or aggregating a data set. We’ll start with some basic R functions for this task and then move into some more powerful R functions from the <a href="https://dplyr.tidyverse.org/index.html"><code>dplyr</code></a> package to group and summarize your data.</p>
 <p>For a basic overall summary of your data set, use the <code>summary</code> function. Here is what that looks like when you use it with the EMP water quality data set:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Simple overall summary statistics of entire data frame</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Simple overall summary statistics of entire data frame</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Station               Date                 Chla          Pheophytin   
@@ -418,7 +377,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>You can see that R provided a set of simple summary statistics (min, 25th and 75th quartiles, median, mean, max) for each column in the data frame. If you are interested in summary statistics for a single column in the data frame, you can use the <code>data$column</code> notation to subset your data set. If we wanted summary statistics of just chlorophyll-<em>a</em>, you could use:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Summary of one column</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Summary of one column</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Chla</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -428,9 +387,9 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <p>R provided the same set of simple summary statistics for just the <code>Chla</code> column.</p>
 <p>Now, we’ll introduce a more powerful summarizing function from the <code>dplyr</code> package called <code>summarize</code>. We’ll start by using it to calculate some simple summary statistics. First, we’ll calculate the overall average of all chlorophyll-<em>a</em> data in the data set.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate overall mean of one column</span></span>
-<span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate overall mean of one column</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_Chla
@@ -438,11 +397,11 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 1      3.04</code></pre>
 </div>
 </div>
-<p>You may have noticed that, unlike the <code>summary</code> function, <code>summarize</code> provides the summarized data in a tibble or data frame. This is useful if you intend to continue working with the data. Also note that I provided a name for the summarized data column “mean_Chla”, which is a lot like the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code> function we learned about earlier.</p>
+<p>You may have noticed that, unlike the <code>summary</code> function, <code>summarize</code> provides the summarized data in a tibble or data frame. This is useful if you intend to continue working with the data. Also note that I provided a name for the summarized data column “mean_Chla”, which is a lot like the <code><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">dplyr::mutate</a></code> function we learned about earlier.</p>
 <p>You can calculate multiple values at once by providing additional arguments to <code>summarize</code>. For example, let’s calculate the overall averages of both chlorophyll-<em>a</em> and Pheophytin.</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate overall mean of multiple columns</span></span>
-<span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>, mean_Pheo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Pheophytin</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate overall mean of multiple columns</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">summarize</span><span class="op">(</span>mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>, mean_Pheo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Pheophytin</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   mean_Chla mean_Pheo
@@ -452,7 +411,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>R provides a 2-column tibble with our desired summary statistics. When using <code>summarize</code>, be mindful of <code>NA</code> values in your data columns. For example, DON has a few <code>NA</code> values - here is what happens when we try to calculate its mean:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean_DON <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">DON</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">summarize</span><span class="op">(</span>mean_DON <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">DON</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_DON
@@ -462,7 +421,7 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>Notice that it returns <code>NA</code>. If you want <code>summarize</code> to ignore or drop the <code>NA</code> values when making calculations, you’ll need to add the <code>na.rm = TRUE</code> argument to your summary function which in this case is <code>mean</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean_DON <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">DON</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">summarize</span><span class="op">(</span>mean_DON <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">DON</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_DON
@@ -471,8 +430,8 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 </div>
 <p>Now, R returns the overall average DON value after ignoring the <code>NA</code> values.</p>
-<section id="exercise" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">7.3.1</span> Exercise</h3>
+<section id="exercise" class="level4" data-number="7.1.0.1"><h4 data-number="7.1.0.1" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">7.1.0.1</span> Exercise</h4>
 <p>Now its your turn to try out these summarizing functions we just learned about.</p>
 <ol type="1">
 <li><p>Use <code>summary</code> to provide simple summary statistics for “Secchi” and “WTSurface”.<br><strong>HINT:</strong> Run the function on one column at a time.</p></li>
@@ -481,18 +440,18 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </ol>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use summary to calculate simple summary statistics for Secchi</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use summary to calculate simple summary statistics for Secchi</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Secchi</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Use summary to calculate simple summary statistics for WTSurface</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">WTSurface</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Use summarize to calculate the overall minimum value for Secchi</span></span>
-<span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>min_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">summarize</span><span class="op">(</span>min_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Add the minimum value for "WTSurface" and assign it to an object called "df_wq_min"</span></span>
-<span><span class="va">df_wq_min</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span></span>
+<span><span class="va">df_wq_min</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
 <span>    min_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    min_WTSurface <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">WTSurface</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
@@ -501,12 +460,12 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 <span><span class="va">df_wq_min</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="grouping" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="grouping">
-<span class="header-section-number">7.4</span> Grouping</h2>
+</section></section><section id="grouping" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="grouping">
+<span class="header-section-number">7.2</span> Grouping</h2>
 <p>Calculating overall summary statistics is useful, but the real power of <code>summarize</code> becomes more apparent when its used in combination with the <code>group_by</code> function (also within the <code>dplyr</code> package). Using <code>group_by</code> with <code>summarize</code> allows for calculating summary statistics for groups of data within your data set. Examples include averages for each station, seasonal and annual statistics, or other combinations that you can imagine. Here is a simple example using these two functions to calculate overall average chlorophyll-<em>a</em> values for each station in the EMP water quality data set (D7 and P8).</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Group by Station</span></span>
-<span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Station</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Group by Station</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">summarize</span><span class="op">(</span>mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   Station mean_Chla
@@ -517,10 +476,10 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>You’ll see that now we have an additional column added to the tibble for “Station”, and the “mean_Chla” column contains the average values for each station. As with the example in the Basic Summarizing section above, you can calculate multiple values at once for each group by providing additional arguments to <code>summarize</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate more than one summary statistic within `summarize`</span></span>
-<span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Station</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate more than one summary statistic within `summarize`</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
 <span>    min_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    median_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
@@ -537,15 +496,15 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>You can also group by more than one variable at a time. For example, the EMP water quality data set contains data from multiple years (2020-2022). We can calculate the same series of summary statistics for chlorophyll-<em>a</em> in the prior example for each station and year combination.</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># First, we add a second grouping variable for year, creating a new object for</span></span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># First, we add a second grouping variable for year, creating a new object for</span></span>
 <span>  <span class="co"># the resulting data frame</span></span>
-<span><span class="va">df_wq_c</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Year <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_wq_c</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>Year <span class="op">=</span> <span class="fu">year</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Next, we calculate summary statistics for Chla for each station and year</span></span>
 <span>  <span class="co"># combination</span></span>
-<span><span class="va">df_wq_c</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span></span>
+<span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
 <span>    min_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    median_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
@@ -567,17 +526,17 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>Wow, now we are starting to get somewhere with summarizing our data set. You’ll see that now we have another column added to the tibble for “Year” in addition to “Station” with the desired summary statistics for each combination in the following columns. You may also have noticed that the printout of the tibble indicates that it is still grouped by “Station”. This is because the default behavior of using <code>summarize</code> after <code>group_by</code> is to drop the last level of grouping (“Year”) in its output. It is always good practice to ungroup a data frame when you no longer need it to be grouped because you can get unintended results when using other functions on it. You can ungroup the data frame by using the <code>ungroup</code> function within the <code>dplyr</code> package.</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Always best practice to ungroup data after finished with operation</span></span>
-<span><span class="va">df_wq_c</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Always best practice to ungroup data after finished with operation</span></span>
+<span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
 <span>    min_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    median_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    max_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    sd_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
   Station  Year min_Chla mean_Chla median_Chla max_Chla sd_Chla
@@ -592,9 +551,9 @@ $ WTSurface          &lt;dbl&gt; 9.67, 9.97, 11.09, 12.51, 13.97, 13.81, 23.46, 
 </div>
 <p>Now, you see that the output data frame is no longer grouped. A useful trick is to use the <code>.by</code> argument within <code>summarize</code> to temporarily group the data frame just for the summarize operation.</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># It's possible to group data within `summarize`</span></span>
-<span><span class="va">df_wq_c</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># It's possible to group data within `summarize`</span></span>
+<span><span class="va">df_wq_c</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
 <span>    min_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    mean_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
 <span>    median_Chla <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Chla</span><span class="op">)</span>,</span>
@@ -628,11 +587,11 @@ Summarize vs.&nbsp;Mutate
 <p>You may be wondering how <code>summarize</code> and <code>mutate</code> are different since they both do similar things. The main difference is that <code>mutate</code> always returns the same number of rows in the data frame, and <code>summarize</code> returns just one row for the specified summary function(s). <code>summarize</code> with <code>group_by</code> returns a row for each combination of grouping variables.</p>
 </div>
 </div>
-</section><section id="pivoting" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="pivoting">
-<span class="header-section-number">7.5</span> Pivoting</h2>
+</section><section id="pivoting" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="pivoting">
+<span class="header-section-number">7.3</span> Pivoting</h2>
 <p>Let’s look at our column headers again:</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_wq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Station"            "Date"               "Chla"              
  [4] "Pheophytin"         "TotAlkalinity"      "DissAmmonia"       
@@ -645,8 +604,8 @@ Summarize vs.&nbsp;Mutate
 </div>
 <p>We note the structure here: we have metadata for Station and Date, and then each of the 18 analytes has its own columns. Therefore, our dimensions are 62 rows x 20 columns. Sometimes, however, it’s more advantageous to structure the data in a different way. For example, maybe we want all analyte names in one column with their values in another.</p>
 <p>We can achieve this by <em>pivoting</em> the rows and columns. <code>tidyverse</code> has two handy functions for this: <code>pivot_longer</code> and <code>pivot_wider</code>.</p>
-<section id="pivot_longer" class="level3" data-number="7.5.1"><h3 data-number="7.5.1" class="anchored" data-anchor-id="pivot_longer">
-<span class="header-section-number">7.5.1</span> <code>pivot_longer</code>
+<section id="pivot_longer" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="pivot_longer">
+<span class="header-section-number">7.3.1</span> <code>pivot_longer</code>
 </h3>
 <p>When we gather multiple columns into two columns (one for names, another for values), we make the dataset longer; hence, <code>pivot_longer</code>. For this function, you need to specify:</p>
 <ul>
@@ -656,15 +615,15 @@ Summarize vs.&nbsp;Mutate
 </ul>
 <p>Lets use this to pivot all the analytes into two columns. I could achieve this by writing out all the column names. However, a handy shortcut is to use the <code>-</code> operator; similar to negate, this tells the code to consider all columns <em>but</em> the ones included:</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_long</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_long</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>    cols <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Date</span><span class="op">)</span>,</span>
 <span>    names_to <span class="op">=</span> <span class="st">'Analyte'</span>,</span>
 <span>    values_to <span class="op">=</span> <span class="st">'Value'</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,116 × 4
    Station Date       Analyte            Value
@@ -684,13 +643,13 @@ Summarize vs.&nbsp;Mutate
 </div>
 <p>We can see that our data shape has changed; we have fewer columns and many more rows:</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">df_wq_long</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">df_wq_long</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1116    4</code></pre>
 </div>
 </div>
-</section><section id="pivot_wider" class="level3" data-number="7.5.2"><h3 data-number="7.5.2" class="anchored" data-anchor-id="pivot_wider">
-<span class="header-section-number">7.5.2</span> <code>pivot_wider</code>
+</section><section id="pivot_wider" class="level3" data-number="7.3.2"><h3 data-number="7.3.2" class="anchored" data-anchor-id="pivot_wider">
+<span class="header-section-number">7.3.2</span> <code>pivot_wider</code>
 </h3>
 <p>We see that we went from 20 columns to 4. However, we also went from 62 rows to 1116. Why 1116? The columns we did not specify (Station and Date) were used to help create a <code>key</code>; every row is a unique combination of Station, Date, and our new name column Analyte. There are 62 unique Date/Station combos, and each of the 18 analytes has a row for each one, leading to 1116 rows.</p>
 <p>Lets pretend this was the original format we received the data in, and we rather have each analyte be its own column. In other words, our goal is to transform two columns into &gt;2 columns, making the dataset wider. The best function for this, as you might suspect, is <code>pivot_wider</code>. Here, instead of pivoting to columns, we pivot from them, and need:</p>
@@ -699,14 +658,14 @@ Summarize vs.&nbsp;Mutate
 <li>which column to take the values from (<code>values_from</code>)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_wide</span> <span class="op">&lt;-</span> <span class="va">df_wq_long</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_wide</span> <span class="op">&lt;-</span> <span class="va">df_wq_long</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span></span>
 <span>    names_from <span class="op">=</span> <span class="va">Analyte</span>,</span>
 <span>    values_from <span class="op">=</span> <span class="va">Value</span></span>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_wide</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq_wide</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 62 × 20
    Station Date        Chla Pheophytin TotAlkalinity DissAmmonia
@@ -729,15 +688,15 @@ Summarize vs.&nbsp;Mutate
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">df_wq_wide</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">df_wq_wide</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 62 20</code></pre>
 </div>
 </div>
 <p>Now we’re back to our original dimensions!</p>
 <p><strong>Note:</strong> The pivot functions are very powerful and have a large amount of flexibility. For example, you can specify multiple <code>value</code> columns or combine columns to create a single <code>names</code> column. The <code>help</code> documentation has useful examples to reference for cases like these.</p>
-</section><section id="exercise-1" class="level3" data-number="7.5.3"><h3 data-number="7.5.3" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">7.5.3</span> Exercise</h3>
+</section><section id="exercise-1" class="level3" data-number="7.3.3"><h3 data-number="7.3.3" class="anchored" data-anchor-id="exercise-1">
+<span class="header-section-number">7.3.3</span> Exercise</h3>
 <p>Now its your turn to try out grouping and summarizing.</p>
 <ol type="1">
 <li><p>Use <code>group_by</code> and <code>summarize</code> to calculate the minimum, median, and maximum values for “Secchi” for each station.<br><strong>HINT:</strong> Watch out for <code>NA</code> values!</p></li>
@@ -746,41 +705,41 @@ Summarize vs.&nbsp;Mutate
 </ol>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate the minimum, median, and maximum values for Secchi for each station</span></span>
-<span><span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Station</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate the minimum, median, and maximum values for Secchi for each station</span></span>
+<span><span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
 <span>    min_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    median_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    max_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Add "Year" as a grouping variable to the operation above</span></span>
-<span><span class="va">df_summary</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Year <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span></span>
+<span><span class="va">df_summary</span> <span class="op">&lt;-</span> <span class="va">df_wq</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Year <span class="op">=</span> <span class="fu">year</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Station</span>, <span class="va">Year</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarize</span><span class="op">(</span></span>
 <span>    min_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    median_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    max_Secchi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Secchi</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Pivot the data; first make the secchi columns into rows, then the year rows into columns</span></span>
-<span><span class="va">df_summary_long</span> <span class="op">&lt;-</span> <span class="va">df_summary</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'min_Secchi'</span>,<span class="st">'median_Secchi'</span>,<span class="st">'max_Secchi'</span><span class="op">)</span>,</span>
+<span><span class="va">df_summary_long</span> <span class="op">&lt;-</span> <span class="va">df_summary</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'min_Secchi'</span>,<span class="st">'median_Secchi'</span>,<span class="st">'max_Secchi'</span><span class="op">)</span>,</span>
 <span>               names_to <span class="op">=</span> <span class="st">'SecchiStat'</span>,</span>
 <span>               values_to <span class="op">=</span> <span class="st">'Value'</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">df_summary_wide</span> <span class="op">&lt;-</span> <span class="va">df_summary_long</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Year</span>, values_from <span class="op">=</span> <span class="va">Value</span><span class="op">)</span></span>
+<span><span class="va">df_summary_wide</span> <span class="op">&lt;-</span> <span class="va">df_summary_long</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Year</span>, values_from <span class="op">=</span> <span class="va">Value</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Can also complete in one step</span></span>
-<span><span class="va">df_summary_wide</span> <span class="op">&lt;-</span> <span class="va">df_summary</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">'min_'</span><span class="op">)</span><span class="op">:</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">'max_'</span><span class="op">)</span>,</span>
+<span><span class="va">df_summary_wide</span> <span class="op">&lt;-</span> <span class="va">df_summary</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu">starts_with</span><span class="op">(</span><span class="st">'min_'</span><span class="op">)</span><span class="op">:</span><span class="fu">starts_with</span><span class="op">(</span><span class="st">'max_'</span><span class="op">)</span>,</span>
 <span>               names_to <span class="op">=</span> <span class="st">'SecchiStat'</span>,</span>
-<span>               values_to <span class="op">=</span> <span class="st">'Value'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Year</span>, values_from <span class="op">=</span> <span class="va">Value</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>               values_to <span class="op">=</span> <span class="st">'Value'</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Year</span>, values_from <span class="op">=</span> <span class="va">Value</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
