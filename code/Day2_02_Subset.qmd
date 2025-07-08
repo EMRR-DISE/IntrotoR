@@ -40,7 +40,7 @@ Let's talk a bit about the structure of a data frame. Data frames are 2-dimensio
 #| out-width: 80%
 #| fig-align: left
 
-knitr::include_graphics('images/dataframe.png')
+knitr::include_graphics(here("code/images/dataframe.png"), error = FALSE)
 ```
 
 Note that, on the far-left side, there is a column of numbers separate from the data frame itself. This is called the **row index**. Similarly, every column has its own **column index**. Combined, this means every entry in a data frame has a unique, 2-dimensional **index** that's defined by which row x column it's in.
