@@ -10,11 +10,18 @@ execute:
   warning: false
 ---
 
-## Introduction
+```{r}
+#| include: false
 
-A common task scientists need to do is summarizing or aggregating a data set. We'll start with some basic R functions for this task and then move into some more powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package to group and summarize your data.
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv("data/WQ_P8D7.csv")
+```
 
 ## Basic Summarizing
+
+A common task scientists need to do is summarizing or aggregating a data set. We'll start with some basic R functions for this task and then move into some more powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package to group and summarize your data.
 
 For a basic overall summary of your data set, use the `summary` function. Here is what that looks like when you use it with the EMP water quality data set:
 
