@@ -479,7 +479,7 @@ By default, the y-axis range is standardized across the panels. This is generall
 
 ## Combined plots
 
-Sometimes, it is useful to combine multiple plots into a panel that do not share a common x or y axis (i.e., are not produced using `facet_grid()` or `facet_wrap()`). These plot panels are particularly useful in publications like journal articles.
+Sometimes, it is useful to combine multiple plots into a panel that do not share a common x or y axis (i.e., are not produced using `facet_grid()` or `facet_wrap()`). In the past, this was difficult to do, but the `patchwork` package makes is very easy. These plot panels are particularly useful in publications like journal articles.
 
 ```{r}
 
@@ -515,6 +515,8 @@ Colors: <https://r-charts.com/colors/>
 Point shapes: ![](images/PointShapes.png)
 
 Line types: ![](images/LineTypes.png)
+
+Plot themes: <https://ggplot2.tidyverse.org/reference/ggtheme.html>
 
 
 ```{r}
@@ -584,7 +586,7 @@ Our Sechi depth plot isn't a great example for showing color palettes, so we wil
 ```
 
 
-There are also options for formatting the plot background. Many people dislike the default gray background with grid lines.
+There are also options for formatting the plot background. Many people dislike the default gray background with grid lines. We will look at a couple of the alternatives.
 
 
 ```{r}
@@ -635,7 +637,7 @@ ggsave(plot = plot_labels #tell ggsave which plot to export
 
 I used PNG, which is a file type that works well for viewing on a computer. However, `ggsave()` can save plots as PDF, JPEG, TIFF, and various others. Search for `ggsave()` within 'Help' to see the full list of file types.
 
-By default, the plot will be saved in your working directory. I specified a subfolder within my working directory.
+By default, the plot will be saved in your working directory. I specified a subfolder (i.e., "images") within my working directory.
 
 
 

@@ -1,28 +1,26 @@
 ---
-title: "Day 4: 7/18/2024"
+title: "Day 4 - Binds, Joins, Dates and Times"
 author: "Dave Bosworth"
 format: html
 ---
 
-Now that we have covered the basics of using R and RStudio including importing, cleaning, and plotting data, we'll continue with a few additional and useful beginner/intermediate skills. Here is the outline for our last day of training:
+Now that we have covered the basics of using R and RStudio including importing, cleaning, summarizing and plotting data, we'll continue with a few additional and useful beginner/intermediate skills. Here is the outline for our last day of training:
 
-1. Summarizing Data
-
-    - Basic Summarizing
-    - Grouping
-
-2. Reshaping Data
-
-    - Basics of Data Structure
-    - Converting between Data Structures
-
-3. Binds and Joins
+1. Binds and Joins
 
     - Differences and Usage
     - Bind Rows
     - Join Basics
     - Left Join
 
-4. Final Course Exercise
+2. Dates and Times
+
+    - Basics and Classes
+    - Converting from character dates
+    - Time Zones
+    - Extracting parts of a date-time object
+    
+
+3. Final Course Exercise
 
 Students will have the opportunity to bring many of the class concepts together in this final exercise.

@@ -4,7 +4,7 @@ project:
   execute-dir: project
 
 book:
-  title: "Introduction to R Training - July 2024"
+  title: "Introduction to R Training - July 2025"
   author: "The Intro to R Team"
   date: today
   date-format: long
@@ -17,27 +17,26 @@ book:
         aria-label: GitHub
   chapters:
     - index.qmd
-    - part: "Day 1: 7/9/2024"
+    - part: code/Day1_01_Intro.qmd
       chapters:
-        - code/Day1Intro.qmd
+        - code/Day1_02_Objects.qmd
+        - code/Day1_03_Packages.qmd
+        - code/Day1_04_ErrorsHelp.qmd
     - part: code/Day2_01_Intro.qmd
       chapters:
-        - code/Day2_02_ImportData.qmd
-        - code/Day2_03_Subset.qmd
-        - code/Day2_04_Mutate.qmd
-        - code/Day2_05_FinalExercise.qmd
-    - part: "Day 3: 7/16/2024"
+        - code/Day2_02_Subset.qmd
+        - code/Day2_03_Mutate.qmd
+        - code/Day2_04_Summarize.qmd
+    - part: "Day 3 - Visualizing Data"
       chapters:
         - code/Day3_MakingGraphs.qmd
     - part: code/Day4_01_Outline.qmd
       chapters:
-        - code/Day4_02_Summarizing.qmd
-        - code/Day4_03_Reshaping.qmd
-        - code/Day4_04_Joins_Binds.qmd
-        - code/Day4_05_Final_Exercise.qmd
+        - code/Day4_02_Joins_Binds.qmd
+        - code/Day4_03_Dates_and_Times.qmd
+        - code/Day4_04_Final_Exercise.qmd
   appendices:
     - code/MarkdownFiles.qmd
-    - code/DatesandTimes.qmd
     - code/RDefinitions.qmd
     - code/Resources.qmd
 

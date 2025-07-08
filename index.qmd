@@ -34,7 +34,9 @@ For the first time, this is not taught by outside consultants, but by your own c
 
     -   The window titled "Console" should come up and have the R version and some boilerplate information about R in it, with a blue carrot and cursor below it.
 
-![](images/clipboard-1261131084.png)
+        ![](images/clipboard-89401781.png)
+
+<!-- -->
 
 -   Install the `tidyverse` and `here` packages
 
@@ -46,12 +48,12 @@ For the first time, this is not taught by outside consultants, but by your own c
 
 ## Meet your instructors
 
--   [Rosemary Hartman](Rosemary.Hartman@water.ca.gov) (She/Her) is an Environmental Program Manager in the Division of Integrated Science and Engineering. She is an aquatic ecologist by training, with an emphasis on data synthesis, statistics, and data integration. She would love to tell you how to analyze your data.
+-   Rosie Hartman (She/Her, Rosemary.Hartman\@water.ca.gov) is an Environmental Program Manager in the Division of Integrated Science and Engineering. She is an aquatic ecologist by training, with an emphasis on data synthesis, statistics, and data integration. She would love to tell you how to analyze your data.
 
--   [Perry](Sarah.Perry@water.ca.gov) (They/Them) is an Environmental Scientist with the Environmental Monitoring Program who is also getting a master's degree in statistics from UC Davis. They are fluent in both Python and R.
+-   Perry (They/Them, Sarah.Perry\@water.ca.gov) is an Environmental Scientist with the Environmental Monitoring Program who is also getting a master's degree in statistics from UC Davis. They are fluent in both Python and R.
 
--   [Nick Rasmussen](Nicholas.Rasmussen@water.ca.gov) (He/Him) is a Senior Environmental Scientist with broad interests in aquatic ecology who has worked on projects ranging from the Salinity Control Gates to aquatic weeds.
+-   Nick Rasmussen (He/Him, Nicholas.Rasmussen\@water.ca.gov) is a Senior Environmental Scientist with broad interests in aquatic ecology who has worked on projects ranging from the Salinity Control Gates to aquatic weeds.
 
--   [Dave Bosworth](David.Bosworth@water.ca.gov) (He/Him) is a Senior Environmental Scientist who comes from a water quality and contaminants background but has found his calling as a data scientist. He is passionate about making your code more efficient and automating all the boring stuff.
+-   Dave Bosworth (He/Him, David.Bosworth\@water.ca.gov) is a Senior Environmental Scientist who comes from a water quality and contaminants background but has found his calling as a data scientist. He is passionate about making your code more efficient and automating all the boring stuff.
 
--   [Ted Swift](Ted.Swift@water.ca.gov) (He/Him) is a Senior Environmental Scientist with the Quality Management Section who is working to increase the number of data science training available to DWR scientists.
+-   Ted Swift (He/Him, Ted.Swift\@water.ca.gov) is a Senior Environmental Scientist with the Quality Management Section who is working to increase the number of data science training available to DWR scientists.

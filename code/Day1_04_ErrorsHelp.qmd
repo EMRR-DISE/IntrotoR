@@ -1,5 +1,5 @@
 ---
-title: "Day 1 - Errors and help"
+title: "Errors and help"
 editor: visual
 format:
   html:
