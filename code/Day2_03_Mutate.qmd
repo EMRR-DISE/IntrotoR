@@ -122,7 +122,7 @@ df_wq %>%
 
 Note that `case_when` is nested in the `mutate` function and that we had to specify which column we wanted to manipulate (in this case, Chla). As you may assume, since it's part of mutate, this means we can also create new columns via this process.
 
-### Exercise
+#### Exercise
 
 Now its your turn to try out these summarizing functions we just learned about.
 

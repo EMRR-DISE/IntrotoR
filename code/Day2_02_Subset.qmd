@@ -255,7 +255,7 @@ This is what the `%in%` function does:
 df_wq %>% filter(Date %in% c('2020-02-14','2020-03-06','2020-06-11','2021-03-05','2021-04-05'))
 ```
 
-### Exercise
+#### Exercise
 
 In one filter function, how would I select data that's either before 2020-02-28 *or* after 2022-11-01?
 
@@ -389,7 +389,8 @@ df_wq %>%
 
 **Question:** What operator would I use if I want to *filter* all data *except* `NA`s?
 
-**Exercise**: How would I write this statement? (Hint: examples are above)
+#### Exercise
+How would I write this statement? (Hint: examples are above)
 
 ```{r}
 #| code-fold: true

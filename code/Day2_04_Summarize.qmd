@@ -12,25 +12,7 @@ execute:
 
 ## Introduction
 
-A common task scientists need to do is summarizing or aggregating a data set to get a clearer overview it. We'll start this lesson with some basic R functions for this task, and then move into some more powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package to group and summarize your data.
-
-## Import Data
-
-We'll start the day with loading packages and importing the EMP water quality data.
-
-```{r load packages}
-library(tidyverse)
-```
-
-```{r import emp wq data}
-df_wq <- read_csv("data/WQ_P8D7.csv")
-```
-
-As a reminder, here is the structure of the EMP water quality data:
-
-```{r view emp wq data}
-glimpse(df_wq)
-```
+A common task scientists need to do is summarizing or aggregating a data set. We'll start with some basic R functions for this task and then move into some more powerful R functions from the [`dplyr`](https://dplyr.tidyverse.org/index.html) package to group and summarize your data.
 
 ## Basic Summarizing
 
@@ -81,7 +63,7 @@ df_wq %>% summarize(mean_DON = mean(DON, na.rm = TRUE))
 
 Now, R returns the overall average DON value after ignoring the `NA` values.
 
-### Exercise
+#### Exercise
 
 Now its your turn to try out these summarizing functions we just learned about.
 
