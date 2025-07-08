@@ -1,0 +1,155 @@
+---
+title: "Mutate Data"
+author: "S Perry"
+format:
+  html:
+    code-link: true
+code-copy: true
+execute: 
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+df_wq <- read_csv("data/WQ_P8D7.csv")
+```
+
+## Introduction
+
+Sometimes, we want to modify existing columns values or even add new ones. This is where the `mutate` function from the `dplyr` package comes in.
+
+## Add New Columns
+
+With `mutate`, it's simple to add new columns. First, let's look at our current ones:
+
+```{r}
+glimpse(df_wq)
+```
+
+\
+Now let's add a new column, *Lab*, where every value is "BSA":
+
+```{r}
+df_wq %>%
+  mutate(Lab = 'BSA') %>%
+  glimpse()
+```
+
+We can even add columns that are combinations of other ones:
+
+*add two numeric columns together*
+
+```{r}
+df_wq %>%
+  mutate(ChlPheo = Chla + Pheophytin) %>%
+  select(Station, Date, Chla, Pheophytin, ChlPheo) %>%
+  head()
+```
+
+*concatenate two character columns*
+
+```{r}
+df_wq %>%
+  mutate(StatDate = paste(Station, Date, sep = '___')) %>%
+  select(Station, Date, StatDate) %>%
+  head()
+```
+
+::: callout-note
+## Relocate Columns
+
+Sometimes, we want to re-arrange our column order. For example, with our new `Lab` column, we might want it in the beginning with the other metadata. Here, we use the `relocate` function:
+
+```{r}
+df_wq %>%
+  mutate(Lab = 'BSA') %>%
+  relocate(Lab, .after = Date) %>%
+  head()
+```
+:::
+
+## Modify Existing Columns
+
+We can also use mutate to modify existing columns. For example, say we want to add 20 to every *Chla* value:
+
+```{r}
+df_wq %>%
+  mutate(Chla = Chla+20)
+```
+
+We can even change data types! This is useful if, say, you have character column that should be numeric, or a character column that should be factor. We do this by using the `as.numeric` and `as.factor` functions (`as.character` is also an option):
+
+```{r}
+df_wq %>%
+  mutate(Chla = as.numeric(Chla),
+         Station = as.factor(Station)) %>%
+  select(Station, Chla) %>%
+  str()
+```
+
+## `case_when`
+
+Sometimes you only want to change certain values in a column. For example, maybe you want to add 20 to `chla` values, but only for rows where the station is P8. You can do this using the `case_when()` function for this.
+
+`case_when()` lets you assign new values based on conditions. It takes each row and sequentially compared it to each condition, using the value for the first one that is true. The format looks like this:
+
+```         
+case_when(
+  condition1 ~ value1,
+  condition2 ~ value2,
+  TRUE ~ default_value
+  )
+```
+
+Since every row must get a value, it’s important to end with `TRUE ~ result` to handle all remaining cases.
+
+To go back to our example, the code would look like this:
+
+```{r}
+df_wq %>%
+  mutate(
+    Chla =
+      case_when(Station == 'P8' ~ Chla + 20, # if station is P8, add 20
+              TRUE ~ Chla) # else, keep as previous value
+  ) %>%
+  select(c(Station:Date), Chla)
+```
+
+Note that `case_when` is nested in the `mutate` function and that we had to specify which column we wanted to manipulate (in this case, Chla). As you may assume, since it's part of mutate, this means we can also create new columns via this process.
+
+### Exercise
+
+Now its your turn to try out these summarizing functions we just learned about.
+
+1)  Use `case_when` to multiple Pheophytin values by 2 for station D7.
+
+2)  Use `case_when` (nested in `mutate`) to create a new column, `DON_ND`, where the value is 0 when when DON is `NA` (ie. a non-detect)\
+    **HINT:** we can use `is.na` to check if a column is NA
+
+Click below for the answer when you are done!
+
+```{r}
+#| code-fold: true
+#| eval: false
+#| 
+df_wq %>%
+  mutate(
+    Test = 
+      case_when(is.na(DON) ~ 0,
+                TRUE ~ DON)
+  )
+```
+
+## Rename
+
+Sometimes, we want to rename our columns (eg. if working with multiple data frames, we want the columns to be standardized). We can do this using the `rename` function from the `dplyr` package:
+
+```{r}
+df_wq %>%
+  rename(StationCode = Station)
+```
