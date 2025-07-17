@@ -288,18 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-new-columns" id="toc-add-new-columns" class="nav-link" data-scroll-target="#add-new-columns"><span class="header-section-number">6.2</span> Add New Columns</a></li>
   <li><a href="#modify-existing-columns" id="toc-modify-existing-columns" class="nav-link" data-scroll-target="#modify-existing-columns"><span class="header-section-number">6.3</span> Modify Existing Columns</a></li>
   <li>
-<a href="#formatting-dates" id="toc-formatting-dates" class="nav-link" data-scroll-target="#formatting-dates"><span class="header-section-number">6.4</span> Formatting Dates</a>
+<a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">6.4</span> <code>case_when</code></a>
   <ul>
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">6.4.1</span> Exercise</a></li>
+<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">6.4.0.1</span> Exercise</a></li>
   </ul>
 </li>
-  <li>
-<a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">6.5</span> <code>case_when</code></a>
-  <ul>
-<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">6.5.0.1</span> Exercise</a></li>
-  </ul>
-</li>
-  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename"><span class="header-section-number">6.6</span> Rename</a></li>
+  <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename"><span class="header-section-number">6.5</span> Rename</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -502,65 +496,8 @@ Relocate Columns
  $ Chla   : num [1:62] 0.64 0.67 1.46 2.15 1.4 1.89 4.73 1.74 6.4 2.79 ...</code></pre>
 </div>
 </div>
-</section><section id="formatting-dates" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="formatting-dates">
-<span class="header-section-number">6.4</span> Formatting Dates</h2>
-<p>A particularly useful application for mutate is to properly format dates. Remember we used <code>lubridate</code> to extract information, like year, from our dates:</p>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">year</span><span class="op">(</span><span class="va">df_wq</span><span class="op">$</span><span class="va">Date</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2020 2020 2020 2020 2020 2020</code></pre>
-</div>
-</div>
-<p>Will these functions work if Date is in a different format?</p>
-<p>Clearly, this is incorrect; to R, the only correct date format is Year-Month-Day (with a 4 digit year). We can convert dates using the <code>as.Date</code> function in R. This can also be used in the <code>mutate</code> function.</p>
-<p>To do this, we need to specify the format the other date is in. A quick cheat sheet:</p>
-<ul>
-<li>
-<code>%Y</code>: year (4 digit)</li>
-<li>
-<code>%y</code>: year (2 digit)</li>
-<li>
-<code>%m</code>: month (numeric)</li>
-<li>
-<code>%B%</code>: month (full name)</li>
-<li>
-<code>%b%</code>: month (abbreviation)</li>
-<li>
-<code>%d</code>: day</li>
-<li>
-<code>%H</code>: hour</li>
-<li>
-<code>%M</code>: minute</li>
-<li>
-<code>%S</code>: second</li>
-</ul>
-<div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_date</span> <span class="op">&lt;-</span> <span class="st">'04/05/2021'</span></span>
-<span></span>
-<span><span class="va">new_date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">test_date</span>, format <span class="op">=</span> <span class="st">'%m/%d/%Y'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">new_date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2021-04-05"</code></pre>
-</div>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">new_date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Date"</code></pre>
-</div>
-</div>
-<section id="exercise" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">6.4.1</span> Exercise</h3>
-<p>Convert <code>April 5 2021</code> to a date character</p>
-<div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_date2</span> <span class="op">&lt;-</span> <span class="st">'April 5 2021'</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">test_date2</span>, format <span class="op">=</span> <span class="st">'%B %d %Y'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "2021-04-05"</code></pre>
-</div>
-</div>
-</section></section><section id="case_when" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="case_when">
-<span class="header-section-number">6.5</span> <code>case_when</code>
+</section><section id="case_when" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="case_when">
+<span class="header-section-number">6.4</span> <code>case_when</code>
 </h2>
 <p>Sometimes you only want to change certain values in a column. For example, maybe you want to add 20 to <code>chla</code> values, but only for rows where the station is P8. You can do this using the <code>case_when()</code> function for this.</p>
 <p><code>case_when()</code> lets you assign new values based on conditions. It takes each row and sequentially compared it to each condition, using the value for the first one that is true. The format looks like this:</p>
@@ -572,7 +509,7 @@ Relocate Columns
 <p>Since every row must get a value, it’s important to end with <code>TRUE ~ result</code> to handle all remaining cases.</p>
 <p>To go back to our example, the code would look like this:</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    Chla <span class="op">=</span></span>
 <span>      <span class="fu">case_when</span><span class="op">(</span><span class="va">Station</span> <span class="op">==</span> <span class="st">'P8'</span> <span class="op">~</span> <span class="va">Chla</span> <span class="op">+</span> <span class="fl">20</span>, <span class="co"># if station is P8, add 20</span></span>
@@ -597,8 +534,8 @@ Relocate Columns
 </div>
 </div>
 <p>Note that <code>case_when</code> is nested in the <code>mutate</code> function and that we had to specify which column we wanted to manipulate (in this case, Chla). As you may assume, since it’s part of mutate, this means we can also create new columns via this process.</p>
-<section id="exercise-1" class="level4" data-number="6.5.0.1"><h4 data-number="6.5.0.1" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">6.5.0.1</span> Exercise</h4>
+<section id="exercise" class="level4" data-number="6.4.0.1"><h4 data-number="6.4.0.1" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">6.4.0.1</span> Exercise</h4>
 <p>Now its your turn to try out these summarizing functions we just learned about.</p>
 <ol type="1">
 <li><p>Use <code>case_when</code> to multiple Pheophytin values by 2 for station D7.</p></li>
@@ -606,7 +543,7 @@ Relocate Columns
 </ol>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    Test <span class="op">=</span> </span>
 <span>      <span class="fu">case_when</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">DON</span><span class="op">)</span> <span class="op">~</span> <span class="fl">0</span>,</span>
@@ -614,11 +551,11 @@ Relocate Columns
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="rename" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="rename">
-<span class="header-section-number">6.6</span> Rename</h2>
+</section></section><section id="rename" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="rename">
+<span class="header-section-number">6.5</span> Rename</h2>
 <p>Sometimes, we want to rename our columns (eg. if working with multiple data frames, we want the columns to be standardized). We can do this using the <code>rename</code> function from the <code>dplyr</code> package:</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_wq</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">rename</span><span class="op">(</span>StationCode <span class="op">=</span> <span class="va">Station</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 62 × 20

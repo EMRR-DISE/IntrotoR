@@ -92,49 +92,6 @@ df_wq %>%
   str()
 ```
 
-## Formatting Dates
-
-A particularly useful application for mutate is to properly format dates. Remember we used `lubridate` to extract information, like year, from our dates:
-
-```{r}
-year(df_wq$Date) %>% head()
-```
-
-Will these functions work if Date is in a different format?
-
-Clearly, this is incorrect; to R, the only correct date format is Year-Month-Day (with a 4 digit year). We can convert dates using the `as.Date` function in R. This can also be used in the `mutate` function.
-
-To do this, we need to specify the format the other date is in. A quick cheat sheet:
-
-- `%Y`: year (4 digit)
-- `%y`: year (2 digit)
-- `%m`: month (numeric)
-- `%B%`: month (full name)
-- `%b%`: month (abbreviation)
-- `%d`: day
-- `%H`: hour
-- `%M`: minute
-- `%S`: second
-
-```{r}
-test_date <- '04/05/2021'
-
-new_date <- as.Date(test_date, format = '%m/%d/%Y')
-
-new_date
-class(new_date)
-```
-
-### Exercise
-
-Convert `April 5 2021` to a date character
-
-```{r}
-test_date2 <- 'April 5 2021'
-
-as.Date(test_date2, format = '%B %d %Y')
-```
-
 ## `case_when`
 
 Sometimes you only want to change certain values in a column. For example, maybe you want to add 20 to `chla` values, but only for rows where the station is P8. You can do this using the `case_when()` function for this.

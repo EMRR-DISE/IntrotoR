@@ -40,7 +40,7 @@ Let's talk a bit about the structure of a data frame. Data frames are 2-dimensio
 #| out-width: 80%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/dataframe.png"), error = FALSE)
+knitr::include_graphics('images/dataframe.png')
 ```
 
 Note that, on the far-left side, there is a column of numbers separate from the data frame itself. This is called the **row index**. Similarly, every column has its own **column index**. Combined, this means every entry in a data frame has a unique, 2-dimensional **index** that's defined by which row x column it's in.
@@ -149,6 +149,13 @@ df_chlpheo <- df_wq %>% select(Station:Pheophytin)
 
 ```{r}
 glimpse(df_chlpheo)
+```
+
+We can also select specific columns by using a vector:
+
+```{r}
+df_wq %>% select(c(Station, Pheophytin)) %>%
+  head()
 ```
 
 ## Subset By Row Values
@@ -312,7 +319,116 @@ df_wq %>% filter(Date == '2020-01-16' |
 
 ------------------------------------------------------------------------
 
+## Subset `NA`
+
+The final type of subset that we'll cover is by `NA` data.
+
+`NA` is a **logical constant** of length 1 which contains a missing value indicator:
+
+```{r}
+typeof(NA) # NA
+
+
+typeof('NA') # not the same
+```
+
+Sometimes, we want to select only `NA` data or omit it entirely. Looking at the DON column, we see that there are `NA`s:
+
+```{r}
+unique(df_wq$DON) # returns unique values
+```
+
+A quicker way to check this is the `is.na` function:
+
+```{r}
+any(is.na(df_wq$DON))
+```
+
+This returns a logical vector. If I want to subset by this, I can use the `filter` function:
+
+```{r}
+df_wq %>%
+  filter(is.na(df_wq$DON)) %>%
+  select(Station, Date, DON)
+```
+
+**Question:** What operator would I use if I want to *filter* all data *except* `NA`s?
+
+### Exercise
+
+How would I write this statement? (Hint: examples are above)
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+df_wq %>%
+  filter(!is.na(df_wq$DON)) %>% # use the ! operator before the function to negate
+  select(Station, Date, DON)
+```
+
+------------------------------------------------------------------------
+
 ## Subset by Dates
+
+::: callout-note
+### Importing Dates Correctly
+
+Dates can be very complicated in R. One common issue is that date formats can display differently from the same file! Here's an example:
+
+```{r}
+df_dash_dates <- read_csv('data/WQ_P8D7.csv', show_col_types = FALSE) %>%
+  select(Date) %>%
+  head()
+
+df_slash_dates <- read_csv('data/WQ_P8D7_moddates.csv', show_col_types = FALSE) %>%
+  select(Date) %>%
+  head() 
+
+df_dash_dates
+
+df_slash_dates
+```
+
+What happened? In this case, it's an issue of **opening the file in Excel and saving it**. When you do this, Excel can change the date format without you even knowing. One workaround for this issue to use the `parse_date_time` function; we will go into this in more detail on Day 4.
+
+The format Year-Month-Day is the "correct" Date format in R (with a 4 digit year). So how do we convert? There are many ways, but one is using the `as.Date` function in R, which can be nested in the `mutate` function.
+
+To do this, we need to specify the format the other date is in.This is done using something called "format codes" that represent parts of the date and time. These codes must match the structure of your data, including any separators like slashes, dashes, or spaces.
+
+A cheat sheet for format codes:
+
+-   `%Y`: year (4 digit) – 2005
+-   `%y`: year (2 digit) – 05
+-   `%m`: month (numeric) – 01
+-   `%B`: month (full name) – January
+-   `%b`: month (abbreviation) – Jan
+-   `%d`: day
+-   `%H`: hour
+-   `%M`: minute
+-   `%S`: second
+
+An example:
+
+```{r}
+test_date <- '04/05/2021'
+
+new_date <- as.Date(test_date, format = '%m/%d/%Y')
+
+new_date
+class(new_date)
+```
+
+### Exercise
+
+Convert `April 5 2021` to a date character
+
+```{r}
+test_date2 <- 'April 5 2021'
+
+as.Date(test_date2, format = '%B %d %Y')
+```
+:::
 
 What if I want to subset all values in a given year? If I had a vector of all the years in my dataset, then I could simply use `%in%` (or, if there's only one year, `==`)! But how would I get that vector?
 
@@ -330,6 +446,7 @@ df_wq$Date %>%
 ```{r}
 class(df_wq$Date) # check that it's the correct class
 ```
+
 *Days:*
 
 ```{r}
@@ -372,53 +489,4 @@ Subset to only include data from April 2021 (hint: use the `&` operator)
 
 df_wq %>% filter(year(Date) == '2021' & month(Date) == '4') %>%
   head()
-```
-
-------------------------------------------------------------------------
-
-## Subset `NA`
-
-The final type of subset that we'll cover is by `NA` data.
-
-`NA` is a **logical constant** of length 1 which contains a missing value indicator:
-
-```{r}
-typeof(NA) # NA
-
-
-typeof('NA') # not the same
-```
-
-Sometimes, we want to select only `NA` data or omit it entirely. Looking at the DON column, we see that there are `NA`s:
-
-```{r}
-unique(df_wq$DON) # returns unique values
-```
-
-A quicker way to check this is the `is.na` function:
-
-```{r}
-any(is.na(df_wq$DON))
-```
-
-This returns a logical vector. If I want to subset by this, I can use the `filter` function:
-
-```{r}
-df_wq %>%
-  filter(is.na(df_wq$DON)) %>%
-  select(Station, Date, DON)
-```
-
-**Question:** What operator would I use if I want to *filter* all data *except* `NA`s?
-
-### Exercise
-How would I write this statement? (Hint: examples are above)
-
-```{r}
-#| code-fold: true
-#| eval: false
-
-df_wq %>%
-  filter(!is.na(df_wq$DON)) %>% # use the ! operator before the function to negate
-  select(Station, Date, DON)
 ```
