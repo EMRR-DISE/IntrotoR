@@ -40,7 +40,7 @@ Let's talk a bit about the structure of a data frame. Data frames are 2-dimensio
 #| out-width: 80%
 #| fig-align: left
 
-knitr::include_graphics(here("code/images/dataframe.png"), error = FALSE)
+knitr::include_graphics('images/dataframe.png')
 ```
 
 Note that, on the far-left side, there is a column of numbers separate from the data frame itself. This is called the **row index**. Similarly, every column has its own **column index**. Combined, this means every entry in a data frame has a unique, 2-dimensional **index** that's defined by which row x column it's in.
@@ -81,6 +81,17 @@ df_wq[,2:4] %>%
   head()
 ```
 
+### Exercise
+
+Try to subset the 1st-2nd row and 3rd-4th column.
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+df_wq[1:2,3:4]
+```
+
 ::: callout-note
 ### Operators and Pipes
 
@@ -89,7 +100,7 @@ You'll notice I used some new syntax, namely, the `%>%`. This is called the **pi
 
 ## Subset by Column Names
 
-Subsetting is very powerful. However, if we specify values by their numerical index, we can get confused about what we're accessing. For example, if I wanted to work with `DissAmmonia` data, I would have to know that it's the 4th column in my data frame. That can get unwieldy with complex datasets.
+To ability to subset is very powerful. However, if we specify values by their numerical index, we can get confused about what we're accessing. For example, if I wanted to work with `DissAmmonia` data, I would have to know that it's the 4th column in my data frame. That can get unwieldy with complex datasets.
 
 Instead, we can use the **column header** to call a particular column:
 
@@ -255,7 +266,7 @@ This is what the `%in%` function does:
 df_wq %>% filter(Date %in% c('2020-02-14','2020-03-06','2020-06-11','2021-03-05','2021-04-05'))
 ```
 
-#### Exercise
+### Exercise
 
 In one filter function, how would I select data that's either before 2020-02-28 *or* after 2022-11-01?
 
@@ -319,7 +330,6 @@ df_wq$Date %>%
 ```{r}
 class(df_wq$Date) # check that it's the correct class
 ```
-
 *Days:*
 
 ```{r}
@@ -350,6 +360,18 @@ df_wq %>% filter(year(Date) == '2021') %>%
 df_wq %>% filter(
   !(year(Date) %in% c('2020','2022'))
   )
+```
+
+### Exercise
+
+Subset to only include data from April 2021 (hint: use the `&` operator)
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+df_wq %>% filter(year(Date) == '2021' & month(Date) == '4') %>%
+  head()
 ```
 
 ------------------------------------------------------------------------
@@ -389,7 +411,7 @@ df_wq %>%
 
 **Question:** What operator would I use if I want to *filter* all data *except* `NA`s?
 
-#### Exercise
+### Exercise
 How would I write this statement? (Hint: examples are above)
 
 ```{r}
