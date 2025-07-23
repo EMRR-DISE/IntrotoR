@@ -229,14 +229,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day4_02_Joins_Binds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
+  <a href="../code/Day4_02_Dates_and_Times.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dates and Times</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day4_03_Dates_and_Times.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dates and Times</span></span></a>
+  <a href="../code/Day4_03_Joins_Binds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -397,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1      3.04</code></pre>
 </div>
 </div>
-<p>You may have noticed that, unlike the <code>summary</code> function, <code>summarize</code> provides the summarized data in a tibble or data frame. This is useful if you intend to continue working with the data. Also note that I provided a name for the summarized data column “mean_Chla”, which is a lot like the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code> function we learned about earlier.</p>
+<p>You may have noticed that, unlike the <code>summary</code> function, <code>summarize</code> provides the summarized data in a tibble or data frame. This is useful if you intend to continue working with the data. Also note that I provided a name for the summarized data column “mean_Chla”, which is a lot like the <code><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">dplyr::mutate</a></code> function we learned about earlier.</p>
 <p>You can calculate multiple values at once by providing additional arguments to <code>summarize</code>. For example, let’s calculate the overall averages of both chlorophyll-<em>a</em> and Pheophytin.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate overall mean of multiple columns</span></span>

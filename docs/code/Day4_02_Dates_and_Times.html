@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dave Bosworth">
-<title>10&nbsp; Dates and Times – Introduction to R Training - July 2025</title>
+<title>9&nbsp; Dates and Times – Introduction to R Training - July 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,8 +61,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../code/Day4_04_Final_Exercise.html" rel="next">
-<link href="../code/Day4_02_Joins_Binds.html" rel="prev">
+<link href="../code/Day4_03_Joins_Binds.html" rel="next">
+<link href="../code/Day4_01_Outline.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -129,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4 - Binds, Joins, Dates and Times</a></li><li class="breadcrumb-item"><a href="../code/Day4_03_Dates_and_Times.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dates and Times</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4 - Binds, Joins, Dates and Times</a></li><li class="breadcrumb-item"><a href="../code/Day4_02_Dates_and_Times.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dates and Times</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -229,14 +229,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day4_02_Joins_Binds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
+  <a href="../code/Day4_02_Dates_and_Times.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dates and Times</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../code/Day4_03_Dates_and_Times.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dates and Times</span></span></a>
+  <a href="../code/Day4_03_Joins_Binds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -284,34 +284,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
-  <li><a href="#datetime-basics" id="toc-datetime-basics" class="nav-link" data-scroll-target="#datetime-basics"><span class="header-section-number">10.2</span> Date/Time Basics</a></li>
-  <li><a href="#datetime-classes" id="toc-datetime-classes" class="nav-link" data-scroll-target="#datetime-classes"><span class="header-section-number">10.3</span> Date/Time Classes</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">9.1</span> Introduction</a></li>
+  <li><a href="#datetime-basics" id="toc-datetime-basics" class="nav-link" data-scroll-target="#datetime-basics"><span class="header-section-number">9.2</span> Date/Time Basics</a></li>
+  <li><a href="#datetime-classes" id="toc-datetime-classes" class="nav-link" data-scroll-target="#datetime-classes"><span class="header-section-number">9.3</span> Date/Time Classes</a></li>
   <li>
-<a href="#converting-from-character-dates" id="toc-converting-from-character-dates" class="nav-link" data-scroll-target="#converting-from-character-dates"><span class="header-section-number">10.4</span> Converting from character dates</a>
+<a href="#converting-from-character-dates" id="toc-converting-from-character-dates" class="nav-link" data-scroll-target="#converting-from-character-dates"><span class="header-section-number">9.4</span> Converting from character dates</a>
   <ul>
-<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">10.4.1</span> Exercise</a></li>
+<li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">9.4.1</span> Exercise</a></li>
+  <li><a href="#heterogeneous-formats" id="toc-heterogeneous-formats" class="nav-link" data-scroll-target="#heterogeneous-formats"><span class="header-section-number">9.4.2</span> Heterogeneous formats</a></li>
   </ul>
 </li>
+  <li><a href="#changing-the-date-time-format" id="toc-changing-the-date-time-format" class="nav-link" data-scroll-target="#changing-the-date-time-format"><span class="header-section-number">9.5</span> Changing the date-time format</a></li>
   <li>
-<a href="#time-zones" id="toc-time-zones" class="nav-link" data-scroll-target="#time-zones"><span class="header-section-number">10.5</span> Time Zones</a>
+<a href="#time-zones" id="toc-time-zones" class="nav-link" data-scroll-target="#time-zones"><span class="header-section-number">9.6</span> Time Zones</a>
   <ul>
-<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">10.5.1</span> Exercise</a></li>
+<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">9.6.1</span> Exercise</a></li>
   </ul>
 </li>
-  <li><a href="#times" id="toc-times" class="nav-link" data-scroll-target="#times"><span class="header-section-number">10.6</span> Times</a></li>
+  <li><a href="#times" id="toc-times" class="nav-link" data-scroll-target="#times"><span class="header-section-number">9.7</span> Times</a></li>
   <li>
-<a href="#extracting-parts-of-a-date-time-object" id="toc-extracting-parts-of-a-date-time-object" class="nav-link" data-scroll-target="#extracting-parts-of-a-date-time-object"><span class="header-section-number">10.7</span> Extracting parts of a date-time object</a>
+<a href="#extracting-parts-of-a-date-time-object" id="toc-extracting-parts-of-a-date-time-object" class="nav-link" data-scroll-target="#extracting-parts-of-a-date-time-object"><span class="header-section-number">9.8</span> Extracting parts of a date-time object</a>
   <ul>
-<li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">10.7.1</span> Exercise</a></li>
+<li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">9.8.1</span> Exercise</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4 - Binds, Joins, Dates and Times</a></li><li class="breadcrumb-item"><a href="../code/Day4_03_Dates_and_Times.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dates and Times</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../code/Day4_01_Outline.html">Day 4 - Binds, Joins, Dates and Times</a></li><li class="breadcrumb-item"><a href="../code/Day4_02_Dates_and_Times.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dates and Times</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dates and Times</span>
+<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dates and Times</span>
 </h1>
 </div>
 
@@ -332,39 +334,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="introduction" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="introduction">
-<span class="header-section-number">10.1</span> Introduction</h2>
+</header><section id="introduction" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">9.1</span> Introduction</h2>
 <p>Dates and times are one of the more challenging data classes to deal with. There are many different ways of storing date and time information, and it’s easy to get them mixed up. Fortunately, there are a number of tricks that help make things easier, most of which are in the package <a href="https://lubridate.tidyverse.org/index.html"><code>lubridate</code></a>, which is part of the tidyverse.</p>
 <p>For more info, see the Dates and Times chapter in <a href="https://r4ds.hadley.nz/datetimes.html">R for Data Science</a>.</p>
-</section><section id="datetime-basics" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="datetime-basics">
-<span class="header-section-number">10.2</span> Date/Time Basics</h2>
+</section><section id="datetime-basics" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="datetime-basics">
+<span class="header-section-number">9.2</span> Date/Time Basics</h2>
 <p>First, let’s look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the <code>today</code> function to get a date with today’s value.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">today</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-07-17"</code></pre>
+<pre><code>[1] "2025-07-23"</code></pre>
 </div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">today</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20286</code></pre>
+<pre><code>[1] 20292</code></pre>
 </div>
 </div>
 <p>Now let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">now</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-07-17 12:21:24 PDT"</code></pre>
+<pre><code>[1] "2025-07-23 12:14:08 PDT"</code></pre>
 </div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/now.html">now</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1752780085</code></pre>
+<pre><code>[1] 1753298049</code></pre>
 </div>
 </div>
 <p>Note that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.</p>
-</section><section id="datetime-classes" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="datetime-classes">
-<span class="header-section-number">10.3</span> Date/Time Classes</h2>
+</section><section id="datetime-classes" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="datetime-classes">
+<span class="header-section-number">9.3</span> Date/Time Classes</h2>
 <p>If you have a list of dates and times that you are importing into R, the <code>read_csv</code> or <code>read_excel</code> functions can usually guess when they are dates, particularly if they are in YYYY-MM-DD format, but sometimes they get confused. They have an especially hard time if they are in a non-standard format, such as MM/DD/YY. In this case, the field will get read in as a character and you have to convert it to a date/time class, usually POSIXct.</p>
 <p>Before we do that, let’s learn a bit about different types of date/time classes.</p>
 <p>Date - Number of days since origin.</p>
@@ -372,9 +374,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>POSIXlt - List of vectors with components <code>sec</code>, <code>min</code>, <code>hour</code>, <code>mday</code>, <code>mon</code>, and <code>year</code>. You probably won’t use this format very often.</p>
 <p><code>POSIXct</code> is more convenient for including in data frames, and <code>POSIXlt</code> is closer to human-readable forms. Both classes may have an attribute <code>tzone</code>, specifying the time zone. See <code><a href="https://rdrr.io/r/base/DateTimeClasses.html">?DateTimeClasses</a></code> for details.</p>
 <p>Note: There is no built-in “Time” class, only “DateTime”. Some packages (like <code>hms</code>) have developed ways to deal with times on their own, but it doesn’t come with your base R installation.</p>
-</section><section id="converting-from-character-dates" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="converting-from-character-dates">
-<span class="header-section-number">10.4</span> Converting from character dates</h2>
-<p>The built-in function to convert from characters to dates is <code>strptime</code></p>
+</section><section id="converting-from-character-dates" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="converting-from-character-dates">
+<span class="header-section-number">9.4</span> Converting from character dates</h2>
+<p>The base R function to convert from characters to dates is <code>strptime</code></p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">strptime</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -393,8 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Try a different format. Lowercase y for two-digit year.</span></span>
 <span><span class="va">date2</span> <span class="op">&lt;-</span> <span class="st">"2/3/21"</span></span>
-<span><span class="va">date2_conv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date2</span>, format <span class="op">=</span> <span class="st">"%m/%d/%y"</span><span class="op">)</span></span>
-<span><span class="va">date2_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date2</span>, format <span class="op">=</span> <span class="st">"%m/%d/%y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03 PST"</code></pre>
 </div>
@@ -403,8 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Now one with time included. Note that any spaces or dashes need to be the same </span></span>
 <span><span class="co"># in the format call as in your character vector.</span></span>
 <span><span class="va">date3</span> <span class="op">&lt;-</span> <span class="st">"2-3-2021 08:15"</span></span>
-<span><span class="va">date3_conv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date3</span>, format <span class="op">=</span> <span class="st">"%m-%d-%Y %H:%M"</span><span class="op">)</span></span>
-<span><span class="va">date3_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date3</span>, format <span class="op">=</span> <span class="st">"%m-%d-%Y %H:%M"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03 08:15:00 PST"</code></pre>
 </div>
@@ -415,22 +415,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Let’s try the dates we converted above with these functions.</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">mdy</a></span><span class="op">(</span><span class="va">date1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd.html">mdy</a></span><span class="op">(</span><span class="va">date1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03"</code></pre>
 </div>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">mdy</a></span><span class="op">(</span><span class="va">date2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd.html">mdy</a></span><span class="op">(</span><span class="va">date2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03"</code></pre>
 </div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03 08:15:00 UTC"</code></pre>
 </div>
 </div>
 <p>Note that <code>strptime</code> defaulted the time zone to PDT, whereas <code>mdy_hm</code> defaulted to UTC. It’s always wise to specify your time zone manually to make sure issues don’t come up.</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03 08:15:00 PST"</code></pre>
 </div>
@@ -442,18 +442,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If you have a dataset that is collected in California, but doesn’t use Daylight savings, use “Etc/GMT+8”. GMT (Greenwich Mean Time) doesn’t change with daylight savings, and we are 8 hours behind. Most if not all water quality data collected by DWR is recorded in Pacific Standard Time (PST) year-round, so “Etc/GMT+8” is the correct time zone to use for these instances.</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span>, tz <span class="op">=</span> <span class="st">"Etc/GMT+8"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">date3</span>, tz <span class="op">=</span> <span class="st">"Etc/GMT+8"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03 08:15:00 -08"</code></pre>
 </div>
 </div>
+<section id="exercise" class="level3" data-number="9.4.1"><h3 data-number="9.4.1" class="anchored" data-anchor-id="exercise">
+<span class="header-section-number">9.4.1</span> Exercise</h3>
+<p>Now its your turn to try out working with dates and times.</p>
+<p>Create a new object for a date and time in a character format. Then, try using <code>strptime</code> and the functions from the <code>lubridate</code> package to convert the object to a date-time object. If you want, try this a few times with different date-time formats. Make sure to specify the time zone.</p>
+<p>Click below for the answer when you are done!</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a new object for a date and time in a character format</span></span>
+<span><span class="va">my_datetime_chr</span> <span class="op">&lt;-</span> <span class="st">"7/7/2025 13:00"</span></span>
+<span></span>
+<span><span class="co"># Convert character object to date-time object using strptime</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">my_datetime_chr</span>, format <span class="op">=</span> <span class="st">"%m/%d/%Y %H:%M"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Convert character object to date-time object using lubridate package</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">my_datetime_chr</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Try this again with a different date-time format</span></span>
+<span><span class="va">my_datetime_chr2</span> <span class="op">&lt;-</span> <span class="st">"2025-07-07 13:00:00"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">my_datetime_chr2</span>, format <span class="op">=</span> <span class="st">"%Y-%m-%d %H:%M:%S"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">ymd_hms</a></span><span class="op">(</span><span class="va">my_datetime_chr2</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="heterogeneous-formats" class="level3" data-number="9.4.2"><h3 data-number="9.4.2" class="anchored" data-anchor-id="heterogeneous-formats">
+<span class="header-section-number">9.4.2</span> Heterogeneous formats</h3>
+<p>Sometimes you will encounter a character vector of date-times with multiple formats. While this is somewhat unusual, it is very annoying, so its good to know how to handle this issue. Fortunately the <code>lubridate</code> package has a function to help with this - <code><a href="https://rdrr.io/pkg/lubridate/man/parse_date_time.html">parse_date_time()</a></code>. This function has an “orders” argument that allows the user to provide a vector of more than one date-time format to try parsing.</p>
+<p>First lets try to use the <code>strptime</code> and the <code>lubridate</code> functions we previously learned about to parse a character vector of date-times with multiple formats:</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2/3/2021"</span>, <span class="st">"2021/02/03"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">date4</span>, format <span class="op">=</span> <span class="st">"%m/%d/%Y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 PST" NA              </code></pre>
+</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd.html">mdy</a></span><span class="op">(</span><span class="va">date4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03" NA          </code></pre>
+</div>
+</div>
+<p>Notice that only one of the two dates parsed correctly and the other was returned as an <code>NA</code> value. Now lets use the <code><a href="https://rdrr.io/pkg/lubridate/man/parse_date_time.html">parse_date_time()</a></code> function:</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/parse_date_time.html">parse_date_time</a></span><span class="op">(</span><span class="va">date4</span>, orders <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mdY"</span>, <span class="st">"Ymd"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2021-02-03 UTC" "2021-02-03 UTC"</code></pre>
+</div>
+</div>
+<p>Both dates are now parsed correctly.</p>
+</section></section><section id="changing-the-date-time-format" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="changing-the-date-time-format">
+<span class="header-section-number">9.5</span> Changing the date-time format</h2>
 <p>R automatically displays dates and times in Year-Month-Day format. This is the international standard. If you want to change the output format, just use the <code>format</code> function. Note that this converts the date back to a character class.</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date1_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date1_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03 PST"</code></pre>
 </div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date1_conv</span>, format <span class="op">=</span> <span class="st">"%m/%d/%y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date1_conv</span>, format <span class="op">=</span> <span class="st">"%m/%d/%y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "02/03/21"</code></pre>
 </div>
@@ -461,138 +507,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>But really, why would you want to change the format?</p>
 <p><img src="images/clipboard-3718936377.png" class="img-fluid"></p>
 <p>https://xkcd.com/1179</p>
-<section id="exercise" class="level3" data-number="10.4.1"><h3 data-number="10.4.1" class="anchored" data-anchor-id="exercise">
-<span class="header-section-number">10.4.1</span> Exercise</h3>
-<p>Now its your turn to try out working with dates and times.</p>
-<p>Create a new object for a date and time in a character format. Then, try using <code>strptime</code> and the functions from the <code>lubridate</code> package to convert the object to a date-time object. If you want, try this a few times with different date-time formats. Make sure to specify the time zone.</p>
-<p>Click below for the answer when you are done!</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a new object for a date and time in a character format</span></span>
-<span><span class="va">my_datetime_chr</span> <span class="op">&lt;-</span> <span class="st">"7/7/2025 13:00"</span></span>
-<span></span>
-<span><span class="co"># Convert character object to date-time object using strptime</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">my_datetime_chr</span>, format <span class="op">=</span> <span class="st">"%m/%d/%Y %H:%M"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Convert character object to date-time object using lubridate package</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">mdy_hm</a></span><span class="op">(</span><span class="va">my_datetime_chr</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Try this again with a different date-time format</span></span>
-<span><span class="va">my_datetime_chr2</span> <span class="op">&lt;-</span> <span class="st">"2025-07-07 13:00:00"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">my_datetime_chr2</span>, format <span class="op">=</span> <span class="st">"%Y-%m-%d %H:%M:%S"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">ymd_hms</a></span><span class="op">(</span><span class="va">my_datetime_chr2</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section></section><section id="time-zones" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="time-zones">
-<span class="header-section-number">10.5</span> Time Zones</h2>
-<p>The <code>lubridate</code> package also has a few other useful functions for working with time zones - <code>tz</code>, <code>force_tz</code>, and <code>with_tz</code>.</p>
+</section><section id="time-zones" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="time-zones">
+<span class="header-section-number">9.6</span> Time Zones</h2>
+<p>When working with date-times in R, its useful to understand how to change or convert the time zone of an object. The <code>lubridate</code> package has a few useful functions for working with time zones - <code>tz</code>, <code>force_tz</code>, and <code>with_tz</code>.</p>
 <p>You can check the time zone of a date-time object with the <code>tz</code> function.</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">ymd_hms</a></span><span class="op">(</span><span class="st">"2025-06-19 14:00:00"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/tz.html">tz</a></span><span class="op">(</span><span class="va">date4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">ymd_hms</a></span><span class="op">(</span><span class="st">"2025-06-19 14:00:00"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/tz.html">tz</a></span><span class="op">(</span><span class="va">date5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "UTC"</code></pre>
 </div>
 </div>
 <p>If you have a date-time object that is in the wrong time zone, you can use <code>force_tz</code> to change the time zone but keep the same clock time. For example,</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-06-19 14:00:00 UTC"</code></pre>
 </div>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date4_conv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/force_tz.html">force_tz</a></span><span class="op">(</span><span class="va">date4</span>, tzone <span class="op">=</span> <span class="st">"Etc/GMT+8"</span><span class="op">)</span></span>
-<span><span class="va">date4_conv</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date5_conv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/force_tz.html">force_tz</a></span><span class="op">(</span><span class="va">date5</span>, tzone <span class="op">=</span> <span class="st">"Etc/GMT+8"</span><span class="op">)</span></span>
+<span><span class="va">date5_conv</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-06-19 14:00:00 -08"</code></pre>
 </div>
 </div>
 <p>If you want to convert a date-time object to an new time zone, converting both the clock time and time zone, you can use the ‘with_tz’ function.</p>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date4_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date5_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-06-19 14:00:00 -08"</code></pre>
 </div>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/with_tz.html">with_tz</a></span><span class="op">(</span><span class="va">date4_conv</span>, tzone <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/with_tz.html">with_tz</a></span><span class="op">(</span><span class="va">date5_conv</span>, tzone <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-06-19 15:00:00 PDT"</code></pre>
 </div>
 </div>
-<section id="exercise-1" class="level3" data-number="10.5.1"><h3 data-number="10.5.1" class="anchored" data-anchor-id="exercise-1">
-<span class="header-section-number">10.5.1</span> Exercise</h3>
+<section id="exercise-1" class="level3" data-number="9.6.1"><h3 data-number="9.6.1" class="anchored" data-anchor-id="exercise-1">
+<span class="header-section-number">9.6.1</span> Exercise</h3>
 <p>Now its your turn to try out working with time zones.</p>
 <p>Create a new object for a date and time as a date-time object. Check its time zone. Then, change its time zone to Pacific Standard Time (“Etc/GMT+8”) keeping it as the same clock time. Next, convert its time zone to the US Eastern time zone changing both the clock time and time zone. Hint: use <code><a href="https://rdrr.io/r/base/timezones.html">OlsonNames()</a></code> to find the time zone name.</p>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a new object for a date and time</span></span>
-<span><span class="va">my_datetime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">ymd_hms</a></span><span class="op">(</span><span class="st">"2025-07-07 13:00:00"</span><span class="op">)</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a new object for a date and time</span></span>
+<span><span class="va">my_datetime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">ymd_hms</a></span><span class="op">(</span><span class="st">"2025-07-07 13:00:00"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Check its time zone</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/tz.html">tz</a></span><span class="op">(</span><span class="va">my_datetime</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/tz.html">tz</a></span><span class="op">(</span><span class="va">my_datetime</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Change time zone to PST keeping it as same clock time</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/force_tz.html">force_tz</a></span><span class="op">(</span><span class="va">my_datetime</span>, tzone <span class="op">=</span> <span class="st">"Etc/GMT+8"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/force_tz.html">force_tz</a></span><span class="op">(</span><span class="va">my_datetime</span>, tzone <span class="op">=</span> <span class="st">"Etc/GMT+8"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Change time zone to US Eastern time zone changing both clock time and time zone</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/with_tz.html">with_tz</a></span><span class="op">(</span><span class="va">my_datetime</span>, tzone <span class="op">=</span> <span class="st">"US/Eastern"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/with_tz.html">with_tz</a></span><span class="op">(</span><span class="va">my_datetime</span>, tzone <span class="op">=</span> <span class="st">"US/Eastern"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section></section><section id="times" class="level2" data-number="10.6"><h2 data-number="10.6" class="anchored" data-anchor-id="times">
-<span class="header-section-number">10.6</span> Times</h2>
+</section></section><section id="times" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="times">
+<span class="header-section-number">9.7</span> Times</h2>
 <p>As noted above, there is no built-in <code>time</code> class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.</p>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1:20"</span>, <span class="st">"2:30"</span>, <span class="st">"3:50"</span>, <span class="st">"14:00"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1:20"</span>, <span class="st">"2:30"</span>, <span class="st">"3:50"</span>, <span class="st">"14:00"</span><span class="op">)</span></span>
 <span><span class="va">times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">times</span>, format <span class="op">=</span> <span class="st">"%H:%M"</span><span class="op">)</span></span>
 <span><span class="va">times</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-07-17 01:20:00 PDT" "2025-07-17 02:30:00 PDT"
-[3] "2025-07-17 03:50:00 PDT" "2025-07-17 14:00:00 PDT"</code></pre>
+<pre><code>[1] "2025-07-23 01:20:00 PDT" "2025-07-23 02:30:00 PDT"
+[3] "2025-07-23 03:50:00 PDT" "2025-07-23 14:00:00 PDT"</code></pre>
 </div>
 </div>
 <p>It will usually default to today’s date, or sometimes to Dec 31st, 1899. If you have a “Date” and a “Time” column in your dataframe, it’s best to just combine them for manipulation.</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_date_times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_date_times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tibble/man/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1:20"</span>, <span class="st">"2:30"</span>, <span class="st">"3:50"</span>, <span class="st">"14:00"</span><span class="op">)</span>,</span>
 <span>  dates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2021-01-01"</span>, <span class="st">"2023-12-01"</span>, <span class="st">"2011-06-04"</span>, <span class="st">"2022-10-11"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_date_times</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_date_times</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 4
 Columns: 2
 $ times &lt;chr&gt; "1:20", "2:30", "3:50", "14:00"
 $ dates &lt;chr&gt; "2021-01-01", "2023-12-01", "2011-06-04", "2022-10-11"</code></pre>
 </div>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_date_times_c</span> <span class="op">&lt;-</span> <span class="va">df_date_times</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
-<span>    Date <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span>, </span>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_date_times_c</span> <span class="op">&lt;-</span> <span class="va">df_date_times</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd.html">ymd</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span>, </span>
 <span>    Time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strptime.html">strptime</a></span><span class="op">(</span><span class="va">times</span>, format <span class="op">=</span> <span class="st">"%H:%M"</span><span class="op">)</span>,</span>
-<span>    DateTime <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html">ymd_hm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">dates</span>, <span class="va">times</span><span class="op">)</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span>
+<span>    DateTime <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/ymd_hms.html">ymd_hm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">dates</span>, <span class="va">times</span><span class="op">)</span>, tz <span class="op">=</span> <span class="st">"America/Los_Angeles"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_date_times_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_date_times_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 4
 Columns: 5
 $ times    &lt;chr&gt; "1:20", "2:30", "3:50", "14:00"
 $ dates    &lt;chr&gt; "2021-01-01", "2023-12-01", "2011-06-04", "2022-10-11"
 $ Date     &lt;date&gt; 2021-01-01, 2023-12-01, 2011-06-04, 2022-10-11
-$ Time     &lt;dttm&gt; 2025-07-17 01:20:00, 2025-07-17 02:30:00, 2025-07-17 03:50:00…
+$ Time     &lt;dttm&gt; 2025-07-23 01:20:00, 2025-07-23 02:30:00, 2025-07-23 03:50:00…
 $ DateTime &lt;dttm&gt; 2021-01-01 01:20:00, 2023-12-01 02:30:00, 2011-06-04 03:50:00…</code></pre>
 </div>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/tz.html">tz</a></span><span class="op">(</span><span class="va">df_date_times_c</span><span class="op">$</span><span class="va">DateTime</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/tz.html">tz</a></span><span class="op">(</span><span class="va">df_date_times_c</span><span class="op">$</span><span class="va">DateTime</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "America/Los_Angeles"</code></pre>
 </div>
 </div>
 <p>If you do really want to deal with just the time part of a date-time object, use the <code>hms</code> package.</p>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hms.tidyverse.org/">hms</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hms.tidyverse.org/">hms</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">times</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-07-17 01:20:00 PDT" "2025-07-17 02:30:00 PDT"
-[3] "2025-07-17 03:50:00 PDT" "2025-07-17 14:00:00 PDT"</code></pre>
+<pre><code>[1] "2025-07-23 01:20:00 PDT" "2025-07-23 02:30:00 PDT"
+[3] "2025-07-23 03:50:00 PDT" "2025-07-23 14:00:00 PDT"</code></pre>
 </div>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://hms.tidyverse.org/reference/hms.html">as_hms</a></span><span class="op">(</span><span class="va">times</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/hms/man/hms.html">as_hms</a></span><span class="op">(</span><span class="va">times</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>01:20:00
 02:30:00
@@ -600,68 +625,68 @@ $ DateTime &lt;dttm&gt; 2021-01-01 01:20:00, 2023-12-01 02:30:00, 2011-06-04 03:
 14:00:00</code></pre>
 </div>
 </div>
-</section><section id="extracting-parts-of-a-date-time-object" class="level2" data-number="10.7"><h2 data-number="10.7" class="anchored" data-anchor-id="extracting-parts-of-a-date-time-object">
-<span class="header-section-number">10.7</span> Extracting parts of a date-time object</h2>
+</section><section id="extracting-parts-of-a-date-time-object" class="level2" data-number="9.8"><h2 data-number="9.8" class="anchored" data-anchor-id="extracting-parts-of-a-date-time-object">
+<span class="header-section-number">9.8</span> Extracting parts of a date-time object</h2>
 <p>The <code>lubridate</code> package has a lot of really useful functions to extract components from dates and times such as month, year, day, etc.</p>
 <div class="cell">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date1_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date1_conv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03 PST"</code></pre>
 </div>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Year</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Year</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/year.html">year</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2021</code></pre>
 </div>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Month (as number or name)</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Month (as number or name)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/month.html">month</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">date1_conv</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/month.html">month</a></span><span class="op">(</span><span class="va">date1_conv</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Feb
 12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec</code></pre>
 </div>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Day</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/day.html">day</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Day</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/day.html">day</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Date</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/date.html">date</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Date</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/date.html">date</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2021-02-03"</code></pre>
 </div>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Day of year</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/day.html">yday</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Day of year</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/day.html">yday</a></span><span class="op">(</span><span class="va">date1_conv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 34</code></pre>
 </div>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Day of week</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/day.html">wday</a></span><span class="op">(</span><span class="va">date1_conv</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Day of week</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/day.html">wday</a></span><span class="op">(</span><span class="va">date1_conv</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Wed
 Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 </div>
 </div>
-<section id="exercise-2" class="level3" data-number="10.7.1"><h3 data-number="10.7.1" class="anchored" data-anchor-id="exercise-2">
-<span class="header-section-number">10.7.1</span> Exercise</h3>
+<section id="exercise-2" class="level3" data-number="9.8.1"><h3 data-number="9.8.1" class="anchored" data-anchor-id="exercise-2">
+<span class="header-section-number">9.8.1</span> Exercise</h3>
 <p>Now its your turn to try extracting parts from a date-time object.</p>
 <p>Use the date-time object you created in the last exercise. Try extracting various components from it using the functions in the <code>lubridate</code> package.</p>
 <p>Click below for the answer when you are done!</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># View the date-time object created in last exercise</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># View the date-time object created in last exercise</span></span>
 <span><span class="va">my_datetime</span></span>
 <span></span>
 <span><span class="co"># Extract the Date</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/date.html">date</a></span><span class="op">(</span><span class="va">my_datetime</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/date.html">date</a></span><span class="op">(</span><span class="va">my_datetime</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract the Year</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">my_datetime</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/year.html">year</a></span><span class="op">(</span><span class="va">my_datetime</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Extract the Month as label</span></span>
-<span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">my_datetime</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lubridate/man/month.html">month</a></span><span class="op">(</span><span class="va">my_datetime</span>, label <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -1065,13 +1090,13 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../code/Day4_02_Joins_Binds.html" class="pagination-link" aria-label="Binds and Joins">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span>
+      <a href="../code/Day4_01_Outline.html" class="pagination-link" aria-label="Day 4 - Binds, Joins, Dates and Times">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Day 4 - Binds, Joins, Dates and Times</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../code/Day4_04_Final_Exercise.html" class="pagination-link" aria-label="Final Course Exercise">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Final Course Exercise</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../code/Day4_03_Joins_Binds.html" class="pagination-link" aria-label="Binds and Joins">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Binds and Joins</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
