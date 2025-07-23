@@ -534,7 +534,7 @@
     "href": "code/Day4_02_Dates_and_Times.html#datetime-basics",
     "title": "\n9  Dates and Times\n",
     "section": "\n9.2 Date/Time Basics",
-    "text": "9.2 Date/Time Basics\nFirst, let’s look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the today function to get a date with today’s value.\n\nlibrary(tidyverse)\n\ntoday()\n\n[1] \"2025-07-23\"\n\nas.numeric(today())\n\n[1] 20292\n\n\nNow let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.\n\nnow()\n\n[1] \"2025-07-23 12:47:11 PDT\"\n\nas.numeric(now())\n\n[1] 1753300032\n\n\nNote that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.",
+    "text": "9.2 Date/Time Basics\nFirst, let’s look at dates. Dates are stored as the number of days since the origin (default origin is 1970-01-01). We can use the today function to get a date with today’s value.\n\nlibrary(tidyverse)\n\ntoday()\n\n[1] \"2025-07-23\"\n\nas.numeric(today())\n\n[1] 20292\n\n\nNow let’s talk about date-times. R automatically stores the dates and times together as the number of seconds since the origin.\n\nnow()\n\n[1] \"2025-07-23 14:40:31 PDT\"\n\nas.numeric(now())\n\n[1] 1753306832\n\n\nNote that R automatically set the time in Pacific Daylight time since that is what the operating system of this computer uses.",
     "crumbs": [
       "Day 4 - Binds, Joins, Dates and Times",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Dates and Times</span>"
