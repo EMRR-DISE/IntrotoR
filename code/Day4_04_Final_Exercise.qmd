@@ -54,7 +54,7 @@ In this exercise, we are importing a .rds file. You can use either the `readRDS`
 
 11) Now, make a time-series plot of the 2015-2016 daily average chlorophyll data. Assign this plot to a new object so it can be used later.
 
-12) This plot is interesting, let's see how daily average chlorophyll values from a nearby station in the Sacramento River (SRH) compares. Import the 2014-2018 SRH daily average chlorophyll data. The data file should be at the following path in your R project: "data/dv_chla_srh_2014_2018.csv". This data file has the following columns:
+12) This plot is interesting, let's see how daily average chlorophyll values from a nearby station in the Sacramento River (SRH) compares. Import the 2014-2018 SRH daily average chlorophyll data. The data file is called "dv_chla_srh_2014_2018.csv". This data file has the following columns:
 
     - `Station` - Identifies station where data was collected. In this case "SRH".
     - `Date` - Date of measurement
@@ -79,7 +79,7 @@ In this exercise, we are importing a .rds file. You can use either the `readRDS`
 
 17) Export the figure for your supervisor's report as a png file with a width of 6 inches and height of 4 inches and a dpi of 300. You also want the 2015-2016 daily average chlorophyll data for LIS and SRH, so export that as a csv file.
 
-18) After thinking about the results more, you notice that LIS varies throughout the summer months in 2016. Could this have something to do with water flow at LIS? It turns out we in luck because water flow is also collected at LIS. Import 2014-2018 daily average water flow (cfs) collected at LIS. The data file should be at the following path in your R project: "data/dv_flow_lis_2014_2018.csv". This data file has the following columns:
+18) After thinking about the results more, you notice that LIS varies throughout the summer months in 2016. Could this have something to do with water flow at LIS? It turns out we in luck because water flow is also collected at LIS. Import 2014-2018 daily average water flow (cfs) collected at LIS. The data file is called "dv_flow_lis_2014_2018.csv". This data file has the following columns:
 
     - `Date` - Date of measurement
     - `Flow` - Daily average water flow in cfs

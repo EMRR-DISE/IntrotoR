@@ -111,7 +111,7 @@ However, if the two data frames had columns with the same name but with differen
 
 Now its your turn to try out combining two data sets by binding rows.
 
-Add water quality data collected from 2020-2022 at C3A to the original data frame (`df_wq`) with data from P8 and D7. Assign this data frame to a new object to be used later. The C3A data is in the "data/WQ_C3A_2020_2022.csv" file.
+Add water quality data collected from 2020-2022 at C3A to the original data frame (`df_wq`) with data from P8 and D7. Assign this data frame to a new object to be used later. The C3A data is in the "WQ_C3A_2020_2022.csv" file.
 
 Click below for the answer when you are done!
 
@@ -197,7 +197,7 @@ The resulting data frame has the same number of rows as the `df_wq_2019_2022` wa
 
 Now its your turn to try out joining two data sets.
 
-Use a `left_join` to add weather observation data to the 2020-2022 water quality data collected at P8, D7, and C3A (the data frame you created in the bind rows exercise above). The weather observation data is in the "data/Weather_Obs_P8_D7_C3A_2020_2022.csv" file.
+Use a `left_join` to add weather observation data to the 2020-2022 water quality data collected at P8, D7, and C3A (the data frame you created in the bind rows exercise above). The weather observation data is in the "Weather_Obs_P8_D7_C3A_2020_2022.csv" file.
 
 Click below for the answer when you are done!
 

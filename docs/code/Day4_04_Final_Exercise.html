@@ -371,7 +371,7 @@ A note about .rds and .RData files
 <li><p>The box and whisker plots show that there may be some possible outliers in some of the parameters, but for the most part, the data looks pretty clean in the time-series plots, so we will use it as is. It turns out that you are only interested in the chlorophyll (<code>Chla</code>) data for 2015-2016. Averaging this data will help smooth out any potential outliers in the data. Calculate the daily average chlorophyll values for 2015-2016 in a new data frame object to be used later.<br>
 <strong>HINT:</strong> Use the <code>date</code> function from the <code>lubridate</code> package to extract the date from the <code>DateTime</code> column. Also, watch out for <code>NA</code> values in <code>Chla</code>.</p></li>
 <li><p>Now, make a time-series plot of the 2015-2016 daily average chlorophyll data. Assign this plot to a new object so it can be used later.</p></li>
-<li><p>This plot is interesting, let’s see how daily average chlorophyll values from a nearby station in the Sacramento River (SRH) compares. Import the 2014-2018 SRH daily average chlorophyll data. The data file should be at the following path in your R project: “data/dv_chla_srh_2014_2018.csv”. This data file has the following columns:</p>
+<li><p>This plot is interesting, let’s see how daily average chlorophyll values from a nearby station in the Sacramento River (SRH) compares. Import the 2014-2018 SRH daily average chlorophyll data. The data file is called “dv_chla_srh_2014_2018.csv”. This data file has the following columns:</p>
 <ul>
 <li><code>Station</code> - Identifies station where data was collected. In this case “SRH”.</li>
 <li><code>Date</code> - Date of measurement</li>
@@ -391,7 +391,7 @@ A note about .rds and .RData files
 </ul>
 <p>Be sure to assign this plot to a new object so it can be exported as a png file later.</p></li>
 <li><p>Export the figure for your supervisor’s report as a png file with a width of 6 inches and height of 4 inches and a dpi of 300. You also want the 2015-2016 daily average chlorophyll data for LIS and SRH, so export that as a csv file.</p></li>
-<li><p>After thinking about the results more, you notice that LIS varies throughout the summer months in 2016. Could this have something to do with water flow at LIS? It turns out we in luck because water flow is also collected at LIS. Import 2014-2018 daily average water flow (cfs) collected at LIS. The data file should be at the following path in your R project: “data/dv_flow_lis_2014_2018.csv”. This data file has the following columns:</p>
+<li><p>After thinking about the results more, you notice that LIS varies throughout the summer months in 2016. Could this have something to do with water flow at LIS? It turns out we in luck because water flow is also collected at LIS. Import 2014-2018 daily average water flow (cfs) collected at LIS. The data file is called “dv_flow_lis_2014_2018.csv”. This data file has the following columns:</p>
 <ul>
 <li><code>Date</code> - Date of measurement</li>
 <li><code>Flow</code> - Daily average water flow in cfs</li>
