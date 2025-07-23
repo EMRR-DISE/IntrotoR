@@ -6,20 +6,19 @@ format: html
 
 Now that we have covered the basics of using R and RStudio including importing, cleaning, summarizing and plotting data, we'll continue with a few additional and useful beginner/intermediate skills. Here is the outline for our last day of training:
 
-1. Binds and Joins
-
-    - Differences and Usage
-    - Bind Rows
-    - Join Basics
-    - Left Join
-
-2. Dates and Times
+1. Dates and Times
 
     - Basics and Classes
     - Converting from character dates
     - Time Zones
     - Extracting parts of a date-time object
-    
+
+2. Binds and Joins
+
+    - Differences and Usage
+    - Bind Rows
+    - Join Basics
+    - Left Join
 
 3. Final Course Exercise
 

@@ -16,7 +16,7 @@ Sometimes your data analysis project requires more than one data set that need t
 
 ## Load Packages
 
-We'll start the day with loading packages
+We'll start with loading packages
 
 ```{r load packages}
 library(tidyverse)

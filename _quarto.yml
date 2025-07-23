@@ -32,8 +32,8 @@ book:
         - code/Day3_MakingGraphs.qmd
     - part: code/Day4_01_Outline.qmd
       chapters:
-        - code/Day4_02_Joins_Binds.qmd
-        - code/Day4_03_Dates_and_Times.qmd
+        - code/Day4_02_Dates_and_Times.qmd
+        - code/Day4_03_Joins_Binds.qmd
         - code/Day4_04_Final_Exercise.qmd
   appendices:
     - code/MarkdownFiles.qmd
