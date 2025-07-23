@@ -58,7 +58,7 @@ Binding data frames by columns combines the data in the order in which they appe
 knitr::include_graphics(here("code/images/left_join.png"), error = FALSE)
 ```
 
-Joins are a safer method of combining data frame columns because they rely on **keys**, which are variables used to make the connection between two data frames. In the simple example above, the `ID` column is the key with which the tables are joined. If this was performed by simply combining columns, you would get much a different and erroneous result. There is a lot more to cover with the concept of keys, but the most important thing to remember is that they are unique for each observation or row in a data set.
+Joins are a safer method of combining data frame columns because they rely on **keys**, which are variables used to make the connection between two data frames. In the simple example above, the `ID` column is the key with which the tables are joined. If this was performed by simply combining columns, you would get a much different and erroneous result. There is a lot more to cover with the concept of keys, but the most important thing to remember is that they are unique for each observation or row in a data set.
 
 ::: callout-note
 ## When should I use bind vs. join?
@@ -160,7 +160,7 @@ In the section above, we touched on the concept of **keys** and their importance
 knitr::include_graphics(here("code/images/join-outer.png"), error = FALSE)
 ```
 
-In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lies in how they handle keys that don't have a match. In short, a `left_join` keeps all rows in the first data frame, a `right_join` keeps all observations in the second data frame, and a `full_join` keeps all rows from both data frames.
+In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lie in how they handle keys that don't have a match. In short, a `left_join` keeps all rows in the first data frame, a `right_join` keeps all observations in the second data frame, and a `full_join` keeps all rows from both data frames.
 
 ## Left join
 

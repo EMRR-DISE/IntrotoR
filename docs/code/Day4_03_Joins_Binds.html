@@ -366,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Joins are a safer method of combining data frame columns because they rely on <strong>keys</strong>, which are variables used to make the connection between two data frames. In the simple example above, the <code>ID</code> column is the key with which the tables are joined. If this was performed by simply combining columns, you would get much a different and erroneous result. There is a lot more to cover with the concept of keys, but the most important thing to remember is that they are unique for each observation or row in a data set.</p>
+<p>Joins are a safer method of combining data frame columns because they rely on <strong>keys</strong>, which are variables used to make the connection between two data frames. In the simple example above, the <code>ID</code> column is the key with which the tables are joined. If this was performed by simply combining columns, you would get a much different and erroneous result. There is a lot more to cover with the concept of keys, but the most important thing to remember is that they are unique for each observation or row in a data set.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -553,7 +553,7 @@ Note
 </div>
 </div>
 </div>
-<p>In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lies in how they handle keys that don’t have a match. In short, a <code>left_join</code> keeps all rows in the first data frame, a <code>right_join</code> keeps all observations in the second data frame, and a <code>full_join</code> keeps all rows from both data frames.</p>
+<p>In this figure the join keys are color-coded and the matching pairs share the same color. Keys 1 and 2 match between the two data frames and are joined together in the resulting data frame. The differences between the join types lie in how they handle keys that don’t have a match. In short, a <code>left_join</code> keeps all rows in the first data frame, a <code>right_join</code> keeps all observations in the second data frame, and a <code>full_join</code> keeps all rows from both data frames.</p>
 </section><section id="left-join" class="level2" data-number="10.6"><h2 data-number="10.6" class="anchored" data-anchor-id="left-join">
 <span class="header-section-number">10.6</span> Left join</h2>
 <p>While all these joining methods can be useful, we’ll focus on the most commonly-used joining method - <code>left_join</code>. We’ll use a <code>left_join</code> to add Delta inflow and outflow data from DayFlow to the 2019-2022 EMP water quality data. First, we’ll need to import the DayFlow data:</p>

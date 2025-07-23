@@ -122,7 +122,8 @@ OlsonNames()
 If you have a dataset that is collected in California, but doesn't use Daylight savings, use "Etc/GMT+8". GMT (Greenwich Mean Time) doesn't change with daylight savings, and we are 8 hours behind. Most if not all water quality data collected by DWR is recorded in Pacific Standard Time (PST) year-round, so "Etc/GMT+8" is the correct time zone to use for these instances.
 
 ```{r}
-mdy_hm(date3, tz = "Etc/GMT+8")
+date3_conv <- mdy_hm(date3, tz = "Etc/GMT+8")
+date3_conv
 ```
 
 ### Exercise
@@ -240,7 +241,7 @@ with_tz(my_datetime, tzone = "US/Eastern")
 
 ## Times
 
-As noted above, there is no built-in `time` class. Only date/time classes. So, if we have a bunch of times R will automatically add a date to them.
+As noted above, there is no built-in `time` class. Only date/time classes. So, if we have a bunch of times, R will automatically add a date to them.
 
 ```{r}
 times <- c("1:20", "2:30", "3:50", "14:00")
@@ -283,26 +284,32 @@ as_hms(times)
 The `lubridate` package has a lot of really useful functions to extract components from dates and times such as month, year, day, etc.
 
 ```{r}
-date1_conv
+date3_conv
 
 # Year
-year(date1_conv)
+year(date3_conv)
 
 # Month (as number or name)
-month(date1_conv)
-month(date1_conv, label = TRUE)
+month(date3_conv)
+month(date3_conv, label = TRUE)
 
 # Day
 day(date1_conv)
 
 # Date
-date(date1_conv)
+date(date3_conv)
 
 # Day of year
-yday(date1_conv)
+yday(date3_conv)
 
 # Day of week
-wday(date1_conv, label = TRUE)
+wday(date3_conv, label = TRUE)
+
+# Hour
+hour(date3_conv)
+
+# Minute
+minute(date3_conv)
 ```
 
 ### Exercise
