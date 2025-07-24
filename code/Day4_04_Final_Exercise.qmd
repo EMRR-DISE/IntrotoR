@@ -69,7 +69,7 @@ In this exercise, we are importing a .rds file. You can use either the `readRDS`
 
 16) It turns out your supervisor really likes this plot, but would like to put it in a report, so they want it to have some nicer formatting. Remake this plot with the following customizations:
 
-    - Make each station have a different point shape. You can choose from any of [these options](https://r-graphics.org/recipe-scatter-shapes).
+    - Make each station have a different point shape. You can choose from any of [these options](images/PointShapes.png).
     - Change the size of the points to 2 for both stations.
     - Change the color of the time-series points and lines so LIS is a shade of blue and SRH is a shade of orange. You can use this [color chart](https://r-charts.com/colors/) to help you choose colors.
     - Change the plot theme to `theme_bw`.
